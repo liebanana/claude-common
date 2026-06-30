@@ -103,6 +103,21 @@
   ],
   "research": [
     {
+      "repo": "obra/superpowers",
+      "verdict": "adopt",
+      "stars": 242371,
+      "url": "https://github.com/obra/superpowers",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Agentic dev methodology (spec to TDD to subagent-driven build) as auto-triggering composable skills; official Claude plugin marketplace",
+      "tags": [
+        "skills",
+        "workflow",
+        "plugin"
+      ],
+      "note": "research/obra__superpowers.md"
+    },
+    {
       "repo": "affaan-m/ECC",
       "verdict": "watch",
       "stars": 223936,
@@ -115,6 +130,167 @@
         "memory"
       ],
       "note": "research/affaan-m__ECC.md"
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "verdict": "watch",
+      "stars": 142071,
+      "url": "https://github.com/firecrawl/firecrawl",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "API to search/scrape/crawl the web at scale for agents (has an MCP server)",
+      "tags": [
+        "web",
+        "scraping",
+        "mcp"
+      ],
+      "note": "research/firecrawl__firecrawl.md"
+    },
+    {
+      "repo": "farion1231/cc-switch",
+      "verdict": "watch",
+      "stars": 111242,
+      "url": "https://github.com/farion1231/cc-switch",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Desktop app to switch configs/providers across Claude Code, Codex, Gemini CLI etc. (star count suspect)",
+      "tags": [
+        "tooling",
+        "config"
+      ],
+      "note": "research/farion1231__cc-switch.md"
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "verdict": "watch",
+      "stars": 101719,
+      "url": "https://github.com/browser-use/browser-use",
+      "pushed": "2026-06-29",
+      "triaged": "2026-06-30",
+      "intent": "Popular library to let agents drive a browser and automate web tasks",
+      "tags": [
+        "browser",
+        "automation"
+      ],
+      "note": "research/browser-use__browser-use.md"
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "verdict": "skip",
+      "stars": 98659,
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "pushed": "2026-06-29",
+      "triaged": "2026-06-30",
+      "intent": "UI/UX design-intelligence skill; off our agent-effectiveness/token mission",
+      "tags": [
+        "design",
+        "offtopic"
+      ],
+      "note": "research/nextlevelbuilder__ui-ux-pro-max-skill.md"
+    },
+    {
+      "repo": "punkpeye/awesome-mcp-servers",
+      "verdict": "skip",
+      "stars": 90048,
+      "url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "pushed": "2026-06-26",
+      "triaged": "2026-06-30",
+      "intent": "Another curated MCP server list; redundant with appcypher/awesome-mcp-servers already adopted",
+      "tags": [
+        "mcp",
+        "reference",
+        "duplicate"
+      ],
+      "note": "research/punkpeye__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "thedotmack/claude-mem",
+      "verdict": "adopt",
+      "stars": 85203,
+      "url": "https://github.com/thedotmack/claude-mem",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Persistent cross-session memory: captures session activity, AI-compresses it, and injects relevant context into future sessions",
+      "tags": [
+        "memory",
+        "context",
+        "tokens",
+        "plugin"
+      ],
+      "note": "research/thedotmack__claude-mem.md"
+    },
+    {
+      "repo": "JuliusBrussee/caveman",
+      "verdict": "adopt",
+      "stars": 78262,
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "pushed": "2026-06-12",
+      "triaged": "2026-06-30",
+      "intent": "Claude Code skill/plugin: terse caveman-style output cuts ~75% of OUTPUT tokens while keeping technical accuracy",
+      "tags": [
+        "tokens",
+        "output",
+        "plugin"
+      ],
+      "note": "research/JuliusBrussee__caveman.md"
+    },
+    {
+      "repo": "dair-ai/Prompt-Engineering-Guide",
+      "verdict": "watch",
+      "stars": 76093,
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "pushed": "2026-03-11",
+      "triaged": "2026-06-30",
+      "intent": "Reference: prompt/context engineering, RAG, and agent guides, papers, notebooks",
+      "tags": [
+        "reference",
+        "prompts"
+      ],
+      "note": "research/dair-ai__Prompt-Engineering-Guide.md"
+    },
+    {
+      "repo": "safishamsi/graphify",
+      "verdict": "watch",
+      "stars": 74808,
+      "url": "https://github.com/safishamsi/graphify",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Skill turning a codebase/docs into a queryable knowledge graph; overlaps codebase-memory-mcp",
+      "tags": [
+        "codebase",
+        "graph",
+        "skill"
+      ],
+      "note": "research/safishamsi__graphify.md"
+    },
+    {
+      "repo": "shareAI-lab/learn-claude-code",
+      "verdict": "watch",
+      "stars": 69240,
+      "url": "https://github.com/shareAI-lab/learn-claude-code",
+      "pushed": "2026-06-26",
+      "triaged": "2026-06-30",
+      "intent": "Nano Claude-Code-like agent harness built 0 to 1; reference for how the harness works",
+      "tags": [
+        "reference",
+        "harness",
+        "education"
+      ],
+      "note": "research/shareAI-lab__learn-claude-code.md"
+    },
+    {
+      "repo": "DietrichGebert/ponytail",
+      "verdict": "watch",
+      "stars": 68906,
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Skill that biases the agent toward minimalism (best code is code you never wrote) — scope control",
+      "tags": [
+        "skill",
+        "minimalism"
+      ],
+      "note": "research/DietrichGebert__ponytail.md"
     },
     {
       "repo": "addyosmani/agent-skills",

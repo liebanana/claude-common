@@ -30,6 +30,9 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
 ## From research (adopt)
+- 🔬 **Agentic dev methodology (spec to TDD to subagent-driven build) as auto-triggering composable skills; official Claude plugin marketplace** → `research/obra__superpowers.md` (`obra/superpowers` ⭐242371)
+- 🔬 **Persistent cross-session memory: captures session activity, AI-compresses it, and injects relevant context into future sessions** → `research/thedotmack__claude-mem.md` (`thedotmack/claude-mem` ⭐85203)
+- 🔬 **Claude Code skill/plugin: terse caveman-style output cuts ~75% of OUTPUT tokens while keeping technical accuracy** → `research/JuliusBrussee__caveman.md` (`JuliusBrussee/caveman` ⭐78262)
 - 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills** → `research/addyosmani__agent-skills.md` (`addyosmani/agent-skills` ⭐68155)
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
 - 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
