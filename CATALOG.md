@@ -21,12 +21,16 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 ## Save tokens / work efficiently
 - 🟢 **Token-thrift practices** → `docs/token-thrift.md` — model choice, subagents, read/output hygiene, when to hand off to a human.
 - 🟢 **Replace a repeated agent command sequence with a script** → add it to `scripts/` (contract: `scripts/README.md`). One deterministic script beats N re-runs.
+- 🔬 **Survive compaction without losing state / track token spend** → `research/alexgreensh__token-optimizer.md` — checkpoint-then-restore around compaction + live token/$ + context-quality signal (technique to encode in `docs/token-thrift.md`).
 
 ## Reusable Claude Code assets
 - 🟢 **Install shared slash commands / subagents into this host** → `install.sh` — symlinks `.claude/commands/` and `.claude/agents/` into `~/.claude/` (and optionally a target repo).
+- 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship)** → `research/addyosmani__agent-skills.md` — reference model for phase-gated commands that pull in skills.
+- 🔬 **Understand what the Claude Code harness actually tells the model** → `research/asgeirtj__system_prompts_leaks.md` — archive of leaked Claude Code system prompts + tool defs (don't restate what the harness already enforces).
 - 🟡 **Shared subagents** → `.claude/agents/` (see `.claude/agents/README.md`).
 - 🟡 **Shared hooks** (formatting, guards) → `hooks/` (see `hooks/README.md`).
 - 🟡 **MCP / integration config templates** → `mcp/` (see `mcp/README.md`).
+- 🔬 **Find a vetted MCP server for an integration** → `research/appcypher__awesome-mcp-servers.md` — curated MCP catalog + sandboxing/least-privilege security checklist.
 
 ---
 
