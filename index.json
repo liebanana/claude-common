@@ -118,6 +118,21 @@
       "note": "research/addyosmani__agent-skills.md"
     },
     {
+      "repo": "headroomlabs-ai/headroom",
+      "verdict": "adopt",
+      "stars": 54550,
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server",
+      "tags": [
+        "tokens",
+        "compression",
+        "mcp"
+      ],
+      "note": "research/headroomlabs-ai__headroom.md"
+    },
+    {
       "repo": "aaif-goose/goose",
       "verdict": "watch",
       "stars": 50475,
@@ -144,6 +159,52 @@
         "prompts"
       ],
       "note": "research/asgeirtj__system_prompts_leaks.md"
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "verdict": "skip",
+      "stars": 32343,
+      "url": "https://github.com/heygen-com/hyperframes",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Write HTML, render video — agent-native video pipeline; off our token/effectiveness mission",
+      "tags": [
+        "video",
+        "rendering",
+        "offtopic"
+      ],
+      "note": "research/heygen-com__hyperframes.md"
+    },
+    {
+      "repo": "DeusData/codebase-memory-mcp",
+      "verdict": "adopt",
+      "stars": 22669,
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)",
+      "tags": [
+        "mcp",
+        "codebase",
+        "memory",
+        "tokens"
+      ],
+      "note": "research/DeusData__codebase-memory-mcp.md"
+    },
+    {
+      "repo": "millionco/react-doctor",
+      "verdict": "skip",
+      "stars": 13279,
+      "url": "https://github.com/millionco/react-doctor",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Skill that catches bad React an agent writes; React-specific — transferable idea is the domain verify/feedback skill",
+      "tags": [
+        "react",
+        "verify",
+        "offtopic"
+      ],
+      "note": "research/millionco__react-doctor.md"
     },
     {
       "repo": "AgriciDaniel/claude-obsidian",
@@ -200,6 +261,35 @@
         "offtopic"
       ],
       "note": "research/AgriciDaniel__claude-blog.md"
+    },
+    {
+      "repo": "LvcidPsyche/auto-browser",
+      "verdict": "watch",
+      "stars": 655,
+      "url": "https://github.com/LvcidPsyche/auto-browser",
+      "pushed": "2026-06-29",
+      "triaged": "2026-06-30",
+      "intent": "MCP-native, self-hosted browser agent with human-in-the-loop — gives an agent a real Playwright browser",
+      "tags": [
+        "mcp",
+        "browser",
+        "automation"
+      ],
+      "note": "research/LvcidPsyche__auto-browser.md"
+    },
+    {
+      "repo": "cloudflare/browser-rendering",
+      "verdict": "watch",
+      "stars": 0,
+      "url": "https://www.cloudflare.com/products/browser-rendering/",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
+      "tags": [
+        "browser",
+        "infra"
+      ],
+      "note": "research/cloudflare__browser-rendering.md"
     }
   ]
 }
