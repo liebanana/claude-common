@@ -19,7 +19,7 @@
       "kind": "script",
       "path": "scripts/cron-discover.sh",
       "group": "Discover & adopt external agent tooling",
-      "intent": "Run the discovery loop unattended (discover → triage → rebuild index → commit/push)",
+      "intent": "Run the discovery loop unattended (discover → triage → rebuild index → open a PR)",
       "status": "ready",
       "tags": [
         "discovery",

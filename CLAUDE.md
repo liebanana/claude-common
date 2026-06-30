@@ -60,7 +60,8 @@ Two front-ends feed the same ledger/index:
    `gh` dep**; optional `$GITHUB_TOKEN`), dedupes against `research/ledger.jsonl`, writes
    `research/_candidates.tsv`. `/triage-discoveries` analyzes each → prose note + a
    `ledger.jsonl` line, then runs `build-index.py`. `scripts/cron-discover.sh` chains
-   discover → headless `claude -p /triage-discoveries` → rebuild index → commit/push.
+   discover → headless `claude -p /triage-discoveries` → rebuild index → **open a PR**
+   (on a `discover/<timestamp>` branch; never pushes to the default branch).
 2. **Session reflection** — `/contribute-to-common` runs in **any** repo, finds a
    reusable/general learning from the current session, adds it (with metadata), rebuilds
    the index, and opens a **PR**. Installed globally by `install.sh`, so it's available
@@ -76,7 +77,7 @@ python3 scripts/build-index.py    # regenerate index.json + CATALOG.md + researc
 jq -r '.assets[]|"\(.path) — \(.intent)"' index.json   # how an agent finds an asset
 bash scripts/discover.sh          # find new candidate repos (prints count; writes _candidates.tsv)
 MIN_STARS=100 bash scripts/discover.sh   # tune: MIN_STARS, PUSHED_SINCE, PER_PAGE, QUERIES
-bash scripts/cron-discover.sh     # full unattended loop (discover→triage→index→commit). AUTO_PUSH=1 to push
+bash scripts/cron-discover.sh     # full unattended loop (discover→triage→index→PR). AUTO_PUSH=1 to push+PR
 /triage-discoveries               # (in a Claude session) analyze the current candidates
 /contribute-to-common             # (from any repo) package a session learning → PR here
 ```
@@ -102,13 +103,16 @@ wrapper script that logs):
   won't be found.
 - `cron-discover.sh` prepends `~/.local/bin` to PATH (cron's PATH omits it, where the
   `claude` CLI lives) and runs the triage under a hard `timeout`.
-- It **commits but does not push** by default. Set `AUTO_PUSH=1` (the installed cron
-  uses it) once an `origin` remote exists and you trust the loop.
+- It **opens a PR, never pushes to the default branch.** Changes land on a
+  `discover/<timestamp>` branch and `gh pr create` opens a reviewable PR. `AUTO_PUSH=1`
+  (the installed cron sets it) enables push + PR; unset/0 leaves the commit on a local
+  branch only. Needs `origin` + an authed `gh`.
 - The triage step runs plain `claude -p "/triage-discoveries"` — permissions are **not**
   bypassed. `.claude/settings.json` pre-allows exactly the tools triage needs
-  (Read/Write/Edit, `curl`, the discover script, candidates cleanup) and denies
-  `git push` + reading `.env`. Anything else is auto-denied headless, so a malicious
-  candidate README can't escalate. `git push` is done by the wrapper, not the agent.
+  (Read/Write/Edit, `curl`, the discover script, `build-index.py`, candidates cleanup)
+  and denies `git push` + reading `.env`. Anything else is auto-denied headless, so a
+  malicious candidate README can't escalate. Branching/commit/push/PR are done by the
+  wrapper, not the agent.
 
 ## Growing the catalog (do this — it's the point)
 

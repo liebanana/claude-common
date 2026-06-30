@@ -14,7 +14,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 ## Discover & adopt external agent tooling
 - 🟢 **Analyze new GitHub candidates into research notes + the research ledger** → `.claude/commands/triage-discoveries.md` · _discovery, triage_
 - 🟢 **Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)** → `scripts/discover.sh` · _discovery, github_
-- 🟢 **Run the discovery loop unattended (discover → triage → rebuild index → commit/push)** → `scripts/cron-discover.sh` · _discovery, cron_
+- 🟢 **Run the discovery loop unattended (discover → triage → rebuild index → open a PR)** → `scripts/cron-discover.sh` · _discovery, cron_
 
 ## Contribute back
 - 🟢 **Scan the current session for a reusable, general learning and open a PR to claude-common** → `.claude/commands/contribute-to-common.md` · _contribution, pr, session_
