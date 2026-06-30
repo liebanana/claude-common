@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "Bash(curl:*)",
+      "Bash(bash scripts/discover.sh:*)",
+      "Bash(rm research/_candidates.tsv)",
+      "Bash(date:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}

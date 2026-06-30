@@ -80,10 +80,13 @@ wrapper script that logs):
 
 - `cron-discover.sh` prepends `~/.local/bin` to PATH (cron's PATH omits it, where the
   `claude` CLI lives) and runs the triage under a hard `timeout`.
-- It **commits but does not push** by default. Set `AUTO_PUSH=1` once an `origin` remote
-  exists and you trust the loop.
-- The triage step runs `claude -p --dangerously-skip-permissions` — acceptable because
-  it's unattended and scoped to writing this repo + read-only fetches.
+- It **commits but does not push** by default. Set `AUTO_PUSH=1` (the installed cron
+  uses it) once an `origin` remote exists and you trust the loop.
+- The triage step runs plain `claude -p "/triage-discoveries"` — permissions are **not**
+  bypassed. `.claude/settings.json` pre-allows exactly the tools triage needs
+  (Read/Write/Edit, `curl`, the discover script, candidates cleanup) and denies
+  `git push` + reading `.env`. Anything else is auto-denied headless, so a malicious
+  candidate README can't escalate. `git push` is done by the wrapper, not the agent.
 
 ## Growing the catalog (do this — it's the point)
 

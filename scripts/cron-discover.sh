@@ -25,11 +25,14 @@ if [ "${n:-0}" -eq 0 ]; then
 fi
 echo "[cron-discover] $n new candidate(s); invoking triage."
 
-# Headless, autonomous analysis. --dangerously-skip-permissions is appropriate here:
-# the run is unattended and scoped to writing this repo + read-only network fetches.
+# Headless, autonomous analysis. Permissions are NOT bypassed: the triage tools are
+# pre-allowed by a scoped allowlist in .claude/settings.json (Read/Write/Edit + curl,
+# the discover script, and the candidates cleanup). Anything outside that allowlist is
+# auto-denied in headless mode, so a bad candidate README can't make this run arbitrary
+# commands. git push stays out of the session — the wrapper does it below.
 CRON_TIMEOUT="${CRON_TIMEOUT_SEC:-900}"
 timeout --signal=TERM --kill-after=30 "$CRON_TIMEOUT" \
-  claude -p "/triage-discoveries" --dangerously-skip-permissions || {
+  claude -p "/triage-discoveries" || {
     echo "[cron-discover] triage step failed/timed out (exit $?)."
   }
 
