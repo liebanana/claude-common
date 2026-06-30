@@ -1,68 +1,65 @@
 #!/usr/bin/env bash
-# meta: id=discover kind=script group="Discover & adopt external agent tooling" status=ready tags=discovery,github intent="Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)"
-# discover.sh — find new Claude Code / agent / MCP repos on GitHub.
+# meta: id=discover kind=script group="Discover & adopt external agent tooling" status=ready tags=discovery,multi-source intent="Find new agent/tooling candidates across GitHub + forums (HN, Lobsters, Reddit), merge cross-source signals, dedupe against the ledger"
+# discover.sh — multi-source discovery orchestrator.
 #
-# Uses the GitHub REST search API via curl + jq (no `gh` dependency). Works
-# unauthenticated (10 search req/min limit — fine for a weekly run); set
-# $GITHUB_TOKEN for higher limits and private-rate headroom.
+# Runs each enabled source script in scripts/sources/ (each emits normalized JSONL),
+# normalizes GitHub links to owner/repo so forum links dedupe against repos, merges
+# duplicates across sources (collecting which sources mentioned each tool = a reliability
+# signal), drops anything already in research/ledger.jsonl, and writes the queue.
 #
-# It does NOT analyze anything — it only produces a deduped list of NEW candidate
-# repos for the /triage-discoveries command (or a human) to evaluate. Repos already
-# in research/ledger.jsonl are skipped, so each candidate is surfaced exactly once.
-#
-# Output: research/_candidates.tsv  (full_name \t stars \t pushed_at \t url \t desc)
-# Tunables (env):
-#   MIN_STARS   minimum stars to consider          (default 80)
-#   PUSHED_SINCE only repos pushed on/after this    (default: 18 months ago)
-#   PER_PAGE    results per query                   (default 30)
-#   QUERIES     newline-separated search qualifiers (default: the agent topics below)
+# Output: research/_candidates.jsonl — one object per NEW candidate:
+#   {source, sources:[...], key, repo, title, url, signals:{...}, context_url?}
+# Env:
+#   SOURCES        which sources to run (default "github hackernews lobsters reddit")
+#   REQUIRE_REPO   1 (default) keep only items that resolve to a GitHub repo — forums
+#                  then surface *tools*, not arxiv/blogs, and corroborate GitHub finds.
+#                  Set 0 to also keep non-repo links (product sites, posts).
+#   plus each source's own env (MIN_STARS, HN_MIN_POINTS, LOBSTERS_TAGS, REDDIT_*, …)
 set -euo pipefail
+REQUIRE_REPO="${REQUIRE_REPO:-1}"
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LEDGER="$REPO_DIR/research/ledger.jsonl"
-OUT="$REPO_DIR/research/_candidates.tsv"
+OUT="$REPO_DIR/research/_candidates.jsonl"
+SOURCES="${SOURCES:-github hackernews lobsters reddit}"
 
-MIN_STARS="${MIN_STARS:-80}"
-PER_PAGE="${PER_PAGE:-30}"
-PUSHED_SINCE="${PUSHED_SINCE:-$(date -u -d '18 months ago' +%Y-%m-%d 2>/dev/null || date -u -v-18m +%Y-%m-%d)}"
+raw="$(mktemp)"; norm="$(mktemp)"; seen="$(mktemp)"
+trap 'rm -f "$raw" "$norm" "$seen"' EXIT
 
-# Each line is a GitHub search qualifier string. Tweak freely.
-DEFAULT_QUERIES='topic:claude-code
-topic:claude-plugin
-topic:mcp-server
-topic:model-context-protocol
-topic:ai-agents
-topic:agentic
-topic:llm-agent
-claude code subagents in:name,description,readme'
-QUERIES="${QUERIES:-$DEFAULT_QUERIES}"
+for s in $SOURCES; do
+  script="$REPO_DIR/scripts/sources/$s.sh"
+  if [ ! -f "$script" ]; then echo "[discover] unknown source: $s" >&2; continue; fi
+  echo "[discover] source: $s" >&2
+  bash "$script" >> "$raw" || echo "[discover] source $s errored, continuing" >&2
+done
 
-AUTH=()
-[ -n "${GITHUB_TOKEN:-}" ] && AUTH=(-H "Authorization: Bearer $GITHUB_TOKEN")
+# Normalize: any github.com/<owner>/<repo> URL -> key/repo "owner/repo" so the same tool
+# found on a forum dedupes against a GitHub hit and against the ledger.
+jq -c '
+  if (.url|type=="string") and (.url|test("https?://github\\.com/[^/]+/[^/]+")) then
+    (.url|capture("github\\.com/(?<o>[^/]+)/(?<r>[^/?#]+)")) as $m
+    | .key = ($m.o + "/" + ($m.r|sub("\\.git$";"")))
+    | .repo = .key
+  else . end
+' "$raw" > "$norm" 2>/dev/null || cp "$raw" "$norm"
 
-tmp="$(mktemp)"
-trap 'rm -f "$tmp"' EXIT
-
-echo "[discover] min_stars=$MIN_STARS pushed>=$PUSHED_SINCE" >&2
-while IFS= read -r q; do
-  [ -z "$q" ] && continue
-  full_q="$q stars:>=$MIN_STARS pushed:>=$PUSHED_SINCE"
-  url="https://api.github.com/search/repositories?per_page=$PER_PAGE&sort=stars&order=desc&q=$(jq -rn --arg s "$full_q" '$s|@uri')"
-  echo "[discover] query: $full_q" >&2
-  curl -fsSL "${AUTH[@]}" -H "Accept: application/vnd.github+json" "$url" 2>/dev/null \
-    | jq -r '.items[]? | [.full_name, (.stargazers_count|tostring), .pushed_at, .html_url, ((.description // "")|gsub("[\t\n]";" "))] | @tsv' \
-    >> "$tmp" || echo "[discover] query failed (rate limit?), continuing" >&2
-  sleep 7   # stay under the unauthenticated 10 req/min search ceiling
-done <<< "$QUERIES"
-
-# Dedup by full_name (col 1), keeping the first (highest-star) sighting.
-sort -t$'\t' -k1,1 -u "$tmp" -o "$tmp"
-
-# Drop anything already triaged (present as a repo in research/ledger.jsonl).
+# Keys already triaged (dedup target).
 touch "$LEDGER"
-seen_repos="$(jq -r '.repo' "$LEDGER" 2>/dev/null || true)"
-awk -F'\t' 'NR==FNR{seen[$0]=1; next} !($1 in seen)' <(printf '%s\n' "$seen_repos") "$tmp" > "$OUT"
+jq -r '(.key // .repo) // empty' "$LEDGER" 2>/dev/null | sort -u > "$seen"
+
+# Merge duplicates by key (collect sources + shallow-merge signals), drop already-seen.
+jq -s --rawfile seen "$seen" --argjson require_repo "$REQUIRE_REPO" '
+  ($seen | split("\n") | map(select(length>0)) | INDEX(.)) as $seenset
+  | group_by(.key)
+  | map( .[0] + {
+      sources: (map(.source) | unique),
+      signals: (reduce .[] as $x ({}; . + ($x.signals // {})))
+    })
+  | map(select(($seenset[.key]) | not))
+  | map(select($require_repo == 0 or (.repo != null)))
+  | .[]
+' "$norm" > "$OUT" 2>/dev/null || : > "$OUT"
 
 n="$(wc -l < "$OUT" | tr -d ' ')"
-echo "[discover] $n new candidate(s) -> $OUT" >&2
+echo "[discover] $n new candidate(s) across [$SOURCES] -> $OUT" >&2
 echo "$n"

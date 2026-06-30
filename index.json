@@ -1,6 +1,6 @@
 {
   "generated": "2026-06-30",
-  "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json",
+  "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
       "id": "install",
@@ -31,11 +31,11 @@
       "kind": "script",
       "path": "scripts/discover.sh",
       "group": "Discover & adopt external agent tooling",
-      "intent": "Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)",
+      "intent": "Find new agent/tooling candidates across GitHub + forums (HN, Lobsters, Reddit), merge cross-source signals, dedupe against the ledger",
       "status": "ready",
       "tags": [
         "discovery",
-        "github"
+        "multi-source"
       ]
     },
     {
@@ -115,6 +115,11 @@
         "workflow",
         "plugin"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/obra__superpowers.md"
     },
     {
@@ -129,6 +134,11 @@
         "harness",
         "memory"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/affaan-m__ECC.md"
     },
     {
@@ -144,6 +154,11 @@
         "scraping",
         "mcp"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
     },
     {
@@ -158,6 +173,11 @@
         "tooling",
         "config"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/farion1231__cc-switch.md"
     },
     {
@@ -172,6 +192,11 @@
         "browser",
         "automation"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/browser-use__browser-use.md"
     },
     {
@@ -186,6 +211,11 @@
         "design",
         "offtopic"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/nextlevelbuilder__ui-ux-pro-max-skill.md"
     },
     {
@@ -201,6 +231,11 @@
         "reference",
         "duplicate"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/punkpeye__awesome-mcp-servers.md"
     },
     {
@@ -217,6 +252,11 @@
         "tokens",
         "plugin"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/thedotmack__claude-mem.md"
     },
     {
@@ -232,6 +272,11 @@
         "output",
         "plugin"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/JuliusBrussee__caveman.md"
     },
     {
@@ -246,6 +291,11 @@
         "reference",
         "prompts"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/dair-ai__Prompt-Engineering-Guide.md"
     },
     {
@@ -261,6 +311,11 @@
         "graph",
         "skill"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/safishamsi__graphify.md"
     },
     {
@@ -276,6 +331,11 @@
         "harness",
         "education"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/shareAI-lab__learn-claude-code.md"
     },
     {
@@ -290,6 +350,11 @@
         "skill",
         "minimalism"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/DietrichGebert__ponytail.md"
     },
     {
@@ -304,6 +369,11 @@
         "commands",
         "workflow"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/addyosmani__agent-skills.md"
     },
     {
@@ -319,6 +389,11 @@
         "compression",
         "mcp"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/headroomlabs-ai__headroom.md"
     },
     {
@@ -333,6 +408,11 @@
         "harness",
         "mcp"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/aaif-goose__goose.md"
     },
     {
@@ -347,6 +427,11 @@
         "reference",
         "prompts"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/asgeirtj__system_prompts_leaks.md"
     },
     {
@@ -362,6 +447,11 @@
         "rendering",
         "offtopic"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/heygen-com__hyperframes.md"
     },
     {
@@ -378,6 +468,11 @@
         "memory",
         "tokens"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
@@ -393,6 +488,11 @@
         "verify",
         "offtopic"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/millionco__react-doctor.md"
     },
     {
@@ -407,6 +507,11 @@
         "memory",
         "retrieval"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/AgriciDaniel__claude-obsidian.md"
     },
     {
@@ -421,6 +526,11 @@
         "mcp",
         "reference"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/appcypher__awesome-mcp-servers.md"
     },
     {
@@ -436,6 +546,11 @@
         "context",
         "compaction"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/alexgreensh__token-optimizer.md"
     },
     {
@@ -449,6 +564,11 @@
       "tags": [
         "offtopic"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "stable",
       "note": "research/AgriciDaniel__claude-blog.md"
     },
     {
@@ -464,6 +584,11 @@
         "browser",
         "automation"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "emerging",
       "note": "research/LvcidPsyche__auto-browser.md"
     },
     {
@@ -478,6 +603,11 @@
         "browser",
         "infra"
       ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "maturity": "experimental",
       "note": "research/cloudflare__browser-rendering.md"
     }
   ]

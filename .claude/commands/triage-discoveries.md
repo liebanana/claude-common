@@ -13,14 +13,19 @@ Turn raw discovery candidates into durable, reusable knowledge. Agent-first outp
 terse, scannable, but a human must be able to follow it.
 
 ## Inputs
-- `research/_candidates.tsv` — produced by `scripts/discover.sh`. Columns:
-  `full_name \t stars \t pushed_at \t url \t description`. If missing or empty, run
+- `research/_candidates.jsonl` — produced by `scripts/discover.sh` (multi-source). One
+  JSON object per line: `{source, sources:[...], key:"owner/repo", repo, title, url,
+  signals:{stars?, points?, score?, comments?, age_days?}}`. If missing/empty, run
   `bash scripts/discover.sh` first; if still empty, report "nothing new" and stop.
+- `sources` tells you where it was seen (github/hackernews/lobsters/reddit). A repo seen
+  in **multiple** sources is corroborated — weight it up. `signals` carries the numbers
+  for the maturity call below.
 
 ## Procedure
-Process **at most 8 candidates** this run (token budget; the rest resurface next run,
-they are not lost — they only enter `research/ledger.jsonl` once triaged). Prefer higher-star,
-recently-pushed ones.
+Process **at most 8 candidates** this run (token budget; the rest resurface next run —
+they only enter `research/ledger.jsonl` once triaged). **Prioritize by signal:** highest
+forum score/points and stars, multi-source corroboration, and recency first. Pick the
+most on-mission ones; don't just take the top of the file.
 
 For each candidate:
 1. Fetch its README (raw): try
@@ -40,16 +45,16 @@ For each candidate:
    header) — but keep stubs honest (note "imported from <url>, untested").
 
 After the loop:
-- Delete `research/_candidates.tsv` (consumed).
+- Delete `research/_candidates.jsonl` (consumed).
 - Run `python3 scripts/build-index.py` — this regenerates `index.json`, `CATALOG.md`,
   and `research/INDEX.md` from the ledger + asset metadata. **Never hand-edit those
   three; they are generated.**
-- Print a 3-5 line summary (counts by verdict, notable finds).
+- Print a 3-5 line summary (counts by verdict, notable finds, anything multi-source).
 
 ## research/<owner>__<repo>.md template (prose note)
 ```
-# <full_name>  ·  ⭐<stars>  ·  <verdict>
-<url> · pushed <pushed_at> · triaged <today>
+# <full_name>  ·  ⭐<stars>  ·  <verdict>  ·  <maturity>
+<url> · pushed <pushed_at> · triaged <today> · seen on <sources>
 
 **What it is:** <1-2 sentences>
 **Reusable for us:** <the specific transferable asset/technique, or "none">
@@ -59,7 +64,13 @@ After the loop:
 
 ## research/ledger.jsonl line (structured; append one per repo)
 ```json
-{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line what-it-is/why>","tags":["..."]}
+{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line>","tags":["..."],"source":"<first source>","sources":["..."],"signals":{"stars":<int>,"points":<int?>,"score":<int?>,"comments":<int?>,"age_days":<int?>},"maturity":"stable|trending|emerging|experimental"}
 ```
+Carry `source`/`sources`/`signals` straight from the candidate. Set **maturity** from the
+evidence so we can later separate the stable from the new/hyped:
+- **stable** — established & widely used: high stars, older, actively maintained.
+- **trending** — surging now: young or recently spiking, strong forum score, multi-source.
+- **emerging** — new/small but credible; worth watching.
+- **experimental** — very new/unproven, thin signal.
 
 Keep every note short. The value is the distilled verdict, not a copy of their README.

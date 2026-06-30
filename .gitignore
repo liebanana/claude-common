@@ -4,7 +4,7 @@
 *.local
 
 # Transient discovery output (regenerated each run)
-research/_candidates.tsv
+research/_candidates.jsonl
 
 # Runtime logs / state (keep the dir, ignore contents)
 state/*

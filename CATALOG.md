@@ -13,7 +13,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 <!-- BEGIN GENERATED -->
 ## Discover & adopt external agent tooling
 - 🟢 **Analyze new GitHub candidates into research notes + the research ledger** → `.claude/commands/triage-discoveries.md` · _discovery, triage_
-- 🟢 **Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)** → `scripts/discover.sh` · _discovery, github_
+- 🟢 **Find new agent/tooling candidates across GitHub + forums (HN, Lobsters, Reddit), merge cross-source signals, dedupe against the ledger** → `scripts/discover.sh` · _discovery, multi-source_
 - 🟢 **Run the discovery loop unattended (discover → triage → rebuild index → open a PR)** → `scripts/cron-discover.sh` · _discovery, cron_
 
 ## Contribute back

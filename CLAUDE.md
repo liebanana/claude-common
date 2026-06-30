@@ -39,9 +39,10 @@ hooks/                shareable hook scripts (wired via settings.json)          
 mcp/                  MCP / integration templates                                                   ┘   cmds+agents
 .claude/settings.json scoped permission allowlist for the headless triage run
 scripts/              deterministic helpers; build-index.py regenerates the index
+  sources/              one script per discovery source (github, hackernews, lobsters, reddit)
 research/             external repos analyzed by the discovery engine
   ledger.jsonl          ★ SOURCE of truth (one JSON record per repo; dedup + index feed)
-  INDEX.md              GENERATED human view of the ledger
+  INDEX.md              GENERATED human view of the ledger (by verdict + trending + corroborated)
   <owner>__<repo>.md    per-repo prose note
 state/                runtime logs (gitignored)
 ```
@@ -56,12 +57,22 @@ analyzed repo. `scripts/build-index.py` reads both and regenerates `index.json` 
 
 ### Discovery engine (how the repo learns)
 Two front-ends feed the same ledger/index:
-1. **GitHub crawl** — `scripts/discover.sh` searches GitHub (REST via `curl`+`jq`, **no
-   `gh` dep**; optional `$GITHUB_TOKEN`), dedupes against `research/ledger.jsonl`, writes
-   `research/_candidates.tsv`. `/triage-discoveries` analyzes each → prose note + a
-   `ledger.jsonl` line, then runs `build-index.py`. `scripts/cron-discover.sh` chains
-   discover → headless `claude -p /triage-discoveries` → rebuild index → **open a PR**
-   (on a `discover/<timestamp>` branch; never pushes to the default branch).
+1. **Multi-source crawl** — `scripts/discover.sh` orchestrates `scripts/sources/*.sh`
+   (GitHub via REST search; Hacker News via Algolia; Lobsters; Reddit via OAuth, optional).
+   Each source emits normalized JSONL; the orchestrator normalizes GitHub links to
+   `owner/repo`, **merges duplicates across sources** (a repo seen on GitHub *and* a forum
+   gets `sources:[…]` = corroboration), dedupes against `research/ledger.jsonl`, and writes
+   `research/_candidates.jsonl` with `signals` (stars/points/score/comments/age_days).
+   `REQUIRE_REPO=1` (default) keeps only items that resolve to a GitHub repo so forums
+   surface *tools*, not blogs/papers. `/triage-discoveries` analyzes each → prose note + a
+   `ledger.jsonl` line (with `source`/`signals`/`maturity`), then runs `build-index.py`.
+   `scripts/cron-discover.sh` chains discover → headless `claude -p /triage-discoveries` →
+   rebuild index → **open a PR** (on a `discover/<timestamp>` branch; never the default).
+   - **Sources need no auth** except Reddit (set `REDDIT_CLIENT_ID/SECRET` to enable; it
+     skips silently otherwise). GitHub honors optional `$GITHUB_TOKEN` for higher limits.
+   - **Maturity** (`stable`/`trending`/`emerging`/`experimental`) + `sources` let you tell
+     battle-tested tools from new/hyped ones. `build-index.py` computes a maturity fallback
+     for records that don't set one explicitly.
 2. **Session reflection** — `/contribute-to-common` runs in **any** repo, finds a
    reusable/general learning from the current session, adds it (with metadata), rebuilds
    the index, and opens a **PR**. Installed globally by `install.sh`, so it's available
@@ -75,8 +86,9 @@ Both a cron job **and** an interactive agent use the same pieces — nothing is 
 ./install.sh [/path/to/repo]      # symlink commands + agents into ~/.claude (+ a repo)
 python3 scripts/build-index.py    # regenerate index.json + CATALOG.md + research/INDEX.md
 jq -r '.assets[]|"\(.path) — \(.intent)"' index.json   # how an agent finds an asset
-bash scripts/discover.sh          # find new candidate repos (prints count; writes _candidates.tsv)
-MIN_STARS=100 bash scripts/discover.sh   # tune: MIN_STARS, PUSHED_SINCE, PER_PAGE, QUERIES
+bash scripts/discover.sh          # multi-source crawl (prints count; writes _candidates.jsonl)
+SOURCES="hackernews lobsters" bash scripts/discover.sh   # pick sources; REQUIRE_REPO=0 keeps non-repo links
+MIN_STARS=100 HN_MIN_POINTS=50 bash scripts/discover.sh  # tune per-source thresholds/queries
 bash scripts/cron-discover.sh     # full unattended loop (discover→triage→index→PR). AUTO_PUSH=1 to push+PR
 /triage-discoveries               # (in a Claude session) analyze the current candidates
 /contribute-to-common             # (from any repo) package a session learning → PR here

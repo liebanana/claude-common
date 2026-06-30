@@ -32,15 +32,19 @@ asset and how to contribute, no further input needed.
 `claude-common` keeps learning two ways, both feeding one `research/ledger.jsonl`:
 
 ```
-# 1. crawl the ecosystem (unattended, weekly cron)
-scripts/discover.sh        # search GitHub for new agent/plugin/MCP repos (curl+jq, no gh)
-  -> /triage-discoveries   # analyze each: what it is, what's reusable, how to adopt
+# 1. crawl the ecosystem (unattended, weekly cron) — multi-source
+scripts/discover.sh        # GitHub + Hacker News + Lobsters + Reddit(opt); merges sources,
+                           # keeps tools w/ signals (stars/points/score/age) -> _candidates.jsonl
+  -> /triage-discoveries   # analyze each: verdict + maturity (stable/trending/emerging)
   -> research/ledger.jsonl + notes ; build-index.py regenerates index.json + CATALOG.md
-scripts/cron-discover.sh   # chains the above + commits/pushes; run weekly from cron
+scripts/cron-discover.sh   # chains the above + opens a PR; run weekly from cron
 
 # 2. reflect on a working session (any repo, on demand)
 /contribute-to-common      # finds a general learning in this session -> opens a PR here
 ```
+
+Each tracked tool records **where it was seen** (`sources`), its **buzz** (`signals`), and
+a **maturity** tag, so you can query `index.json` for the stable vs the new/trending.
 
 `index.json`, `CATALOG.md`, and `research/INDEX.md` are **generated** by
 `build-index.py`; edit the source (asset metadata / `ledger.jsonl`), never them.

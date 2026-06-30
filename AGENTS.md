@@ -11,7 +11,14 @@ required.
    jq -r '.assets[] | "\(.status) \(.path) — \(.intent) [\(.tags|join(","))]"' index.json
    jq -r '.assets[]|select(.tags|index("tokens"))|.path' index.json   # filter by tag
    jq -r '.research[]|select(.verdict=="adopt")|"\(.repo): \(.intent)"' index.json
+   # external tools, sliced by maturity / buzz / corroboration:
+   jq -r '.research[]|select(.maturity=="stable")|.repo' index.json    # battle-tested
+   jq -r '.research[]|select(.maturity=="trending")|.repo' index.json  # new & hot
+   jq -r '.research[]|select((.sources|length)>1)|"\(.repo) \(.sources)"' index.json  # seen on multiple sources
    ```
+   Each research record carries `source`/`sources` (github, hackernews, lobsters, reddit),
+   `signals` (stars/points/score/comments/age_days), and `maturity` — use them to tell
+   stable from new/trending.
    (`CATALOG.md` is the same data as readable markdown if you prefer prose.)
 2. **Use it or surface it — never silently skip, never reinvent.** For each relevant asset:
    - **Fits the task perfectly** → just use it (follow its `path`).
