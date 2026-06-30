@@ -1,3 +1,11 @@
+---
+kind: doc
+status: ready
+group: Save tokens / work efficiently
+intent: Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)
+tags: [tokens, practices]
+---
+
 # Token-thrift & effectiveness playbook
 
 Distilled, durable practices for getting more out of Claude Code / agents per token.

@@ -9,6 +9,7 @@
       "Glob",
       "Bash(curl:*)",
       "Bash(bash scripts/discover.sh:*)",
+      "Bash(python3 scripts/build-index.py:*)",
       "Bash(rm research/_candidates.tsv)",
       "Bash(date:*)"
     ],

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# meta: id=install kind=script group="Reusable Claude Code assets" status=ready tags=setup,install intent="Symlink shared commands/agents into ~/.claude (and optionally a target repo)"
 # install.sh — make claude-common's shared assets available on this host.
 #
 # Symlinks (not copies, so edits propagate) every command/subagent into ~/.claude,

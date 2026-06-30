@@ -1,5 +1,10 @@
 ---
 description: Analyze new GitHub agent/plugin candidates and file them into the catalog + research notes
+kind: command
+status: ready
+group: Discover & adopt external agent tooling
+intent: Analyze new GitHub candidates into research notes + the research ledger
+tags: [discovery, triage]
 ---
 
 # /triage-discoveries
@@ -14,7 +19,7 @@ terse, scannable, but a human must be able to follow it.
 
 ## Procedure
 Process **at most 8 candidates** this run (token budget; the rest resurface next run,
-they are not lost — they only enter `seen.tsv` once triaged). Prefer higher-star,
+they are not lost — they only enter `research/ledger.jsonl` once triaged). Prefer higher-star,
 recently-pushed ones.
 
 For each candidate:
@@ -27,18 +32,21 @@ For each candidate:
      a technique we can encode). Extract the reusable bit.
    - **watch** — promising but not yet actionable; worth re-checking.
    - **skip** — off-topic, abandoned, or no transferable value.
-3. Write `research/<owner>__<repo>.md` using the template below.
-4. If verdict is **adopt**, add/refresh a one-line entry in `CATALOG.md` under the
-   matching intent (mark it 🔬). If a genuinely portable asset exists, you may also
-   stub it into `.claude/commands/`, `hooks/`, `scripts/`, or `mcp/` — but keep stubs honest
-   (note "imported from <url>, untested" rather than pretending it's verified).
-5. Append the repo to `research/seen.tsv` (so it's never re-triaged) and add one line
-   to `research/INDEX.md`.
+3. Write `research/<owner>__<repo>.md` using the template below (prose detail for humans).
+4. Append **one JSON line** to `research/ledger.jsonl` (the structured source of truth —
+   this is what dedupes future runs and feeds the index; see format below).
+5. If a genuinely portable asset exists, you may also stub it into `.claude/commands/`,
+   `hooks/`, `scripts/`, or `mcp/` **with proper metadata** (see `scripts/build-index.py`
+   header) — but keep stubs honest (note "imported from <url>, untested").
 
-After the loop: delete `research/_candidates.tsv` (consumed), and print a 3-5 line
-summary (counts by verdict, notable finds).
+After the loop:
+- Delete `research/_candidates.tsv` (consumed).
+- Run `python3 scripts/build-index.py` — this regenerates `index.json`, `CATALOG.md`,
+  and `research/INDEX.md` from the ledger + asset metadata. **Never hand-edit those
+  three; they are generated.**
+- Print a 3-5 line summary (counts by verdict, notable finds).
 
-## research/<owner>__<repo>.md template
+## research/<owner>__<repo>.md template (prose note)
 ```
 # <full_name>  ·  ⭐<stars>  ·  <verdict>
 <url> · pushed <pushed_at> · triaged <today>
@@ -49,8 +57,9 @@ summary (counts by verdict, notable finds).
 **How to adopt:** <concrete next step, or "watch" / "skip">
 ```
 
-## seen.tsv / INDEX.md formats
-- `research/seen.tsv` row: `full_name \t verdict \t YYYY-MM-DD`
-- `research/INDEX.md` row: `- [<full_name>](research/<owner>__<repo>.md) — <verdict> — <one-line>`
+## research/ledger.jsonl line (structured; append one per repo)
+```json
+{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line what-it-is/why>","tags":["..."]}
+```
 
 Keep every note short. The value is the distilled verdict, not a copy of their README.

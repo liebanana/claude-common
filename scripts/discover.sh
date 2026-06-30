@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# meta: id=discover kind=script group="Discover & adopt external agent tooling" status=ready tags=discovery,github intent="Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)"
 # discover.sh — find new Claude Code / agent / MCP repos on GitHub.
 #
 # Uses the GitHub REST search API via curl + jq (no `gh` dependency). Works
@@ -7,7 +8,7 @@
 #
 # It does NOT analyze anything — it only produces a deduped list of NEW candidate
 # repos for the /triage-discoveries command (or a human) to evaluate. Repos already
-# in research/seen.tsv are skipped, so each candidate is surfaced exactly once.
+# in research/ledger.jsonl are skipped, so each candidate is surfaced exactly once.
 #
 # Output: research/_candidates.tsv  (full_name \t stars \t pushed_at \t url \t desc)
 # Tunables (env):
@@ -18,7 +19,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SEEN="$REPO_DIR/research/seen.tsv"
+LEDGER="$REPO_DIR/research/ledger.jsonl"
 OUT="$REPO_DIR/research/_candidates.tsv"
 
 MIN_STARS="${MIN_STARS:-80}"
@@ -57,9 +58,10 @@ done <<< "$QUERIES"
 # Dedup by full_name (col 1), keeping the first (highest-star) sighting.
 sort -t$'\t' -k1,1 -u "$tmp" -o "$tmp"
 
-# Drop anything already triaged (present in seen.tsv col 1).
-touch "$SEEN"
-awk -F'\t' 'NR==FNR{seen[$1]=1; next} !($1 in seen)' "$SEEN" "$tmp" > "$OUT"
+# Drop anything already triaged (present as a repo in research/ledger.jsonl).
+touch "$LEDGER"
+seen_repos="$(jq -r '.repo' "$LEDGER" 2>/dev/null || true)"
+awk -F'\t' 'NR==FNR{seen[$0]=1; next} !($1 in seen)' <(printf '%s\n' "$seen_repos") "$tmp" > "$OUT"
 
 n="$(wc -l < "$OUT" | tr -d ' ')"
 echo "[discover] $n new candidate(s) -> $OUT" >&2

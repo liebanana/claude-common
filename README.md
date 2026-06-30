@@ -7,31 +7,44 @@ work more effective and cheaper in tokens.
 It is **agent-first, human-second**: structured so an agent planning a task can find the
 right tool fast — but written so a human understands it too.
 
+**Agents: start with [`AGENTS.md`](AGENTS.md)** — one screen, tells you how to find an
+asset and how to contribute, no further input needed.
+
 ## How to use it
 
-1. **Planning a task? Read [`CATALOG.md`](CATALOG.md) first.** It maps intent → the
-   asset that already solves it, so you don't start from scratch.
+1. **Planning a task? Check what exists first.** Query the generated machine index:
+   ```bash
+   jq -r '.assets[]|"\(.path) — \(.intent)"' index.json   # or read CATALOG.md (human)
+   ```
+   Use the linked asset instead of starting from scratch.
 2. **Install the shared assets** on your host:
    ```bash
    ./install.sh                 # symlink commands + agents into ~/.claude
    ./install.sh /path/to/repo   # also into a specific repo's .claude/
    export PATH="$PWD/scripts:$PATH"   # optional: scripts by name
    ```
-3. **Grow it.** When you do something an agent shouldn't have to re-figure-out, add a
-   script/command/doc and a one-line `CATALOG.md` entry.
+3. **Contribute back.** From *any* repo, `/contribute-to-common` scans your session for a
+   reusable, general learning and opens a PR here. Or add the asset + metadata by hand and
+   run `python3 scripts/build-index.py`.
 
 ## The discovery engine
 
-`claude-common` keeps learning from the ecosystem on its own:
+`claude-common` keeps learning two ways, both feeding one `research/ledger.jsonl`:
 
 ```
+# 1. crawl the ecosystem (unattended, weekly cron)
 scripts/discover.sh        # search GitHub for new agent/plugin/MCP repos (curl+jq, no gh)
-  -> /triage-discoveries   # an agent analyzes each: what it is, what's reusable, how to adopt
-  -> research/*.md         # durable notes + verdicts (adopt / watch / skip)
-scripts/cron-discover.sh   # chains the above + commits; run weekly from cron
+  -> /triage-discoveries   # analyze each: what it is, what's reusable, how to adopt
+  -> research/ledger.jsonl + notes ; build-index.py regenerates index.json + CATALOG.md
+scripts/cron-discover.sh   # chains the above + commits/pushes; run weekly from cron
+
+# 2. reflect on a working session (any repo, on demand)
+/contribute-to-common      # finds a general learning in this session -> opens a PR here
 ```
 
-See [`CLAUDE.md`](CLAUDE.md) for the architecture and the cron setup.
+`index.json`, `CATALOG.md`, and `research/INDEX.md` are **generated** by
+`build-index.py`; edit the source (asset metadata / `ledger.jsonl`), never them.
+See [`CLAUDE.md`](CLAUDE.md) for the full architecture and cron setup.
 
 ## Public repo — no secrets
 
@@ -40,12 +53,15 @@ endpoints, or org-specific data.** MCP/config files use placeholders only.
 
 ## Layout
 
-| Dir | What |
+| Path | What |
 |-----|------|
-| `.claude/commands/` | slash commands (auto-discovered; `/triage-discoveries` lives here) |
+| `AGENTS.md` | agent bootstrap — read first |
+| `index.json` | **generated** machine index (query with `jq`) |
+| `CATALOG.md` | **generated** human render of the index |
+| `.claude/commands/` | slash commands (`/triage-discoveries`, `/contribute-to-common`) |
 | `.claude/agents/` | subagents |
 | `hooks/` | shareable Claude Code hooks |
-| `scripts/` | deterministic helpers (replace repeated agent re-runs) |
+| `scripts/` | deterministic helpers (`build-index.py`, `discover.sh`, …) |
 | `mcp/` | MCP / integration config templates |
 | `docs/` | token-thrift & ways-of-working playbook |
-| `research/` | analyzed external repos (`INDEX.md`, per-repo notes, `seen.tsv` ledger) |
+| `research/` | analyzed external repos (`ledger.jsonl` = source; `INDEX.md` + notes = views) |

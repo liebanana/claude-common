@@ -1,38 +1,38 @@
 # CATALOG — what to reach for, by task
 
-> **Agents: read this first when planning a task.** This is the index of everything
-> `claude-common` provides. Find your intent below, use the linked asset instead of
-> building from scratch. If nothing here fits, do the task — then add what you wished
-> existed (see [CLAUDE.md](CLAUDE.md) → "Growing the catalog").
->
-> Entries are intentionally one line each so the whole map fits in a glance (and a
-> small context window). Follow the path for detail.
+> **Agents:** for machine use, query [`index.json`](index.json) (`jq`) — this file is the
+> human-readable render of the same data. Both are **generated** by
+> `scripts/build-index.py` from per-asset metadata + `research/ledger.jsonl`; don't
+> hand-edit below the marker. To add an asset: drop it in the right dir with metadata,
+> then run `python3 scripts/build-index.py`.
 
 Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `research/`)
 
 ---
 
+<!-- BEGIN GENERATED -->
 ## Discover & adopt external agent tooling
-- 🟢 **Find new GitHub agent/plugin repos** → `scripts/discover.sh` — searches GitHub topics, dedupes against `research/seen.tsv`, writes new candidates.
-- 🟢 **Analyze candidates & file them** → `/triage-discoveries` (`.claude/commands/triage-discoveries.md`) — turns raw candidates into `research/*.md` notes + catalog entries.
-- 🟢 **Run the whole discovery loop unattended** → `scripts/cron-discover.sh` — discover → triage → commit. Wire to cron (see CLAUDE.md).
-- 🔬 **Browse what's already been analyzed** → `research/INDEX.md`.
+- 🟢 **Analyze new GitHub candidates into research notes + the research ledger** → `.claude/commands/triage-discoveries.md` · _discovery, triage_
+- 🟢 **Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)** → `scripts/discover.sh` · _discovery, github_
+- 🟢 **Run the discovery loop unattended (discover → triage → rebuild index → commit/push)** → `scripts/cron-discover.sh` · _discovery, cron_
+
+## Contribute back
+- 🟢 **Scan the current session for a reusable, general learning and open a PR to claude-common** → `.claude/commands/contribute-to-common.md` · _contribution, pr, session_
 
 ## Save tokens / work efficiently
-- 🟢 **Token-thrift practices** → `docs/token-thrift.md` — model choice, subagents, read/output hygiene, when to hand off to a human.
-- 🟢 **Replace a repeated agent command sequence with a script** → add it to `scripts/` (contract: `scripts/README.md`). One deterministic script beats N re-runs.
-- 🔬 **Survive compaction without losing state / track token spend** → `research/alexgreensh__token-optimizer.md` — checkpoint-then-restore around compaction + live token/$ + context-quality signal (technique to encode in `docs/token-thrift.md`).
+- 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs/token-thrift.md` · _tokens, practices_
+
+## Index & navigation
+- 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts/build-index.py` · _index, maintenance_
 
 ## Reusable Claude Code assets
-- 🟢 **Install shared slash commands / subagents into this host** → `install.sh` — symlinks `.claude/commands/` and `.claude/agents/` into `~/.claude/` (and optionally a target repo).
-- 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship)** → `research/addyosmani__agent-skills.md` — reference model for phase-gated commands that pull in skills.
-- 🔬 **Understand what the Claude Code harness actually tells the model** → `research/asgeirtj__system_prompts_leaks.md` — archive of leaked Claude Code system prompts + tool defs (don't restate what the harness already enforces).
-- 🟡 **Shared subagents** → `.claude/agents/` (see `.claude/agents/README.md`).
-- 🟡 **Shared hooks** (formatting, guards) → `hooks/` (see `hooks/README.md`).
-- 🟡 **MCP / integration config templates** → `mcp/` (see `mcp/README.md`).
-- 🔬 **Find a vetted MCP server for an integration** → `research/appcypher__awesome-mcp-servers.md` — curated MCP catalog + sandboxing/least-privilege security checklist.
+- 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
----
+## From research (adopt)
+- 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills** → `research/addyosmani__agent-skills.md` (`addyosmani/agent-skills` ⭐68155)
+- 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
+- 🔬 **Curated MCP server catalog + security/sandboxing checklist** → `research/appcypher__awesome-mcp-servers.md` (`appcypher/awesome-mcp-servers` ⭐5655)
+- 🔬 **Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard** → `research/alexgreensh__token-optimizer.md` (`alexgreensh/token-optimizer` ⭐1491)
 
-_When you add an asset, add its one-liner here under the right intent. The catalog is
-the product; the files are the implementation._
+See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
+<!-- END GENERATED -->

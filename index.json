@@ -1,0 +1,205 @@
+{
+  "generated": "2026-06-30",
+  "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json",
+  "assets": [
+    {
+      "id": "install",
+      "kind": "script",
+      "path": "install.sh",
+      "group": "Reusable Claude Code assets",
+      "intent": "Symlink shared commands/agents into ~/.claude (and optionally a target repo)",
+      "status": "ready",
+      "tags": [
+        "setup",
+        "install"
+      ]
+    },
+    {
+      "id": "cron-discover",
+      "kind": "script",
+      "path": "scripts/cron-discover.sh",
+      "group": "Discover & adopt external agent tooling",
+      "intent": "Run the discovery loop unattended (discover → triage → rebuild index → commit/push)",
+      "status": "ready",
+      "tags": [
+        "discovery",
+        "cron"
+      ]
+    },
+    {
+      "id": "discover",
+      "kind": "script",
+      "path": "scripts/discover.sh",
+      "group": "Discover & adopt external agent tooling",
+      "intent": "Find new GitHub agent/plugin/MCP repos (search + dedupe against the research ledger)",
+      "status": "ready",
+      "tags": [
+        "discovery",
+        "github"
+      ]
+    },
+    {
+      "id": "build-index",
+      "kind": "script",
+      "path": "scripts/build-index.py",
+      "group": "Index & navigation",
+      "intent": "Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger",
+      "status": "ready",
+      "tags": [
+        "index",
+        "maintenance"
+      ]
+    },
+    {
+      "id": "contribute-to-common",
+      "kind": "command",
+      "path": ".claude/commands/contribute-to-common.md",
+      "group": "Contribute back",
+      "intent": "Scan the current session for a reusable, general learning and open a PR to claude-common",
+      "status": "ready",
+      "tags": [
+        "contribution",
+        "pr",
+        "session"
+      ]
+    },
+    {
+      "id": "triage-discoveries",
+      "kind": "command",
+      "path": ".claude/commands/triage-discoveries.md",
+      "group": "Discover & adopt external agent tooling",
+      "intent": "Analyze new GitHub candidates into research notes + the research ledger",
+      "status": "ready",
+      "tags": [
+        "discovery",
+        "triage"
+      ]
+    },
+    {
+      "id": "token-thrift",
+      "kind": "doc",
+      "path": "docs/token-thrift.md",
+      "group": "Save tokens / work efficiently",
+      "intent": "Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)",
+      "status": "ready",
+      "tags": [
+        "tokens",
+        "practices"
+      ]
+    }
+  ],
+  "research": [
+    {
+      "repo": "affaan-m/ECC",
+      "verdict": "watch",
+      "stars": 223936,
+      "url": "https://github.com/affaan-m/ECC",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Sprawling commercial cross-harness operator OS; borrow instincts/memory patterns only (star count suspect)",
+      "tags": [
+        "harness",
+        "memory"
+      ],
+      "note": "research/affaan-m__ECC.md"
+    },
+    {
+      "repo": "addyosmani/agent-skills",
+      "verdict": "adopt",
+      "stars": 68155,
+      "url": "https://github.com/addyosmani/agent-skills",
+      "pushed": "2026-06-28",
+      "triaged": "2026-06-30",
+      "intent": "Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills",
+      "tags": [
+        "commands",
+        "workflow"
+      ],
+      "note": "research/addyosmani__agent-skills.md"
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "verdict": "watch",
+      "stars": 50475,
+      "url": "https://github.com/aaif-goose/goose",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Mature Apache-2.0 alt harness; reference for MCP/ACP patterns",
+      "tags": [
+        "harness",
+        "mcp"
+      ],
+      "note": "research/aaif-goose__goose.md"
+    },
+    {
+      "repo": "asgeirtj/system_prompts_leaks",
+      "verdict": "adopt",
+      "stars": 47357,
+      "url": "https://github.com/asgeirtj/system_prompts_leaks",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Archive of leaked system prompts incl. Claude Code + tool defs",
+      "tags": [
+        "reference",
+        "prompts"
+      ],
+      "note": "research/asgeirtj__system_prompts_leaks.md"
+    },
+    {
+      "repo": "AgriciDaniel/claude-obsidian",
+      "verdict": "watch",
+      "stars": 8350,
+      "url": "https://github.com/AgriciDaniel/claude-obsidian",
+      "pushed": "2026-05-28",
+      "triaged": "2026-06-30",
+      "intent": "Obsidian PKM; reusable advisory-locking + hybrid-retrieval memory patterns",
+      "tags": [
+        "memory",
+        "retrieval"
+      ],
+      "note": "research/AgriciDaniel__claude-obsidian.md"
+    },
+    {
+      "repo": "appcypher/awesome-mcp-servers",
+      "verdict": "adopt",
+      "stars": 5655,
+      "url": "https://github.com/appcypher/awesome-mcp-servers",
+      "pushed": "2026-05-06",
+      "triaged": "2026-06-30",
+      "intent": "Curated MCP server catalog + security/sandboxing checklist",
+      "tags": [
+        "mcp",
+        "reference"
+      ],
+      "note": "research/appcypher__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "alexgreensh/token-optimizer",
+      "verdict": "adopt",
+      "stars": 1491,
+      "url": "https://github.com/alexgreensh/token-optimizer",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard",
+      "tags": [
+        "tokens",
+        "context",
+        "compaction"
+      ],
+      "note": "research/alexgreensh__token-optimizer.md"
+    },
+    {
+      "repo": "AgriciDaniel/claude-blog",
+      "verdict": "skip",
+      "stars": 1247,
+      "url": "https://github.com/AgriciDaniel/claude-blog",
+      "pushed": "2026-06-26",
+      "triaged": "2026-06-30",
+      "intent": "Blog/SEO skill suite, off-mission; only the multi-gate delivery-contract idea transfers",
+      "tags": [
+        "offtopic"
+      ],
+      "note": "research/AgriciDaniel__claude-blog.md"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# meta: id=cron-discover kind=script group="Discover & adopt external agent tooling" status=ready tags=discovery,cron intent="Run the discovery loop unattended (discover → triage → rebuild index → commit/push)"
 # cron-discover.sh — unattended discovery loop: discover -> triage -> commit.
 #
 # Wire into cron (weekly is plenty), e.g.:
@@ -35,6 +36,9 @@ timeout --signal=TERM --kill-after=30 "$CRON_TIMEOUT" \
   claude -p "/triage-discoveries" || {
     echo "[cron-discover] triage step failed/timed out (exit $?)."
   }
+
+# Regenerate the index deterministically (don't rely on the LLM step having done it).
+python3 scripts/build-index.py || echo "[cron-discover] build-index failed."
 
 if [ -n "$(git status --porcelain)" ]; then
   git add -A

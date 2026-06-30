@@ -17,58 +17,73 @@ land here, find the right asset for its task, and avoid re-deriving things.
 
 ## The one rule that drives everything
 
-**Read [`CATALOG.md`](CATALOG.md) before planning a task.** It maps task intent → the
-existing asset that handles it. If something fits, use it instead of building from
-scratch. If nothing fits and you end up solving it yourself, **add what you wished
-existed** (see "Growing the catalog"). CATALOG.md is deliberately one line per asset so
-the whole map fits a small context window.
+**Before planning a task, check what already exists** — query `index.json` with `jq`
+(agents) or read [`CATALOG.md`](CATALOG.md) (humans); [`AGENTS.md`](AGENTS.md) is the
+one-screen bootstrap with the exact query patterns. If an asset fits, use it instead of
+building from scratch. If nothing fits and you solve it yourself, **add what you wished
+existed** (see "Growing the catalog") — or from another repo, `/contribute-to-common`.
 
 ## Architecture
 
+The repo is **two-way**: agents *consume* it (find the right asset) and *contribute* to
+it (open PRs). Both revolve around a **generated index**.
+
 ```
-CATALOG.md            ★ intent → asset index. The entry point for any agent.
-docs/token-thrift.md    durable practices (model choice, scripts-over-rereruns, hygiene)
-.claude/commands/     slash commands (auto-discovered here; /triage-discoveries lives here)  ─┐
-.claude/agents/       subagents (auto-discovered here)                                       ├─ install.sh
-hooks/                shareable hook scripts (wired via settings.json)                        │   symlinks
-mcp/                  MCP / integration templates                                             ┘   cmds+agents
+AGENTS.md             ★ agent bootstrap — how to consume + contribute, zero further input
+index.json            ★ GENERATED machine index — agents query with jq
+CATALOG.md              GENERATED human render of index.json (body between markers)
+docs/token-thrift.md    durable practices (model choice, scripts-over-reruns, hygiene)
+.claude/commands/     slash commands (auto-discovered; /triage-discoveries, /contribute-to-common)  ─┐
+.claude/agents/       subagents (auto-discovered)                                                   ├─ install.sh
+hooks/                shareable hook scripts (wired via settings.json)                               │   symlinks
+mcp/                  MCP / integration templates                                                   ┘   cmds+agents
 .claude/settings.json scoped permission allowlist for the headless triage run
-scripts/              deterministic helpers (replace repeated agent command sequences)
+scripts/              deterministic helpers; build-index.py regenerates the index
 research/             external repos analyzed by the discovery engine
-  INDEX.md              one line per analyzed repo
-  seen.tsv              dedup ledger (every repo ever triaged)
-  <owner>__<repo>.md    per-repo note + verdict
+  ledger.jsonl          ★ SOURCE of truth (one JSON record per repo; dedup + index feed)
+  INDEX.md              GENERATED human view of the ledger
+  <owner>__<repo>.md    per-repo prose note
 state/                runtime logs (gitignored)
 ```
 
-Three things wire together into the **discovery engine** (how the repo learns on its
-own):
+### The index (single source → generated views)
+Assets carry inline **metadata** — `.md` frontmatter (`kind/status/group/intent/tags`)
+or a `# meta:` line in scripts. `research/ledger.jsonl` holds one structured record per
+analyzed repo. `scripts/build-index.py` reads both and regenerates `index.json` (machine),
+`CATALOG.md` body, and `research/INDEX.md`. **Never hand-edit the three generated files**
+— edit the source and rerun `build-index.py`. Agents find assets with `jq` over
+`index.json` (see `AGENTS.md` for query patterns); that's far cheaper than reading prose.
 
-1. `scripts/discover.sh` — searches GitHub (REST API via `curl`+`jq`, **no `gh`
-   dependency**; optional `$GITHUB_TOKEN`) for agent/plugin/MCP repos, dedupes against
-   `research/seen.tsv`, writes new candidates to `research/_candidates.tsv`.
-2. `.claude/commands/triage-discoveries.md` (`/triage-discoveries`) — an agent reads the
-   candidates, analyzes each (what it is, what's reusable, token angle, how to adopt),
-   writes `research/*.md` + `CATALOG.md`/`INDEX.md`/`seen.tsv` entries.
-3. `scripts/cron-discover.sh` — chains discover → headless `claude -p /triage-discoveries`
-   → `git commit`. This is what cron runs.
+### Discovery engine (how the repo learns)
+Two front-ends feed the same ledger/index:
+1. **GitHub crawl** — `scripts/discover.sh` searches GitHub (REST via `curl`+`jq`, **no
+   `gh` dep**; optional `$GITHUB_TOKEN`), dedupes against `research/ledger.jsonl`, writes
+   `research/_candidates.tsv`. `/triage-discoveries` analyzes each → prose note + a
+   `ledger.jsonl` line, then runs `build-index.py`. `scripts/cron-discover.sh` chains
+   discover → headless `claude -p /triage-discoveries` → rebuild index → commit/push.
+2. **Session reflection** — `/contribute-to-common` runs in **any** repo, finds a
+   reusable/general learning from the current session, adds it (with metadata), rebuilds
+   the index, and opens a **PR**. Installed globally by `install.sh`, so it's available
+   everywhere — that's how other projects feed knowledge back.
 
-Both a cron job **and** an interactive agent use the same pieces — nothing is
-cron-only.
+Both a cron job **and** an interactive agent use the same pieces — nothing is cron-only.
 
 ## Commands
 
 ```bash
 ./install.sh [/path/to/repo]      # symlink commands + agents into ~/.claude (+ a repo)
+python3 scripts/build-index.py    # regenerate index.json + CATALOG.md + research/INDEX.md
+jq -r '.assets[]|"\(.path) — \(.intent)"' index.json   # how an agent finds an asset
 bash scripts/discover.sh          # find new candidate repos (prints count; writes _candidates.tsv)
 MIN_STARS=100 bash scripts/discover.sh   # tune: MIN_STARS, PUSHED_SINCE, PER_PAGE, QUERIES
-bash scripts/cron-discover.sh     # full unattended loop (discover→triage→commit). AUTO_PUSH=1 to push
+bash scripts/cron-discover.sh     # full unattended loop (discover→triage→index→commit). AUTO_PUSH=1 to push
 /triage-discoveries               # (in a Claude session) analyze the current candidates
+/contribute-to-common             # (from any repo) package a session learning → PR here
 ```
 
-There is no build/test suite — assets are scripts and Markdown. Validate a shell script
-with `bash -n scripts/<name>.sh` before committing; smoke-test `discover.sh` by running
-it (it's read-only against GitHub).
+There is no build/test suite — assets are scripts and Markdown. Always run
+`build-index.py` after changing an asset or the ledger (the cron/triage do this). Validate
+a shell script with `bash -n scripts/<name>.sh`; sanity-check `index.json`/ledger with `jq`.
 
 ## Cron setup (the discovery job)
 
@@ -98,11 +113,13 @@ wrapper script that logs):
 ## Growing the catalog (do this — it's the point)
 
 When you build or discover something reusable:
-1. Put the asset in the right dir (`scripts/`, `commands/`, `agents/`, `hooks/`, `mcp/`).
-2. Add **one line** to `CATALOG.md` under the matching intent.
-3. For external repos, file a `research/<owner>__<repo>.md` note and update
-   `research/INDEX.md` + `research/seen.tsv`.
-4. Keep entries terse and honest — mark experimental/untested assets as such.
+1. Put the asset in the right dir (`scripts/`, `.claude/commands/`, `.claude/agents/`,
+   `hooks/`, `mcp/`) **with metadata** (`.md` frontmatter or a `# meta:` line).
+2. For external repos, append a `research/ledger.jsonl` record and write the prose note.
+3. Run `python3 scripts/build-index.py` — it regenerates `index.json`, `CATALOG.md`, and
+   `research/INDEX.md`. Never hand-edit those three.
+4. From another project, just run `/contribute-to-common` — it does all of the above and
+   opens a PR. Keep entries terse and honest — mark experimental/untested assets as such.
 
 ## Conventions
 
