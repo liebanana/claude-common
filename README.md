@@ -42,8 +42,8 @@ endpoints, or org-specific data.** MCP/config files use placeholders only.
 
 | Dir | What |
 |-----|------|
-| `commands/` | shareable slash commands |
-| `agents/` | shareable subagents |
+| `.claude/commands/` | slash commands (auto-discovered; `/triage-discoveries` lives here) |
+| `.claude/agents/` | subagents |
 | `hooks/` | shareable Claude Code hooks |
 | `scripts/` | deterministic helpers (replace repeated agent re-runs) |
 | `mcp/` | MCP / integration config templates |

@@ -4,7 +4,7 @@
 # Symlinks (not copies, so edits propagate) every command/subagent into ~/.claude,
 # and optionally into a target repo's .claude/. Re-running is safe (idempotent).
 #
-#   ./install.sh                 # link commands + agents into ~/.claude
+#   ./install.sh                 # link .claude/commands + .claude/agents into ~/.claude
 #   ./install.sh /path/to/repo   # also link them into <repo>/.claude
 #
 # Scripts in scripts/ are meant to be run by path or put on PATH yourself:
@@ -26,15 +26,15 @@ link_dir() {  # link_dir <src_subdir> <dest_dir>
 }
 
 echo "claude-common: installing into ~/.claude"
-link_dir commands "$HOME/.claude/commands"
-link_dir agents   "$HOME/.claude/agents"
+link_dir .claude/commands "$HOME/.claude/commands"
+link_dir .claude/agents   "$HOME/.claude/agents"
 
 if [ "${1:-}" != "" ]; then
   target="${1%/}"
   [ -d "$target" ] || { echo "target repo not found: $target" >&2; exit 1; }
   echo "claude-common: installing into $target/.claude"
-  link_dir commands "$target/.claude/commands"
-  link_dir agents   "$target/.claude/agents"
+  link_dir .claude/commands "$target/.claude/commands"
+  link_dir .claude/agents   "$target/.claude/agents"
 fi
 
 echo "Done. (Scripts: add scripts/ to PATH if you want them by name.)"

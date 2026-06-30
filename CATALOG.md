@@ -14,7 +14,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 
 ## Discover & adopt external agent tooling
 - 🟢 **Find new GitHub agent/plugin repos** → `scripts/discover.sh` — searches GitHub topics, dedupes against `research/seen.tsv`, writes new candidates.
-- 🟢 **Analyze candidates & file them** → `/triage-discoveries` (`commands/triage-discoveries.md`) — turns raw candidates into `research/*.md` notes + catalog entries.
+- 🟢 **Analyze candidates & file them** → `/triage-discoveries` (`.claude/commands/triage-discoveries.md`) — turns raw candidates into `research/*.md` notes + catalog entries.
 - 🟢 **Run the whole discovery loop unattended** → `scripts/cron-discover.sh` — discover → triage → commit. Wire to cron (see CLAUDE.md).
 - 🔬 **Browse what's already been analyzed** → `research/INDEX.md`.
 
@@ -23,8 +23,8 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Replace a repeated agent command sequence with a script** → add it to `scripts/` (contract: `scripts/README.md`). One deterministic script beats N re-runs.
 
 ## Reusable Claude Code assets
-- 🟢 **Install shared slash commands / subagents into this host** → `install.sh` — symlinks `commands/` and `agents/` into `~/.claude/` (and optionally a target repo).
-- 🟡 **Shared subagents** → `agents/` (see `agents/README.md`).
+- 🟢 **Install shared slash commands / subagents into this host** → `install.sh` — symlinks `.claude/commands/` and `.claude/agents/` into `~/.claude/` (and optionally a target repo).
+- 🟡 **Shared subagents** → `.claude/agents/` (see `.claude/agents/README.md`).
 - 🟡 **Shared hooks** (formatting, guards) → `hooks/` (see `hooks/README.md`).
 - 🟡 **MCP / integration config templates** → `mcp/` (see `mcp/README.md`).
 

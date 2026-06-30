@@ -11,7 +11,7 @@
 #
 # Output: research/_candidates.tsv  (full_name \t stars \t pushed_at \t url \t desc)
 # Tunables (env):
-#   MIN_STARS   minimum stars to consider          (default 30)
+#   MIN_STARS   minimum stars to consider          (default 80)
 #   PUSHED_SINCE only repos pushed on/after this    (default: 18 months ago)
 #   PER_PAGE    results per query                   (default 30)
 #   QUERIES     newline-separated search qualifiers (default: the agent topics below)
@@ -21,7 +21,7 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SEEN="$REPO_DIR/research/seen.tsv"
 OUT="$REPO_DIR/research/_candidates.tsv"
 
-MIN_STARS="${MIN_STARS:-30}"
+MIN_STARS="${MIN_STARS:-80}"
 PER_PAGE="${PER_PAGE:-30}"
 PUSHED_SINCE="${PUSHED_SINCE:-$(date -u -d '18 months ago' +%Y-%m-%d 2>/dev/null || date -u -v-18m +%Y-%m-%d)}"
 

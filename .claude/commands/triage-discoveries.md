@@ -30,7 +30,7 @@ For each candidate:
 3. Write `research/<owner>__<repo>.md` using the template below.
 4. If verdict is **adopt**, add/refresh a one-line entry in `CATALOG.md` under the
    matching intent (mark it 🔬). If a genuinely portable asset exists, you may also
-   stub it into `commands/`, `hooks/`, `scripts/`, or `mcp/` — but keep stubs honest
+   stub it into `.claude/commands/`, `hooks/`, `scripts/`, or `mcp/` — but keep stubs honest
    (note "imported from <url>, untested" rather than pretending it's verified).
 5. Append the repo to `research/seen.tsv` (so it's never re-triaged) and add one line
    to `research/INDEX.md`.

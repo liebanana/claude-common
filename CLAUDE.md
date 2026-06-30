@@ -28,10 +28,11 @@ the whole map fits a small context window.
 ```
 CATALOG.md            ★ intent → asset index. The entry point for any agent.
 docs/token-thrift.md    durable practices (model choice, scripts-over-rereruns, hygiene)
-commands/             shareable slash commands  ─┐
-agents/               shareable subagents        ├─ install.sh symlinks these into
-hooks/                shareable hooks            │   ~/.claude/ (and optionally a repo)
-mcp/                  MCP / integration templates ┘
+.claude/commands/     slash commands (auto-discovered here; /triage-discoveries lives here)  ─┐
+.claude/agents/       subagents (auto-discovered here)                                       ├─ install.sh
+hooks/                shareable hook scripts (wired via settings.json)                        │   symlinks
+mcp/                  MCP / integration templates                                             ┘   cmds+agents
+.claude/settings.json scoped permission allowlist for the headless triage run
 scripts/              deterministic helpers (replace repeated agent command sequences)
 research/             external repos analyzed by the discovery engine
   INDEX.md              one line per analyzed repo
@@ -46,7 +47,7 @@ own):
 1. `scripts/discover.sh` — searches GitHub (REST API via `curl`+`jq`, **no `gh`
    dependency**; optional `$GITHUB_TOKEN`) for agent/plugin/MCP repos, dedupes against
    `research/seen.tsv`, writes new candidates to `research/_candidates.tsv`.
-2. `commands/triage-discoveries.md` (`/triage-discoveries`) — an agent reads the
+2. `.claude/commands/triage-discoveries.md` (`/triage-discoveries`) — an agent reads the
    candidates, analyzes each (what it is, what's reusable, token angle, how to adopt),
    writes `research/*.md` + `CATALOG.md`/`INDEX.md`/`seen.tsv` entries.
 3. `scripts/cron-discover.sh` — chains discover → headless `claude -p /triage-discoveries`
@@ -78,6 +79,12 @@ wrapper script that logs):
 0 9 * * 1 /home/luisliev/repos/claude-common/scripts/cron-discover.sh >> /home/luisliev/repos/claude-common/state/discover.log 2>&1
 ```
 
+- **Prerequisite:** the headless triage only honors `.claude/settings.json` if this
+  workspace is **trusted**. Trust it once (interactively accept the trust dialog when you
+  first run `claude` here, or set
+  `projects["<repo path>"].hasTrustDialogAccepted: true` in `~/.claude.json`). Until
+  trusted, the run logs "Ignoring N permissions.allow entries" and `/triage-discoveries`
+  won't be found.
 - `cron-discover.sh` prepends `~/.local/bin` to PATH (cron's PATH omits it, where the
   `claude` CLI lives) and runs the triage under a hard `timeout`.
 - It **commits but does not push** by default. Set `AUTO_PUSH=1` (the installed cron
