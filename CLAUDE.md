@@ -39,7 +39,7 @@ hooks/                shareable hook scripts (wired via settings.json)          
 mcp/                  MCP / integration templates                                                   ┘   cmds+agents
 .claude/settings.json scoped permission allowlist for the headless triage run
 scripts/              deterministic helpers; build-index.py regenerates the index
-  sources/              one script per discovery source (github, hackernews, lobsters, reddit)
+  sources/              one script per source (github, github-trending, hackernews, lobsters, reddit)
 research/             external repos analyzed by the discovery engine
   ledger.jsonl          ★ SOURCE of truth (one JSON record per repo; dedup + index feed)
   INDEX.md              GENERATED human view of the ledger (by verdict + trending + corroborated)
@@ -58,7 +58,8 @@ analyzed repo. `scripts/build-index.py` reads both and regenerates `index.json` 
 ### Discovery engine (how the repo learns)
 Two front-ends feed the same ledger/index:
 1. **Multi-source crawl** — `scripts/discover.sh` orchestrates `scripts/sources/*.sh`
-   (GitHub via REST search; Hacker News via Algolia; Lobsters; Reddit via OAuth, optional).
+   (GitHub REST search; GitHub Trending scrape, keyword-filtered; Hacker News via Algolia;
+   Lobsters; Reddit via OAuth — off by default). GitHub Trending is the "rising now" signal.
    Each source emits normalized JSONL; the orchestrator normalizes GitHub links to
    `owner/repo`, **merges duplicates across sources** (a repo seen on GitHub *and* a forum
    gets `sources:[…]` = corroboration), dedupes against `research/ledger.jsonl`, and writes

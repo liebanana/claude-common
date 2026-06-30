@@ -115,6 +115,8 @@ def compute_maturity(r):
         return "stable"
     if age is not None and age <= 45:
         return "trending"
+    if "github-trending" in (r.get("sources") or []) and stars < 10000:
+        return "trending"
     if nsources >= 2 or stars >= 200:
         return "emerging"
     return "experimental"

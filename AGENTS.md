@@ -16,7 +16,7 @@ required.
    jq -r '.research[]|select(.maturity=="trending")|.repo' index.json  # new & hot
    jq -r '.research[]|select((.sources|length)>1)|"\(.repo) \(.sources)"' index.json  # seen on multiple sources
    ```
-   Each research record carries `source`/`sources` (github, hackernews, lobsters, reddit),
+   Each research record carries `source`/`sources` (github, github-trending, hackernews, lobsters, reddit),
    `signals` (stars/points/score/comments/age_days), and `maturity` — use them to tell
    stable from new/trending.
    (`CATALOG.md` is the same data as readable markdown if you prefer prose.)

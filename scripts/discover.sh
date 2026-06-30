@@ -10,7 +10,8 @@
 # Output: research/_candidates.jsonl — one object per NEW candidate:
 #   {source, sources:[...], key, repo, title, url, signals:{...}, context_url?}
 # Env:
-#   SOURCES        which sources to run (default "github hackernews lobsters reddit")
+#   SOURCES        which sources to run (default "github github-trending hackernews
+#                  lobsters"). reddit is available but off by default (needs OAuth).
 #   REQUIRE_REPO   1 (default) keep only items that resolve to a GitHub repo — forums
 #                  then surface *tools*, not arxiv/blogs, and corroborate GitHub finds.
 #                  Set 0 to also keep non-repo links (product sites, posts).
@@ -21,7 +22,7 @@ REQUIRE_REPO="${REQUIRE_REPO:-1}"
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LEDGER="$REPO_DIR/research/ledger.jsonl"
 OUT="$REPO_DIR/research/_candidates.jsonl"
-SOURCES="${SOURCES:-github hackernews lobsters reddit}"
+SOURCES="${SOURCES:-github github-trending hackernews lobsters}"
 
 raw="$(mktemp)"; norm="$(mktemp)"; seen="$(mktemp)"
 trap 'rm -f "$raw" "$norm" "$seen"' EXIT
