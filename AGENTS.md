@@ -13,7 +13,15 @@ required.
    jq -r '.research[]|select(.verdict=="adopt")|"\(.repo): \(.intent)"' index.json
    ```
    (`CATALOG.md` is the same data as readable markdown if you prefer prose.)
-2. **Use the linked asset** instead of starting from scratch. Follow its `path` for detail.
+2. **Use it or surface it — never silently skip, never reinvent.** For each relevant asset:
+   - **Fits the task perfectly** → just use it (follow its `path`).
+   - **Relevant but adoption needs a step you shouldn't take unilaterally** — installing a
+     plugin, running/setting up a script, adding an MCP server, or pulling in an external
+     tool from `research/` (verdict `adopt`/`watch`) — **recommend it to the user**: name
+     the asset, say what it does and why it fits, and give the one step to adopt it. Then
+     let them decide.
+   - **Do not rebuild** something this repo already provides without first telling the user
+     it exists.
 3. Token discipline lives in `docs/token-thrift.md` — apply it always.
 
 ## Improving it (do this when you learn something reusable)

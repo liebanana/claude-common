@@ -76,6 +76,19 @@
       ]
     },
     {
+      "id": "long-running-jobs",
+      "kind": "doc",
+      "path": "docs/long-running-jobs.md",
+      "group": "Save tokens / work efficiently",
+      "intent": "Long/background jobs get reaped — chunk with incremental output and bake into an invokable script",
+      "status": "ready",
+      "tags": [
+        "practices",
+        "reliability",
+        "tokens"
+      ]
+    },
+    {
       "id": "token-thrift",
       "kind": "doc",
       "path": "docs/token-thrift.md",

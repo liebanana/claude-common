@@ -46,6 +46,8 @@ Add to this as you learn — keep each item one or two lines.
   blanket skip-permissions, so routine calls don't stall on prompts.
 - **PostToolUse hooks** for formatting/the "last 10%" so the agent doesn't spend turns
   hand-fixing style.
+- **Long/background jobs get reaped** — don't trust one big detached process; chunk with
+  incremental output and bake into an invokable script. See `docs/long-running-jobs.md`.
 
 ## Decide your mode first (this workspace)
 - Scheduled / `claude -p` / `/loop` / cron → **autonomous**, always.
