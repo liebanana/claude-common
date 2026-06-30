@@ -49,7 +49,7 @@ touch "$LEDGER"
 jq -r '(.key // .repo) // empty' "$LEDGER" 2>/dev/null | sort -u > "$seen"
 
 # Merge duplicates by key (collect sources + shallow-merge signals), drop already-seen.
-jq -s --rawfile seen "$seen" --argjson require_repo "$REQUIRE_REPO" '
+jq -c -s --rawfile seen "$seen" --argjson require_repo "$REQUIRE_REPO" '
   ($seen | split("\n") | map(select(length>0)) | INDEX(.)) as $seenset
   | group_by(.key)
   | map( .[0] + {
