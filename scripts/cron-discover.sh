@@ -13,6 +13,9 @@
 #   AUTO_PUSH=1   push the branch and open a PR (needs origin + gh). If unset/0, the run
 #                 commits to a local branch only (handy for testing) — never to default.
 #   CRON_TIMEOUT_SEC  hard cap on the claude triage step (default 900)
+#   TRIAGE_MODEL  model for the headless triage (default sonnet). Pinned on purpose:
+#                 `claude -p` otherwise inherits the user's default model, which may be
+#                 a premium tier — triage is structured judgment, Sonnet-grade work.
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -37,7 +40,7 @@ echo "[cron-discover] $n new candidate(s); invoking triage."
 # commands. git push stays out of the session — the wrapper does it below.
 CRON_TIMEOUT="${CRON_TIMEOUT_SEC:-900}"
 timeout --signal=TERM --kill-after=30 "$CRON_TIMEOUT" \
-  claude -p "/triage-discoveries" || {
+  claude -p "/triage-discoveries" --model "${TRIAGE_MODEL:-sonnet}" || {
     echo "[cron-discover] triage step failed/timed out (exit $?)."
   }
 

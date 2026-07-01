@@ -102,22 +102,31 @@ def collect_assets():
 
 
 def compute_maturity(r):
-    """Separate stable from new/trending when the ledger didn't say explicitly."""
+    """Separate stable from new/trending when the ledger didn't say explicitly.
+
+    Two distinct age signals (a repo can be years old yet on HN today):
+      repo_age_days — how old the repo is (github source) -> stable/emerging axis
+      seen_age_days — how old the forum post is (hn/lobsters/reddit) -> buzz recency
+    Legacy records may carry the ambiguous `age_days`; treat it as repo age only for
+    github-only records, ignore it otherwise.
+    """
     if r.get("maturity"):
         return r["maturity"]
     sig = r.get("signals") or {}
+    sources = r.get("sources") or ([r["source"]] if r.get("source") else [])
     stars = r.get("stars") or sig.get("stars") or 0
-    age = sig.get("age_days")
-    nsources = len(r.get("sources") or [r.get("source")] or [])
+    repo_age = sig.get("repo_age_days")
+    if repo_age is None and sources == ["github"]:
+        repo_age = sig.get("age_days")
     if stars >= 10000:
         return "stable"
-    if stars >= 1000 and (age is None or age > 365):
+    if stars >= 1000 and (repo_age is None or repo_age > 365):
         return "stable"
-    if age is not None and age <= 45:
+    if repo_age is not None and repo_age <= 45:
         return "trending"
-    if "github-trending" in (r.get("sources") or []) and stars < 10000:
+    if "github-trending" in sources:
         return "trending"
-    if nsources >= 2 or stars >= 200:
+    if len(sources) >= 2 or stars >= 200:
         return "emerging"
     return "experimental"
 

@@ -15,17 +15,18 @@ terse, scannable, but a human must be able to follow it.
 ## Inputs
 - `research/_candidates.jsonl` — produced by `scripts/discover.sh` (multi-source). One
   JSON object per line: `{source, sources:[...], key:"owner/repo", repo, title, url,
-  signals:{stars?, points?, score?, comments?, age_days?}}`. If missing/empty, run
-  `bash scripts/discover.sh` first; if still empty, report "nothing new" and stop.
-- `sources` tells you where it was seen (github/hackernews/lobsters/reddit). A repo seen
-  in **multiple** sources is corroborated — weight it up. `signals` carries the numbers
-  for the maturity call below.
+  signals:{stars?, points?, score?, comments?, repo_age_days?, seen_age_days?,
+  stars_period?}}`. If missing/empty, run `bash scripts/discover.sh` first; if still
+  empty, report "nothing new" and stop.
+- `sources` tells you where it was seen (github/github-trending/hackernews/lobsters/
+  reddit). Multi-source = corroborated. Note the two ages: `repo_age_days` = how old the
+  repo is; `seen_age_days` = how old the forum post is (an old repo can be buzzing today).
 
 ## Procedure
-Process **at most 8 candidates** this run (token budget; the rest resurface next run —
-they only enter `research/ledger.jsonl` once triaged). **Prioritize by signal:** highest
-forum score/points and stars, multi-source corroboration, and recency first. Pick the
-most on-mission ones; don't just take the top of the file.
+The file is **already ranked best-first** (corroboration > trending > buzz > stars).
+Work from the top; process **at most 15 candidates** this run (the rest resurface next
+run — they only enter `research/ledger.jsonl` once triaged). You may still skip past a
+top item that is plainly off-mission, but don't cherry-pick deep into the tail.
 
 For each candidate:
 1. Fetch its README (raw): try
@@ -64,7 +65,7 @@ After the loop:
 
 ## research/ledger.jsonl line (structured; append one per repo)
 ```json
-{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line>","tags":["..."],"source":"<first source>","sources":["..."],"signals":{"stars":<int>,"points":<int?>,"score":<int?>,"comments":<int?>,"age_days":<int?>},"maturity":"stable|trending|emerging|experimental"}
+{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line>","tags":["..."],"source":"<first source>","sources":["..."],"signals":{"stars":<int>,"points":<int?>,"score":<int?>,"comments":<int?>,"repo_age_days":<int?>,"seen_age_days":<int?>},"maturity":"stable|trending|emerging|experimental"}
 ```
 Carry `source`/`sources`/`signals` straight from the candidate. Set **maturity** from the
 evidence so we can later separate the stable from the new/hyped:

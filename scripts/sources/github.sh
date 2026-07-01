@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # sources/github.sh — emit GitHub repo candidates as normalized JSONL to stdout.
-# Signals: stars (reliability/size), pushed (recency), age_days (maturity).
+# Signals: stars (reliability/size), pushed (recency), repo_age_days (maturity).
 # Env: MIN_STARS (80), PER_PAGE (30), PUSHED_SINCE (18mo ago), QUERIES, GITHUB_TOKEN.
 set -euo pipefail
 MIN_STARS="${MIN_STARS:-80}"
@@ -26,7 +26,7 @@ while IFS= read -r q; do
         source:"github", key:.full_name, repo:.full_name,
         title:(.description // ""), url:.html_url,
         signals:{stars:.stargazers_count, pushed:(.pushed_at[0:10]),
-                 age_days:((try (($now - (.created_at|fromdateiso8601))/86400|floor) catch null))}
+                 repo_age_days:((try (($now - (.created_at|fromdateiso8601))/86400|floor) catch null))}
       }' || echo "[github] query failed (rate limit?): $q" >&2
   sleep 7   # stay under the unauthenticated search ceiling
 done <<< "$QUERIES"

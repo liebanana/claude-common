@@ -7,7 +7,7 @@
 # https://www.reddit.com/prefs/apps and set:
 #   REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET   (required)
 #   REDDIT_SUBS (default below), REDDIT_T (top window: day|week|month), REDDIT_MIN_SCORE (20)
-# Signals: score (users/reliability), comments, age_days.
+# Signals: score (users/reliability), comments, seen_age_days (post age, not repo age).
 set -euo pipefail
 if [ -z "${REDDIT_CLIENT_ID:-}" ] || [ -z "${REDDIT_CLIENT_SECRET:-}" ]; then
   echo "[reddit] no REDDIT_CLIENT_ID/SECRET — skipping (set them to enable; see script header)." >&2
@@ -33,7 +33,7 @@ for sub in ${SUBS//,/ }; do
         | select(.is_self == false and .score >= $min and .url != null) | {
             source:"reddit", key:.url, repo:null, title:.title, url:.url,
             signals:{score:.score, comments:.num_comments, subreddit:.subreddit,
-                     age_days:(($now - .created_utc)/86400|floor)},
+                     seen_age_days:(($now - .created_utc)/86400|floor)},
             context_url:("https://www.reddit.com" + .permalink)
           }' || echo "[reddit] sub failed: $sub" >&2
   sleep 1

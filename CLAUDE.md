@@ -143,6 +143,11 @@ When you build or discover something reusable:
 - **No secrets, ever** (public repo). Placeholders + documented env vars only.
 - Scripts follow the contract in `scripts/README.md` (self-documenting, idempotent,
   non-zero exit on failure, no secrets).
+- **No README.md inside `.claude/commands/` or `.claude/agents/`** — the harness
+  auto-discovers every file there, so a README surfaces as a bogus `/README` command.
+  Document those dirs here instead. (Command files: YAML frontmatter with `description`
+  + index metadata, then the instruction body; agents: `name`/`description`/`tools`
+  frontmatter.)
 - Prefer Bash; use Python/other when it genuinely fits better.
 - Token thrift always — this repo exists to save tokens, so practice what it preaches
   (see `docs/token-thrift.md`).

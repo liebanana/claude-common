@@ -15,9 +15,16 @@
 #   REQUIRE_REPO   1 (default) keep only items that resolve to a GitHub repo — forums
 #                  then surface *tools*, not arxiv/blogs, and corroborate GitHub finds.
 #                  Set 0 to also keep non-repo links (product sites, posts).
+#   EXCLUDE_RE     case-insensitive regex; candidates whose repo/title match are dropped
+#                  BEFORE triage ever spends tokens on them (predictably off-mission
+#                  domains). Set to "" to disable.
 #   plus each source's own env (MIN_STARS, HN_MIN_POINTS, LOBSTERS_TAGS, REDDIT_*, …)
+#
+# Output is SORTED best-first: corroborated (multi-source) > trending > forum buzz >
+# stars — so consumers can take the top N and trust it's the highest-signal slice.
 set -euo pipefail
 REQUIRE_REPO="${REQUIRE_REPO:-1}"
+EXCLUDE_RE="${EXCLUDE_RE-video|voice|avatar|music|song|vtuber|ui[-/]ux|anime|wallpaper}"
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LEDGER="$REPO_DIR/research/ledger.jsonl"
@@ -48,8 +55,9 @@ jq -c '
 touch "$LEDGER"
 jq -r '(.key // .repo) // empty' "$LEDGER" 2>/dev/null | sort -u > "$seen"
 
-# Merge duplicates by key (collect sources + shallow-merge signals), drop already-seen.
-jq -c -s --rawfile seen "$seen" --argjson require_repo "$REQUIRE_REPO" '
+# Merge duplicates by key (collect sources + shallow-merge signals), drop already-seen,
+# drop predictably off-mission items, then rank best-first.
+jq -c -s --rawfile seen "$seen" --argjson require_repo "$REQUIRE_REPO" --arg exclude "$EXCLUDE_RE" '
   ($seen | split("\n") | map(select(length>0)) | INDEX(.)) as $seenset
   | group_by(.key)
   | map( .[0] + {
@@ -58,6 +66,16 @@ jq -c -s --rawfile seen "$seen" --argjson require_repo "$REQUIRE_REPO" '
     })
   | map(select(($seenset[.key]) | not))
   | map(select($require_repo == 0 or (.repo != null)))
+  | map(select($exclude == "" or ((((.repo // "") + " " + (.title // "")) | test($exclude; "i")) | not)))
+  | map(. + {_rank: (
+      ((.sources | length) - 1) * 100000                    # corroboration dominates
+      + (if .signals.trending then 20000 else 0 end)        # rising right now
+      + ((.signals.points // .signals.score // 0) * 10)     # forum buzz
+      + ((.signals.stars_period // 0) / 10)                 # weekly star velocity
+      + ((.signals.stars // 0) / 1000)                      # absolute stars (weak tiebreak)
+    )})
+  | sort_by(-._rank)
+  | map(del(._rank))
   | .[]
 ' "$norm" > "$OUT" 2>/dev/null || : > "$OUT"
 
