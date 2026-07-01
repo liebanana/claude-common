@@ -38,6 +38,11 @@ For each candidate:
      a technique we can encode). Extract the reusable bit.
    - **watch** — promising but not yet actionable; worth re-checking.
    - **skip** — off-topic, abandoned, or no transferable value.
+
+   A verdict from README-reading is a *recommendation*, never a certification: always
+   set `"status":"recommended"` in the ledger line. The status only advances
+   (`trialed` → `in-use`, or `rejected`) when someone actually installs/exercises the
+   tool and records **Field notes** in the prose note — do NOT do that here.
 3. Write `research/<owner>__<repo>.md` using the template below (prose detail for humans).
 4. Append **one JSON line** to `research/ledger.jsonl` (the structured source of truth —
    this is what dedupes future runs and feeds the index; see format below).
@@ -62,10 +67,13 @@ After the loop:
 **Token / effectiveness angle:** <how it helps do more with fewer tokens, or n/a>
 **How to adopt:** <concrete next step, or "watch" / "skip">
 ```
+(When a tool later gets actually used, whoever used it appends a `**Field notes
+(YYYY-MM-DD):**` section — install gotchas, real behavior vs README claims — and flips
+the ledger `status`. Triage itself never writes field notes.)
 
 ## research/ledger.jsonl line (structured; append one per repo)
 ```json
-{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line>","tags":["..."],"source":"<first source>","sources":["..."],"signals":{"stars":<int>,"points":<int?>,"score":<int?>,"comments":<int?>,"repo_age_days":<int?>,"seen_age_days":<int?>},"maturity":"stable|trending|emerging|experimental"}
+{"repo":"<owner>/<name>","verdict":"adopt|watch|skip","status":"recommended","stars":<int>,"url":"<html_url>","pushed":"<YYYY-MM-DD>","triaged":"<today>","intent":"<one-line>","tags":["..."],"source":"<first source>","sources":["..."],"signals":{"stars":<int>,"points":<int?>,"score":<int?>,"comments":<int?>,"repo_age_days":<int?>,"seen_age_days":<int?>},"maturity":"stable|trending|emerging|experimental"}
 ```
 Carry `source`/`sources`/`signals` straight from the candidate. Set **maturity** from the
 evidence so we can later separate the stable from the new/hyped:

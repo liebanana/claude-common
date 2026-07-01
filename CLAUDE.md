@@ -74,6 +74,13 @@ Two front-ends feed the same ledger/index:
    - **Maturity** (`stable`/`trending`/`emerging`/`experimental`) + `sources` let you tell
      battle-tested tools from new/hyped ones. `build-index.py` computes a maturity fallback
      for records that don't set one explicitly.
+   - **Trial before adopt (lifecycle).** A README-based verdict is a *recommendation*,
+     never a certification: triage always writes `status:"recommended"`. Only actually
+     installing/exercising a tool advances it — `trialed` → `in-use`, or `rejected` —
+     and whoever does that appends **Field notes** (install gotchas, real behavior vs
+     README claims) to the prose note and flips the ledger `status`. The catalog marks
+     ✅ field-tested vs 🔬 readme-only, so consuming agents know how much to trust an
+     entry.
 2. **Session reflection** — `/contribute-to-common` runs in **any** repo, finds a
    reusable/general learning from the current session, adds it (with metadata), rebuilds
    the index, and opens a **PR**. Installed globally by `install.sh`, so it's available

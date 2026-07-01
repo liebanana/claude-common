@@ -52,8 +52,8 @@ See [`CLAUDE.md`](CLAUDE.md) for the full architecture and cron setup.
 
 ## Public repo — no secrets
 
-Anyone (human or agent) can clone and use this. **Never commit tokens, private
-endpoints, or org-specific data.** MCP/config files use placeholders only.
+Anyone (human or agent) can clone and use this — [MIT licensed](LICENSE). **Never commit
+tokens, private endpoints, or org-specific data.** MCP/config files use placeholders only.
 
 ## Layout
 

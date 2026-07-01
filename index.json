@@ -119,6 +119,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/obra__superpowers.md"
     },
@@ -138,6 +139,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/affaan-m__ECC.md"
     },
@@ -158,6 +160,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
     },
@@ -177,6 +180,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/farion1231__cc-switch.md"
     },
@@ -196,6 +200,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/browser-use__browser-use.md"
     },
@@ -215,6 +220,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/nextlevelbuilder__ui-ux-pro-max-skill.md"
     },
@@ -235,6 +241,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/punkpeye__awesome-mcp-servers.md"
     },
@@ -256,6 +263,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/thedotmack__claude-mem.md"
     },
@@ -276,6 +284,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/JuliusBrussee__caveman.md"
     },
@@ -295,6 +304,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/dair-ai__Prompt-Engineering-Guide.md"
     },
@@ -315,6 +325,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/safishamsi__graphify.md"
     },
@@ -335,6 +346,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/shareAI-lab__learn-claude-code.md"
     },
@@ -354,6 +366,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/DietrichGebert__ponytail.md"
     },
@@ -373,6 +386,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/addyosmani__agent-skills.md"
     },
@@ -401,6 +415,7 @@
         "comments": 253
       },
       "maturity": "experimental",
+      "status": "recommended",
       "note": "research/gsd-build__get-shit-done.md"
     },
     {
@@ -420,6 +435,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/headroomlabs-ai__headroom.md"
     },
@@ -439,6 +455,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/aaif-goose__goose.md"
     },
@@ -458,6 +475,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/asgeirtj__system_prompts_leaks.md"
     },
@@ -488,6 +506,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/Panniantong__Agent-Reach.md"
     },
     {
@@ -512,6 +531,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/jamiepine__voicebox.md"
     },
     {
@@ -531,6 +551,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/heygen-com__hyperframes.md"
     },
@@ -556,6 +577,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/calesthio__OpenMontage.md"
     },
     {
@@ -581,6 +603,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/topoteretes__cognee.md"
     },
     {
@@ -605,6 +628,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/google-labs-code__design.md.md"
     },
     {
@@ -629,6 +653,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/mukul975__Anthropic-Cybersecurity-Skills.md"
     },
     {
@@ -645,6 +670,7 @@
         "memory",
         "tokens"
       ],
+      "status": "trialed",
       "source": "github",
       "sources": [
         "github"
@@ -669,6 +695,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/millionco__react-doctor.md"
     },
@@ -694,6 +721,7 @@
         "trending": true
       },
       "maturity": "trending",
+      "status": "recommended",
       "note": "research/stablyai__orca.md"
     },
     {
@@ -712,6 +740,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/AgriciDaniel__claude-obsidian.md"
     },
@@ -731,6 +760,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/appcypher__awesome-mcp-servers.md"
     },
@@ -759,6 +789,7 @@
         "comments": 68
       },
       "maturity": "emerging",
+      "status": "recommended",
       "note": "research/bethington__ghidra-mcp.md"
     },
     {
@@ -778,6 +809,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/alexgreensh__token-optimizer.md"
     },
@@ -796,6 +828,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "stable",
       "note": "research/AgriciDaniel__claude-blog.md"
     },
@@ -816,6 +849,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "emerging",
       "note": "research/LvcidPsyche__auto-browser.md"
     },
@@ -835,6 +869,7 @@
       "sources": [
         "github"
       ],
+      "status": "recommended",
       "maturity": "experimental",
       "note": "research/cloudflare__browser-rendering.md"
     }

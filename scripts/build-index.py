@@ -141,6 +141,9 @@ def collect_research():
     for r in out:
         r.setdefault("source", "github")
         r.setdefault("sources", [r["source"]])
+        # Adoption lifecycle: triage only ever *recommends*; a human/interactive trial
+        # advances it (trialed -> in-use, or rejected). See CLAUDE.md "trial before adopt".
+        r.setdefault("status", "recommended")
         r["maturity"] = compute_maturity(r)
     out.sort(key=lambda r: (-r.get("stars", 0)))
     return out
@@ -180,11 +183,16 @@ def render_catalog_body(assets, research):
             tags = f" · _{', '.join(a['tags'])}_" if a["tags"] else ""
             lines.append(f"- {icon} **{a['intent']}** → `{a['path']}`{tags}")
         lines.append("")
-    adopt = [r for r in research if r.get("verdict") == "adopt"]
+    adopt = [r for r in research if r.get("verdict") == "adopt" and r.get("status") != "rejected"]
     if adopt:
         lines.append("## From research (adopt)")
+        lines.append("_✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial before trusting._")
+        adopt.sort(key=lambda r: (0 if r.get("status") in ("in-use", "trialed") else 1, -r.get("stars", 0)))
         for r in adopt:
-            lines.append(f"- 🔬 **{r['intent']}** → `{note_path(r['repo'])}` (`{r['repo']}` ⭐{r.get('stars','?')})")
+            tested = r.get("status") in ("in-use", "trialed")
+            icon = "✅" if tested else "🔬"
+            st = f" · _{r['status']}_" if r.get("status") != "recommended" else ""
+            lines.append(f"- {icon} **{r['intent']}** → `{note_path(r['repo'])}` (`{r['repo']}` ⭐{r.get('stars','?')}){st}")
         lines.append("")
     lines.append("See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, "
                  "and query [`index.json`](index.json) programmatically.")
@@ -220,8 +228,9 @@ def write_research_index(research):
         sig = r.get("signals") or {}
         buzz = sig.get("points") or sig.get("score")
         buzz = f" · {buzz}↑" if buzz else ""
+        st = f" · **{r['status']}**" if r.get("status", "recommended") != "recommended" else ""
         return (f"- [{r['repo']}]({note_path(r['repo'])}) ⭐{r.get('stars','?')} · "
-                f"_{r.get('maturity','?')}_ · [{srcs}]{buzz} — {r['intent']}")
+                f"_{r.get('maturity','?')}_ · [{srcs}]{buzz}{st} — {r['intent']}")
 
     # Primary view: by verdict.
     for verdict in ("adopt", "watch", "skip"):

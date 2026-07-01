@@ -17,8 +17,10 @@ required.
    jq -r '.research[]|select((.sources|length)>1)|"\(.repo) \(.sources)"' index.json  # seen on multiple sources
    ```
    Each research record carries `source`/`sources` (github, github-trending, hackernews, lobsters, reddit),
-   `signals` (stars/points/score/comments/age_days), and `maturity` — use them to tell
-   stable from new/trending.
+   `signals` (stars/points/score/comments/repo_age_days/seen_age_days), `maturity`, and a
+   lifecycle `status` (`recommended` = readme-verified only; `trialed`/`in-use` =
+   field-tested; `rejected` = tried and dropped). Trust field-tested over readme-only:
+   `jq -r '.research[]|select(.status=="in-use" or .status=="trialed")|.repo' index.json`
    (`CATALOG.md` is the same data as readable markdown if you prefer prose.)
 2. **Use it or surface it — never silently skip, never reinvent.** For each relevant asset:
    - **Fits the task perfectly** → just use it (follow its `path`).

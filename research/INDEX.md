@@ -13,7 +13,7 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [headroomlabs-ai/headroom](research/headroomlabs-ai__headroom.md) ⭐54550 · _stable_ · [github] — Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server
 - [asgeirtj/system_prompts_leaks](research/asgeirtj__system_prompts_leaks.md) ⭐47357 · _stable_ · [github] — Archive of leaked system prompts incl. Claude Code + tool defs
 - [topoteretes/cognee](research/topoteretes__cognee.md) ⭐26088 · _trending_ · [github-trending] — Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions
-- [DeusData/codebase-memory-mcp](research/DeusData__codebase-memory-mcp.md) ⭐22669 · _stable_ · [github] — Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)
+- [DeusData/codebase-memory-mcp](research/DeusData__codebase-memory-mcp.md) ⭐22669 · _stable_ · [github] · **trialed** — Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)
 - [appcypher/awesome-mcp-servers](research/appcypher__awesome-mcp-servers.md) ⭐5655 · _stable_ · [github] — Curated MCP server catalog + security/sandboxing checklist
 - [alexgreensh/token-optimizer](research/alexgreensh__token-optimizer.md) ⭐1491 · _stable_ · [github] — Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard
 
