@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01",
+  "generated": "2026-07-06",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -99,6 +99,20 @@
         "tokens",
         "practices"
       ]
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "kind": "mcp",
+      "path": "mcp/chrome-devtools-mcp.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Let an agent drive and inspect a real Chrome browser for frontend verification and debugging",
+      "status": "recommended",
+      "tags": [
+        "mcp",
+        "browser",
+        "frontend",
+        "debugging"
+      ]
     }
   ],
   "research": [
@@ -144,6 +158,31 @@
       "note": "research/affaan-m__ECC.md"
     },
     {
+      "repo": "anomalyco/opencode",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 182904,
+      "url": "https://github.com/anomalyco/opencode",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "Competing open-source AI coding agent CLI (alternative to Claude Code)",
+      "tags": [
+        "competitor",
+        "coding-agent"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 625,
+        "comments": 513,
+        "seen_age_days": 178
+      },
+      "maturity": "stable",
+      "note": "research/anomalyco__opencode.md"
+    },
+    {
       "repo": "firecrawl/firecrawl",
       "verdict": "watch",
       "stars": 142071,
@@ -163,6 +202,58 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 136519,
+      "url": "https://github.com/anthropics/claude-code",
+      "pushed": "2026-07-03",
+      "triaged": "2026-07-06",
+      "intent": "Claude Code itself, the agentic coding CLI this repo builds tooling for",
+      "tags": [
+        "meta",
+        "claude-code"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 1364,
+        "comments": 753,
+        "seen_age_days": 91
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-code.md"
+    },
+    {
+      "repo": "msitarzewski/agency-agents",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 127937,
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "pushed": "2026-07-05",
+      "triaged": "2026-07-06",
+      "intent": "Large collection of persona-driven Claude Code/Cursor/Codex subagent prompts, installable via app or script",
+      "tags": [
+        "agents",
+        "subagents",
+        "personas"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 127937,
+        "stars_period": 10637,
+        "repo_age_days": 266
+      },
+      "maturity": "trending",
+      "note": "research/msitarzewski__agency-agents.md"
     },
     {
       "repo": "farion1231/cc-switch",
@@ -510,6 +601,59 @@
       "note": "research/Panniantong__Agent-Reach.md"
     },
     {
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 46032,
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "Official MCP server giving coding agents live Chrome control for automation, debugging, and performance analysis",
+      "tags": [
+        "mcp",
+        "browser",
+        "debugging",
+        "devtools"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 46032,
+        "stars_period": 1375,
+        "repo_age_days": 298
+      },
+      "maturity": "stable",
+      "note": "research/ChromeDevTools__chrome-devtools-mcp.md"
+    },
+    {
+      "repo": "usestrix/strix",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 37782,
+      "url": "https://github.com/usestrix/strix",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "Autonomous AI pentesting agents that find/exploit/validate app vulnerabilities",
+      "tags": [
+        "security",
+        "pentesting",
+        "agents"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 37782,
+        "stars_period": 10338
+      },
+      "maturity": "trending",
+      "note": "research/usestrix__strix.md"
+    },
+    {
       "repo": "jamiepine/voicebox",
       "verdict": "skip",
       "stars": 36269,
@@ -581,6 +725,56 @@
       "note": "research/calesthio__OpenMontage.md"
     },
     {
+      "repo": "JCodesMore/ai-website-cloner-template",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 26115,
+      "url": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "pushed": "2026-07-04",
+      "triaged": "2026-07-06",
+      "intent": "Template repo + Claude Code skill that reverse-engineers any website into a Next.js codebase",
+      "tags": [
+        "template",
+        "skill",
+        "web-cloning"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 26115,
+        "stars_period": 3246
+      },
+      "maturity": "trending",
+      "note": "research/JCodesMore__ai-website-cloner-template.md"
+    },
+    {
+      "repo": "openai/codex-plugin-cc",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 26096,
+      "url": "https://github.com/openai/codex-plugin-cc",
+      "pushed": "2026-06-23",
+      "triaged": "2026-07-06",
+      "intent": "Official OpenAI plugin letting Claude Code delegate reviews/tasks to Codex via /codex: commands",
+      "tags": [
+        "plugin",
+        "claude-code",
+        "cross-model-review"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 26096,
+        "stars_period": 3405
+      },
+      "maturity": "trending",
+      "note": "research/openai__codex-plugin-cc.md"
+    },
+    {
       "repo": "topoteretes/cognee",
       "verdict": "adopt",
       "stars": 26088,
@@ -605,6 +799,31 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/topoteretes__cognee.md"
+    },
+    {
+      "repo": "alibaba/page-agent",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 24486,
+      "url": "https://github.com/alibaba/page-agent",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "In-page JS GUI agent that lets an LLM control a webpage via text-based DOM manipulation, plus MCP server",
+      "tags": [
+        "browser",
+        "gui-agent",
+        "mcp"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 24486,
+        "stars_period": 3151
+      },
+      "maturity": "trending",
+      "note": "research/alibaba__page-agent.md"
     },
     {
       "repo": "google-labs-code/design.md",
@@ -679,6 +898,56 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "allenai/olmocr",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 18849,
+      "url": "https://github.com/allenai/olmocr",
+      "pushed": "2026-03-25",
+      "triaged": "2026-07-06",
+      "intent": "GPU-based toolkit converting PDFs/images into clean Markdown for LLM training data",
+      "tags": [
+        "ocr",
+        "pdf",
+        "dataset-prep"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 18849,
+        "stars_period": 1212
+      },
+      "maturity": "stable",
+      "note": "research/allenai__olmocr.md"
+    },
+    {
+      "repo": "Zackriya-Solutions/meetily",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 18659,
+      "url": "https://github.com/Zackriya-Solutions/meetily",
+      "pushed": "2026-06-05",
+      "triaged": "2026-07-06",
+      "intent": "Privacy-first local AI meeting transcription/summarization assistant",
+      "tags": [
+        "meetings",
+        "transcription",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 18659,
+        "stars_period": 2972
+      },
+      "maturity": "trending",
+      "note": "research/Zackriya-Solutions__meetily.md"
+    },
+    {
       "repo": "millionco/react-doctor",
       "verdict": "skip",
       "stars": 13279,
@@ -698,6 +967,81 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/millionco__react-doctor.md"
+    },
+    {
+      "repo": "ogulcancelik/herdr",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 12622,
+      "url": "https://github.com/ogulcancelik/herdr",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "Rust terminal multiplexer purpose-built for running/monitoring many coding agents at once (tmux for agents)",
+      "tags": [
+        "terminal",
+        "multi-agent",
+        "orchestration"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 12622,
+        "stars_period": 3937
+      },
+      "maturity": "trending",
+      "note": "research/ogulcancelik__herdr.md"
+    },
+    {
+      "repo": "diegosouzapw/OmniRoute",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 12344,
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "Free AI gateway routing Claude Code/Codex/Cursor to 230+ model providers with claimed token-compression savings",
+      "tags": [
+        "gateway",
+        "routing",
+        "token-cost"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 12344,
+        "stars_period": 4411
+      },
+      "maturity": "trending",
+      "note": "research/diegosouzapw__OmniRoute.md"
+    },
+    {
+      "repo": "xbtlin/ai-berkshire",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 11003,
+      "url": "https://github.com/xbtlin/ai-berkshire",
+      "pushed": "2026-07-06",
+      "triaged": "2026-07-06",
+      "intent": "Value-investing research Skill collection for Claude Code/Codex modeling Buffett/Munger methodology",
+      "tags": [
+        "skills",
+        "finance",
+        "domain-specific"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 11003,
+        "stars_period": 5038
+      },
+      "maturity": "trending",
+      "note": "research/xbtlin__ai-berkshire.md"
     },
     {
       "repo": "stablyai/orca",
@@ -791,6 +1135,58 @@
       "maturity": "emerging",
       "status": "recommended",
       "note": "research/bethington__ghidra-mcp.md"
+    },
+    {
+      "repo": "aattaran/deepclaude",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2186,
+      "url": "https://github.com/aattaran/deepclaude",
+      "pushed": "2026-05-16",
+      "triaged": "2026-07-06",
+      "intent": "Swaps Claude Code's model backend for DeepSeek/OpenRouter to cut inference cost ~17x, same CLI UX",
+      "tags": [
+        "cost",
+        "backend-swap",
+        "unofficial"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 678,
+        "comments": 281,
+        "seen_age_days": 63
+      },
+      "maturity": "emerging",
+      "note": "research/aattaran__deepclaude.md"
+    },
+    {
+      "repo": "manzaltu/claude-code-ide.el",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1611,
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "pushed": "2026-07-02",
+      "triaged": "2026-07-06",
+      "intent": "Emacs package giving Claude Code deep bidirectional IDE integration via MCP (LSP, tree-sitter, project awareness)",
+      "tags": [
+        "emacs",
+        "ide",
+        "mcp"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 782,
+        "comments": 266,
+        "seen_age_days": 334
+      },
+      "maturity": "emerging",
+      "note": "research/manzaltu__claude-code-ide.el.md"
     },
     {
       "repo": "alexgreensh/token-optimizer",
