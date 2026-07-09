@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-01",
+  "generated": "2026-07-08",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -793,6 +793,33 @@
       "note": "research/bethington__ghidra-mcp.md"
     },
     {
+      "repo": "LLMQuant/quant-mind",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1913,
+      "url": "https://github.com/LLMQuant/quant-mind",
+      "pushed": "2026-06-04",
+      "triaged": "2026-07-08",
+      "intent": "LLM knowledge-extraction + RAG framework for quant-finance research",
+      "tags": [
+        "quant",
+        "rag",
+        "knowledge-graph",
+        "finance",
+        "mcp"
+      ],
+      "source": "user-submitted",
+      "sources": [
+        "user-submitted"
+      ],
+      "signals": {
+        "stars": 1913,
+        "repo_age_days": 481
+      },
+      "maturity": "emerging",
+      "note": "research/LLMQuant__quant-mind.md"
+    },
+    {
       "repo": "alexgreensh/token-optimizer",
       "verdict": "adopt",
       "stars": 1491,
@@ -872,6 +899,32 @@
       "status": "recommended",
       "maturity": "experimental",
       "note": "research/cloudflare__browser-rendering.md"
+    },
+    {
+      "repo": "alltrainning/graviton-dashboard",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/alltrainning/graviton-dashboard",
+      "pushed": "2026-07-07",
+      "triaged": "2026-07-08",
+      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
+      "tags": [
+        "dashboard",
+        "trading",
+        "ui-inspiration",
+        "offtopic"
+      ],
+      "source": "user-submitted",
+      "sources": [
+        "user-submitted"
+      ],
+      "signals": {
+        "stars": 0,
+        "repo_age_days": 5
+      },
+      "maturity": "experimental",
+      "note": "research/alltrainning__graviton-dashboard.md"
     }
   ]
 }

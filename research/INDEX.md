@@ -17,7 +17,7 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [appcypher/awesome-mcp-servers](research/appcypher__awesome-mcp-servers.md) ⭐5655 · _stable_ · [github] — Curated MCP server catalog + security/sandboxing checklist
 - [alexgreensh/token-optimizer](research/alexgreensh__token-optimizer.md) ⭐1491 · _stable_ · [github] — Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard
 
-## watch (16)
+## watch (17)
 - [affaan-m/ECC](research/affaan-m__ECC.md) ⭐223936 · _stable_ · [github] — Sprawling commercial cross-harness operator OS; borrow instincts/memory patterns only (star count suspect)
 - [firecrawl/firecrawl](research/firecrawl__firecrawl.md) ⭐142071 · _stable_ · [github] — API to search/scrape/crawl the web at scale for agents (has an MCP server)
 - [farion1231/cc-switch](research/farion1231__cc-switch.md) ⭐111242 · _stable_ · [github] — Desktop app to switch configs/providers across Claude Code, Codex, Gemini CLI etc. (star count suspect)
@@ -32,10 +32,11 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [stablyai/orca](research/stablyai__orca.md) ⭐9617 · _trending_ · [github-trending] — An agent development environment (ADE) for running a fleet of parallel agents
 - [AgriciDaniel/claude-obsidian](research/AgriciDaniel__claude-obsidian.md) ⭐8350 · _stable_ · [github] — Obsidian PKM; reusable advisory-locking + hybrid-retrieval memory patterns
 - [bethington/ghidra-mcp](research/bethington__ghidra-mcp.md) ⭐2645 · _emerging_ · [github,hackernews] · 298↑ — MCP server exposing ~110 Ghidra reverse-engineering tools to agents (seen on GitHub + HN)
+- [LLMQuant/quant-mind](research/LLMQuant__quant-mind.md) ⭐1913 · _emerging_ · [user-submitted] — LLM knowledge-extraction + RAG framework for quant-finance research
 - [LvcidPsyche/auto-browser](research/LvcidPsyche__auto-browser.md) ⭐655 · _emerging_ · [github] — MCP-native, self-hosted browser agent with human-in-the-loop — gives an agent a real Playwright browser
 - [cloudflare/browser-rendering](research/cloudflare__browser-rendering.md) ⭐0 · _experimental_ · [github] — Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet
 
-## skip (9)
+## skip (10)
 - [nextlevelbuilder/ui-ux-pro-max-skill](research/nextlevelbuilder__ui-ux-pro-max-skill.md) ⭐98659 · _stable_ · [github] — UI/UX design-intelligence skill; off our agent-effectiveness/token mission
 - [punkpeye/awesome-mcp-servers](research/punkpeye__awesome-mcp-servers.md) ⭐90048 · _stable_ · [github] — Another curated MCP server list; redundant with appcypher/awesome-mcp-servers already adopted
 - [gsd-build/get-shit-done](research/gsd-build__get-shit-done.md) ⭐64595 · _experimental_ · [github,hackernews] · 473↑ — Meta-prompting/context-engineering framework — but THIS repo is archived; dev moved to open-gsd/gsd-core
@@ -45,6 +46,7 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [google-labs-code/design.md](research/google-labs-code__design.md.md) ⭐23675 · _trending_ · [github-trending] — A format spec for describing a visual identity/design to tools
 - [millionco/react-doctor](research/millionco__react-doctor.md) ⭐13279 · _stable_ · [github] — Skill that catches bad React an agent writes; React-specific — transferable idea is the domain verify/feedback skill
 - [AgriciDaniel/claude-blog](research/AgriciDaniel__claude-blog.md) ⭐1247 · _stable_ · [github] — Blog/SEO skill suite, off-mission; only the multi-gate delivery-contract idea transfers
+- [alltrainning/graviton-dashboard](research/alltrainning__graviton-dashboard.md) ⭐0 · _experimental_ · [user-submitted] — Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation
 
 ## 🔥 trending (7)
 - [Panniantong/Agent-Reach](research/Panniantong__Agent-Reach.md) ⭐46936 · _trending_ · [github,github-trending] — One-click internet-access layer for AI agents (YouTube/Twitter/Reddit/web/GitHub/RSS), handling auth + anti-bot pain
