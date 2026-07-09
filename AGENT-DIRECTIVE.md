@@ -69,6 +69,9 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 - For broad read-only searches, use **Explore** (cheap, returns conclusions) rather than spawning a full general-purpose agent.
 - Continue an existing agent via its ID instead of starting a fresh one when context carries over.
 
+**Shared toolkit — check before building**
+- Before building tooling/scripts/agents from scratch, check **`~/repos/claude-common`** (read `CATALOG.md`, or query `index.json` with `jq`): reusable scripts, slash commands, research notes, vetted plugins. Use what fits; if an asset needs setup you shouldn't do alone (install/auth), recommend it to the user instead of reinventing. Contribute general reusable learnings back via `/contribute-to-common`. (If `claude-common` doesn't exist on this host, skip.)
+
 **Token hygiene**
 - **Don't re-read** files you just wrote/edited — the harness already tracks them.
 - **Targeted reads** — read the lines/section you need, not whole large files.
