@@ -1,0 +1,18 @@
+name: ci
+# Toolkit integrity: the catalog index must stay valid JSON, shipped shell must parse.
+on:
+  push:
+    branches: [main]
+  pull_request:
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: jq empty index.json
+      - name: shell syntax (all tracked .sh)
+        run: git ls-files '*.sh' | xargs -r -n1 bash -n
+      - run: shellcheck --severity=error install.sh
