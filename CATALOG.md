@@ -29,6 +29,9 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 ## Reusable Claude Code assets
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
+## Debugging techniques
+- 🟢 **Prove/disprove phantom-scroll & layout-void bugs in Next.js/Tailwind apps without auth, dev servers, or browser installs** → `docs/layout-measure-repro.md` · _debugging, css, playwright, nextjs, layout_
+
 ## From research (adopt)
 _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial before trusting._
 - ✅ **Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)** → `research/DeusData__codebase-memory-mcp.md` (`DeusData/codebase-memory-mcp` ⭐22669) · _trialed_
