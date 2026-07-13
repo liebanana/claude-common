@@ -38,9 +38,14 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills** → `research/addyosmani__agent-skills.md` (`addyosmani/agent-skills` ⭐68155)
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
 - 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
+- 🔬 **Official plugin: invoke OpenAI Codex from inside Claude Code for review/delegate/adversarial-review** → `research/openai__codex-plugin-cc.md` (`openai/codex-plugin-cc` ⭐28302)
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
 - 🔬 **Curated MCP server catalog + security/sandboxing checklist** → `research/appcypher__awesome-mcp-servers.md` (`appcypher/awesome-mcp-servers` ⭐5655)
+- 🔬 **Agent skill generating architecture/sequence/data-flow diagrams as self-contained exportable HTML from plain English** → `research/tt-a1i__archify.md` (`tt-a1i/archify` ⭐4121)
 - 🔬 **Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard** → `research/alexgreensh__token-optimizer.md` (`alexgreensh/token-optimizer` ⭐1491)
+- 🔬 **PreToolUse hook blocking destructive git/filesystem commands across 7 agent CLIs including Claude Code** → `research/kenryu42__claude-code-safety-net.md` (`kenryu42/claude-code-safety-net` ⭐1440)
+- 🔬 **npx CLI scanning installed MCP server configs for tool-poisoning/exfiltration/cross-origin-escalation vulnerabilities** → `research/riseandignite__mcp-shield.md` (`riseandignite/mcp-shield` ⭐554)
+- 🔬 **Zero-dependency pure-bash MCP server implementation (JSON-RPC over stdio, function-naming tool discovery)** → `research/muthuishere__mcp-server-bash-sdk.md` (`muthuishere/mcp-server-bash-sdk` ⭐512)
 
 See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
 <!-- END GENERATED -->

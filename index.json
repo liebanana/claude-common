@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-07-13",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -510,6 +510,33 @@
       "note": "research/Panniantong__Agent-Reach.md"
     },
     {
+      "repo": "pbakaus/impeccable",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 46225,
+      "url": "https://github.com/pbakaus/impeccable",
+      "pushed": "2026-07-10",
+      "triaged": "2026-07-13",
+      "intent": "Design-guidance skill/commands for AI coding agents; successor to Anthropic's frontend-design skill",
+      "tags": [
+        "design",
+        "skill",
+        "frontend"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 46225,
+        "repo_age_days": 239,
+        "stars_period": 2272
+      },
+      "maturity": "trending",
+      "note": "research/pbakaus__impeccable.md"
+    },
+    {
       "repo": "jamiepine/voicebox",
       "verdict": "skip",
       "stars": 36269,
@@ -579,6 +606,34 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/calesthio__OpenMontage.md"
+    },
+    {
+      "repo": "openai/codex-plugin-cc",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 28302,
+      "url": "https://github.com/openai/codex-plugin-cc",
+      "pushed": "2026-07-08",
+      "triaged": "2026-07-13",
+      "intent": "Official plugin: invoke OpenAI Codex from inside Claude Code for review/delegate/adversarial-review",
+      "tags": [
+        "plugin",
+        "code-review",
+        "codex",
+        "cross-model"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 28302,
+        "repo_age_days": 105,
+        "stars_period": 2803
+      },
+      "maturity": "trending",
+      "note": "research/openai__codex-plugin-cc.md"
     },
     {
       "repo": "topoteretes/cognee",
@@ -679,6 +734,58 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "diegosouzapw/OmniRoute",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 16629,
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "pushed": "2026-07-13",
+      "triaged": "2026-07-13",
+      "intent": "Free AI gateway aggregating 250+ providers with claimed 15-95% token compression; marketing-heavy, ToS concerns unverified",
+      "tags": [
+        "gateway",
+        "token-compression",
+        "routing"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 16629,
+        "repo_age_days": 150,
+        "stars_period": 4506
+      },
+      "maturity": "trending",
+      "note": "research/diegosouzapw__OmniRoute.md"
+    },
+    {
+      "repo": "ogulcancelik/herdr",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 16020,
+      "url": "https://github.com/ogulcancelik/herdr",
+      "pushed": "2026-07-13",
+      "triaged": "2026-07-13",
+      "intent": "Terminal agent-multiplexer (tmux-like) for running/monitoring multiple coding-agent sessions, with a socket API for agents",
+      "tags": [
+        "multi-agent",
+        "terminal",
+        "orchestration"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 16020,
+        "repo_age_days": 108,
+        "stars_period": 3928
+      },
+      "maturity": "trending",
+      "note": "research/ogulcancelik__herdr.md"
+    },
+    {
       "repo": "millionco/react-doctor",
       "verdict": "skip",
       "stars": 13279,
@@ -698,6 +805,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/millionco__react-doctor.md"
+    },
+    {
+      "repo": "TencentCloud/CubeSandbox",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 9926,
+      "url": "https://github.com/TencentCloud/CubeSandbox",
+      "pushed": "2026-07-13",
+      "triaged": "2026-07-13",
+      "intent": "Instant, concurrent, secure sandbox service for AI agent code execution",
+      "tags": [
+        "sandbox",
+        "code-execution",
+        "safety"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 9926,
+        "repo_age_days": 94,
+        "stars_period": 2490
+      },
+      "maturity": "trending",
+      "note": "research/TencentCloud__CubeSandbox.md"
     },
     {
       "repo": "stablyai/orca",
@@ -745,6 +878,33 @@
       "note": "research/AgriciDaniel__claude-obsidian.md"
     },
     {
+      "repo": "wonderwhy-er/DesktopCommanderMCP",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 8154,
+      "url": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+      "pushed": "2026-07-13",
+      "triaged": "2026-07-13",
+      "intent": "MCP server giving Claude Desktop terminal control, filesystem search, and diff-based editing",
+      "tags": [
+        "mcp",
+        "terminal",
+        "filesystem",
+        "claude-desktop"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 8154,
+        "repo_age_days": 585,
+        "stars_period": 1678
+      },
+      "maturity": "stable",
+      "note": "research/wonderwhy-er__DesktopCommanderMCP.md"
+    },
+    {
       "repo": "appcypher/awesome-mcp-servers",
       "verdict": "adopt",
       "stars": 5655,
@@ -763,6 +923,60 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/appcypher__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "htdt/godogen",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 4687,
+      "url": "https://github.com/htdt/godogen",
+      "pushed": "2026-07-12",
+      "triaged": "2026-07-13",
+      "intent": "Generator publishing a thin scaffold (manifest+guide+skill) that a Claude Code/Codex agent expands into a full game",
+      "tags": [
+        "skill",
+        "pattern",
+        "codegen"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 4687,
+        "repo_age_days": 157,
+        "points": 337,
+        "comments": 205,
+        "seen_age_days": 118
+      },
+      "maturity": "emerging",
+      "note": "research/htdt__godogen.md"
+    },
+    {
+      "repo": "tt-a1i/archify",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 4121,
+      "url": "https://github.com/tt-a1i/archify",
+      "pushed": "2026-07-09",
+      "triaged": "2026-07-13",
+      "intent": "Agent skill generating architecture/sequence/data-flow diagrams as self-contained exportable HTML from plain English",
+      "tags": [
+        "skill",
+        "diagrams",
+        "documentation"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 4121,
+        "repo_age_days": 89,
+        "stars_period": 1180
+      },
+      "maturity": "trending",
+      "note": "research/tt-a1i__archify.md"
     },
     {
       "repo": "bethington/ghidra-mcp",
@@ -793,6 +1007,34 @@
       "note": "research/bethington__ghidra-mcp.md"
     },
     {
+      "repo": "aattaran/deepclaude",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2204,
+      "url": "https://github.com/aattaran/deepclaude",
+      "pushed": "2026-05-16",
+      "triaged": "2026-07-13",
+      "intent": "Runs Claude Code's agent loop against DeepSeek V4 Pro / other Anthropic-compatible backends for ~17x lower cost",
+      "tags": [
+        "cost",
+        "alternative-backend",
+        "token-thrift"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 2204,
+        "repo_age_days": 71,
+        "points": 678,
+        "comments": 281,
+        "seen_age_days": 70
+      },
+      "maturity": "emerging",
+      "note": "research/aattaran__deepclaude.md"
+    },
+    {
       "repo": "LLMQuant/quant-mind",
       "verdict": "watch",
       "status": "recommended",
@@ -820,6 +1062,34 @@
       "note": "research/LLMQuant__quant-mind.md"
     },
     {
+      "repo": "manzaltu/claude-code-ide.el",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1615,
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "pushed": "2026-07-02",
+      "triaged": "2026-07-13",
+      "intent": "Native Claude Code integration for Emacs via MCP (LSP, project mgmt, custom Elisp)",
+      "tags": [
+        "mcp",
+        "emacs",
+        "editor-integration"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 1615,
+        "repo_age_days": 385,
+        "points": 782,
+        "comments": 266,
+        "seen_age_days": 341
+      },
+      "maturity": "emerging",
+      "note": "research/manzaltu__claude-code-ide.el.md"
+    },
+    {
       "repo": "alexgreensh/token-optimizer",
       "verdict": "adopt",
       "stars": 1491,
@@ -841,6 +1111,31 @@
       "note": "research/alexgreensh__token-optimizer.md"
     },
     {
+      "repo": "kenryu42/claude-code-safety-net",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 1440,
+      "url": "https://github.com/kenryu42/claude-code-safety-net",
+      "pushed": "2026-06-30",
+      "triaged": "2026-07-13",
+      "intent": "PreToolUse hook blocking destructive git/filesystem commands across 7 agent CLIs including Claude Code",
+      "tags": [
+        "hook",
+        "safety",
+        "git"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 1440,
+        "repo_age_days": 200
+      },
+      "maturity": "emerging",
+      "note": "research/kenryu42__claude-code-safety-net.md"
+    },
+    {
       "repo": "AgriciDaniel/claude-blog",
       "verdict": "skip",
       "stars": 1247,
@@ -858,6 +1153,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/AgriciDaniel__claude-blog.md"
+    },
+    {
+      "repo": "cisco-ai-defense/mcp-scanner",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 982,
+      "url": "https://github.com/cisco-ai-defense/mcp-scanner",
+      "pushed": "2026-07-10",
+      "triaged": "2026-07-13",
+      "intent": "Python MCP server/tool security scanner combining Cisco AI Defense API, YARA rules, and LLM-as-judge",
+      "tags": [
+        "mcp",
+        "security",
+        "scanner"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 982,
+        "repo_age_days": 292
+      },
+      "maturity": "emerging",
+      "note": "research/cisco-ai-defense__mcp-scanner.md"
     },
     {
       "repo": "LvcidPsyche/auto-browser",
@@ -879,6 +1199,81 @@
       "status": "recommended",
       "maturity": "emerging",
       "note": "research/LvcidPsyche__auto-browser.md"
+    },
+    {
+      "repo": "riseandignite/mcp-shield",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 554,
+      "url": "https://github.com/riseandignite/mcp-shield",
+      "pushed": "2025-04-26",
+      "triaged": "2026-07-13",
+      "intent": "npx CLI scanning installed MCP server configs for tool-poisoning/exfiltration/cross-origin-escalation vulnerabilities",
+      "tags": [
+        "mcp",
+        "security",
+        "scanner"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 554,
+        "repo_age_days": 455
+      },
+      "maturity": "emerging",
+      "note": "research/riseandignite__mcp-shield.md"
+    },
+    {
+      "repo": "muthuishere/mcp-server-bash-sdk",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 512,
+      "url": "https://github.com/muthuishere/mcp-server-bash-sdk",
+      "pushed": "2026-02-21",
+      "triaged": "2026-07-13",
+      "intent": "Zero-dependency pure-bash MCP server implementation (JSON-RPC over stdio, function-naming tool discovery)",
+      "tags": [
+        "mcp",
+        "bash",
+        "sdk"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 512,
+        "repo_age_days": 410
+      },
+      "maturity": "emerging",
+      "note": "research/muthuishere__mcp-server-bash-sdk.md"
+    },
+    {
+      "repo": "outcomeops/context-engineering",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 128,
+      "url": "https://github.com/outcomeops/context-engineering",
+      "pushed": "2026-05-17",
+      "triaged": "2026-07-13",
+      "intent": "Reference implementation of context engineering (corpus/retrieval/injection/...) against a real codebase on Bedrock",
+      "tags": [
+        "context-engineering",
+        "reference",
+        "rag"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "stars": 128,
+        "repo_age_days": 87
+      },
+      "maturity": "experimental",
+      "note": "research/outcomeops__context-engineering.md"
     },
     {
       "repo": "cloudflare/browser-rendering",
