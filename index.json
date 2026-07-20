@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-07-20",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -142,6 +142,34 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/affaan-m__ECC.md"
+    },
+    {
+      "repo": "mattpocock/skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 178562,
+      "url": "https://github.com/mattpocock/skills",
+      "pushed": "2026-07-17",
+      "triaged": "2026-07-20",
+      "intent": "Curated agent-skill collection + Claude Code plugin marketplace, small/composable/model-agnostic skills for real engineering (triage, docs)",
+      "tags": [
+        "skills",
+        "plugin-marketplace",
+        "claude-code"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 178562,
+        "stars_period": 10983,
+        "period": "weekly",
+        "trending": true,
+        "repo_age_days": 167
+      },
+      "maturity": "trending",
+      "note": "research/mattpocock__skills.md"
     },
     {
       "repo": "firecrawl/firecrawl",
@@ -330,6 +358,60 @@
       "note": "research/safishamsi__graphify.md"
     },
     {
+      "repo": "earendil-works/pi",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 73236,
+      "url": "https://github.com/earendil-works/pi",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "Pi Agent Harness — open-source coding agent CLI + unified multi-provider LLM API + TUI; alternate harness our skills already reference for platform adaptation",
+      "tags": [
+        "agent-harness",
+        "cli",
+        "alternative-tool"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 73236,
+        "stars_period": 2854,
+        "period": "weekly",
+        "trending": true,
+        "repo_age_days": 345
+      },
+      "maturity": "stable",
+      "note": "research/earendil-works__pi.md"
+    },
+    {
+      "repo": "rtk-ai/rtk",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 72028,
+      "url": "https://github.com/rtk-ai/rtk",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "Rust CLI proxy that filters/compresses common dev-command output (ls, cat, grep, git, test runners) before it reaches LLM context — 60-90% token reduction, single binary, <10ms overhead",
+      "tags": [
+        "cli-proxy",
+        "token-thrift",
+        "rust",
+        "context-reduction"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 72028,
+        "repo_age_days": 178
+      },
+      "maturity": "trending",
+      "note": "research/rtk-ai__rtk.md"
+    },
+    {
       "repo": "shareAI-lab/learn-claude-code",
       "verdict": "watch",
       "stars": 69240,
@@ -369,6 +451,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/DietrichGebert__ponytail.md"
+    },
+    {
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 68181,
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "pushed": "2026-05-22",
+      "triaged": "2026-07-20",
+      "intent": "1000+ curated production-ready Claude Skills/Plugins across coding agents, plus a 'connect-apps' plugin bridging Claude to 500+ external services",
+      "tags": [
+        "curated-list",
+        "claude-skills",
+        "plugin-directory"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 68181,
+        "repo_age_days": 276
+      },
+      "maturity": "stable",
+      "note": "research/ComposioHQ__awesome-claude-skills.md"
     },
     {
       "repo": "addyosmani/agent-skills",
@@ -419,6 +526,32 @@
       "note": "research/gsd-build__get-shit-done.md"
     },
     {
+      "repo": "colbymchenry/codegraph",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 61096,
+      "url": "https://github.com/colbymchenry/codegraph",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "Pre-indexed semantic code-intelligence graph for Claude Code/Cursor/Codex/etc — surgical context, fewer tool calls, 100% local, auto-syncs on code changes",
+      "tags": [
+        "code-graph",
+        "context-reduction",
+        "token-thrift",
+        "local"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 61096,
+        "repo_age_days": 182
+      },
+      "maturity": "trending",
+      "note": "research/colbymchenry__codegraph.md"
+    },
+    {
       "repo": "headroomlabs-ai/headroom",
       "verdict": "adopt",
       "stars": 54550,
@@ -438,6 +571,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/headroomlabs-ai__headroom.md"
+    },
+    {
+      "repo": "hesreallyhim/awesome-claude-code",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 50490,
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "Large hand-picked, auto-ticker-updated directory of Claude Code skills/agents/statuslines/plugins/tooling — a meta-source for future discovery, not itself an asset",
+      "tags": [
+        "curated-list",
+        "claude-code",
+        "directory"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 50490,
+        "repo_age_days": 456
+      },
+      "maturity": "stable",
+      "note": "research/hesreallyhim__awesome-claude-code.md"
     },
     {
       "repo": "aaif-goose/goose",
@@ -679,6 +837,116 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "tirth8205/code-review-graph",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 22586,
+      "url": "https://github.com/tirth8205/code-review-graph",
+      "pushed": "2026-07-18",
+      "triaged": "2026-07-20",
+      "intent": "Tree-sitter structural code map + incremental change tracking so AI code review/CLI tools read only what changed, with benchmarked context reductions",
+      "tags": [
+        "token-thrift",
+        "code-review",
+        "mcp",
+        "tree-sitter",
+        "context-reduction"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 22586,
+        "stars_period": 1103,
+        "period": "weekly",
+        "trending": true,
+        "repo_age_days": 144
+      },
+      "maturity": "trending",
+      "note": "research/tirth8205__code-review-graph.md"
+    },
+    {
+      "repo": "mksglu/context-mode",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 19116,
+      "url": "https://github.com/mksglu/context-mode",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "Context-window optimizer for coding agents — sandboxes tool output (~98% reduction), persists session memory, enforces routing across 17 platforms via MCP + hooks",
+      "tags": [
+        "context-optimization",
+        "mcp",
+        "hooks",
+        "token-thrift"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 19116,
+        "repo_age_days": 147
+      },
+      "maturity": "trending",
+      "note": "research/mksglu__context-mode.md"
+    },
+    {
+      "repo": "yusufkaraaslan/Skill_Seekers",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 14506,
+      "url": "https://github.com/yusufkaraaslan/Skill_Seekers",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "Converts documentation sites, GitHub repos, and PDFs into Claude AI skills automatically, with conflict detection and an MCP integration",
+      "tags": [
+        "skill-generation",
+        "claude-skills",
+        "automation",
+        "meta-tooling"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 14506,
+        "repo_age_days": 276
+      },
+      "maturity": "stable",
+      "note": "research/yusufkaraaslan__Skill_Seekers.md"
+    },
+    {
+      "repo": "Nutlope/hallmark",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 13946,
+      "url": "https://github.com/Nutlope/hallmark",
+      "pushed": "2026-06-26",
+      "triaged": "2026-07-20",
+      "intent": "Anti-AI-slop UI design skill for Claude Code/Cursor/Codex — output quality, not agent effectiveness/tokens",
+      "tags": [
+        "design",
+        "ui",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 13946,
+        "stars_period": 9193,
+        "period": "weekly",
+        "trending": true,
+        "repo_age_days": 84
+      },
+      "maturity": "trending",
+      "note": "research/Nutlope__hallmark.md"
+    },
+    {
       "repo": "millionco/react-doctor",
       "verdict": "skip",
       "stars": 13279,
@@ -745,6 +1013,60 @@
       "note": "research/AgriciDaniel__claude-obsidian.md"
     },
     {
+      "repo": "GoogleCloudPlatform/knowledge-catalog",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 7017,
+      "url": "https://github.com/GoogleCloudPlatform/knowledge-catalog",
+      "pushed": "2026-07-10",
+      "triaged": "2026-07-14",
+      "intent": "OKF (Open Knowledge Format) — portable markdown+frontmatter spec for human+agent knowledge bundles; index.md gives progressive disclosure",
+      "tags": [
+        "knowledge-format",
+        "spec",
+        "markdown",
+        "frontmatter",
+        "interoperability",
+        "token-thrift"
+      ],
+      "source": "user-submitted",
+      "sources": [
+        "user-submitted"
+      ],
+      "signals": {
+        "stars": 7017,
+        "repo_age_days": 71
+      },
+      "maturity": "emerging",
+      "note": "research/GoogleCloudPlatform__knowledge-catalog.md"
+    },
+    {
+      "repo": "MinishLab/semble",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 5658,
+      "url": "https://github.com/MinishLab/semble",
+      "pushed": "2026-07-17",
+      "triaged": "2026-07-20",
+      "intent": "Fast/accurate code search library for agents — ~98% fewer tokens than grep+read, CPU-only, MCP server/CLI/subagent, 200x faster indexing than a code-specialized transformer",
+      "tags": [
+        "code-search",
+        "mcp",
+        "token-thrift",
+        "semantic-search"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 5658,
+        "repo_age_days": 105
+      },
+      "maturity": "trending",
+      "note": "research/MinishLab__semble.md"
+    },
+    {
       "repo": "appcypher/awesome-mcp-servers",
       "verdict": "adopt",
       "stars": 5655,
@@ -763,6 +1085,34 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/appcypher__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "ibelick/ui-skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 5586,
+      "url": "https://github.com/ibelick/ui-skills",
+      "pushed": "2026-07-20",
+      "triaged": "2026-07-20",
+      "intent": "CLI-routed UI/design skill set for design engineers — output quality, not agent effectiveness/tokens",
+      "tags": [
+        "design",
+        "ui",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 5586,
+        "stars_period": 1669,
+        "period": "weekly",
+        "trending": true,
+        "repo_age_days": 194
+      },
+      "maturity": "trending",
+      "note": "research/ibelick__ui-skills.md"
     },
     {
       "repo": "bethington/ghidra-mcp",
@@ -841,6 +1191,35 @@
       "note": "research/alexgreensh__token-optimizer.md"
     },
     {
+      "repo": "kenryu42/claude-code-safety-net",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 1452,
+      "url": "https://github.com/kenryu42/claude-code-safety-net",
+      "pushed": "2026-06-30",
+      "triaged": "2026-07-20",
+      "intent": "PreToolUse hook that semantically parses and blocks destructive git/filesystem commands (rm -rf, git checkout --, etc.) before Claude Code/Codex/Pi/other agents run them",
+      "tags": [
+        "hooks",
+        "safety",
+        "destructive-commands",
+        "claude-code"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 61,
+        "comments": 69,
+        "seen_age_days": 206,
+        "stars": 1452,
+        "repo_age_days": 207
+      },
+      "maturity": "trending",
+      "note": "research/kenryu42__claude-code-safety-net.md"
+    },
+    {
       "repo": "AgriciDaniel/claude-blog",
       "verdict": "skip",
       "stars": 1247,
@@ -858,6 +1237,33 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/AgriciDaniel__claude-blog.md"
+    },
+    {
+      "repo": "raiyanyahya/recall",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 717,
+      "url": "https://github.com/raiyanyahya/recall",
+      "pushed": "2026-07-18",
+      "triaged": "2026-07-20",
+      "intent": "Fully-local Claude Code session memory — condenses session logs into a resume-ready summary via a classical (non-LLM) Python summarizer, avoiding the cold-start re-explain tax at zero extra model cost",
+      "tags": [
+        "memory",
+        "session-continuity",
+        "claude-code",
+        "local",
+        "token-thrift"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 717,
+        "repo_age_days": 30
+      },
+      "maturity": "emerging",
+      "note": "research/raiyanyahya__recall.md"
     },
     {
       "repo": "LvcidPsyche/auto-browser",
@@ -879,6 +1285,34 @@
       "status": "recommended",
       "maturity": "emerging",
       "note": "research/LvcidPsyche__auto-browser.md"
+    },
+    {
+      "repo": "outcomeops/context-engineering",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 128,
+      "url": "https://github.com/outcomeops/context-engineering",
+      "pushed": "2026-05-17",
+      "triaged": "2026-07-20",
+      "intent": "Reference implementation of the corpus/retrieval/injection/output/enforcement 'context engineering' discipline against a real Bedrock-backed codebase",
+      "tags": [
+        "context-engineering",
+        "rag",
+        "reference-impl"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 46,
+        "comments": 15,
+        "seen_age_days": 93,
+        "stars": 128,
+        "repo_age_days": 94
+      },
+      "maturity": "emerging",
+      "note": "research/outcomeops__context-engineering.md"
     },
     {
       "repo": "cloudflare/browser-rendering",

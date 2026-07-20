@@ -31,6 +31,10 @@ Add to this as you learn — keep each item one or two lines.
 ## Context / token hygiene
 - **Don't re-read** files you just wrote/edited — the harness tracks them.
 - **Targeted reads** — read the section you need, not whole large files.
+- **Progressive disclosure for knowledge dirs** — put a compact `index.md` at the top of
+  a knowledge bundle so an agent reads the index and opens only the concept files it
+  needs, instead of loading the whole tree. (Pattern from OKF / `research/` note on
+  `GoogleCloudPlatform/knowledge-catalog`.)
 - **Don't dump** huge command output into context; filter (`head`, `grep`, `wc -l`,
   `--quiet`). When a human is online, hand them the noisy command and ask for the
   one-line verdict.

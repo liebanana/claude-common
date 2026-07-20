@@ -35,12 +35,20 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Agentic dev methodology (spec to TDD to subagent-driven build) as auto-triggering composable skills; official Claude plugin marketplace** → `research/obra__superpowers.md` (`obra/superpowers` ⭐242371)
 - 🔬 **Persistent cross-session memory: captures session activity, AI-compresses it, and injects relevant context into future sessions** → `research/thedotmack__claude-mem.md` (`thedotmack/claude-mem` ⭐85203)
 - 🔬 **Claude Code skill/plugin: terse caveman-style output cuts ~75% of OUTPUT tokens while keeping technical accuracy** → `research/JuliusBrussee__caveman.md` (`JuliusBrussee/caveman` ⭐78262)
+- 🔬 **Rust CLI proxy that filters/compresses common dev-command output (ls, cat, grep, git, test runners) before it reaches LLM context — 60-90% token reduction, single binary, <10ms overhead** → `research/rtk-ai__rtk.md` (`rtk-ai/rtk` ⭐72028)
 - 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills** → `research/addyosmani__agent-skills.md` (`addyosmani/agent-skills` ⭐68155)
+- 🔬 **Pre-indexed semantic code-intelligence graph for Claude Code/Cursor/Codex/etc — surgical context, fewer tool calls, 100% local, auto-syncs on code changes** → `research/colbymchenry__codegraph.md` (`colbymchenry/codegraph` ⭐61096)
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
 - 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
+- 🔬 **Tree-sitter structural code map + incremental change tracking so AI code review/CLI tools read only what changed, with benchmarked context reductions** → `research/tirth8205__code-review-graph.md` (`tirth8205/code-review-graph` ⭐22586)
+- 🔬 **Context-window optimizer for coding agents — sandboxes tool output (~98% reduction), persists session memory, enforces routing across 17 platforms via MCP + hooks** → `research/mksglu__context-mode.md` (`mksglu/context-mode` ⭐19116)
+- 🔬 **Converts documentation sites, GitHub repos, and PDFs into Claude AI skills automatically, with conflict detection and an MCP integration** → `research/yusufkaraaslan__Skill_Seekers.md` (`yusufkaraaslan/Skill_Seekers` ⭐14506)
+- 🔬 **Fast/accurate code search library for agents — ~98% fewer tokens than grep+read, CPU-only, MCP server/CLI/subagent, 200x faster indexing than a code-specialized transformer** → `research/MinishLab__semble.md` (`MinishLab/semble` ⭐5658)
 - 🔬 **Curated MCP server catalog + security/sandboxing checklist** → `research/appcypher__awesome-mcp-servers.md` (`appcypher/awesome-mcp-servers` ⭐5655)
 - 🔬 **Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard** → `research/alexgreensh__token-optimizer.md` (`alexgreensh/token-optimizer` ⭐1491)
+- 🔬 **PreToolUse hook that semantically parses and blocks destructive git/filesystem commands (rm -rf, git checkout --, etc.) before Claude Code/Codex/Pi/other agents run them** → `research/kenryu42__claude-code-safety-net.md` (`kenryu42/claude-code-safety-net` ⭐1452)
+- 🔬 **Fully-local Claude Code session memory — condenses session logs into a resume-ready summary via a classical (non-LLM) Python summarizer, avoiding the cold-start re-explain tax at zero extra model cost** → `research/raiyanyahya__recall.md` (`raiyanyahya/recall` ⭐717)
 
 See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
 <!-- END GENERATED -->
