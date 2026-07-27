@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-07-27",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -309,6 +309,33 @@
       "note": "research/dair-ai__Prompt-Engineering-Guide.md"
     },
     {
+      "repo": "koala73/worldmonitor",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 75183,
+      "url": "https://github.com/koala73/worldmonitor",
+      "pushed": "2026-07-27",
+      "triaged": "2026-07-27",
+      "intent": "real-time geopolitical/news intelligence dashboard",
+      "tags": [
+        "dashboard",
+        "news",
+        "off-topic"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 75183,
+        "repo_age_days": 199,
+        "stars_period": 12615
+      },
+      "maturity": "trending",
+      "note": "research/koala73__worldmonitor.md"
+    },
+    {
       "repo": "safishamsi/graphify",
       "verdict": "watch",
       "stars": 74808,
@@ -508,6 +535,32 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/Panniantong__Agent-Reach.md"
+    },
+    {
+      "repo": "rohitg00/ai-engineering-from-scratch",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 44107,
+      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "pushed": "2026-07-26",
+      "triaged": "2026-07-27",
+      "intent": "503-lesson course on AI engineering",
+      "tags": [
+        "education",
+        "course"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 44107,
+        "repo_age_days": 130,
+        "stars_period": 4317
+      },
+      "maturity": "trending",
+      "note": "research/rohitg00__ai-engineering-from-scratch.md"
     },
     {
       "repo": "jamiepine/voicebox",
@@ -765,6 +818,34 @@
       "note": "research/appcypher__awesome-mcp-servers.md"
     },
     {
+      "repo": "KnockOutEZ/wigolo",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 3690,
+      "url": "https://github.com/KnockOutEZ/wigolo",
+      "pushed": "2026-07-27",
+      "triaged": "2026-07-27",
+      "intent": "keyless local-first MCP web search/fetch/crawl/research server for agents",
+      "tags": [
+        "mcp",
+        "web-search",
+        "research",
+        "token-thrift"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 3690,
+        "repo_age_days": 105,
+        "stars_period": 1971
+      },
+      "maturity": "trending",
+      "note": "research/KnockOutEZ__wigolo.md"
+    },
+    {
       "repo": "bethington/ghidra-mcp",
       "verdict": "watch",
       "stars": 2645,
@@ -925,6 +1006,270 @@
       },
       "maturity": "experimental",
       "note": "research/alltrainning__graviton-dashboard.md"
+    },
+    {
+      "repo": "bojieli/ai-agent-book",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/bojieli/ai-agent-book",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "open-source book on AI agent design",
+      "tags": [
+        "book",
+        "education"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 15909
+      },
+      "maturity": "trending",
+      "note": "research/bojieli__ai-agent-book.md"
+    },
+    {
+      "repo": "mattpocock/skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/mattpocock/skills",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "personal Claude Code / Codex agent skills library (alignment, verbosity, triage)",
+      "tags": [
+        "skills",
+        "claude-code",
+        "plugin"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 12238
+      },
+      "maturity": "trending",
+      "note": "research/mattpocock__skills.md"
+    },
+    {
+      "repo": "diegosouzapw/OmniRoute",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "self-hosted AI gateway aggregating free-tier providers with token-compression routing",
+      "tags": [
+        "gateway",
+        "cost",
+        "token-thrift"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/diegosouzapw__OmniRoute.md"
+    },
+    {
+      "repo": "ayghri/i-have-adhd",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "Claude Code/Codex plugin for ADHD-friendly output formatting",
+      "tags": [
+        "plugin",
+        "accessibility",
+        "off-topic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/ayghri__i-have-adhd.md"
+    },
+    {
+      "repo": "tirth8205/code-review-graph",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/tirth8205/code-review-graph",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "Tree-sitter-based MCP server giving code review agents precise incremental context, claims 38x-528x token reduction",
+      "tags": [
+        "mcp",
+        "code-review",
+        "token-thrift"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/tirth8205__code-review-graph.md"
+    },
+    {
+      "repo": "earendil-works/pi",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/earendil-works/pi",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "self-extensible agent harness CLI + provider-agnostic agent runtime",
+      "tags": [
+        "agent-harness",
+        "cli"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/earendil-works__pi.md"
+    },
+    {
+      "repo": "Nutlope/hallmark",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/Nutlope/hallmark",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "design skill with slop-test gates + self-critique to avoid templated AI-generated UI",
+      "tags": [
+        "design",
+        "frontend",
+        "skill"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/Nutlope__hallmark.md"
+    },
+    {
+      "repo": "earthtojake/text-to-cad",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/earthtojake/text-to-cad",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "text-to-CAD geometry generation skill",
+      "tags": [
+        "cad",
+        "off-topic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/earthtojake__text-to-cad.md"
+    },
+    {
+      "repo": "CoreBunch/Instatic",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/CoreBunch/Instatic",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "self-hosted CMS with visual editor",
+      "tags": [
+        "cms",
+        "off-topic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/CoreBunch__Instatic.md"
+    },
+    {
+      "repo": "agegr/pi-web",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/agegr/pi-web",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "web UI for pi agent sessions",
+      "tags": [
+        "pi-agent",
+        "off-topic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/agegr__pi-web.md"
+    },
+    {
+      "repo": "MoonshotAI/kimi-code",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "Moonshot's terminal coding-agent CLI (Kimi models)",
+      "tags": [
+        "cli",
+        "competitor"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/MoonshotAI__kimi-code.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/anthropics/claude-code/issues/42796",
+      "pushed": null,
+      "triaged": "2026-07-27",
+      "intent": "HN-linked GitHub issue thread, not a repo candidate",
+      "tags": [
+        "not-a-repo"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 1364,
+        "comments": 753,
+        "seen_age_days": 112
+      },
+      "maturity": "experimental",
+      "note": "research/anthropics__claude-code.md"
     }
   ]
 }

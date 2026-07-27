@@ -17,7 +17,7 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [appcypher/awesome-mcp-servers](research/appcypher__awesome-mcp-servers.md) ⭐5655 · _stable_ · [github] — Curated MCP server catalog + security/sandboxing checklist
 - [alexgreensh/token-optimizer](research/alexgreensh__token-optimizer.md) ⭐1491 · _stable_ · [github] — Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard
 
-## watch (17)
+## watch (24)
 - [affaan-m/ECC](research/affaan-m__ECC.md) ⭐223936 · _stable_ · [github] — Sprawling commercial cross-harness operator OS; borrow instincts/memory patterns only (star count suspect)
 - [firecrawl/firecrawl](research/firecrawl__firecrawl.md) ⭐142071 · _stable_ · [github] — API to search/scrape/crawl the web at scale for agents (has an MCP server)
 - [farion1231/cc-switch](research/farion1231__cc-switch.md) ⭐111242 · _stable_ · [github] — Desktop app to switch configs/providers across Claude Code, Codex, Gemini CLI etc. (star count suspect)
@@ -31,15 +31,24 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [mukul975/Anthropic-Cybersecurity-Skills](research/mukul975__Anthropic-Cybersecurity-Skills.md) ⭐23433 · _trending_ · [github-trending] — A pack of 817 structured cybersecurity skills for AI agents (Claude skills format)
 - [stablyai/orca](research/stablyai__orca.md) ⭐9617 · _trending_ · [github-trending] — An agent development environment (ADE) for running a fleet of parallel agents
 - [AgriciDaniel/claude-obsidian](research/AgriciDaniel__claude-obsidian.md) ⭐8350 · _stable_ · [github] — Obsidian PKM; reusable advisory-locking + hybrid-retrieval memory patterns
+- [KnockOutEZ/wigolo](research/KnockOutEZ__wigolo.md) ⭐3690 · _trending_ · [github,github-trending] — keyless local-first MCP web search/fetch/crawl/research server for agents
 - [bethington/ghidra-mcp](research/bethington__ghidra-mcp.md) ⭐2645 · _emerging_ · [github,hackernews] · 298↑ — MCP server exposing ~110 Ghidra reverse-engineering tools to agents (seen on GitHub + HN)
 - [LLMQuant/quant-mind](research/LLMQuant__quant-mind.md) ⭐1913 · _emerging_ · [user-submitted] — LLM knowledge-extraction + RAG framework for quant-finance research
 - [LvcidPsyche/auto-browser](research/LvcidPsyche__auto-browser.md) ⭐655 · _emerging_ · [github] — MCP-native, self-hosted browser agent with human-in-the-loop — gives an agent a real Playwright browser
 - [cloudflare/browser-rendering](research/cloudflare__browser-rendering.md) ⭐0 · _experimental_ · [github] — Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet
+- [mattpocock/skills](research/mattpocock__skills.md) ⭐0 · _trending_ · [github-trending] — personal Claude Code / Codex agent skills library (alignment, verbosity, triage)
+- [diegosouzapw/OmniRoute](research/diegosouzapw__OmniRoute.md) ⭐0 · _trending_ · [github-trending] — self-hosted AI gateway aggregating free-tier providers with token-compression routing
+- [tirth8205/code-review-graph](research/tirth8205__code-review-graph.md) ⭐0 · _trending_ · [github-trending] — Tree-sitter-based MCP server giving code review agents precise incremental context, claims 38x-528x token reduction
+- [earendil-works/pi](research/earendil-works__pi.md) ⭐0 · _trending_ · [github-trending] — self-extensible agent harness CLI + provider-agnostic agent runtime
+- [Nutlope/hallmark](research/Nutlope__hallmark.md) ⭐0 · _trending_ · [github-trending] — design skill with slop-test gates + self-critique to avoid templated AI-generated UI
+- [MoonshotAI/kimi-code](research/MoonshotAI__kimi-code.md) ⭐0 · _trending_ · [github-trending] — Moonshot's terminal coding-agent CLI (Kimi models)
 
-## skip (10)
+## skip (18)
 - [nextlevelbuilder/ui-ux-pro-max-skill](research/nextlevelbuilder__ui-ux-pro-max-skill.md) ⭐98659 · _stable_ · [github] — UI/UX design-intelligence skill; off our agent-effectiveness/token mission
 - [punkpeye/awesome-mcp-servers](research/punkpeye__awesome-mcp-servers.md) ⭐90048 · _stable_ · [github] — Another curated MCP server list; redundant with appcypher/awesome-mcp-servers already adopted
+- [koala73/worldmonitor](research/koala73__worldmonitor.md) ⭐75183 · _trending_ · [github,github-trending] — real-time geopolitical/news intelligence dashboard
 - [gsd-build/get-shit-done](research/gsd-build__get-shit-done.md) ⭐64595 · _experimental_ · [github,hackernews] · 473↑ — Meta-prompting/context-engineering framework — but THIS repo is archived; dev moved to open-gsd/gsd-core
+- [rohitg00/ai-engineering-from-scratch](research/rohitg00__ai-engineering-from-scratch.md) ⭐44107 · _trending_ · [github,github-trending] — 503-lesson course on AI engineering
 - [jamiepine/voicebox](research/jamiepine__voicebox.md) ⭐36269 · _trending_ · [github-trending] — Open-source AI voice studio (clone/dictate)
 - [heygen-com/hyperframes](research/heygen-com__hyperframes.md) ⭐32343 · _stable_ · [github] — Write HTML, render video — agent-native video pipeline; off our token/effectiveness mission
 - [calesthio/OpenMontage](research/calesthio__OpenMontage.md) ⭐29789 · _trending_ · [github-trending] — Open-source agentic video production tool
@@ -47,17 +56,40 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [millionco/react-doctor](research/millionco__react-doctor.md) ⭐13279 · _stable_ · [github] — Skill that catches bad React an agent writes; React-specific — transferable idea is the domain verify/feedback skill
 - [AgriciDaniel/claude-blog](research/AgriciDaniel__claude-blog.md) ⭐1247 · _stable_ · [github] — Blog/SEO skill suite, off-mission; only the multi-gate delivery-contract idea transfers
 - [alltrainning/graviton-dashboard](research/alltrainning__graviton-dashboard.md) ⭐0 · _experimental_ · [user-submitted] — Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation
+- [bojieli/ai-agent-book](research/bojieli__ai-agent-book.md) ⭐0 · _trending_ · [github-trending] — open-source book on AI agent design
+- [ayghri/i-have-adhd](research/ayghri__i-have-adhd.md) ⭐0 · _trending_ · [github-trending] — Claude Code/Codex plugin for ADHD-friendly output formatting
+- [earthtojake/text-to-cad](research/earthtojake__text-to-cad.md) ⭐0 · _trending_ · [github-trending] — text-to-CAD geometry generation skill
+- [CoreBunch/Instatic](research/CoreBunch__Instatic.md) ⭐0 · _trending_ · [github-trending] — self-hosted CMS with visual editor
+- [agegr/pi-web](research/agegr__pi-web.md) ⭐0 · _trending_ · [github-trending] — web UI for pi agent sessions
+- [anthropics/claude-code](research/anthropics__claude-code.md) ⭐0 · _experimental_ · [hackernews] · 1364↑ — HN-linked GitHub issue thread, not a repo candidate
 
-## 🔥 trending (7)
+## 🔥 trending (21)
+- [koala73/worldmonitor](research/koala73__worldmonitor.md) ⭐75183 · _trending_ · [github,github-trending] — real-time geopolitical/news intelligence dashboard
 - [Panniantong/Agent-Reach](research/Panniantong__Agent-Reach.md) ⭐46936 · _trending_ · [github,github-trending] — One-click internet-access layer for AI agents (YouTube/Twitter/Reddit/web/GitHub/RSS), handling auth + anti-bot pain
+- [rohitg00/ai-engineering-from-scratch](research/rohitg00__ai-engineering-from-scratch.md) ⭐44107 · _trending_ · [github,github-trending] — 503-lesson course on AI engineering
 - [jamiepine/voicebox](research/jamiepine__voicebox.md) ⭐36269 · _trending_ · [github-trending] — Open-source AI voice studio (clone/dictate)
 - [calesthio/OpenMontage](research/calesthio__OpenMontage.md) ⭐29789 · _trending_ · [github-trending] — Open-source agentic video production tool
 - [topoteretes/cognee](research/topoteretes__cognee.md) ⭐26088 · _trending_ · [github-trending] — Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions
 - [google-labs-code/design.md](research/google-labs-code__design.md.md) ⭐23675 · _trending_ · [github-trending] — A format spec for describing a visual identity/design to tools
 - [mukul975/Anthropic-Cybersecurity-Skills](research/mukul975__Anthropic-Cybersecurity-Skills.md) ⭐23433 · _trending_ · [github-trending] — A pack of 817 structured cybersecurity skills for AI agents (Claude skills format)
 - [stablyai/orca](research/stablyai__orca.md) ⭐9617 · _trending_ · [github-trending] — An agent development environment (ADE) for running a fleet of parallel agents
+- [KnockOutEZ/wigolo](research/KnockOutEZ__wigolo.md) ⭐3690 · _trending_ · [github,github-trending] — keyless local-first MCP web search/fetch/crawl/research server for agents
+- [bojieli/ai-agent-book](research/bojieli__ai-agent-book.md) ⭐0 · _trending_ · [github-trending] — open-source book on AI agent design
+- [mattpocock/skills](research/mattpocock__skills.md) ⭐0 · _trending_ · [github-trending] — personal Claude Code / Codex agent skills library (alignment, verbosity, triage)
+- [diegosouzapw/OmniRoute](research/diegosouzapw__OmniRoute.md) ⭐0 · _trending_ · [github-trending] — self-hosted AI gateway aggregating free-tier providers with token-compression routing
+- [ayghri/i-have-adhd](research/ayghri__i-have-adhd.md) ⭐0 · _trending_ · [github-trending] — Claude Code/Codex plugin for ADHD-friendly output formatting
+- [tirth8205/code-review-graph](research/tirth8205__code-review-graph.md) ⭐0 · _trending_ · [github-trending] — Tree-sitter-based MCP server giving code review agents precise incremental context, claims 38x-528x token reduction
+- [earendil-works/pi](research/earendil-works__pi.md) ⭐0 · _trending_ · [github-trending] — self-extensible agent harness CLI + provider-agnostic agent runtime
+- [Nutlope/hallmark](research/Nutlope__hallmark.md) ⭐0 · _trending_ · [github-trending] — design skill with slop-test gates + self-critique to avoid templated AI-generated UI
+- [earthtojake/text-to-cad](research/earthtojake__text-to-cad.md) ⭐0 · _trending_ · [github-trending] — text-to-CAD geometry generation skill
+- [CoreBunch/Instatic](research/CoreBunch__Instatic.md) ⭐0 · _trending_ · [github-trending] — self-hosted CMS with visual editor
+- [agegr/pi-web](research/agegr__pi-web.md) ⭐0 · _trending_ · [github-trending] — web UI for pi agent sessions
+- [MoonshotAI/kimi-code](research/MoonshotAI__kimi-code.md) ⭐0 · _trending_ · [github-trending] — Moonshot's terminal coding-agent CLI (Kimi models)
 
-## ✅ multi-source / corroborated (3)
+## ✅ multi-source / corroborated (6)
+- [koala73/worldmonitor](research/koala73__worldmonitor.md) ⭐75183 · _trending_ · [github,github-trending] — real-time geopolitical/news intelligence dashboard
 - [gsd-build/get-shit-done](research/gsd-build__get-shit-done.md) ⭐64595 · _experimental_ · [github,hackernews] · 473↑ — Meta-prompting/context-engineering framework — but THIS repo is archived; dev moved to open-gsd/gsd-core
 - [Panniantong/Agent-Reach](research/Panniantong__Agent-Reach.md) ⭐46936 · _trending_ · [github,github-trending] — One-click internet-access layer for AI agents (YouTube/Twitter/Reddit/web/GitHub/RSS), handling auth + anti-bot pain
+- [rohitg00/ai-engineering-from-scratch](research/rohitg00__ai-engineering-from-scratch.md) ⭐44107 · _trending_ · [github,github-trending] — 503-lesson course on AI engineering
+- [KnockOutEZ/wigolo](research/KnockOutEZ__wigolo.md) ⭐3690 · _trending_ · [github,github-trending] — keyless local-first MCP web search/fetch/crawl/research server for agents
 - [bethington/ghidra-mcp](research/bethington__ghidra-mcp.md) ⭐2645 · _emerging_ · [github,hackernews] · 298↑ — MCP server exposing ~110 Ghidra reverse-engineering tools to agents (seen on GitHub + HN)
