@@ -39,6 +39,7 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
 - 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
+- 🔬 **Distills a book/doc into a structured Agent Skill loaded lazily by chapter, claims 24x-51x fewer tokens than dumping full doc into context** → `research/virgiliojr94__book-to-skill.md` (`virgiliojr94/book-to-skill` ⭐19833)
 - 🔬 **Curated MCP server catalog + security/sandboxing checklist** → `research/appcypher__awesome-mcp-servers.md` (`appcypher/awesome-mcp-servers` ⭐5655)
 - 🔬 **Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard** → `research/alexgreensh__token-optimizer.md` (`alexgreensh/token-optimizer` ⭐1491)
 
