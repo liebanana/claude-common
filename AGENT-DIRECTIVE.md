@@ -77,3 +77,31 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 - **Targeted reads** — read the lines/section you need, not whole large files.
 - **Don't dump** huge command output into context; filter (`head`, `grep`, `--quiet`, count lines) or, when online, hand the noisy command to the user (§2).
 - Don't re-derive facts already established earlier in the conversation. Act once you have enough to act; skip narrating options you won't pursue.
+
+---
+
+## 5. Workflow discipline — ANALYZE → BRAINSTORM → SPEC → PLAN → IMPLEMENT, always (Luis, 2026-08-14)
+
+Every piece of work follows these five phases **in order, every time** — no jumping straight
+to code, no matter how obvious the fix looks:
+
+1. **ANALYZE** — establish the facts first: read the actual data/code/logs, reproduce, quantify.
+   Root cause before remedy; never argue from memory of the system when the system itself is
+   readable.
+2. **BRAINSTORM** — generate the real option space (including "do nothing") before committing to
+   a direction; name the trade-offs. Use the brainstorming skill when available.
+3. **SPEC** — write down WHAT will be built/changed and what "done" means: behavior, interfaces,
+   constraints, non-goals, how it will be verified.
+4. **PLAN** — order the work: steps, touch points, tests, deploy/rollback, consumer surfaces.
+   Use the planning skill when available.
+5. **IMPLEMENT** — only now write code, test-first, then verify against the spec.
+
+**Phase depth scales with the change** — a one-line fix may compress phases 1–4 into a few
+sentences — but every phase is *touched explicitly and visibly* (state your analysis, options,
+spec, and plan before the diff, however brief). Skipping is not a form of scaling.
+
+**Org gate composes with this, it doesn't replace it:** wherever a repo requires SME review
+(e.g. the tradingdesk rule-9 gate on money-affecting logic), the org round happens between
+BRAINSTORM/SPEC and PLAN — SMEs rule on the options and the spec, then only the agreed spec
+gets planned and implemented. For work without a mandated gate, still run the relevant SME
+lenses on non-trivial decisions (autonomy: decide and proceed, but decide *through the org*).
