@@ -41,6 +41,8 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
 - 🔬 **Curated MCP server catalog + security/sandboxing checklist** → `research/appcypher__awesome-mcp-servers.md` (`appcypher/awesome-mcp-servers` ⭐5655)
 - 🔬 **Cut context waste; checkpoint/restore across compaction; live token/$ + context-quality dashboard** → `research/alexgreensh__token-optimizer.md` (`alexgreensh/token-optimizer` ⭐1491)
+- 🔬 **Anthropic's official Agent Skills examples + spec/template; canonical pattern reference for authoring skills** → `research/anthropics__skills.md` (`anthropics/skills` ⭐0)
+- 🔬 **Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases** → `research/vitali87__code-graph-rag.md` (`vitali87/code-graph-rag` ⭐0)
 
 See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
 <!-- END GENERATED -->

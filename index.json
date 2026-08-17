@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-08-17",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -925,6 +925,389 @@
       },
       "maturity": "experimental",
       "note": "research/alltrainning__graviton-dashboard.md"
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Claude Code skill generating 27 editorial diagram types as static HTML/SVG, brand-matched",
+      "tags": [
+        "skill",
+        "diagrams",
+        "design"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 15600,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/cathrynlavery__diagram-design.md"
+    },
+    {
+      "repo": "PrimeIntellect-ai/prime-agent",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/PrimeIntellect-ai/prime-agent",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Alternative coding agent CLI built on a Recursive Language Model + self-refining Continual Harness",
+      "tags": [
+        "agent-cli",
+        "harness",
+        "self-improving",
+        "offtopic-tool"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 6435,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/PrimeIntellect-ai__prime-agent.md"
+    },
+    {
+      "repo": "semantica-agi/semantica",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/semantica-agi/semantica",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Enterprise graph-native context/decision-provenance infra for regulated AI systems",
+      "tags": [
+        "knowledge-graph",
+        "enterprise",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 5284,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/semantica-agi__semantica.md"
+    },
+    {
+      "repo": "TencentCloud/TencentDB-Agent-Memory",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Team-level shared agent memory hub/proxy usable by Claude Code and other agent CLIs",
+      "tags": [
+        "memory",
+        "team",
+        "proxy",
+        "multi-service"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3637,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/TencentCloud__TencentDB-Agent-Memory.md"
+    },
+    {
+      "repo": "anthropics/skills",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/anthropics/skills",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Anthropic's official Agent Skills examples + spec/template; canonical pattern reference for authoring skills",
+      "tags": [
+        "skills",
+        "reference",
+        "official"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2698,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__skills.md"
+    },
+    {
+      "repo": "unslothai/unsloth",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/unslothai/unsloth",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Desktop app for local LLM/diffusion model training and inference",
+      "tags": [
+        "local-llm",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2645,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/unslothai__unsloth.md"
+    },
+    {
+      "repo": "macro-inc/macro",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/macro-inc/macro",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "All-in-one team workspace SaaS (email/docs/tasks/CRM/agents) with shared memory",
+      "tags": [
+        "workspace",
+        "saas",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2588,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/macro-inc__macro.md"
+    },
+    {
+      "repo": "vitali87/code-graph-rag",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/vitali87/code-graph-rag",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases",
+      "tags": [
+        "mcp",
+        "rag",
+        "knowledge-graph",
+        "codebase-understanding"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1686,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/vitali87__code-graph-rag.md"
+    },
+    {
+      "repo": "lightningpixel/modly",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/lightningpixel/modly",
+      "pushed": "2026-08-17",
+      "triaged": "2026-08-17",
+      "intent": "Local desktop app for image-to-3D mesh generation",
+      "tags": [
+        "3d",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1278,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/lightningpixel__modly.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/anthropics/claude-code/issues/42796",
+      "triaged": "2026-08-17",
+      "intent": "Anthropic's own Claude Code CLI repo; HN item was an issue thread, not a new tool",
+      "tags": [
+        "baseline-tool",
+        "not-a-candidate"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 1364,
+        "comments": 753,
+        "seen_age_days": 133
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-code.md"
+    },
+    {
+      "repo": "manzaltu/claude-code-ide.el",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "triaged": "2026-08-17",
+      "intent": "Native Emacs integration for Claude Code via MCP (LSP/tree-sitter/imenu/project as MCP tools)",
+      "tags": [
+        "mcp",
+        "emacs",
+        "editor-integration"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 782,
+        "comments": 266,
+        "seen_age_days": 376
+      },
+      "maturity": "stable",
+      "note": "research/manzaltu__claude-code-ide.el.md"
+    },
+    {
+      "repo": "aattaran/deepclaude",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/aattaran/deepclaude",
+      "triaged": "2026-08-17",
+      "intent": "Wrapper repointing Claude Code CLI's model backend at DeepSeek/other APIs; ToS gray zone, not recommended",
+      "tags": [
+        "offtopic",
+        "tos-concern"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 678,
+        "comments": 281,
+        "seen_age_days": 105
+      },
+      "maturity": "experimental",
+      "note": "research/aattaran__deepclaude.md"
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/anomalyco/opencode/issues/7410",
+      "triaged": "2026-08-17",
+      "intent": "Open-source multi-model coding agent CLI (competing tool); HN item was about Anthropic subscription restrictions",
+      "tags": [
+        "offtopic",
+        "competing-tool"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 625,
+        "comments": 513,
+        "seen_age_days": 220
+      },
+      "maturity": "stable",
+      "note": "research/anomalyco__opencode.md"
+    },
+    {
+      "repo": "LaurieWired/GhidraMCP",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/LaurieWired/GhidraMCP",
+      "triaged": "2026-08-17",
+      "intent": "MCP server + Ghidra plugin for autonomous binary reverse engineering; duplicate of existing bethington/ghidra-mcp entry",
+      "tags": [
+        "mcp",
+        "reverse-engineering",
+        "duplicate"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 356,
+        "comments": 70,
+        "seen_age_days": 509
+      },
+      "maturity": "stable",
+      "note": "research/LaurieWired__GhidraMCP.md"
+    },
+    {
+      "repo": "htdt/godogen",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/htdt/godogen",
+      "triaged": "2026-08-17",
+      "intent": "Generator publishing thin per-game repos that a Claude Code/Codex agent builds into full games with proof-over-claims verification",
+      "tags": [
+        "game-dev",
+        "skill",
+        "codegen",
+        "niche"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 337,
+        "comments": 205,
+        "seen_age_days": 153
+      },
+      "maturity": "emerging",
+      "note": "research/htdt__godogen.md"
     }
   ]
 }
