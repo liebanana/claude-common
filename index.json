@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-08-31",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -142,6 +142,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/affaan-m__ECC.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 143552,
+      "url": "https://github.com/anthropics/claude-code/issues/42796",
+      "pushed": "2026-08-28",
+      "triaged": "2026-08-31",
+      "intent": "HN discussion thread ('unusable for complex engineering tasks with Feb updates') about the Claude Code product itself",
+      "tags": [
+        "meta",
+        "claude-code",
+        "hn-thread"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 1364,
+        "comments": 753,
+        "seen_age_days": 147
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-code.md"
     },
     {
       "repo": "firecrawl/firecrawl",
@@ -440,6 +466,32 @@
       "note": "research/headroomlabs-ai__headroom.md"
     },
     {
+      "repo": "rohitg00/ai-engineering-from-scratch",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 51517,
+      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "pushed": "2026-08-30",
+      "triaged": "2026-08-31",
+      "intent": "Multi-language 'AI engineering' reference course/manual, not a tool",
+      "tags": [
+        "course",
+        "education"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 51517,
+        "stars_period": 3720,
+        "repo_age_days": 166
+      },
+      "maturity": "trending",
+      "note": "research/rohitg00__ai-engineering-from-scratch.md"
+    },
+    {
       "repo": "aaif-goose/goose",
       "verdict": "watch",
       "stars": 50475,
@@ -510,6 +562,111 @@
       "note": "research/Panniantong__Agent-Reach.md"
     },
     {
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 40446,
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "pushed": "2026-08-31",
+      "triaged": "2026-08-31",
+      "intent": "163-skill scientific-research Agent Skills + Agent Plugins bundle (plugin.json + skills/) for biology/chemistry/medicine domains",
+      "tags": [
+        "skills",
+        "agent-plugins",
+        "packaging-pattern",
+        "domain-specific"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 40446,
+        "stars_period": 4309,
+        "repo_age_days": 316
+      },
+      "maturity": "stable",
+      "note": "research/K-Dense-AI__scientific-agent-skills.md"
+    },
+    {
+      "repo": "tinyhumansai/openhuman",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 39156,
+      "url": "https://github.com/tinyhumansai/openhuman",
+      "pushed": "2026-08-31",
+      "triaged": "2026-08-31",
+      "intent": "Broad consumer 'personal AI superintelligence' product (life memory, agent-fleet orchestrator, deep researcher)",
+      "tags": [
+        "consumer-product",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 39156,
+        "stars_period": 2526,
+        "repo_age_days": 194
+      },
+      "maturity": "trending",
+      "note": "research/tinyhumansai__openhuman.md"
+    },
+    {
+      "repo": "MadsLorentzen/ai-job-search",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 38929,
+      "url": "https://github.com/MadsLorentzen/ai-job-search",
+      "pushed": "2026-08-30",
+      "triaged": "2026-08-31",
+      "intent": "Personal job-search application (CV tailoring, cover letters, interview prep) built on Claude Code",
+      "tags": [
+        "application",
+        "job-search",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 38929,
+        "stars_period": 5348,
+        "repo_age_days": 166
+      },
+      "maturity": "trending",
+      "note": "research/MadsLorentzen__ai-job-search.md"
+    },
+    {
+      "repo": "tt-a1i/archify",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 37413,
+      "url": "https://github.com/tt-a1i/archify",
+      "pushed": "2026-08-31",
+      "triaged": "2026-08-31",
+      "intent": "Agent Skill that compiles a described system into a self-contained, interactive HTML architecture/sequence/workflow diagram",
+      "tags": [
+        "skill",
+        "diagrams",
+        "documentation",
+        "claude-code"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 37413,
+        "stars_period": 18103,
+        "repo_age_days": 138
+      },
+      "maturity": "trending",
+      "note": "research/tt-a1i__archify.md"
+    },
+    {
       "repo": "jamiepine/voicebox",
       "verdict": "skip",
       "stars": 36269,
@@ -533,6 +690,33 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/jamiepine__voicebox.md"
+    },
+    {
+      "repo": "anthropics/claude-plugins-official",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 35706,
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "pushed": "2026-08-31",
+      "triaged": "2026-08-31",
+      "intent": "Official, Anthropic-curated directory of high-quality Claude Code plugins (internal + third-party)",
+      "tags": [
+        "plugins",
+        "marketplace",
+        "reference",
+        "anthropic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 35706,
+        "stars_period": 1940,
+        "repo_age_days": 284
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-plugins-official.md"
     },
     {
       "repo": "heygen-com/hyperframes",
@@ -579,6 +763,58 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/calesthio__OpenMontage.md"
+    },
+    {
+      "repo": "freestylefly/awesome-gpt-image-2",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 26240,
+      "url": "https://github.com/freestylefly/awesome-gpt-image-2",
+      "pushed": "2026-08-30",
+      "triaged": "2026-08-31",
+      "intent": "Prompt template library for GPT-Image2 image generation",
+      "tags": [
+        "prompts",
+        "image-generation",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 26240,
+        "stars_period": 13413,
+        "repo_age_days": 128
+      },
+      "maturity": "trending",
+      "note": "research/freestylefly__awesome-gpt-image-2.md"
+    },
+    {
+      "repo": "THU-MAIC/OpenMAIC",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 26149,
+      "url": "https://github.com/THU-MAIC/OpenMAIC",
+      "pushed": "2026-08-31",
+      "triaged": "2026-08-31",
+      "intent": "Multi-agent interactive classroom / education product",
+      "tags": [
+        "education",
+        "multi-agent",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 26149,
+        "stars_period": 2085,
+        "repo_age_days": 173
+      },
+      "maturity": "trending",
+      "note": "research/THU-MAIC__OpenMAIC.md"
     },
     {
       "repo": "topoteretes/cognee",
@@ -657,6 +893,33 @@
       "note": "research/mukul975__Anthropic-Cybersecurity-Skills.md"
     },
     {
+      "repo": "tashfeenahmed/freellmapi",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 23234,
+      "url": "https://github.com/tashfeenahmed/freellmapi",
+      "pushed": "2026-08-30",
+      "triaged": "2026-08-31",
+      "intent": "Hosted router aggregating 34 free LLM providers / 635 endpoints behind one OpenAI-compatible /v1 API with failover",
+      "tags": [
+        "llm-router",
+        "cost",
+        "free-tier",
+        "hosted-service"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 23234,
+        "stars_period": 3037,
+        "repo_age_days": 132
+      },
+      "maturity": "trending",
+      "note": "research/tashfeenahmed__freellmapi.md"
+    },
+    {
       "repo": "DeusData/codebase-memory-mcp",
       "verdict": "adopt",
       "stars": 22669,
@@ -698,6 +961,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/millionco__react-doctor.md"
+    },
+    {
+      "repo": "ConardLi/garden-skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 11878,
+      "url": "https://github.com/ConardLi/garden-skills",
+      "pushed": "2026-07-12",
+      "triaged": "2026-08-31",
+      "intent": "Curated collection of production-ready Agent Skills (web-video-presentation, knowledge retrieval, image generation, etc.) for Claude Code/Cursor/Codex",
+      "tags": [
+        "skills",
+        "collection",
+        "claude-code"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 11878,
+        "stars_period": 1222,
+        "repo_age_days": 132
+      },
+      "maturity": "emerging",
+      "note": "research/ConardLi__garden-skills.md"
     },
     {
       "repo": "stablyai/orca",
@@ -765,6 +1054,60 @@
       "note": "research/appcypher__awesome-mcp-servers.md"
     },
     {
+      "repo": "apache/maka",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 4294,
+      "url": "https://github.com/apache/maka",
+      "pushed": "2026-08-31",
+      "triaged": "2026-08-31",
+      "intent": "ASF-incubating local-first AI agent workspace (Desktop/TUI/Eval) with an append-only structured log of messages, tool calls/results, and permission decisions",
+      "tags": [
+        "agent-workspace",
+        "logging",
+        "context-management",
+        "apache"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 4294,
+        "stars_period": 1973,
+        "repo_age_days": 96
+      },
+      "maturity": "experimental",
+      "note": "research/apache__maka.md"
+    },
+    {
+      "repo": "anthropics/claude-plugins-community",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 3009,
+      "url": "https://github.com/anthropics/claude-plugins-community",
+      "pushed": "2026-08-25",
+      "triaged": "2026-08-31",
+      "intent": "Official read-only mirror of the community Claude Code / Claude Cowork plugin marketplace (marketplace.json), security-scanned, synced nightly",
+      "tags": [
+        "plugins",
+        "marketplace",
+        "reference",
+        "anthropic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 3009,
+        "stars_period": 2162,
+        "repo_age_days": 164
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-plugins-community.md"
+    },
+    {
       "repo": "bethington/ghidra-mcp",
       "verdict": "watch",
       "stars": 2645,
@@ -793,6 +1136,33 @@
       "note": "research/bethington__ghidra-mcp.md"
     },
     {
+      "repo": "aattaran/deepclaude",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2256,
+      "url": "https://github.com/aattaran/deepclaude",
+      "pushed": "2026-07-23",
+      "triaged": "2026-08-31",
+      "intent": "Swaps Claude Code's agent loop onto DeepSeek V4 Pro / OpenRouter / any Anthropic-compatible backend, claiming same UX at ~17x lower cost",
+      "tags": [
+        "cost",
+        "backend-swap",
+        "deepseek",
+        "token-thrift"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 678,
+        "comments": 281,
+        "seen_age_days": 119
+      },
+      "maturity": "emerging",
+      "note": "research/aattaran__deepclaude.md"
+    },
+    {
       "repo": "LLMQuant/quant-mind",
       "verdict": "watch",
       "status": "recommended",
@@ -818,6 +1188,32 @@
       },
       "maturity": "emerging",
       "note": "research/LLMQuant__quant-mind.md"
+    },
+    {
+      "repo": "manzaltu/claude-code-ide.el",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1656,
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "pushed": "2026-08-07",
+      "triaged": "2026-08-31",
+      "intent": "Bidirectional Emacs <-> Claude Code integration over MCP (project detection, LSP/Elisp awareness, terminal integration)",
+      "tags": [
+        "emacs",
+        "mcp",
+        "editor-integration"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 782,
+        "comments": 266,
+        "seen_age_days": 390
+      },
+      "maturity": "stable",
+      "note": "research/manzaltu__claude-code-ide.el.md"
     },
     {
       "repo": "alexgreensh/token-optimizer",
