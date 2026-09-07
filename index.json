@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-09-07",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -419,6 +419,32 @@
       "note": "research/gsd-build__get-shit-done.md"
     },
     {
+      "repo": "jingyaogong/minimind",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 59394,
+      "url": "https://github.com/jingyaogong/minimind",
+      "pushed": "2026-09-04",
+      "triaged": "2026-09-07",
+      "intent": "From-scratch tutorial for training a 64M-parameter LLM",
+      "tags": [
+        "llm-training",
+        "tutorial",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3816,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/jingyaogong__minimind.md"
+    },
+    {
       "repo": "headroomlabs-ai/headroom",
       "verdict": "adopt",
       "stars": 54550,
@@ -438,6 +464,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/headroomlabs-ai__headroom.md"
+    },
+    {
+      "repo": "tt-a1i/archify",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 52118,
+      "url": "https://github.com/tt-a1i/archify",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "Agent skill turning system descriptions into deterministic architecture/sequence diagrams via typed JSON IR",
+      "tags": [
+        "skills",
+        "diagrams",
+        "architecture"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 17190,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/tt-a1i__archify.md"
     },
     {
       "repo": "aaif-goose/goose",
@@ -510,6 +562,33 @@
       "note": "research/Panniantong__Agent-Reach.md"
     },
     {
+      "repo": "Imbad0202/academic-research-skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 46760,
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "pushed": "2026-09-06",
+      "triaged": "2026-09-07",
+      "intent": "Claude Code plugin-marketplace skill suite for academic research writing pipeline",
+      "tags": [
+        "skills",
+        "plugin-marketplace",
+        "offtopic"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 46760,
+        "repo_age_days": 193,
+        "stars_period": 2334
+      },
+      "maturity": "trending",
+      "note": "research/Imbad0202__academic-research-skills.md"
+    },
+    {
       "repo": "jamiepine/voicebox",
       "verdict": "skip",
       "stars": 36269,
@@ -533,6 +612,56 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/jamiepine__voicebox.md"
+    },
+    {
+      "repo": "Gitlawb/openclaude",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 32900,
+      "url": "https://github.com/Gitlawb/openclaude",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "Competing multi-backend coding-agent CLI",
+      "tags": [
+        "harness",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1944,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/Gitlawb__openclaude.md"
+    },
+    {
+      "repo": "THU-MAIC/OpenMAIC",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 32894,
+      "url": "https://github.com/THU-MAIC/OpenMAIC",
+      "pushed": "2026-09-06",
+      "triaged": "2026-09-07",
+      "intent": "Multi-agent interactive classroom / education platform",
+      "tags": [
+        "education",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 9193,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/THU-MAIC__OpenMAIC.md"
     },
     {
       "repo": "heygen-com/hyperframes",
@@ -700,6 +829,58 @@
       "note": "research/millionco__react-doctor.md"
     },
     {
+      "repo": "zubair-trabzada/geo-seo-claude",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 10347,
+      "url": "https://github.com/zubair-trabzada/geo-seo-claude",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "GEO/SEO optimization Claude Code skill",
+      "tags": [
+        "seo",
+        "marketing",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 434,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/zubair-trabzada__geo-seo-claude.md"
+    },
+    {
+      "repo": "LaurieWired/GhidraMCP",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 9968,
+      "url": "https://github.com/LaurieWired/GhidraMCP",
+      "pushed": "2025-06-23",
+      "triaged": "2026-09-07",
+      "intent": "MCP server for autonomous binary reverse-engineering via Ghidra",
+      "tags": [
+        "mcp",
+        "reverse-engineering",
+        "offtopic"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 356,
+        "comments": 70,
+        "seen_age_days": 530
+      },
+      "maturity": "stable",
+      "note": "research/LaurieWired__GhidraMCP.md"
+    },
+    {
       "repo": "stablyai/orca",
       "verdict": "watch",
       "stars": 9617,
@@ -725,6 +906,31 @@
       "note": "research/stablyai__orca.md"
     },
     {
+      "repo": "advaitpaliwal/feynman",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 8928,
+      "url": "https://github.com/advaitpaliwal/feynman",
+      "pushed": "2026-09-06",
+      "triaged": "2026-09-07",
+      "intent": "Standalone open-source AI research-agent CLI/app",
+      "tags": [
+        "research-agent",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 262,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/advaitpaliwal__feynman.md"
+    },
+    {
       "repo": "AgriciDaniel/claude-obsidian",
       "verdict": "watch",
       "stars": 8350,
@@ -745,6 +951,59 @@
       "note": "research/AgriciDaniel__claude-obsidian.md"
     },
     {
+      "repo": "handsomestWei/patent-disclosure-skill",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 8344,
+      "url": "https://github.com/handsomestWei/patent-disclosure-skill",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "Chinese-language patent-disclosure drafting skill",
+      "tags": [
+        "patent",
+        "legal",
+        "zh",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2093,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/handsomestWei__patent-disclosure-skill.md"
+    },
+    {
+      "repo": "htdt/godogen",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 6748,
+      "url": "https://github.com/htdt/godogen",
+      "pushed": "2026-09-04",
+      "triaged": "2026-09-07",
+      "intent": "Publish-time-rendered Claude Code/Codex skill kit for autonomous Godot/Bevy/Babylon.js game building",
+      "tags": [
+        "skills",
+        "game-dev",
+        "publish-pattern"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 337,
+        "comments": 205,
+        "seen_age_days": 174
+      },
+      "maturity": "trending",
+      "note": "research/htdt__godogen.md"
+    },
+    {
       "repo": "appcypher/awesome-mcp-servers",
       "verdict": "adopt",
       "stars": 5655,
@@ -763,6 +1022,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/appcypher__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "magnitudedev/magnitude",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 3955,
+      "url": "https://github.com/magnitudedev/magnitude",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "Local-inference server auto-profiling hardware to run local models as an agent backend",
+      "tags": [
+        "local-inference",
+        "tokens",
+        "cost"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1961,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/magnitudedev__magnitude.md"
     },
     {
       "repo": "bethington/ghidra-mcp",
@@ -793,6 +1078,32 @@
       "note": "research/bethington__ghidra-mcp.md"
     },
     {
+      "repo": "aattaran/deepclaude",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2259,
+      "url": "https://github.com/aattaran/deepclaude",
+      "pushed": "2026-07-23",
+      "triaged": "2026-09-07",
+      "intent": "Swap Claude Code's model backend to DeepSeek V4 Pro/OpenRouter for lower cost, same tool loop",
+      "tags": [
+        "tokens",
+        "cost",
+        "model-routing"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 678,
+        "comments": 281,
+        "seen_age_days": 126
+      },
+      "maturity": "emerging",
+      "note": "research/aattaran__deepclaude.md"
+    },
+    {
       "repo": "LLMQuant/quant-mind",
       "verdict": "watch",
       "status": "recommended",
@@ -818,6 +1129,32 @@
       },
       "maturity": "emerging",
       "note": "research/LLMQuant__quant-mind.md"
+    },
+    {
+      "repo": "manzaltu/claude-code-ide.el",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1659,
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "pushed": "2026-08-07",
+      "triaged": "2026-09-07",
+      "intent": "Emacs native Claude Code integration exposing editor state as MCP tools",
+      "tags": [
+        "mcp",
+        "editor-integration",
+        "emacs"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 782,
+        "comments": 266,
+        "seen_age_days": 397
+      },
+      "maturity": "stable",
+      "note": "research/manzaltu__claude-code-ide.el.md"
     },
     {
       "repo": "alexgreensh/token-optimizer",
@@ -925,6 +1262,56 @@
       },
       "maturity": "experimental",
       "note": "research/alltrainning__graviton-dashboard.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/anthropics/claude-code/issues/42796",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "HN discussion thread (issue), not a tool asset",
+      "tags": [
+        "discussion",
+        "offtopic"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 1364,
+        "comments": 753,
+        "seen_age_days": 154
+      },
+      "maturity": "experimental",
+      "note": "research/anthropics__claude-code.md"
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/anomalyco/opencode/issues/7410",
+      "pushed": "2026-09-07",
+      "triaged": "2026-09-07",
+      "intent": "HN discussion thread (issue) about Claude Code subscription ToS, not a tool asset",
+      "tags": [
+        "discussion",
+        "offtopic"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 625,
+        "comments": 513,
+        "seen_age_days": 241
+      },
+      "maturity": "experimental",
+      "note": "research/anomalyco__opencode.md"
     }
   ]
 }
