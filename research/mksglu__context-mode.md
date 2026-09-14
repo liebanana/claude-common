@@ -1,0 +1,7 @@
+# mksglu/context-mode  ·  ⭐22787  ·  watch  ·  trending
+https://github.com/mksglu/context-mode · pushed 2026-09-14 · triaged 2026-09-14 · seen on github, github-trending
+
+**What it is:** An MCP server + hook bundle that sandboxes tool output (claims 98% size reduction), persists session state in SQLite with FTS5/BM25 retrieval across compaction, and pushes a "think in code" paradigm — the agent writes a script to compute/filter instead of reading raw files into context.
+**Reusable for us:** The core technique — execute-and-summarize instead of dumping raw tool output into context — is exactly [[docs/token-thrift.md]]'s philosophy, and could sharpen that doc's guidance. The README is heavily marketing-styled (claims usage across Microsoft/Google/Meta/Amazon/IBM/Nvidia/ByteDance/Stripe/Datadog/Salesforce/GitHub/RedHat/Supabase/Canva/Notion/Hasura/Framer/Cursor with no substantiation — treat as unverified) and is ELv2-licensed (not fully open source), which caps how much we'd want to depend on it directly.
+**Token / effectiveness angle:** Directly on-mission — context/token savings is its whole pitch (98% reduction claim, real HN #1/570pt traction). Worth trialing to see if the claims hold up before recommending.
+**How to adopt:** watch — trial install (`claude mcp add context-mode -- npx -y context-mode`) before trusting the marketing; if the sandboxing technique proves out, encode the pattern (not the tool) into docs/token-thrift.md.
