@@ -36,7 +36,8 @@ unreviewed push to a default branch.
 - `scripts/release.sh <major|minor|patch> [-m "note"]`:
   1. refuses if not on `main`, tree dirty, or `main` behind `origin/main`;
   2. computes next version from the latest `v*` tag (none → `v1.0.0`);
-  3. moves `[Unreleased]` → `## [vX.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`, runs `build-index.py`;
+  3. moves `[Unreleased]` → `## [vX.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`, writes claude-common's own
+     `.claude/common.lock` + CLAUDE.md block (the `self` consumer), runs `build-index.py`;
   4. commits `release: vX.Y.Z`, creates annotated tag `vX.Y.Z`, pushes commit + tag.
 - Consumers only ever receive content checked out from a tag.
 
