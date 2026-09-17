@@ -1,7 +1,7 @@
-# manzaltu/claude-code-ide.el  ·  ⭐1640  ·  watch  ·  stable
-https://github.com/manzaltu/claude-code-ide.el · pushed 2026-08-07 · triaged 2026-08-10 · seen on hackernews
+# manzaltu/claude-code-ide.el  ·  ⭐n/a  ·  watch  ·  stable
+https://github.com/manzaltu/claude-code-ide.el · triaged 2026-08-17 · seen on hackernews
 
-**What it is:** Native Emacs integration for Claude Code via MCP — bidirectional bridge exposing LSP/xref, Tree-sitter, Imenu, project info, Flycheck/Flymake diagnostics, and any Elisp function as MCP tools, plus ediff-based diff review.
-**Reusable for us:** Genuine, well-built integration, but Emacs-specific — no transferable asset for a non-Emacs workflow. Worth surfacing if an Emacs user shows up.
-**Token / effectiveness angle:** n/a directly (editor integration, not a token-saving technique).
-**How to adopt:** watch — recommend to any Emacs-using collaborator; nothing to vendor here.
+**What it is:** Native Emacs integration for Claude Code via MCP — a bidirectional bridge exposing Emacs' LSP/xref, tree-sitter, imenu, project, and arbitrary Elisp functions as MCP tools, plus diff view, diagnostics (Flycheck/Flymake), and active-buffer/selection awareness.
+**Reusable for us:** A solid worked example of "expose your editor as MCP tools" for deep IDE-aware context, but Emacs-specific and not portable to our (editor-agnostic) toolkit as-is.
+**Token / effectiveness angle:** Giving Claude direct LSP/tree-sitter access instead of shelling out to greps/reads is a real token-thrift pattern, just packaged for one editor.
+**How to adopt:** watch — recommend directly to the user only if they use Emacs; otherwise just a pattern reference.

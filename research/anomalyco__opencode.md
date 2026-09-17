@@ -1,7 +1,7 @@
-# anomalyco/opencode  ·  ⭐195717  ·  skip  ·  stable
-https://github.com/anomalyco/opencode · pushed 2026-08-10 · triaged 2026-08-10 · seen on hackernews
+# anomalyco/opencode  ·  ⭐n/a  ·  skip  ·  stable
+https://github.com/anomalyco/opencode/issues/7410 · triaged 2026-08-17 · seen on hackernews
 
-**What it is:** OpenCode, a large open-source multi-provider coding agent. The discovery hit was an issue thread ("Anthropic blocks third-party use of Claude Code subscriptions"), a policy dispute, not the tool itself.
-**Reusable for us:** None — it's a competing harness (already effectively covered as "the other harness" the way `aaif-goose/goose` is), and the specific hit is a policy/ToS dispute thread, not a technique or asset to catalog.
-**Token / effectiveness angle:** n/a.
-**How to adopt:** skip.
+**What it is:** OpenCode, an open-source terminal AI coding agent (multi-model, not Claude-specific) — the HN item surfaced was an issue thread about Anthropic restricting third-party clients' use of Claude Code subscriptions, not the tool itself.
+**Reusable for us:** None — a competing standalone agent CLI, not a Claude Code plugin/MCP/skill we could adopt.
+**Token / effectiveness angle:** n/a
+**How to adopt:** skip — off-mission (alternative tool, not an asset for this toolkit).
