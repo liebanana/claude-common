@@ -54,6 +54,7 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 - **Only stop for true hard blockers** that are genuinely human-only and can't be deferred: interactive logins/2FA you can't satisfy, irreversible broker/KYC/tax/funding submissions, or anything requiring the user's physical action or a decision only they can make.
 - When you hit such a blocker: **queue it clearly** (note what's blocked + exactly what you need from the user) and **keep going on everything not blocked by it.** Never silently skip it; never fake-complete it.
 - **Honor this repo's review gates.** If this repo's `CLAUDE.md` defines sign-off requirements (e.g. SME review on risk/sizing/stop/gate/strategy changes in the trading desk), autonomy does **not** bypass them.
+- **Emit status.** When you hit or clear a human-only blocker, and at session end, run `/oracle-status` (writes `.oracle/status.json`) — the oracle board shows only what agents emit; it never guesses.
 
 ---
 
