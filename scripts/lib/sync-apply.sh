@@ -30,14 +30,16 @@ _copy_marked() {
 apply_block() {
   local dst="$1" version="$2" repo="$3" src="$4" f="$1/CLAUDE.md" tmp
   [ -f "$4/templates/claude-md-block.md" ] || { echo "apply_block: missing template in $4" >&2; return 1; }
-  if [ ! -f "$f" ]; then
-    { echo "# $repo"; echo; _render_block "$src" "$version"; } > "$f"; return $?
-  fi
+  # scaffold a title-only file, then fall through so the block is inserted the same way every time
+  if [ ! -f "$f" ]; then echo "# $repo" > "$f" || return 1; fi
   tmp="$(mktemp)"
-  # 1) strip existing block and stray import lines
+  # 1) strip existing block and stray import lines; squeeze blank runs; drop leading/trailing blanks
+  #    (so the insert below yields the same shape whether or not a block was there before)
   awk -v b="$CC_BEGIN" -v e="$CC_END" '
     $0==b {skip=1; next} $0==e {skip=0; next} skip {next}
-    /^@AGENT-DIRECTIVE\.md[[:space:]]*$/ {next} {print}' "$f" > "$tmp" \
+    /^@AGENT-DIRECTIVE\.md[[:space:]]*$/ {next}
+    /^$/ {blank=1; next}
+    { if (blank && seen) print ""; blank=0; seen=1; print }' "$f" > "$tmp" \
     || { rm -f "$tmp" "$tmp.2"; return 1; }
   # 2) insert block after the first H1 (plus a blank line), else at top
   local block; block="$(_render_block "$src" "$version")"
