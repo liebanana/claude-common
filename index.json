@@ -39,6 +39,33 @@
       ]
     },
     {
+      "id": "release",
+      "kind": "script",
+      "path": "scripts/release.sh",
+      "group": "Index & navigation",
+      "intent": "Cut a tagged claude-common release: rotate CHANGELOG, write self lock + CLAUDE.md block, rebuild index, tag vX.Y.Z, push",
+      "status": "ready",
+      "tags": [
+        "release",
+        "tag",
+        "changelog"
+      ]
+    },
+    {
+      "id": "sync-consumers",
+      "kind": "script",
+      "path": "scripts/sync-consumers.sh",
+      "group": "Index & navigation",
+      "intent": "Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)",
+      "status": "ready",
+      "tags": [
+        "sync",
+        "release",
+        "pr",
+        "cron"
+      ]
+    },
+    {
       "id": "build-index",
       "kind": "script",
       "path": "scripts/build-index.py",
@@ -142,6 +169,19 @@
       "tags": [
         "tokens",
         "practices"
+      ]
+    },
+    {
+      "id": "version-check",
+      "kind": "hook",
+      "path": "hooks/version-check.sh",
+      "group": "Reusable Claude Code assets",
+      "intent": "SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag",
+      "status": "ready",
+      "tags": [
+        "hook",
+        "session-start",
+        "sync"
       ]
     },
     {

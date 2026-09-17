@@ -16,3 +16,6 @@ jobs:
       - name: shell syntax (all tracked .sh)
         run: git ls-files '*.sh' | xargs -r -n1 bash -n
       - run: shellcheck --severity=error install.sh
+      - name: host-independent test suite
+        run: |
+          for t in tests/merge-settings-test.sh tests/sync-apply-test.sh tests/version-check-test.sh tests/release-test.sh tests/sync-smoke.sh; do bash "$t"; done
