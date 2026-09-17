@@ -14,6 +14,8 @@
 # Env: AUTO_PUSH, GH_BIN (default gh), SYNC_SCRATCH (default <common>/state/sync-wt), CLAUDE_COMMON_DIR.
 # Exit 1 if any consumer failed (others still processed). Spec: docs/superpowers/specs/2026-09-14-consumer-sync-design.md §4
 set -uo pipefail
+# cron's PATH is minimal; ensure gh/git/jq resolve the same way an interactive shell would.
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 COMMON="${CLAUDE_COMMON_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 . "$COMMON/scripts/lib/sync-apply.sh"
 
@@ -61,7 +63,15 @@ if [ "$MODE" = sync ]; then
   [ -n "$TARGET" ] || { echo "no v* tag in $COMMON — run scripts/release.sh first" >&2; exit 2; }
   git -C "$COMMON" rev-parse -q --verify "refs/tags/$TARGET" >/dev/null || { echo "tag not found: $TARGET" >&2; exit 2; }
   EXPORT="$(mktemp -d)"; trap 'rm -rf "$EXPORT"' EXIT
-  git -C "$COMMON" archive "$TARGET" | tar -xf - -C "$EXPORT"
+  if ! git -C "$COMMON" archive "$TARGET" | tar -xf - -C "$EXPORT"; then
+    echo "sync-consumers.sh: export of $TARGET failed" >&2; exit 2
+  fi
+  SYNCED="$(git -C "$COMMON" log -1 --format=%cs "$TARGET")"
+  for p in AGENT-DIRECTIVE.md templates/claude-md-block.md templates/settings.baseline.json scripts/lib/merge-settings.jq; do
+    [ -f "$EXPORT/$p" ] || { echo "sync-consumers.sh: export of $TARGET is malformed (missing $p)" >&2; exit 2; }
+  done
+  ls "$EXPORT"/.claude/commands/*.md >/dev/null 2>&1 \
+    || { echo "sync-consumers.sh: export of $TARGET is malformed (no .claude/commands/*.md)" >&2; exit 2; }
 fi
 
 # ---------- per-repo
@@ -78,7 +88,8 @@ while IFS=$'\t' read -r repo mode; do
     elif is_worktree "$dir"; then state=worktree
     else
       db="$(default_branch "$dir")" || { state=no-default-branch; }
-      [ -z "$state" ] && { pinned="$(pinned_of "$db" "$dir")"; pinned="${pinned:--}"
+      [ -z "$state" ] && { ref="$db"; git -C "$dir" show-ref -q --verify "refs/remotes/origin/$db" && ref="origin/$db"
+        pinned="$(pinned_of "$ref" "$dir")"; pinned="${pinned:--}"
         if [ "$pinned" = "$LATEST" ]; then state=current
         elif n="$(pr_number "$dir" "$branch")" && [ -n "$n" ]; then state="pr-open #$n"
         elif git -C "$dir" show-ref -q --verify "refs/heads/$branch"; then state="$( has_remote "$dir" && echo branch-local || echo no-remote )"
@@ -95,7 +106,10 @@ while IFS=$'\t' read -r repo mode; do
   db="$(default_branch "$dir")" || { log "$repo: no default branch"; FAILED=1; continue; }
   remote=0; has_remote "$dir" && remote=1
   base="$db"
-  if [ $remote = 1 ]; then git -C "$dir" fetch -q origin "$db" 2>/dev/null && base="origin/$db" || log "$repo: fetch failed, using local $db"; fi
+  if [ $remote = 1 ]; then
+    if git -C "$dir" fetch -q origin "$db" 2>/dev/null; then base="origin/$db"
+    else log "$repo: fetch failed — skipping"; FAILED=1; continue; fi
+  fi
   if [ ${#ONLY[@]} -eq 0 ] && [ "$(pinned_of "$base" "$dir")" = "$TARGET" ]; then log "$repo: current ($TARGET)"; continue; fi
 
   wt="$SCRATCH/$repo"; mkdir -p "$SCRATCH"; git -C "$dir" worktree remove -f "$wt" 2>/dev/null; rm -rf "$wt"
@@ -106,10 +120,19 @@ while IFS=$'\t' read -r repo mode; do
     git -C "$dir" worktree add -q -B "$branch" "$wt" "$base" 2>/dev/null \
       || { log "$repo: cannot create branch $branch (checked out elsewhere?)"; FAILED=1; continue; }
   fi
-  if ! apply_contract "$EXPORT" "$wt" "$TARGET" "$repo"; then log "$repo: apply failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
+  if ! apply_contract "$EXPORT" "$wt" "$TARGET" "$repo" "$SYNCED"; then log "$repo: apply failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   if ! ( cd "$wt" && git add -A ); then log "$repo: git add failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   if ( cd "$wt" && git diff --cached --quiet ); then
+    # Nothing staged at all. That's only truly "up-to-date" if the managed lock on disk
+    # matches base's lock too — otherwise .claude/common.lock (or another managed path) is
+    # gitignored in this consumer and git add silently dropped it.
+    if [ -f "$wt/.claude/common.lock" ] && ! git -C "$wt" diff --quiet "$base" -- .claude/common.lock 2>/dev/null; then
+      log "$repo: managed files not staged (gitignored?)"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue
+    fi
     log "$repo: up-to-date (no changes)"; git -C "$dir" worktree remove -f "$wt"; continue
+  fi
+  if ! ( cd "$wt" && git diff --cached --name-only | grep -qxF .claude/common.lock ); then
+    log "$repo: managed files not staged (gitignored?)"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue
   fi
   if [ $DRY = 1 ]; then
     log "$repo: would change:"; ( cd "$wt" && git diff --cached --stat | sed 's/^/    /' ); git -C "$dir" worktree remove -f "$wt"; continue
@@ -125,8 +148,12 @@ Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" ); then
   fi
   if [ $remote = 0 ]; then log "$repo: no remote — branch $branch left local"; git -C "$dir" worktree remove -f "$wt"; continue; fi
   if [ "$PUSH" != 1 ]; then log "$repo: branch $branch committed locally (AUTO_PUSH!=1, no push/PR)"; git -C "$dir" worktree remove -f "$wt"; continue; fi
-  git -C "$wt" fetch -q origin "$branch" 2>/dev/null || true
-  if ! ( cd "$wt" && git push -q --force-with-lease -u origin "$branch" ); then log "$repo: push failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
+  # Lease against the sha we last pushed ($prev, captured before the worktree's -B reset) — never
+  # fetch first. A fetch here would refresh our local view of the remote tip just before pushing,
+  # which makes --force-with-lease behave like a plain --force and silently clobbers anything a
+  # reviewer pushed onto this branch out of band.
+  if [ -n "$prev" ]; then lease="--force-with-lease=$branch:$prev"; else lease="--force-with-lease"; fi
+  if ! ( cd "$wt" && git push -q $lease -u origin "$branch" </dev/null ); then log "$repo: push failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   body="Pin claude-common to **$TARGET** (managed files only; repo-local rules untouched).
 
 Changed:
@@ -138,11 +165,11 @@ $(changelog_delta)
 🤖 Generated with [Claude Code](https://claude.com/claude-code)"
   if command -v "$GH" >/dev/null 2>&1; then
     n="$(pr_number "$dir" "$branch")"
-    if [ -n "$n" ]; then (cd "$wt" && "$GH" pr edit "$n" --body "$body" >/dev/null) && log "$repo: PR #$n refreshed" || log "$repo: pr edit failed (branch pushed)"
-    else url="$(cd "$wt" && "$GH" pr create --base "$db" --head "$branch" --title "chore: sync claude-common $TARGET" --body "$body" 2>&1)" \
+    if [ -n "$n" ]; then (cd "$wt" && "$GH" pr edit "$n" --body "$body" </dev/null >/dev/null) && log "$repo: PR #$n refreshed" || log "$repo: pr edit failed (branch pushed)"
+    else url="$(cd "$wt" && "$GH" pr create --base "$db" --head "$branch" --title "chore: sync claude-common $TARGET" --body "$body" </dev/null 2>&1)" \
          && log "$repo: PR $url" || { log "$repo: gh pr create failed: $url (branch pushed; open manually)"; FAILED=1; }
     fi
-  else log "$repo: gh not found; branch pushed — open a PR manually"; fi
+  else log "$repo: gh not found; branch pushed — open a PR manually"; FAILED=1; fi
   git -C "$dir" worktree remove -f "$wt"
 done < <(jq -r '.consumers[] | [.repo, .mode] | @tsv' "$MANIFEST")
 exit $FAILED

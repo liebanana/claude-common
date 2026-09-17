@@ -47,7 +47,7 @@ git add -A || { echo "release.sh: git add failed" >&2; exit 1; }
 git commit -q -m "release: $next
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" || { echo "release.sh: git commit failed" >&2; exit 1; }
-git tag -a "$next" -m "claude-common $next${NOTE:+ — $NOTE}"
+git tag -a "$next" -m "claude-common $next${NOTE:+ — $NOTE}" || { echo "release.sh: tag failed" >&2; exit 1; }
 if [ "${RELEASE_NO_PUSH:-0}" = 1 ]; then echo "release.sh: tagged $next (RELEASE_NO_PUSH=1, not pushed)"; exit 0; fi
 if git remote get-url origin >/dev/null 2>&1; then git push -q origin main "$next" && echo "release.sh: pushed $next" || { echo "release.sh: push failed (tag exists locally)" >&2; exit 1; }
 else echo "release.sh: no origin; tagged $next locally"; fi
