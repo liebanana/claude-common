@@ -39,6 +39,20 @@
       ]
     },
     {
+      "id": "sync-consumers",
+      "kind": "script",
+      "path": "scripts/sync-consumers.sh",
+      "group": "Index & navigation",
+      "intent": "Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)",
+      "status": "ready",
+      "tags": [
+        "sync",
+        "release",
+        "pr",
+        "cron"
+      ]
+    },
+    {
       "id": "build-index",
       "kind": "script",
       "path": "scripts/build-index.py",
