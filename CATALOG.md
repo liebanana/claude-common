@@ -60,6 +60,8 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Fully-local Claude Code session memory — condenses session logs into a resume-ready summary via a classical (non-LLM) Python summarizer, avoiding the cold-start re-explain tax at zero extra model cost** → `research/raiyanyahya__recall.md` (`raiyanyahya/recall` ⭐717)
 - 🔬 **npx CLI scanning installed MCP server configs for tool-poisoning/exfiltration/cross-origin-escalation vulnerabilities** → `research/riseandignite__mcp-shield.md` (`riseandignite/mcp-shield` ⭐554)
 - 🔬 **Zero-dependency pure-bash MCP server implementation (JSON-RPC over stdio, function-naming tool discovery)** → `research/muthuishere__mcp-server-bash-sdk.md` (`muthuishere/mcp-server-bash-sdk` ⭐512)
+- 🔬 **Anthropic's official Agent Skills examples + spec/template; canonical pattern reference for authoring skills** → `research/anthropics__skills.md` (`anthropics/skills` ⭐0)
+- 🔬 **Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases** → `research/vitali87__code-graph-rag.md` (`vitali87/code-graph-rag` ⭐0)
 
 See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
 <!-- END GENERATED -->
