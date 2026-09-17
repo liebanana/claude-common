@@ -18,7 +18,7 @@ _render_block() { sed "s/{{VERSION}}/$2/g" "$1/templates/claude-md-block.md"; }
 _copy_marked() {
   local src="$1" dst="$2"
   mkdir -p "$(dirname "$dst")"
-  if [ "$(head -c 4 "$src")" = "---"$'\n' ]; then
+  if [ "$(head -n1 "$src")" = "---" ]; then
     { echo '---'; echo "$CC_MARK"; tail -n +2 "$src"; } > "$dst"
   else
     { echo '---'; echo "$CC_MARK"; echo '---'; cat "$src"; } > "$dst"
@@ -27,6 +27,7 @@ _copy_marked() {
 
 apply_block() {
   local dst="$1" version="$2" repo="$3" src="$4" f="$1/CLAUDE.md" tmp
+  [ -f "$4/templates/claude-md-block.md" ] || { echo "apply_block: missing template in $4" >&2; return 1; }
   tmp="$(mktemp)"
   if [ ! -f "$f" ]; then
     { echo "# $repo"; echo; _render_block "$src" "$version"; } > "$f"; rm -f "$tmp"; return 0

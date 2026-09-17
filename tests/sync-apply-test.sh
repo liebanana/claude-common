@@ -22,10 +22,17 @@ assert_file "$D1/AGENT-DIRECTIVE.md"
 assert_grep '^# fresh-repo$' "$D1/CLAUDE.md"
 assert_count '^@AGENT-DIRECTIVE\.md$' "$D1/CLAUDE.md" 1
 assert_grep 'claude-common v1\.2\.3' "$D1/CLAUDE.md"
-assert_grep '^managed-by: claude-common$' "$D1/.claude/commands/one.md"
-assert_grep '^description: cmd one$' "$D1/.claude/commands/one.md"
-assert_grep '^managed-by: claude-common$' "$D1/.claude/agents/bot.md"
-assert_grep '^no frontmatter agent$' "$D1/.claude/agents/bot.md"
+# Tightened assertions for one.md (cmd file with frontmatter)
+assert_eq "$(sed -n 1p "$D1/.claude/commands/one.md")" "---" "one.md line 1"
+assert_eq "$(sed -n 2p "$D1/.claude/commands/one.md")" "managed-by: claude-common" "one.md line 2"
+assert_eq "$(sed -n 3p "$D1/.claude/commands/one.md")" "description: cmd one" "one.md line 3"
+assert_eq "$(sed -n 4p "$D1/.claude/commands/one.md")" "---" "one.md line 4"
+assert_count '^---$' "$D1/.claude/commands/one.md" 2 "one.md two --- delimiters"
+# Tightened assertions for bot.md (agent file without frontmatter)
+assert_eq "$(sed -n 1p "$D1/.claude/agents/bot.md")" "---" "bot.md line 1"
+assert_eq "$(sed -n 2p "$D1/.claude/agents/bot.md")" "managed-by: claude-common" "bot.md line 2"
+assert_eq "$(sed -n 3p "$D1/.claude/agents/bot.md")" "---" "bot.md line 3"
+assert_eq "$(sed -n 4p "$D1/.claude/agents/bot.md")" "no frontmatter agent" "bot.md line 4"
 assert_exec "$D1/.claude/hooks/common/version-check.sh"
 assert_eq "$(jq -S -c . "$D1/.claude/settings.json")" "$(jq -S -c . "$SRC/templates/settings.baseline.json")" "settings == baseline"
 assert_eq "$(jq -r .version "$D1/.claude/common.lock")" "v1.2.3" "lock version"
@@ -69,4 +76,8 @@ apply_block "$D4" v2.0.0 self "$SRC" || _fail "apply_block rc"
 assert_count '^@AGENT-DIRECTIVE\.md$' "$D4/CLAUDE.md" 1
 assert_grep 'claude-common v2\.0\.0' "$D4/CLAUDE.md"
 assert_not_file "$D4/AGENT-DIRECTIVE.md"
+
+# --- apply_block must fail without template
+D5="$T/d5"; mkdir -p "$D5"
+if apply_block "$D5" v1 x "$T/nosrc" 2>/dev/null; then _fail "apply_block should fail without template"; fi
 finish sync-apply-test
