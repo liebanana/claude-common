@@ -1,0 +1,7 @@
+# Tencent/AI-Infra-Guard  ·  ⭐5726  ·  adopt  ·  stable
+https://github.com/Tencent/AI-Infra-Guard · pushed 2026-08-24 · triaged 2026-08-24 · seen on github-trending
+
+**What it is:** AI red-teaming platform from Tencent's Zhuque Lab. Bundles standalone CLIs for scanning MCP servers (`mcp-scan`: tool poisoning, credential exfiltration, command injection detection), Claude/agent Skills (`skill-scan`: risk categories, bytecode/charset-smuggling bypass detection), general AI infra CVEs (2000+ rule vuln DB), and jailbreak evaluation (multi-turn attack simulation). Presented at Black Hat EU. Actively released (weekly cadence).
+**Reusable for us:** A concrete external tool we can run against our own `mcp/` templates and `.claude/skills`-style assets before publishing them — i.e. a second opinion alongside the built-in `security-review` skill, specifically tuned for MCP/skill-poisoning classes of bugs this repo's assets could plausibly introduce.
+**Token / effectiveness angle:** n/a directly (it's a security scanner, not a thrift technique) — but catching a poisoned MCP/skill before it's contributed is squarely in scope for a repo that exists to be cloned and installed by other agents.
+**How to adopt:** Try `skill-scan`/`mcp-scan` (via Docker, see repo Quick Start) against this repo's `.claude/commands`, `.claude/agents`, and `mcp/` templates; if it produces useful signal, wire it into the PR-review path for new contributions and flip this to `in-use` with field notes on false-positive rate.

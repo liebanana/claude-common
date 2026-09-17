@@ -1,0 +1,7 @@
+# akitaonrails/ai-memory  ·  ⭐4326  ·  watch  ·  trending
+https://github.com/akitaonrails/ai-memory · pushed 2026-08-24 · triaged 2026-08-24 · seen on github-trending
+
+**What it is:** Rust-built long-term memory / cross-harness handoff daemon for coding agents. Hooks into Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and a dozen others via MCP + lifecycle hooks; captures session events into a plain-markdown "wiki" (git-backed, grep-able) and injects a bounded "where you left off" handoff at the next session's start. Also offers opt-in "managed workstreams" for resuming one logical task across different CLI vendors.
+**Reusable for us:** Overlaps directly with this repo's own mission (session continuity, `/contribute-to-common`) but at a much heavier scope — full daemon + SQLite/FTS5 + per-harness hook installers for ~15 different agent CLIs. Not something to vendor; the cross-harness handoff *pattern* (bounded observation capture → session-end consolidation → next-session injection) is the transferable idea.
+**Token / effectiveness angle:** Same goal as our memory system — persistent knowledge across sessions without re-deriving context — but general-purpose across any coding agent rather than Claude-specific.
+**How to adopt:** Watch. Brand new (huge weekly star spike, feature list reads over-scoped for a first release) — let it mature before considering install. If ever trialed, compare against our own memory/`research/INDEX.md` approach rather than replacing it.
