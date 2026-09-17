@@ -1,7 +1,7 @@
-# THU-MAIC/OpenMAIC  ·  ⭐32894  ·  skip  ·  trending
-https://github.com/THU-MAIC/OpenMAIC · pushed 2026-09-06 · triaged 2026-09-07 · seen on github-trending
+# THU-MAIC/OpenMAIC  ·  ⭐36732  ·  skip  ·  trending
+https://github.com/THU-MAIC/OpenMAIC · pushed 2026-09-14 · triaged 2026-09-14 · seen on github-trending
 
-**What it is:** An open-source multi-agent interactive classroom platform (Next.js web app) for immersive AI-tutored learning experiences, with optional OpenClaw/Lemonade local-AI integration.
-**Reusable for us:** None — it's an end-user education product, not an agent-tooling asset or technique relevant to Claude Code effectiveness.
+**What it is:** A multi-agent "immersive classroom" web app (Next.js + LangGraph) that generates whole courses (slides, quizzes, interactives) from a prompt, backed by a published paper (JCST'26).
+**Reusable for us:** None — it's an education-content product, not an agent-tooling asset relevant to making Claude Code more effective.
 **Token / effectiveness angle:** n/a.
-**How to adopt:** Skip.
+**How to adopt:** skip.

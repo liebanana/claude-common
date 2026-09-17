@@ -28,7 +28,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts/build-index.py` · _index, maintenance_
 
 ## Reusable Claude Code assets
-- • **Let an agent drive and inspect a real Chrome browser for frontend verification and debugging** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, frontend, debugging_
+- 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
 - 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
@@ -45,12 +45,11 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills** → `research/addyosmani__agent-skills.md` (`addyosmani/agent-skills` ⭐68155)
 - 🔬 **Pre-indexed semantic code-intelligence graph for Claude Code/Cursor/Codex/etc — surgical context, fewer tool calls, 100% local, auto-syncs on code changes** → `research/colbymchenry__codegraph.md` (`colbymchenry/codegraph` ⭐61096)
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
+- 🔬 **Official Google MCP server: live Chrome control for perf traces, network/console inspection, Puppeteer automation** → `research/ChromeDevTools__chrome-devtools-mcp.md` (`ChromeDevTools/chrome-devtools-mcp` ⭐51916)
 - 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
-- 🔬 **Official MCP server giving coding agents live Chrome control for automation, debugging, and performance analysis** → `research/ChromeDevTools__chrome-devtools-mcp.md` (`ChromeDevTools/chrome-devtools-mcp` ⭐46032)
 - 🔬 **Official plugin: invoke OpenAI Codex from inside Claude Code for review/delegate/adversarial-review** → `research/openai__codex-plugin-cc.md` (`openai/codex-plugin-cc` ⭐28302)
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
 - 🔬 **Distills a book/doc into a structured Agent Skill loaded lazily by chapter, claims 24x-51x fewer tokens than dumping full doc into context** → `research/virgiliojr94__book-to-skill.md` (`virgiliojr94/book-to-skill` ⭐19833)
-- 🔬 **Context-window optimizer for coding agents — sandboxes tool output (~98% reduction), persists session memory, enforces routing across 17 platforms via MCP + hooks** → `research/mksglu__context-mode.md` (`mksglu/context-mode` ⭐19116)
 - 🔬 **Converts documentation sites, GitHub repos, and PDFs into Claude AI skills automatically, with conflict detection and an MCP integration** → `research/yusufkaraaslan__Skill_Seekers.md` (`yusufkaraaslan/Skill_Seekers` ⭐14506)
 - 🔬 **AI red-team platform with standalone MCP/skill/agent security scanner CLIs** → `research/Tencent__AI-Infra-Guard.md` (`Tencent/AI-Infra-Guard` ⭐5726)
 - 🔬 **Fast/accurate code search library for agents — ~98% fewer tokens than grep+read, CPU-only, MCP server/CLI/subagent, 200x faster indexing than a code-specialized transformer** → `research/MinishLab__semble.md` (`MinishLab/semble` ⭐5658)

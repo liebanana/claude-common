@@ -1,7 +1,7 @@
-# ChromeDevTools/chrome-devtools-mcp  ·  ⭐46032  ·  adopt  ·  stable
-https://github.com/ChromeDevTools/chrome-devtools-mcp · pushed 2026-07-06 · triaged 2026-07-06 · seen on github,github-trending · 1375↑
+# ChromeDevTools/chrome-devtools-mcp  ·  ⭐51916  ·  adopt  ·  stable
+https://github.com/ChromeDevTools/chrome-devtools-mcp · pushed 2026-09-14 · triaged 2026-09-14 · seen on github, github-trending
 
-**What it is:** Google's official MCP server giving a coding agent live control of a real Chrome instance — screenshots, console/network inspection, and performance-trace analysis — built on Puppeteer.
-**Reusable for us:** Directly useful for our `run`/`verify` skills, which say to actually drive the app in a browser before claiming a frontend change works. This MCP server is the concrete way to do that from inside a session instead of hand-waving.
-**Token / effectiveness angle:** Saves the back-and-forth of asking the user to screenshot/paste console output — the agent inspects the live page itself.
-**How to adopt:** Stubbed as [`mcp/chrome-devtools-mcp.md`](../mcp/chrome-devtools-mcp.md) with the `.mcp.json` fragment. Untested in this repo — try it on the next frontend task and record field notes.
+**What it is:** Google's official MCP server exposing live Chrome control to coding agents — performance trace recording/insights, network/console inspection with source-mapped stack traces, and Puppeteer-driven automation. Officially supports Chrome / Chrome for Testing.
+**Reusable for us:** A one-line MCP config any repo can drop in for browser debugging/automation tasks. Stubbed a template at [`mcp/chrome-devtools-mcp.md`](../mcp/chrome-devtools-mcp.md).
+**Token / effectiveness angle:** Not a token-savings tool itself, but a credible, officially-maintained alternative to ad-hoc browser scripting — reduces agent trial-and-error when debugging frontend issues. Also directly relevant: this session's local `playwright` MCP failed to connect (`npx` not found), so this is a concrete fallback/alternative worth knowing about.
+**How to adopt:** Copy the config from `mcp/chrome-devtools-mcp.md` into a project's `.mcp.json`; `--slim --headless` for lightweight basic-browser-task use.
