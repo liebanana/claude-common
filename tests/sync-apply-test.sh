@@ -39,6 +39,11 @@ assert_eq "$(jq -r .version "$D1/.claude/common.lock")" "v1.2.3" "lock version"
 assert_eq "$(jq -c '.managed|sort' "$D1/.claude/common.lock")" \
   '[".claude/agents/bot.md",".claude/commands/one.md",".claude/hooks/common/version-check.sh","AGENT-DIRECTIVE.md"]' "lock managed"
 
+# scaffolded repo: a second apply must change nothing (same shape as the re-strip path)
+cp -r "$D1" "$T/d1-before"
+apply_contract "$SRC" "$D1" v1.2.3 fresh-repo || _fail "re-apply d1 rc"
+diff -r "$T/d1-before" "$D1" >/dev/null || _fail "second apply on scaffolded repo changed files"
+
 # --- case 2: existing repo with title, stray import, local agent, settings with plugins + own hook
 D2="$T/d2"; mkdir -p "$D2/.claude/agents"
 printf -- '# My Repo\n\n@AGENT-DIRECTIVE.md\n\n## Rules\n- keep me\n' > "$D2/CLAUDE.md"

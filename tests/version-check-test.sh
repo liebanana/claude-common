@@ -4,6 +4,7 @@ set -uo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; R="$(cd "$HERE/.." && pwd)"
 . "$HERE/lib/assert.sh"
 T=$(mktemp -d); trap 'rm -rf "$T"' EXIT
+export GIT_AUTHOR_NAME=t GIT_AUTHOR_EMAIL=t@t GIT_COMMITTER_NAME=t GIT_COMMITTER_EMAIL=t@t
 H="$R/hooks/version-check.sh"
 git init -q "$T/common" && git -C "$T/common" commit -q --allow-empty -m init \
   && git -C "$T/common" tag v1.0.0 && git -C "$T/common" tag v1.2.0 && git -C "$T/common" tag v1.10.0

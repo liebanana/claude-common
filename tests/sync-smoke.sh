@@ -120,6 +120,7 @@ assert_grep '^b[[:space:]].*branch-local' <(echo "$out")
 # --status itself must never fetch). Reading the local main (stale, no lock) would still say
 # branch-local/behind; reading origin/main (has the merged lock at v9.9.9) must say current.
 git clone -q "$T/remotes/b.git" "$T/reviewer-b" >/dev/null 2>&1
+git -C "$T/reviewer-b" checkout -q -B main origin/main   # hosts without init.defaultBranch=main
 ( cd "$T/reviewer-b" && mkdir -p .claude \
   && printf '{"version":"v9.9.9","synced":"2020-01-01","managed":[]}' > .claude/common.lock \
   && git add -A && git commit -qm "external merge" && git push -q origin main )
