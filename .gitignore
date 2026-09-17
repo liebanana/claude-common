@@ -17,3 +17,6 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# SDD scratch (ledgers, briefs, review packages)
+.superpowers/
