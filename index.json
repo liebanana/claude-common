@@ -91,6 +91,21 @@
       ]
     },
     {
+      "id": "layout-measure-repro",
+      "kind": "doc",
+      "path": "docs/layout-measure-repro.md",
+      "group": "Debugging techniques",
+      "intent": "Prove/disprove phantom-scroll & layout-void bugs in Next.js/Tailwind apps without auth, dev servers, or browser installs",
+      "status": "ready",
+      "tags": [
+        "debugging",
+        "css",
+        "playwright",
+        "nextjs",
+        "layout"
+      ]
+    },
+    {
       "id": "long-running-jobs",
       "kind": "doc",
       "path": "docs/long-running-jobs.md",
