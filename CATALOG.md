@@ -24,6 +24,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs/token-thrift.md` · _tokens, practices_
 
 ## Index & navigation
+- 🟢 **Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)** → `scripts/sync-consumers.sh` · _sync, release, pr, cron_
 - 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts/build-index.py` · _index, maintenance_
 
 ## Reusable Claude Code assets
