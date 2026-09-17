@@ -1,7 +1,7 @@
-# diegosouzapw/OmniRoute  ·  ⭐16629  ·  watch  ·  trending
-https://github.com/diegosouzapw/OmniRoute · pushed 2026-07-13 · triaged 2026-07-13 · seen on github-trending
+# diegosouzapw/OmniRoute  ·  ⭐n/a  ·  watch  ·  trending
+https://github.com/diegosouzapw/OmniRoute · triaged 2026-07-27 · seen on github-trending
 
-**What it is:** A free AI gateway/router — one endpoint fronting 250+ providers (90+ free tiers), with auto-fallback and "RTK + Caveman" compression claimed to save 15-95% of tokens. Targets Claude Code, Codex, Cursor, Cline, Copilot.
-**Reusable for us:** The token-compression claim is directly on-mission (token thrift), but the README is heavily marketing-driven (star-begging, aggressive claims about aggregating free-tier inference across 90+ providers) and the "free tier aggregation" model raises ToS-compliance questions worth checking before relying on it.
-**Token / effectiveness angle:** If the compression technique is real and documented, it could be a useful pattern regardless of whether we use the gateway itself — but unverified from README alone.
-**How to adopt:** Watch only. Don't route production traffic through it without reading `docs/reference/FREE_TIERS.md` and verifying provider ToS compliance first.
+**What it is:** A self-hosted AI gateway that aggregates ~290 providers / 90+ free tiers behind one OpenAI-compatible endpoint, with auto-fallback and its own request/response compression ("RTK + Caveman") claiming 15-95% token savings.
+**Reusable for us:** the compression technique and free-tier-aggregation idea are conceptually on-mission (token thrift, cost avoidance), but it's a heavyweight standalone gateway service, not a drop-in script/command/agent.
+**Token / effectiveness angle:** direct token-cost angle (compression + free-tier stacking), but adopting it means running/maintaining an extra service, which cuts against this repo's "no secrets, lightweight assets" model.
+**How to adopt:** watch — re-check once it has more independent validation of the token-savings and free-tier-availability claims; not something to install as-is.

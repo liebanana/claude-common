@@ -1,7 +1,7 @@
-# anthropics/claude-code  ·  ⭐136519  ·  skip  ·  stable
-https://github.com/anthropics/claude-code · pushed 2026-07-03 · triaged 2026-07-06 · seen on hackernews · 91d↑
+# anthropics/claude-code (HN thread)  ·  ⭐n/a  ·  skip  ·  n/a
+https://github.com/anthropics/claude-code/issues/42796 · triaged 2026-07-27 · seen on hackernews
 
-**What it is:** Claude Code itself — the agentic coding CLI this whole repo builds tooling for.
-**Reusable for us:** Not an external discovery — it's the base platform, already in daily use, not a candidate asset to adopt into the catalog.
-**Token / effectiveness angle:** n/a (it's the host, not an asset).
-**How to adopt:** Skip — recorded only so it doesn't resurface as a "new" candidate in future discovery runs.
+**What it is:** Not a new repo — a Hacker News-linked GitHub issue thread ("Claude Code is unusable for complex engineering tasks with Feb updates") on the well-known, already-familiar `anthropics/claude-code` repo.
+**Reusable for us:** none — no reusable asset; it's a user complaint thread, not a tool.
+**Token / effectiveness angle:** n/a
+**How to adopt:** skip — not a discovery candidate in the intended sense (discover.sh surfaced an issue URL rather than a new repo).
