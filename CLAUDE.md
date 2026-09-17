@@ -159,7 +159,8 @@ pinned to a tag recorded in its own `.claude/common.lock`.
    (`hooks/version-check.sh`) warns inside any repo that is behind.
 What lands in a consumer (all copies, committed): `AGENT-DIRECTIVE.md`; `.claude/commands|agents/*`
 carrying `managed-by: claude-common`; `.claude/hooks/common/*.sh`; a jq-merged `.claude/settings.json`
-(repo keys win); a marker block in `CLAUDE.md`; `.claude/common.lock`. Repo-local files are never touched.
+(repo keys win); a marker block in `CLAUDE.md`; `.claude/common.lock`. Repo-local files are never
+touched; a local file already sitting at a managed path makes the sync refuse rather than overwrite.
 Spec: `docs/superpowers/specs/2026-09-14-consumer-sync-design.md`. Tests: `tests/`.
 
 ## Growing the catalog (do this — it's the point)

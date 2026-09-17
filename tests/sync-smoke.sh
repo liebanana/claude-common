@@ -69,15 +69,60 @@ assert_eq "$(git -C "$ROOT/a" show common/v9.9.9:CLAUDE.md | grep -c '^@AGENT-DI
 git -C "$ROOT/b" show common/v9.9.9:CLAUDE.md | grep -q '^# b$' || _fail "b scaffolded CLAUDE.md"
 assert_grep '^pr create' "$GH_LOG"
 [ -z "$(ls -A "$C/state/sync-wt" 2>/dev/null)" ] || _fail "scratch worktrees not cleaned"
-# second run: branches unchanged, no new push, PR reused
+# second run: branches unchanged, no new push, PR reused. Run it under a `date` shim that reports
+# a different day, to prove the lock's synced date comes from the target tag's commit date (I1),
+# not wall-clock `date` — otherwise every weekly run would rewrite every already-open PR branch.
 sha_before=$(git -C "$ROOT/a" rev-parse common/v9.9.9)
-out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" 2>&1); assert_eq "$?" 1 "run2 rc"   # e still fails every run
+# Shim goes in $HOME/.local/bin (with HOME redirected to $T), not just prepended to $PATH: the
+# script itself forces /usr/local/bin:/usr/bin:/bin ahead of whatever PATH it inherits (I2, so
+# cron's minimal PATH still finds gh/git), which would otherwise shadow a plain $T/bin shim and
+# make this test pass for the wrong reason (real `date` never even reached).
+mkdir -p "$T/.local/bin"; printf '#!/usr/bin/env bash\necho 2099-01-01\n' > "$T/.local/bin/date"; chmod +x "$T/.local/bin/date"
+out=$(HOME="$T" AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" 2>&1); assert_eq "$?" 1 "run2 rc"   # e still fails every run
 assert_eq "$(git -C "$ROOT/a" rev-parse common/v9.9.9)" "$sha_before" "run2 did not rewrite branch"
 assert_grep 'a: pr-open #7 \(unchanged\)' <(echo "$out")
 assert_eq "$(grep -c '^pr create' "$GH_LOG")" "2" "no third pr create (a,b once each)"
 # --status after
 out=$(bash "$S" --manifest "$T/manifest.json" --status); assert_grep '^a[[:space:]].*pr-open #7' <(echo "$out"); assert_grep '^d[[:space:]].*no-remote' <(echo "$out")
+
+# --- C1: force-with-lease must be pinned to the sha we last pushed, not neutralized by a
+# pre-push fetch. Simulate a reviewer pushing a commit directly onto a's PR branch.
+git clone -q "$T/remotes/a.git" "$T/reviewer" >/dev/null 2>&1
+( cd "$T/reviewer" && git checkout -q common/v9.9.9 && echo reviewer >> README.md \
+  && git commit -qam reviewer && git push -q origin common/v9.9.9 )
+reviewer_sha=$(git -C "$T/reviewer" rev-parse HEAD)
+# 1) content we'd produce is identical to what's already on the branch locally -> the
+#    "(unchanged)" short-circuit fires and never touches the remote at all (sanity baseline).
+out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert_eq "$?" 0 "lease-1 rc (unchanged short-circuit)"
+assert_grep 'a: pr-open #7 \(unchanged\)' <(echo "$out")
+assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit survives (unchanged short-circuit)"
+# 2) force a real push attempt: drop the local branch ref so $prev is empty and the lease can't
+#    be pinned to a known sha. A fetch-then-push would refresh the stale remote-tracking ref and
+#    let a plain --force-with-lease clobber the reviewer's commit; without the fetch, the lease is
+#    checked against our stale local knowledge of the remote and git must refuse the push.
+git -C "$ROOT/a" branch -D common/v9.9.9 >/dev/null
+out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert_eq "$?" 1 "lease-2 rc (push refused)"
+assert_grep 'a: push failed' <(echo "$out")
+assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit still survives (lease refused)"
+
 # merge a's PR (fast-forward main) → status current, run is a no-op
 ( cd "$ROOT/a" && git merge -q --ff-only common/v9.9.9 && git push -q origin main )
+# I5: --status must read the pin from origin/<default-branch> when available, not just the local
+# branch, so a repo whose local branch hasn't advanced still resolves correctly. Drop b's fake-PR
+# flag (pr list now returns nothing for b) so its state falls through to branch-local.
+rm -f "$GH_LOG.created.b"
 out=$(bash "$S" --manifest "$T/manifest.json" --status); assert_grep '^a[[:space:]].*current' <(echo "$out")
+assert_grep '^b[[:space:]].*branch-local' <(echo "$out")
+
+# I5, genuine origin-vs-local check: simulate b's PR having been merged upstream via the GitHub UI
+# (a push straight to the bare remote's main, never touching $ROOT/b's local main) plus a prior
+# `sync` invocation having already fetched it (this is what updates refs/remotes/origin/main;
+# --status itself must never fetch). Reading the local main (stale, no lock) would still say
+# branch-local/behind; reading origin/main (has the merged lock at v9.9.9) must say current.
+git clone -q "$T/remotes/b.git" "$T/reviewer-b" >/dev/null 2>&1
+( cd "$T/reviewer-b" && mkdir -p .claude \
+  && printf '{"version":"v9.9.9","synced":"2020-01-01","managed":[]}' > .claude/common.lock \
+  && git add -A && git commit -qm "external merge" && git push -q origin main )
+git -C "$ROOT/b" fetch -q origin main
+out=$(bash "$S" --manifest "$T/manifest.json" --status); assert_grep '^b[[:space:]].*current' <(echo "$out")
 finish sync-smoke

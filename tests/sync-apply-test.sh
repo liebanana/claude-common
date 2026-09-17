@@ -86,6 +86,20 @@ D7="$T/d7"; mkdir -p "$D7"
 ( set -o pipefail; write_lock "$D7" v1.0.0 "" ) || _fail "write_lock must succeed with empty managed under pipefail"
 assert_eq "$(jq -c .managed "$D7/.claude/common.lock")" '[]' "empty managed → []"
 
+# --- write_lock: explicit SYNCED (5th arg to apply_contract / 4th to write_lock) is used verbatim,
+# not today's wall-clock date — this is what lets sync-consumers.sh pin the lock's synced date to
+# the target tag's commit date instead of rewriting every consumer's lock on every run.
+D9="$T/d9"; mkdir -p "$D9"
+write_lock "$D9" v1 "" 2020-02-02
+assert_eq "$(jq -r .synced "$D9/.claude/common.lock")" "2020-02-02" "write_lock explicit synced arg"
+
+# --- apply_contract refuses to overwrite a repo-local file sitting at a managed path (no marker,
+# not in the previous lock's managed[]) instead of silently clobbering it
+D8="$T/d8"; mkdir -p "$D8/.claude/commands"
+echo "mine" > "$D8/.claude/commands/one.md"
+if apply_contract "$SRC" "$D8" v1 r8 2>/dev/null; then _fail "apply_contract should refuse to overwrite unmanaged local file"; fi
+assert_eq "$(cat "$D8/.claude/commands/one.md")" "mine" "unmanaged local file left untouched"
+
 # --- apply_contract must fail (and propagate) when the directive cannot be written
 # AGENT-DIRECTIVE.md is a directory, and it already contains a same-named subdirectory, so
 # `cp .../AGENT-DIRECTIVE.md $D6/AGENT-DIRECTIVE.md` can't copy-into (name collision) or overwrite.
