@@ -1,7 +1,7 @@
-# mattpocock/skills  ·  ⭐178562  ·  watch  ·  trending
-https://github.com/mattpocock/skills · pushed 2026-07-17 · triaged 2026-07-20 · seen on github-trending
+# mattpocock/skills  ·  ⭐n/a  ·  watch  ·  trending
+https://github.com/mattpocock/skills · triaged 2026-07-27 · seen on github-trending
 
-**What it is:** A personal collection of small, composable, model-agnostic agent skills (triage, docs, spec workflows) from an engineering educator, installable as files or as a native Claude Code plugin marketplace.
-**Reusable for us:** The plugin-marketplace install pattern (`/plugin marketplace add`, `/plugin install`) is a clean distribution model worth referencing if claude-common ever ships an installable plugin bundle instead of `install.sh` symlinks.
-**Token / effectiveness angle:** n/a directly — its value is workflow discipline (small composable skills over monolithic frameworks like GSD/BMAD/Spec-Kit), which echoes our own "small reusable assets over reinvented frameworks" philosophy.
-**How to adopt:** watch — no direct asset to pull in; revisit if we build a plugin-marketplace distribution channel.
+**What it is:** Matt Pocock's personal library of Claude Code / Codex agent skills for "real engineering" (alignment via grilling questions, verbosity control, ticket triage, docs, etc.), installable via `skills.sh` (copied, editable) or as a native Claude Code plugin (managed, read-only bundle).
+**Reusable for us:** several individual skills look directly relevant to our own goals — `/grill-me` and `/grill-with-docs` overlap with our brainstorming/planning skills; worth diffing their skill set against our `.claude/commands` + `superpowers` skills for gaps (e.g. verbosity control, ticket-tracker integration).
+**Token / effectiveness angle:** explicitly targets the "agent didn't do what I want" and "agent is too verbose" failure modes — same token-thrift spirit as this repo.
+**How to adopt:** watch→trial — install via `npx skills@latest add mattpocock/skills` in a scratch repo, compare individual skills (esp. grill-me, triage) against what we already have, and port anything genuinely additive as its own asset with attribution rather than adopting the whole bundle.
