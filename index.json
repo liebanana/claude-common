@@ -203,16 +203,16 @@
     },
     {
       "repo": "anomalyco/opencode",
-      "verdict": "watch",
+      "verdict": "skip",
       "status": "recommended",
-      "stars": 182904,
+      "stars": 195717,
       "url": "https://github.com/anomalyco/opencode",
-      "pushed": "2026-07-06",
-      "triaged": "2026-07-06",
-      "intent": "Competing open-source AI coding agent CLI (alternative to Claude Code)",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Competing open-source coding agent; discovery hit was a ToS policy-dispute issue thread, not a technique or asset",
       "tags": [
-        "competitor",
-        "coding-agent"
+        "competing-harness",
+        "not-a-candidate"
       ],
       "source": "hackernews",
       "sources": [
@@ -221,7 +221,7 @@
       "signals": {
         "points": 625,
         "comments": 513,
-        "seen_age_days": 178
+        "seen_age_days": 213
       },
       "maturity": "stable",
       "note": "research/anomalyco__opencode.md"
@@ -246,6 +246,30 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 140907,
+      "url": "https://github.com/anthropics/claude-code",
+      "pushed": "2026-08-08",
+      "triaged": "2026-08-10",
+      "intent": "Official Claude Code repo — not an external candidate; discovery hit was a product-complaint issue thread",
+      "tags": [
+        "not-a-candidate"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 1364,
+        "comments": 753,
+        "seen_age_days": 126
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-code.md"
     },
     {
       "repo": "msitarzewski/agency-agents",
@@ -607,6 +631,31 @@
       "note": "research/gsd-build__get-shit-done.md"
     },
     {
+      "repo": "microsoft/AI-For-Beginners",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 64355,
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "pushed": "2026-07-21",
+      "triaged": "2026-08-10",
+      "intent": "12-week AI curriculum for humans, not an agent tool",
+      "tags": [
+        "education",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 5514,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "stable",
+      "note": "research/microsoft__AI-For-Beginners.md"
+    },
+    {
       "repo": "colbymchenry/codegraph",
       "verdict": "adopt",
       "status": "recommended",
@@ -880,6 +929,32 @@
       "note": "research/jamiepine__voicebox.md"
     },
     {
+      "repo": "esengine/DeepSeek-Reasonix",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 33659,
+      "url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Standalone DeepSeek-native terminal coding agent, competing harness not a Claude Code integration",
+      "tags": [
+        "agent",
+        "competing-harness",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 4709,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/esengine__DeepSeek-Reasonix.md"
+    },
+    {
       "repo": "heygen-com/hyperframes",
       "verdict": "skip",
       "stars": 32343,
@@ -899,6 +974,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/heygen-com__hyperframes.md"
+    },
+    {
+      "repo": "lyogavin/airllm",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 30515,
+      "url": "https://github.com/lyogavin/airllm",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Run 70B+ LLM inference on tiny GPUs via layer streaming; unrelated to Claude Code agent effectiveness",
+      "tags": [
+        "inference",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 5129,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "stable",
+      "note": "research/lyogavin__airllm.md"
     },
     {
       "repo": "calesthio/OpenMontage",
@@ -1080,6 +1180,32 @@
       "note": "research/mukul975__Anthropic-Cybersecurity-Skills.md"
     },
     {
+      "repo": "zhaoxuya520/reverse-skill",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 23171,
+      "url": "https://github.com/zhaoxuya520/reverse-skill",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Skill router for reverse-engineering/pentesting/CTF workflows across AI coding clients",
+      "tags": [
+        "security",
+        "pentesting",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 9784,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/zhaoxuya520__reverse-skill.md"
+    },
+    {
       "repo": "DeusData/codebase-memory-mcp",
       "verdict": "adopt",
       "stars": 22669,
@@ -1100,6 +1226,58 @@
       ],
       "maturity": "stable",
       "note": "research/DeusData__codebase-memory-mcp.md"
+    },
+    {
+      "repo": "virgiliojr94/book-to-skill",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 19833,
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Distills a book/doc into a structured Agent Skill loaded lazily by chapter, claims 24x-51x fewer tokens than dumping full doc into context",
+      "tags": [
+        "skill",
+        "token-thrift",
+        "docs"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 4121,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/virgiliojr94__book-to-skill.md"
+    },
+    {
+      "repo": "TencentCloud/TencentDB-Agent-Memory",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 19259,
+      "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Team-level shared memory hub for AI agents (chat memory, skills, wiki, code-graph) across multiple services",
+      "tags": [
+        "memory",
+        "multi-agent",
+        "infra"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 8003,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/TencentCloud__TencentDB-Agent-Memory.md"
     },
     {
       "repo": "mksglu/context-mode",
@@ -1176,6 +1354,32 @@
       },
       "maturity": "trending",
       "note": "research/Zackriya-Solutions__meetily.md"
+    },
+    {
+      "repo": "google/skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 17536,
+      "url": "https://github.com/google/skills",
+      "pushed": "2026-08-07",
+      "triaged": "2026-08-10",
+      "intent": "Google's official Agent Skills collection, entirely Google Cloud/Agent-Platform specific",
+      "tags": [
+        "skills",
+        "gcp",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1626,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "stable",
+      "note": "research/google__skills.md"
     },
     {
       "repo": "ogulcancelik/herdr",
@@ -1530,6 +1734,58 @@
       "note": "research/tt-a1i__archify.md"
     },
     {
+      "repo": "huangruiteng/loopx",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 3883,
+      "url": "https://github.com/huangruiteng/loopx",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Provider-neutral local-first control plane for long-running agent loops (objectives, gates, quota, handoffs)",
+      "tags": [
+        "loop",
+        "orchestration",
+        "multi-agent"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3518,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "emerging",
+      "note": "research/huangruiteng__loopx.md"
+    },
+    {
+      "repo": "semantica-agi/semantica",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 3822,
+      "url": "https://github.com/semantica-agi/semantica",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Enterprise graph-native decision-intelligence platform for regulated domains, off-mission",
+      "tags": [
+        "knowledge-graph",
+        "enterprise",
+        "off-mission"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1102,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/semantica-agi__semantica.md"
+    },
+    {
       "repo": "KnockOutEZ/wigolo",
       "verdict": "watch",
       "status": "recommended",
@@ -1556,6 +1812,32 @@
       },
       "maturity": "trending",
       "note": "research/KnockOutEZ__wigolo.md"
+    },
+    {
+      "repo": "vitali87/code-graph-rag",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 3407,
+      "url": "https://github.com/vitali87/code-graph-rag",
+      "pushed": "2026-08-10",
+      "triaged": "2026-08-10",
+      "intent": "Tree-sitter + knowledge-graph (Memgraph) codebase RAG exposed as an MCP server for querying/editing monorepos in plain English",
+      "tags": [
+        "mcp",
+        "rag",
+        "codebase-context"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 236,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "emerging",
+      "note": "research/vitali87__code-graph-rag.md"
     },
     {
       "repo": "bethington/ghidra-mcp",
@@ -1587,31 +1869,54 @@
     },
     {
       "repo": "aattaran/deepclaude",
-      "verdict": "watch",
+      "verdict": "skip",
       "status": "recommended",
-      "stars": 2204,
+      "stars": 2240,
       "url": "https://github.com/aattaran/deepclaude",
-      "pushed": "2026-05-16",
-      "triaged": "2026-07-13",
-      "intent": "Runs Claude Code's agent loop against DeepSeek V4 Pro / other Anthropic-compatible backends for ~17x lower cost",
+      "pushed": "2026-07-23",
+      "triaged": "2026-08-10",
+      "intent": "Swaps Claude Code's backend model to DeepSeek/OpenRouter/other providers; off-mission for a Claude-focused toolkit",
       "tags": [
-        "cost",
-        "alternative-backend",
-        "token-thrift"
+        "off-mission",
+        "backend-swap"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 2204,
-        "repo_age_days": 71,
         "points": 678,
         "comments": 281,
-        "seen_age_days": 70
+        "seen_age_days": 98
       },
       "maturity": "emerging",
       "note": "research/aattaran__deepclaude.md"
+    },
+    {
+      "repo": "unclebob/swarm-forge",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2095,
+      "url": "https://github.com/unclebob/swarm-forge",
+      "pushed": "2026-08-09",
+      "triaged": "2026-08-10",
+      "intent": "tmux-based multi-agent orchestration with role pipelines (specifier/coder/refactorer/architect/QA) across git worktrees",
+      "tags": [
+        "multi-agent",
+        "orchestration",
+        "worktrees"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 562,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "emerging",
+      "note": "research/unclebob__swarm-forge.md"
     },
     {
       "repo": "LLMQuant/quant-mind",
@@ -1644,28 +1949,26 @@
       "repo": "manzaltu/claude-code-ide.el",
       "verdict": "watch",
       "status": "recommended",
-      "stars": 1615,
+      "stars": 1640,
       "url": "https://github.com/manzaltu/claude-code-ide.el",
-      "pushed": "2026-07-02",
-      "triaged": "2026-07-13",
-      "intent": "Native Claude Code integration for Emacs via MCP (LSP, project mgmt, custom Elisp)",
+      "pushed": "2026-08-07",
+      "triaged": "2026-08-10",
+      "intent": "Native Emacs integration for Claude Code via MCP (LSP/xref/Tree-sitter/diagnostics/ediff)",
       "tags": [
+        "editor-integration",
         "mcp",
-        "emacs",
-        "editor-integration"
+        "emacs"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 1615,
-        "repo_age_days": 385,
         "points": 782,
         "comments": 266,
-        "seen_age_days": 341
+        "seen_age_days": 369
       },
-      "maturity": "emerging",
+      "maturity": "stable",
       "note": "research/manzaltu__claude-code-ide.el.md"
     },
     {
@@ -1887,52 +2190,6 @@
       },
       "maturity": "emerging",
       "note": "research/outcomeops__context-engineering.md"
-    },
-    {
-      "repo": "cloudflare/browser-rendering",
-      "verdict": "watch",
-      "stars": 0,
-      "url": "https://www.cloudflare.com/products/browser-rendering/",
-      "pushed": "2026-06-30",
-      "triaged": "2026-06-30",
-      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
-      "tags": [
-        "browser",
-        "infra"
-      ],
-      "source": "github",
-      "sources": [
-        "github"
-      ],
-      "status": "recommended",
-      "maturity": "experimental",
-      "note": "research/cloudflare__browser-rendering.md"
-    },
-    {
-      "repo": "alltrainning/graviton-dashboard",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/alltrainning/graviton-dashboard",
-      "pushed": "2026-07-07",
-      "triaged": "2026-07-08",
-      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
-      "tags": [
-        "dashboard",
-        "trading",
-        "ui-inspiration",
-        "offtopic"
-      ],
-      "source": "user-submitted",
-      "sources": [
-        "user-submitted"
-      ],
-      "signals": {
-        "stars": 0,
-        "repo_age_days": 5
-      },
-      "maturity": "experimental",
-      "note": "research/alltrainning__graviton-dashboard.md"
     },
     {
       "repo": "bojieli/ai-agent-book",
@@ -2175,28 +2432,50 @@
       "note": "research/MoonshotAI__kimi-code.md"
     },
     {
-      "repo": "anthropics/claude-code",
+      "repo": "cloudflare/browser-rendering",
+      "verdict": "watch",
+      "stars": 0,
+      "url": "https://www.cloudflare.com/products/browser-rendering/",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
+      "tags": [
+        "browser",
+        "infra"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "status": "recommended",
+      "maturity": "experimental",
+      "note": "research/cloudflare__browser-rendering.md"
+    },
+    {
+      "repo": "alltrainning/graviton-dashboard",
       "verdict": "skip",
       "status": "recommended",
       "stars": 0,
-      "url": "https://github.com/anthropics/claude-code/issues/42796",
-      "pushed": null,
-      "triaged": "2026-07-27",
-      "intent": "HN-linked GitHub issue thread, not a repo candidate",
+      "url": "https://github.com/alltrainning/graviton-dashboard",
+      "pushed": "2026-07-07",
+      "triaged": "2026-07-08",
+      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
       "tags": [
-        "not-a-repo"
+        "dashboard",
+        "trading",
+        "ui-inspiration",
+        "offtopic"
       ],
-      "source": "hackernews",
+      "source": "user-submitted",
       "sources": [
-        "hackernews"
+        "user-submitted"
       ],
       "signals": {
-        "points": 1364,
-        "comments": 753,
-        "seen_age_days": 112
+        "stars": 0,
+        "repo_age_days": 5
       },
       "maturity": "experimental",
-      "note": "research/anthropics__claude-code.md"
+      "note": "research/alltrainning__graviton-dashboard.md"
     }
   ]
 }
