@@ -1,30 +1,46 @@
 ---
 description: MCP server giving coding agents live Chrome control (screenshots, console, network, perf traces) via Puppeteer + Chrome DevTools
 kind: mcp
-status: recommended
+status: experimental
 group: Reusable Claude Code assets
-intent: Let an agent drive and inspect a real Chrome browser for frontend verification and debugging
-tags: [mcp, browser, frontend, debugging]
+intent: Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP
+tags: [mcp, browser, debugging]
 ---
 
-Imported from https://github.com/ChromeDevTools/chrome-devtools-mcp, untested here.
-Official Google project (46k+ stars). Useful anywhere the `run`/`verify` skills need to
-drive a real browser (screenshots, console errors, network requests, perf traces) instead
-of guessing at frontend behavior.
+# chrome-devtools-mcp
 
-Add to `.mcp.json`:
+Imported from <https://github.com/ChromeDevTools/chrome-devtools-mcp> (official Google Chrome
+DevTools org, MIT). Untested by this repo — verify before relying on it in a real project. See
+[`research/ChromeDevTools__chrome-devtools-mcp.md`](../research/ChromeDevTools__chrome-devtools-mcp.md)
+for the triage note.
+
+Requires Node.js LTS, current stable Chrome, and npm. Add to a project's `.mcp.json`:
 
 ```json
 {
   "mcpServers": {
     "chrome-devtools": {
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest", "--no-usage-statistics"]
+      "args": ["-y", "chrome-devtools-mcp@latest"]
     }
   }
 }
 ```
 
-Requires Node.js LTS + a current Chrome. Exposes full browser contents to the MCP
-client — avoid on sessions touching sensitive/private data. See
-[research/ChromeDevTools__chrome-devtools-mcp.md](../research/ChromeDevTools__chrome-devtools-mcp.md).
+For basic browser tasks only (lighter footprint), use slim + headless mode instead:
+
+```json
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest", "--slim", "--headless"]
+    }
+  }
+}
+```
+
+Notes from the upstream README:
+- Exposes full browser/DevTools content to the MCP client — don't use on sessions handling sensitive data.
+- Sends usage statistics to Google by default; opt out with `--no-usage-statistics` or by setting `CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS` / `CI`.
+- Officially supports Google Chrome / Chrome for Testing only.

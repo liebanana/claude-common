@@ -149,12 +149,11 @@
       "kind": "mcp",
       "path": "mcp/chrome-devtools-mcp.md",
       "group": "Reusable Claude Code assets",
-      "intent": "Let an agent drive and inspect a real Chrome browser for frontend verification and debugging",
-      "status": "recommended",
+      "intent": "Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP",
+      "status": "experimental",
       "tags": [
         "mcp",
         "browser",
-        "frontend",
         "debugging"
       ]
     }
@@ -607,6 +606,31 @@
       "note": "research/microsoft__AI-For-Beginners.md"
     },
     {
+      "repo": "tt-a1i/archify",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 61809,
+      "url": "https://github.com/tt-a1i/archify",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Diagram-generation skill (self-contained HTML/SVG); redundant with cathrynlavery/diagram-design, heavily sponsor-marketed",
+      "tags": [
+        "skill",
+        "diagrams"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 61809,
+        "repo_age_days": 152,
+        "stars_period": 10132
+      },
+      "maturity": "trending",
+      "note": "research/tt-a1i__archify.md"
+    },
+    {
       "repo": "colbymchenry/codegraph",
       "verdict": "adopt",
       "status": "recommended",
@@ -680,30 +704,31 @@
       "note": "research/headroomlabs-ai__headroom.md"
     },
     {
-      "repo": "tt-a1i/archify",
-      "verdict": "watch",
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "verdict": "adopt",
       "status": "recommended",
-      "stars": 52118,
-      "url": "https://github.com/tt-a1i/archify",
-      "pushed": "2026-09-07",
-      "triaged": "2026-09-07",
-      "intent": "Agent skill turning system descriptions into deterministic architecture/sequence diagrams via typed JSON IR",
+      "stars": 51916,
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Official Google MCP server: live Chrome control for perf traces, network/console inspection, Puppeteer automation",
       "tags": [
-        "skills",
-        "diagrams",
-        "architecture"
+        "mcp",
+        "browser",
+        "debugging"
       ],
-      "source": "github-trending",
+      "source": "github",
       "sources": [
+        "github",
         "github-trending"
       ],
       "signals": {
-        "stars_period": 17190,
-        "period": "weekly",
-        "trending": true
+        "stars": 51916,
+        "repo_age_days": 368,
+        "stars_period": 736
       },
-      "maturity": "trending",
-      "note": "research/tt-a1i__archify.md"
+      "maturity": "stable",
+      "note": "research/ChromeDevTools__chrome-devtools-mcp.md"
     },
     {
       "repo": "rohitg00/ai-engineering-from-scratch",
@@ -775,6 +800,58 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/aaif-goose__goose.md"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 50172,
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "pushed": "2026-09-05",
+      "triaged": "2026-09-14",
+      "intent": "Marketing-domain skill catalog (SEO/CRO/copywriting) for AI agents - off engineering-tooling mission",
+      "tags": [
+        "skill",
+        "marketing"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 50172,
+        "repo_age_days": 242,
+        "stars_period": 2678
+      },
+      "maturity": "trending",
+      "note": "research/coreyhaines31__marketingskills.md"
+    },
+    {
+      "repo": "blader/humanizer",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 47990,
+      "url": "https://github.com/blader/humanizer",
+      "pushed": "2026-09-06",
+      "triaged": "2026-09-14",
+      "intent": "Skill rewriting AI-sounding prose to natural voice via a 25-pattern tell taxonomy",
+      "tags": [
+        "skill",
+        "writing",
+        "voice"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 47990,
+        "repo_age_days": 239,
+        "stars_period": 3673
+      },
+      "maturity": "trending",
+      "note": "research/blader__humanizer.md"
     },
     {
       "repo": "asgeirtj/system_prompts_leaks",
@@ -881,32 +958,30 @@
       "note": "research/pbakaus__impeccable.md"
     },
     {
-      "repo": "ChromeDevTools/chrome-devtools-mcp",
-      "verdict": "adopt",
+      "repo": "ayghri/i-have-adhd",
+      "verdict": "watch",
       "status": "recommended",
-      "stars": 46032,
-      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
-      "pushed": "2026-07-06",
-      "triaged": "2026-07-06",
-      "intent": "Official MCP server giving coding agents live Chrome control for automation, debugging, and performance analysis",
+      "stars": 45131,
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Skill enforcing terse, action-first, numbered-step agent output - 10 rules aligned with token-thrift style",
       "tags": [
-        "mcp",
-        "browser",
-        "debugging",
-        "devtools"
+        "skill",
+        "output-style",
+        "tokens"
       ],
-      "source": "github",
+      "source": "github-trending",
       "sources": [
-        "github",
         "github-trending"
       ],
       "signals": {
-        "stars": 46032,
-        "stars_period": 1375,
-        "repo_age_days": 298
+        "stars": 45131,
+        "repo_age_days": 124,
+        "stars_period": 16740
       },
-      "maturity": "stable",
-      "note": "research/ChromeDevTools__chrome-devtools-mcp.md"
+      "maturity": "trending",
+      "note": "research/ayghri__i-have-adhd.md"
     },
     {
       "repo": "K-Dense-AI/scientific-agent-skills",
@@ -934,6 +1009,31 @@
       },
       "maturity": "stable",
       "note": "research/K-Dense-AI__scientific-agent-skills.md"
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 39642,
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "pushed": "2026-09-10",
+      "triaged": "2026-09-14",
+      "intent": "39-type editorial diagram skill (self-contained HTML+SVG, semantic layout patterns) - well-crafted skill-design reference",
+      "tags": [
+        "skill",
+        "diagrams"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 39642,
+        "repo_age_days": 151,
+        "stars_period": 7129
+      },
+      "maturity": "trending",
+      "note": "research/cathrynlavery__diagram-design.md"
     },
     {
       "repo": "tinyhumansai/openhuman",
@@ -1010,6 +1110,31 @@
       },
       "maturity": "trending",
       "note": "research/usestrix__strix.md"
+    },
+    {
+      "repo": "THU-MAIC/OpenMAIC",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 36732,
+      "url": "https://github.com/THU-MAIC/OpenMAIC",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Multi-agent course-building/ed-tech web app - product, not a reusable agent-tooling asset",
+      "tags": [
+        "multi-agent",
+        "education"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 36732,
+        "repo_age_days": 187,
+        "stars_period": 4202
+      },
+      "maturity": "trending",
+      "note": "research/THU-MAIC__OpenMAIC.md"
     },
     {
       "repo": "jamiepine/voicebox",
@@ -1113,31 +1238,6 @@
       },
       "maturity": "trending",
       "note": "research/Gitlawb__openclaude.md"
-    },
-    {
-      "repo": "THU-MAIC/OpenMAIC",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 32894,
-      "url": "https://github.com/THU-MAIC/OpenMAIC",
-      "pushed": "2026-09-06",
-      "triaged": "2026-09-07",
-      "intent": "Multi-agent interactive classroom / education platform",
-      "tags": [
-        "education",
-        "offtopic"
-      ],
-      "source": "github-trending",
-      "sources": [
-        "github-trending"
-      ],
-      "signals": {
-        "stars_period": 9193,
-        "period": "weekly",
-        "trending": true
-      },
-      "maturity": "trending",
-      "note": "research/THU-MAIC__OpenMAIC.md"
     },
     {
       "repo": "volcengine/OpenViking",
@@ -1266,6 +1366,32 @@
       "note": "research/openai__codex-plugin-cc.md"
     },
     {
+      "repo": "openai/skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 27155,
+      "url": "https://github.com/openai/skills",
+      "pushed": "2026-09-08",
+      "triaged": "2026-09-14",
+      "intent": "Codex skills catalog - repo is officially deprecated in favor of openai/plugins",
+      "tags": [
+        "skill",
+        "catalog",
+        "deprecated"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 27155,
+        "repo_age_days": 293,
+        "stars_period": 1622
+      },
+      "maturity": "experimental",
+      "note": "research/openai__skills.md"
+    },
+    {
       "repo": "freestylefly/awesome-gpt-image-2",
       "verdict": "skip",
       "status": "recommended",
@@ -1341,6 +1467,32 @@
       "maturity": "trending",
       "status": "recommended",
       "note": "research/topoteretes__cognee.md"
+    },
+    {
+      "repo": "alibaba/open-code-review",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 24858,
+      "url": "https://github.com/alibaba/open-code-review",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Production code-review CLI: deterministic pipeline + LLM agent, benchmarked ~1/9 tokens of general-purpose agent review at higher precision",
+      "tags": [
+        "code-review",
+        "tokens",
+        "cli"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 24858,
+        "repo_age_days": 119,
+        "stars_period": 2213
+      },
+      "maturity": "trending",
+      "note": "research/alibaba__open-code-review.md"
     },
     {
       "repo": "alibaba/page-agent",
@@ -1471,6 +1623,59 @@
       "note": "research/zhaoxuya520__reverse-skill.md"
     },
     {
+      "repo": "Tencent/WeKnora",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 23121,
+      "url": "https://github.com/Tencent/WeKnora",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Enterprise RAG/knowledge-wiki platform - full product, not a lightweight reusable asset",
+      "tags": [
+        "rag",
+        "knowledge-base"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 23121,
+        "repo_age_days": 419,
+        "stars_period": 1302
+      },
+      "maturity": "stable",
+      "note": "research/Tencent__WeKnora.md"
+    },
+    {
+      "repo": "mksglu/context-mode",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 22787,
+      "url": "https://github.com/mksglu/context-mode",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "MCP server sandboxing tool output + 'think in code' execution to cut agent context usage; verify marketing claims before trusting",
+      "tags": [
+        "mcp",
+        "tokens",
+        "context"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 22787,
+        "repo_age_days": 203,
+        "stars_period": 2102
+      },
+      "maturity": "trending",
+      "note": "research/mksglu__context-mode.md"
+    },
+    {
       "repo": "DeusData/codebase-memory-mcp",
       "verdict": "adopt",
       "stars": 22669,
@@ -1542,32 +1747,6 @@
       },
       "maturity": "trending",
       "note": "research/virgiliojr94__book-to-skill.md"
-    },
-    {
-      "repo": "mksglu/context-mode",
-      "verdict": "adopt",
-      "status": "recommended",
-      "stars": 19116,
-      "url": "https://github.com/mksglu/context-mode",
-      "pushed": "2026-07-20",
-      "triaged": "2026-07-20",
-      "intent": "Context-window optimizer for coding agents — sandboxes tool output (~98% reduction), persists session memory, enforces routing across 17 platforms via MCP + hooks",
-      "tags": [
-        "context-optimization",
-        "mcp",
-        "hooks",
-        "token-thrift"
-      ],
-      "source": "github",
-      "sources": [
-        "github"
-      ],
-      "signals": {
-        "stars": 19116,
-        "repo_age_days": 147
-      },
-      "maturity": "trending",
-      "note": "research/mksglu__context-mode.md"
     },
     {
       "repo": "allenai/olmocr",
@@ -1670,6 +1849,31 @@
       },
       "maturity": "trending",
       "note": "research/ogulcancelik__herdr.md"
+    },
+    {
+      "repo": "earthtojake/text-to-cad",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 15729,
+      "url": "https://github.com/earthtojake/text-to-cad",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "CAD/CAE/CAM domain skill library (mechanical/robotics design) - off software-agent-tooling mission",
+      "tags": [
+        "skill",
+        "cad"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 15729,
+        "repo_age_days": 145,
+        "stars_period": 1054
+      },
+      "maturity": "trending",
+      "note": "research/earthtojake__text-to-cad.md"
     },
     {
       "repo": "yusufkaraaslan/Skill_Seekers",
@@ -1873,6 +2077,31 @@
       "note": "research/stablyai__orca.md"
     },
     {
+      "repo": "petergyang/no-ai-slop",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 9421,
+      "url": "https://github.com/petergyang/no-ai-slop",
+      "pushed": "2026-09-02",
+      "triaged": "2026-09-14",
+      "intent": "Writing-quality skill removing AI-slop phrasing patterns - near-duplicate of blader/humanizer",
+      "tags": [
+        "skill",
+        "writing"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 9421,
+        "repo_age_days": 69,
+        "stars_period": 1668
+      },
+      "maturity": "trending",
+      "note": "research/petergyang__no-ai-slop.md"
+    },
+    {
       "repo": "advaitpaliwal/feynman",
       "verdict": "skip",
       "status": "recommended",
@@ -1972,6 +2201,32 @@
       "note": "research/wonderwhy-er__DesktopCommanderMCP.md"
     },
     {
+      "repo": "max-sixty/worktrunk",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 7621,
+      "url": "https://github.com/max-sixty/worktrunk",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Rust CLI making git worktrees as easy as branches, built for parallel AI-agent workflows (hooks, LLM commit messages)",
+      "tags": [
+        "cli",
+        "git",
+        "worktrees"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 7621,
+        "repo_age_days": 332,
+        "stars_period": 588
+      },
+      "maturity": "stable",
+      "note": "research/max-sixty__worktrunk.md"
+    },
+    {
       "repo": "GoogleCloudPlatform/knowledge-catalog",
       "verdict": "watch",
       "status": "recommended",
@@ -2046,6 +2301,32 @@
       "signals": {},
       "maturity": "stable",
       "note": "research/lharries__whatsapp-mcp.md"
+    },
+    {
+      "repo": "kunchenguid/firstmate",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 5881,
+      "url": "https://github.com/kunchenguid/firstmate",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-14",
+      "intent": "Agent-distro supervising a crew of parallel sub-agents in per-task git worktrees with event-driven zero-token supervision",
+      "tags": [
+        "multi-agent",
+        "orchestration",
+        "worktrees"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 5881,
+        "repo_age_days": 94,
+        "stars_period": 778
+      },
+      "maturity": "emerging",
+      "note": "research/kunchenguid__firstmate.md"
     },
     {
       "repo": "Tencent/AI-Infra-Guard",
@@ -2779,28 +3060,6 @@
       "note": "research/diegosouzapw__OmniRoute.md"
     },
     {
-      "repo": "ayghri/i-have-adhd",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/ayghri/i-have-adhd",
-      "pushed": null,
-      "triaged": "2026-07-27",
-      "intent": "Claude Code/Codex plugin for ADHD-friendly output formatting",
-      "tags": [
-        "plugin",
-        "accessibility",
-        "off-topic"
-      ],
-      "source": "github-trending",
-      "sources": [
-        "github-trending"
-      ],
-      "signals": {},
-      "maturity": "trending",
-      "note": "research/ayghri__i-have-adhd.md"
-    },
-    {
       "repo": "tirth8205/code-review-graph",
       "verdict": "watch",
       "status": "recommended",
@@ -2866,27 +3125,6 @@
       "note": "research/Nutlope__hallmark.md"
     },
     {
-      "repo": "earthtojake/text-to-cad",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/earthtojake/text-to-cad",
-      "pushed": null,
-      "triaged": "2026-07-27",
-      "intent": "text-to-CAD geometry generation skill",
-      "tags": [
-        "cad",
-        "off-topic"
-      ],
-      "source": "github-trending",
-      "sources": [
-        "github-trending"
-      ],
-      "signals": {},
-      "maturity": "trending",
-      "note": "research/earthtojake__text-to-cad.md"
-    },
-    {
       "repo": "CoreBunch/Instatic",
       "verdict": "skip",
       "status": "recommended",
@@ -2948,32 +3186,6 @@
       "signals": {},
       "maturity": "trending",
       "note": "research/MoonshotAI__kimi-code.md"
-    },
-    {
-      "repo": "cathrynlavery/diagram-design",
-      "verdict": "watch",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/cathrynlavery/diagram-design",
-      "pushed": "2026-08-17",
-      "triaged": "2026-08-17",
-      "intent": "Claude Code skill generating 27 editorial diagram types as static HTML/SVG, brand-matched",
-      "tags": [
-        "skill",
-        "diagrams",
-        "design"
-      ],
-      "source": "github-trending",
-      "sources": [
-        "github-trending"
-      ],
-      "signals": {
-        "stars_period": 15600,
-        "period": "weekly",
-        "trending": true
-      },
-      "maturity": "trending",
-      "note": "research/cathrynlavery__diagram-design.md"
     },
     {
       "repo": "PrimeIntellect-ai/prime-agent",
@@ -3185,52 +3397,6 @@
       "note": "research/lightningpixel__modly.md"
     },
     {
-      "repo": "cloudflare/browser-rendering",
-      "verdict": "watch",
-      "stars": 0,
-      "url": "https://www.cloudflare.com/products/browser-rendering/",
-      "pushed": "2026-06-30",
-      "triaged": "2026-06-30",
-      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
-      "tags": [
-        "browser",
-        "infra"
-      ],
-      "source": "github",
-      "sources": [
-        "github"
-      ],
-      "status": "recommended",
-      "maturity": "experimental",
-      "note": "research/cloudflare__browser-rendering.md"
-    },
-    {
-      "repo": "alltrainning/graviton-dashboard",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/alltrainning/graviton-dashboard",
-      "pushed": "2026-07-07",
-      "triaged": "2026-07-08",
-      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
-      "tags": [
-        "dashboard",
-        "trading",
-        "ui-inspiration",
-        "offtopic"
-      ],
-      "source": "user-submitted",
-      "sources": [
-        "user-submitted"
-      ],
-      "signals": {
-        "stars": 0,
-        "repo_age_days": 5
-      },
-      "maturity": "experimental",
-      "note": "research/alltrainning__graviton-dashboard.md"
-    },
-    {
       "repo": "anthropics/claude-code",
       "verdict": "skip",
       "status": "recommended",
@@ -3279,6 +3445,52 @@
       },
       "maturity": "experimental",
       "note": "research/anomalyco__opencode.md"
+    },
+    {
+      "repo": "cloudflare/browser-rendering",
+      "verdict": "watch",
+      "stars": 0,
+      "url": "https://www.cloudflare.com/products/browser-rendering/",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
+      "tags": [
+        "browser",
+        "infra"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "status": "recommended",
+      "maturity": "experimental",
+      "note": "research/cloudflare__browser-rendering.md"
+    },
+    {
+      "repo": "alltrainning/graviton-dashboard",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/alltrainning/graviton-dashboard",
+      "pushed": "2026-07-07",
+      "triaged": "2026-07-08",
+      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
+      "tags": [
+        "dashboard",
+        "trading",
+        "ui-inspiration",
+        "offtopic"
+      ],
+      "source": "user-submitted",
+      "sources": [
+        "user-submitted"
+      ],
+      "signals": {
+        "stars": 0,
+        "repo_age_days": 5
+      },
+      "maturity": "experimental",
+      "note": "research/alltrainning__graviton-dashboard.md"
     }
   ]
 }
