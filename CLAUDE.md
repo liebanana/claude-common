@@ -43,7 +43,7 @@ scripts/              deterministic helpers; build-index.py regenerates the inde
   lib/                   sourced helpers (merge-settings.jq, sync-apply.sh — the consumer file contract)
   sources/              one script per source (github, github-trending, hackernews, lobsters, reddit)
 sync/                  consumer registry
-  consumers.json         ★ repo list + pinned version (source of truth for sync-consumers.sh --status)
+  consumers.json         ★ consumer repo list + mode (pr|skip|self) + exclude list
 templates/             what sync-consumers.sh copies into a consumer (settings baseline, CLAUDE.md block)
 tests/                 bash test suite for the sync/release machinery (tests/*.sh, no deps beyond jq/git)
 research/             external repos analyzed by the discovery engine
@@ -113,9 +113,10 @@ scripts/sync-consumers.sh --dry-run|--discover    # preview / find unlisted repo
 for t in tests/*.sh; do bash "$t"; done           # the test suite (all bash, no deps beyond jq/git)
 ```
 
-There is no build/test suite — assets are scripts and Markdown. Always run
-`build-index.py` after changing an asset or the ledger (the cron/triage do this). Validate
-a shell script with `bash -n scripts/<name>.sh`; sanity-check `index.json`/ledger with `jq`.
+The only test suite is `tests/*.sh` (bash + jq + git, covers the release/sync machinery); the
+rest of the repo is scripts and Markdown. Always run `build-index.py` after changing an asset
+or the ledger (the cron/triage do this). Validate a shell script with `bash -n scripts/<name>.sh`;
+sanity-check `index.json`/ledger with `jq`.
 
 ## Cron setup (the discovery job)
 
@@ -147,7 +148,8 @@ wrapper script that logs):
 
 ## Releases & consumer sync
 
-Every repo under `~/repos` is a **consumer** of claude-common pinned to a tag (`sync/consumers.json`).
+Every repo under `~/repos` is a **consumer** of claude-common (listed in `sync/consumers.json`),
+pinned to a tag recorded in its own `.claude/common.lock`.
 `AGENT-DIRECTIVE.md` is mastered here. To ship a change to all repos:
 1. Merge it to `main`, note it under `[Unreleased]` in `CHANGELOG.md`.
 2. `scripts/release.sh minor` (or `patch`/`major`) → tag `vX.Y.Z` pushed.
