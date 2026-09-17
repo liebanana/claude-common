@@ -18,4 +18,5 @@
   | .hooks = merge_hooks($b.hooks; $r.hooks)
   | if .permissions.allow == [] then del(.permissions.allow) else . end
   | if .permissions.deny  == [] then del(.permissions.deny)  else . end
+  | if .permissions == {} then del(.permissions) else . end
   | if .hooks == {} then del(.hooks) else . end
