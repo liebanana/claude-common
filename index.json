@@ -39,6 +39,19 @@
       ]
     },
     {
+      "id": "release",
+      "kind": "script",
+      "path": "scripts/release.sh",
+      "group": "Index & navigation",
+      "intent": "Cut a tagged claude-common release: rotate CHANGELOG, write self lock + CLAUDE.md block, rebuild index, tag vX.Y.Z, push",
+      "status": "ready",
+      "tags": [
+        "release",
+        "tag",
+        "changelog"
+      ]
+    },
+    {
       "id": "sync-consumers",
       "kind": "script",
       "path": "scripts/sync-consumers.sh",
