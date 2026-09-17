@@ -1,7 +1,7 @@
-# aattaran/deepclaude  ·  ⭐2253  ·  skip  ·  trending
-https://github.com/aattaran/deepclaude · pushed 2026-07-23 · triaged 2026-08-24 · seen on hackernews
+# aattaran/deepclaude  ·  ⭐2256  ·  watch  ·  emerging
+https://github.com/aattaran/deepclaude · pushed 2026-07-23 · triaged 2026-08-31 · seen on hackernews
 
-**What it is:** A shell/PowerShell wrapper that repoints Claude Code's `ANTHROPIC_BASE_URL`/`ANTHROPIC_AUTH_TOKEN`/model env vars at DeepSeek V4 Pro, OpenRouter, or Fireworks, so the Claude Code CLI's tool loop runs on a non-Anthropic backend for a fraction of the API cost.
-**Reusable for us:** Off-mission by design — this toolkit is about making *Claude* more effective and token-cheap, not routing Claude Code's UI onto a different vendor's model. Swapping the underlying model changes correctness/safety guarantees in ways this repo shouldn't recommend.
-**Token / effectiveness angle:** It is a cost-reduction technique, but one this toolkit deliberately doesn't want to encode (see repo mission: Claude Code / Claude agents specifically).
-**How to adopt:** Skip.
+**What it is:** Keeps Claude Code's CLI/agent-loop UX but repoints the model backend at DeepSeek V4 Pro (96.4% LiveCodeBench, $0.87/M output tokens) or any other Anthropic-compatible API, positioned as a much cheaper alternative to the $200/mo Claude Code plan.
+**Reusable for us:** Directly on our 'lowest-cost capable model' mandate, but it's an unofficial repurposing of Claude Code's client against a third-party backend — unverified reliability, and unclear ToS standing.
+**Token / effectiveness angle:** Squarely a token/cost-thrift technique — worth tracking as an option if Anthropic ever exposes an official low-cost-backend path, but not something to route real work through unvetted.
+**How to adopt:** watch — do not adopt until reliability and ToS implications are independently confirmed.
