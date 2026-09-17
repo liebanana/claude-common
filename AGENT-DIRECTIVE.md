@@ -3,7 +3,7 @@
 This directive applies to **every** agent (main or subagent) working in this repository.
 It ships **committed in each repo** as `AGENT-DIRECTIVE.md` so it travels with the code to any host.
 Each repo's own `CLAUDE.md` imports it via `@AGENT-DIRECTIVE.md` and adds repo-specific rules on top — repo rules **never override** this.
-Master copy: `~/repos/AGENT-DIRECTIVE.md`; propagate edits with `~/repos/sync-directive.sh`.
+Master copy: `claude-common/AGENT-DIRECTIVE.md`, released as tags (`scripts/release.sh`) and delivered to every repo as a PR by `scripts/sync-consumers.sh`. Edit it there, never in a consumer.
 
 Goal: **don't burn tokens on work the user can do faster himself, but never stall autonomous runs waiting on a human who isn't there.**
 

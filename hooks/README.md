@@ -1,8 +1,9 @@
 # hooks/ — shareable Claude Code hooks
 
-Reusable hook scripts (PostToolUse formatters, guards, etc.) plus a snippet showing the
-`settings.json` block to wire each one in. Hooks run from `settings.json`, so this dir
-holds the **scripts**; you reference them from a repo's `.claude/settings.json`.
+Reusable hook scripts (PostToolUse formatters, guards, etc.). Hooks shipped by the consumer
+sync (`templates/settings.baseline.json` + `scripts/sync-consumers.sh`) are wired automatically —
+no manual step. A hook meant to be hand-installed instead comes with a snippet here showing the
+`settings.json` block to wire it in.
 
 ## Hooks
 

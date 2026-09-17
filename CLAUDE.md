@@ -32,6 +32,7 @@ it (open PRs). Both revolve around a **generated index**.
 AGENTS.md             ★ agent bootstrap — how to consume + contribute, zero further input
 index.json            ★ GENERATED machine index — agents query with jq
 CATALOG.md              GENERATED human render of index.json (body between markers)
+CHANGELOG.md            Keep a Changelog; [Unreleased] rotated into a section by release.sh
 docs/token-thrift.md    durable practices (model choice, scripts-over-reruns, hygiene)
 .claude/commands/     slash commands (auto-discovered; /triage-discoveries, /contribute-to-common)  ─┐
 .claude/agents/       subagents (auto-discovered)                                                   ├─ install.sh
@@ -39,7 +40,12 @@ hooks/                shareable hook scripts (wired via settings.json)          
 mcp/                  MCP / integration templates                                                   ┘   cmds+agents
 .claude/settings.json scoped permission allowlist for the headless triage run
 scripts/              deterministic helpers; build-index.py regenerates the index
+  lib/                   sourced helpers (merge-settings.jq, sync-apply.sh — the consumer file contract)
   sources/              one script per source (github, github-trending, hackernews, lobsters, reddit)
+sync/                  consumer registry
+  consumers.json         ★ repo list + pinned version (source of truth for sync-consumers.sh --status)
+templates/             what sync-consumers.sh copies into a consumer (settings baseline, CLAUDE.md block)
+tests/                 bash test suite for the sync/release machinery (tests/*.sh, no deps beyond jq/git)
 research/             external repos analyzed by the discovery engine
   ledger.jsonl          ★ SOURCE of truth (one JSON record per repo; dedup + index feed)
   INDEX.md              GENERATED human view of the ledger (by verdict + trending + corroborated)
@@ -100,6 +106,11 @@ MIN_STARS=100 HN_MIN_POINTS=50 bash scripts/discover.sh  # tune per-source thres
 bash scripts/cron-discover.sh     # full unattended loop (discover→triage→index→PR). AUTO_PUSH=1 to push+PR
 /triage-discoveries               # (in a Claude session) analyze the current candidates
 /contribute-to-common             # (from any repo) package a session learning → PR here
+scripts/release.sh <major|minor|patch> [-m note]   # tag a release (rotates CHANGELOG, pushes tag)
+scripts/sync-consumers.sh --status                # which repo is on which claude-common version
+AUTO_PUSH=1 scripts/sync-consumers.sh             # PR every behind repo up to the newest tag
+scripts/sync-consumers.sh --dry-run|--discover    # preview / find unlisted repos
+for t in tests/*.sh; do bash "$t"; done           # the test suite (all bash, no deps beyond jq/git)
 ```
 
 There is no build/test suite — assets are scripts and Markdown. Always run
@@ -133,6 +144,21 @@ wrapper script that logs):
   and denies `git push` + reading `.env`. Anything else is auto-denied headless, so a
   malicious candidate README can't escalate. Branching/commit/push/PR are done by the
   wrapper, not the agent.
+
+## Releases & consumer sync
+
+Every repo under `~/repos` is a **consumer** of claude-common pinned to a tag (`sync/consumers.json`).
+`AGENT-DIRECTIVE.md` is mastered here. To ship a change to all repos:
+1. Merge it to `main`, note it under `[Unreleased]` in `CHANGELOG.md`.
+2. `scripts/release.sh minor` (or `patch`/`major`) → tag `vX.Y.Z` pushed.
+3. `AUTO_PUSH=1 scripts/sync-consumers.sh` → one PR per repo (`common/vX.Y.Z`); merge them.
+   The weekly cron does step 3 automatically. `--status` shows drift (including `missing`,
+   `no-default-branch`, `branch-local` repos); the shipped SessionStart hook
+   (`hooks/version-check.sh`) warns inside any repo that is behind.
+What lands in a consumer (all copies, committed): `AGENT-DIRECTIVE.md`; `.claude/commands|agents/*`
+carrying `managed-by: claude-common`; `.claude/hooks/common/*.sh`; a jq-merged `.claude/settings.json`
+(repo keys win); a marker block in `CLAUDE.md`; `.claude/common.lock`. Repo-local files are never touched.
+Spec: `docs/superpowers/specs/2026-09-14-consumer-sync-design.md`. Tests: `tests/`.
 
 ## Growing the catalog (do this — it's the point)
 
