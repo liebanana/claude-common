@@ -1,7 +1,7 @@
-# htdt/godogen  ·  ⭐5574  ·  watch  ·  emerging
-https://github.com/htdt/godogen · pushed 2026-07-26 · triaged 2026-08-24 · seen on hackernews
+# htdt/godogen  ·  ⭐6748  ·  watch  ·  trending
+https://github.com/htdt/godogen · pushed 2026-09-04 · triaged 2026-09-07 · seen on hackernews
 
-**What it is:** A generator for autonomous game-development agent repos (Godot/Bevy/Babylon.js). `godogen -> game repo -> game`: publishing renders a deliberately thin target repo (a runtime manifest, one-page per-engine guide, and an asset-generation skill) into which Claude Code or Codex is pointed; the agent reconstructs the rest and proves the result via a live URL or a recorded clip rather than a clean compile.
-**Reusable for us:** Not a drop-in asset (game-dev specific, pulls in Gemini/Grok/Tripo3D API keys), but the scaffolding pattern is a good reference for our own `.claude/commands` and `.claude/agents` design: publish the *minimum* an agent needs to regenerate the rest (manifest + guide + skill) instead of a full pre-built project, and judge completion by proof-of-running-artifact rather than by "it compiled."
-**Token / effectiveness angle:** The thin-repo-plus-skill pattern is itself a token-thrift technique — the published repo carries no dead weight, only what's needed to bootstrap.
-**How to adopt:** Watch. No direct install; mine the "thin published repo, agent reconstructs the rest, proof over claims" pattern next time we design a new command/skill scaffold.
+**What it is:** A generator (`godogen -> game repo -> game`) that publishes a thin per-engine skill kit (runtime manifest, one-page engine guide, cross-engine asset-generation skill) into a fresh repo, then lets Claude Code or Codex autonomously build, run, and record a Godot/Bevy/Babylon.js game from a short prompt.
+**Reusable for us:** Not a drop-in asset (game-dev domain), but the **publish-time render** pattern is a good reference: source repo stays thin/generic, `publish.sh` renders engine + host-agent-specific variants into the target repo rather than shipping one bloated multi-engine bundle. Similar shape to how our own `install.sh` symlinks a subset of assets into a consuming repo.
+**Token / effectiveness angle:** The agent "recreates everything else from the guide" rather than the repo carrying full scaffolding — keeps the published skill kit small, agent fills the gap at build time.
+**How to adopt:** Watch. Revisit the publish-time-render idea if `install.sh`/asset distribution here ever needs per-consumer variants.

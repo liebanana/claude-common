@@ -1,7 +1,7 @@
-# aattaran/deepclaude  ·  ⭐2256  ·  watch  ·  emerging
-https://github.com/aattaran/deepclaude · pushed 2026-07-23 · triaged 2026-08-31 · seen on hackernews
+# aattaran/deepclaude  ·  ⭐2259  ·  watch  ·  emerging
+https://github.com/aattaran/deepclaude · pushed 2026-07-23 · triaged 2026-09-07 · seen on hackernews
 
-**What it is:** Keeps Claude Code's CLI/agent-loop UX but repoints the model backend at DeepSeek V4 Pro (96.4% LiveCodeBench, $0.87/M output tokens) or any other Anthropic-compatible API, positioned as a much cheaper alternative to the $200/mo Claude Code plan.
-**Reusable for us:** Directly on our 'lowest-cost capable model' mandate, but it's an unofficial repurposing of Claude Code's client against a third-party backend — unverified reliability, and unclear ToS standing.
-**Token / effectiveness angle:** Squarely a token/cost-thrift technique — worth tracking as an option if Anthropic ever exposes an official low-cost-backend path, but not something to route real work through unvetted.
-**How to adopt:** watch — do not adopt until reliability and ToS implications are independently confirmed.
+**What it is:** A thin wrapper/config technique that points the Claude Code CLI's model backend at DeepSeek V4 Pro (or any Anthropic-compatible endpoint via OpenRouter) instead of Anthropic's API — same tool loop (file edit, bash, git, subagents), swapped "brain," claimed ~17x cheaper per the README.
+**Reusable for us:** The underlying technique (env-var backend swap for Claude Code) is directly on-mission for token thrift, but this is a third-party wrapper around an *unverified* "Anthropic-compatible" claim — quality/compatibility of DeepSeek as a full Claude Code backend is untested here. Not something to vendor as-is; the technique (not the script) is the reusable part.
+**Token / effectiveness angle:** Exactly our §4 "lowest-cost capable model" thrift goal, taken to the extreme (swap the whole harness's model, not just subagents). Worth flagging as a pattern in docs/token-thrift.md once trialed.
+**How to adopt:** Watch — trial before recommending. If verified to work reliably, the technique (not this specific repo) belongs in docs/token-thrift.md as an advanced option; note the trade-off (quality/tool-call fidelity vs. cost) explicitly.

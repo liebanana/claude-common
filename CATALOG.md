@@ -47,7 +47,6 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
 - 🔬 **Archive of leaked system prompts incl. Claude Code + tool defs** → `research/asgeirtj__system_prompts_leaks.md` (`asgeirtj/system_prompts_leaks` ⭐47357)
 - 🔬 **Official MCP server giving coding agents live Chrome control for automation, debugging, and performance analysis** → `research/ChromeDevTools__chrome-devtools-mcp.md` (`ChromeDevTools/chrome-devtools-mcp` ⭐46032)
-- 🔬 **Agent Skill that compiles a described system into a self-contained, interactive HTML architecture/sequence/workflow diagram** → `research/tt-a1i__archify.md` (`tt-a1i/archify` ⭐37413)
 - 🔬 **Official plugin: invoke OpenAI Codex from inside Claude Code for review/delegate/adversarial-review** → `research/openai__codex-plugin-cc.md` (`openai/codex-plugin-cc` ⭐28302)
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
 - 🔬 **Distills a book/doc into a structured Agent Skill loaded lazily by chapter, claims 24x-51x fewer tokens than dumping full doc into context** → `research/virgiliojr94__book-to-skill.md` (`virgiliojr94/book-to-skill` ⭐19833)
