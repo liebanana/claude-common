@@ -1,7 +1,7 @@
-# anthropics/claude-plugins-community  ·  ⭐1234  ·  adopt  ·  stable
-https://github.com/anthropics/claude-plugins-community · pushed 2026-08-23 · triaged 2026-08-24 · seen on github-trending
+# anthropics/claude-plugins-community  ·  ⭐3009  ·  watch  ·  stable
+https://github.com/anthropics/claude-plugins-community · pushed 2026-08-25 · triaged 2026-08-31 · seen on github-trending
 
-**What it is:** Anthropic's official read-only mirror of the community Claude Code / Claude Cowork plugin marketplace — `.claude-plugin/marketplace.json` lists every plugin that's passed automated security review, synced nightly from Anthropic's internal pipeline. Install via `claude plugin marketplace add anthropics/claude-plugins-community` then `claude plugin install <name>@claude-community`.
-**Reusable for us:** A standing discovery source we don't currently crawl — `scripts/sources/*.sh` covers GitHub/HN/Lobsters/Reddit but not this marketplace index directly. Periodically diffing `marketplace.json` against our `research/ledger.jsonl` would surface vetted plugins we haven't triaged yet, pre-filtered by Anthropic's own security scan (a stronger prior than an arbitrary GitHub-trending repo).
-**Token / effectiveness angle:** n/a directly — it's a catalog, not a technique.
-**How to adopt:** Reference it directly: `curl -fsSL https://raw.githubusercontent.com/anthropics/claude-plugins-community/HEAD/.claude-plugin/marketplace.json | jq` for a quick browse. Optionally add as a new `scripts/sources/claude-plugins-marketplace.sh` discovery source in a future iteration.
+**What it is:** Read-only mirror of the community plugin marketplace: every listed plugin passed automated security scanning and Anthropic review before being added to `.claude-plugin/marketplace.json`.
+**Reusable for us:** A place to check before building a new command/subagent from scratch, at ecosystem scale — the same 'check what already exists' rule this repo enforces, applied one level up.
+**Token / effectiveness angle:** n/a directly, but browsing it before reinventing a command/agent saves the tokens that would go into building one.
+**How to adopt:** watch — periodically grep marketplace.json for plugins that overlap with things we're about to build.
