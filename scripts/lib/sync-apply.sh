@@ -17,11 +17,11 @@ _render_block() { sed "s/{{VERSION}}/$2/g" "$1/templates/claude-md-block.md"; }
 # _copy_marked SRCFILE DSTFILE  — copy a .md adding `managed-by: claude-common` to frontmatter
 _copy_marked() {
   local src="$1" dst="$2"
-  mkdir -p "$(dirname "$dst")"
+  mkdir -p "$(dirname "$dst")" || return 1
   if [ "$(head -n1 "$src")" = "---" ]; then
-    { echo '---'; echo "$CC_MARK"; tail -n +2 "$src"; } > "$dst"
+    { echo '---'; echo "$CC_MARK"; tail -n +2 "$src"; } > "$dst" || return 1
   else
-    { echo '---'; echo "$CC_MARK"; echo '---'; cat "$src"; } > "$dst"
+    { echo '---'; echo "$CC_MARK"; echo '---'; cat "$src"; } > "$dst" || return 1
   fi
 }
 
@@ -61,18 +61,24 @@ apply_contract() {
   local managed="" old_managed=""
   [ -f "$dst/.claude/common.lock" ] && old_managed="$(jq -r '.managed[]?' "$dst/.claude/common.lock" 2>/dev/null || true)"
 
-  cp "$src/AGENT-DIRECTIVE.md" "$dst/AGENT-DIRECTIVE.md"; managed+="AGENT-DIRECTIVE.md"$'\n'
+  cp "$src/AGENT-DIRECTIVE.md" "$dst/AGENT-DIRECTIVE.md" \
+    || { echo "apply_contract: AGENT-DIRECTIVE.md copy failed for $repo" >&2; return 1; }
+  managed+="AGENT-DIRECTIVE.md"$'\n'
 
   local f rel
   for f in "$src"/.claude/commands/*.md "$src"/.claude/agents/*.md; do
     [ -f "$f" ] || continue; [ "$(basename "$f")" = README.md ] && continue
     rel=".claude/$(basename "$(dirname "$f")")/$(basename "$f")"
-    _copy_marked "$f" "$dst/$rel"; managed+="$rel"$'\n'
+    _copy_marked "$f" "$dst/$rel" \
+      || { echo "apply_contract: copy of $rel failed for $repo" >&2; return 1; }
+    managed+="$rel"$'\n'
   done
   for f in "$src"/hooks/*.sh; do
     [ -f "$f" ] || continue
     rel=".claude/hooks/common/$(basename "$f")"
-    mkdir -p "$dst/.claude/hooks/common"; cp "$f" "$dst/$rel"; chmod +x "$dst/$rel"; managed+="$rel"$'\n'
+    mkdir -p "$dst/.claude/hooks/common" && cp "$f" "$dst/$rel" && chmod +x "$dst/$rel" \
+      || { echo "apply_contract: hook copy of $rel failed for $repo" >&2; return 1; }
+    managed+="$rel"$'\n'
   done
 
   # settings: baseline merged under repo settings (repo wins)
@@ -83,7 +89,8 @@ apply_contract() {
     || { rm -f "$tmp"; echo "apply_contract: settings merge failed for $repo" >&2; return 1; }
   mv "$tmp" "$cur"
 
-  apply_block "$dst" "$version" "$repo" "$src"
+  apply_block "$dst" "$version" "$repo" "$src" \
+    || { echo "apply_contract: apply_block failed for $repo" >&2; return 1; }
 
   # delete previously-managed files that upstream no longer ships (only under managed prefixes)
   local p
@@ -93,5 +100,6 @@ apply_contract() {
     case "$p" in .claude/commands/*|.claude/agents/*|.claude/hooks/common/*) rm -f "$dst/$p" ;; esac
   done <<< "$old_managed"
 
-  write_lock "$dst" "$version" "$managed"
+  write_lock "$dst" "$version" "$managed" \
+    || { echo "apply_contract: write_lock failed for $repo" >&2; return 1; }
 }
