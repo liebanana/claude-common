@@ -80,4 +80,10 @@ assert_not_file "$D4/AGENT-DIRECTIVE.md"
 # --- apply_block must fail without template
 D5="$T/d5"; mkdir -p "$D5"
 if apply_block "$D5" v1 x "$T/nosrc" 2>/dev/null; then _fail "apply_block should fail without template"; fi
+
+# --- apply_contract must fail (and propagate) when the directive cannot be written
+# AGENT-DIRECTIVE.md is a directory, and it already contains a same-named subdirectory, so
+# `cp .../AGENT-DIRECTIVE.md $D6/AGENT-DIRECTIVE.md` can't copy-into (name collision) or overwrite.
+D6="$T/d6"; mkdir -p "$D6/AGENT-DIRECTIVE.md/AGENT-DIRECTIVE.md"
+if apply_contract "$SRC" "$T/d6" v1 r6 2>/dev/null; then _fail "apply_contract should fail when directive cannot be written"; fi
 finish sync-apply-test

@@ -5,7 +5,9 @@
 #
 #   scripts/sync-consumers.sh                 # sync all consumers behind the newest v* tag (local branch only)
 #   AUTO_PUSH=1 scripts/sync-consumers.sh     # …and push + open/refresh a PR per repo (or --push)
-#   scripts/sync-consumers.sh --status        # table: repo · pinned · latest · state
+#   scripts/sync-consumers.sh --status        # table: repo · pinned · latest · state (current/behind/
+#                                              #   pr-open #N/unmanaged/no-remote/branch-local/worktree/
+#                                              #   skip/self/missing/no-default-branch)
 #   scripts/sync-consumers.sh --dry-run       # show what would change, commit nothing
 #   scripts/sync-consumers.sh --discover      # git repos under root that are in neither consumers nor exclude
 #   scripts/sync-consumers.sh --repo X [--repo Y] [--version vX.Y.Z] [--root DIR] [--manifest FILE]
@@ -20,8 +22,11 @@ declare -a ONLY=()
 while [ $# -gt 0 ]; do
   case "$1" in
     --status) MODE=status ;; --discover) MODE=discover ;; --dry-run) DRY=1 ;; --push) PUSH=1 ;;
-    --repo) ONLY+=("$2"); shift ;; --version) VERSION="$2"; shift ;; --root) ROOT_OVERRIDE="$2"; shift ;;
-    --manifest) MANIFEST="$2"; shift ;; -h|--help) sed -n '3,14p' "$0"; exit 0 ;;
+    --repo) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; ONLY+=("$2"); shift ;;
+    --version) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; VERSION="$2"; shift ;;
+    --root) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; ROOT_OVERRIDE="$2"; shift ;;
+    --manifest) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; MANIFEST="$2"; shift ;;
+    -h|--help) sed -n '3,14p' "$0"; exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac; shift
 done
@@ -102,22 +107,25 @@ while IFS=$'\t' read -r repo mode; do
       || { log "$repo: cannot create branch $branch (checked out elsewhere?)"; FAILED=1; continue; }
   fi
   if ! apply_contract "$EXPORT" "$wt" "$TARGET" "$repo"; then log "$repo: apply failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
-  ( cd "$wt" && git add -A )
+  if ! ( cd "$wt" && git add -A ); then log "$repo: git add failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   if ( cd "$wt" && git diff --cached --quiet ); then
     log "$repo: up-to-date (no changes)"; git -C "$dir" worktree remove -f "$wt"; continue
   fi
   if [ $DRY = 1 ]; then
     log "$repo: would change:"; ( cd "$wt" && git diff --cached --stat | sed 's/^/    /' ); git -C "$dir" worktree remove -f "$wt"; continue
   fi
-  ( cd "$wt" && git commit -q -m "chore: sync claude-common $TARGET
+  if ! ( cd "$wt" && git commit -q -m "chore: sync claude-common $TARGET
 
-Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" )
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" ); then
+    log "$repo: commit failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue
+  fi
   if [ -n "$prev" ] && ( cd "$wt" && git diff --quiet "$prev" HEAD ); then
     ( cd "$wt" && git reset -q --hard "$prev" )       # identical content: keep old sha, no re-push
     n="$(pr_number "$dir" "$branch")"; log "$repo: ${n:+pr-open #$n }(unchanged)"; git -C "$dir" worktree remove -f "$wt"; continue
   fi
   if [ $remote = 0 ]; then log "$repo: no remote — branch $branch left local"; git -C "$dir" worktree remove -f "$wt"; continue; fi
   if [ "$PUSH" != 1 ]; then log "$repo: branch $branch committed locally (AUTO_PUSH!=1, no push/PR)"; git -C "$dir" worktree remove -f "$wt"; continue; fi
+  git -C "$wt" fetch -q origin "$branch" 2>/dev/null || true
   if ! ( cd "$wt" && git push -q --force-with-lease -u origin "$branch" ); then log "$repo: push failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   body="Pin claude-common to **$TARGET** (managed files only; repo-local rules untouched).
 
