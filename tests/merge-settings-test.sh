@@ -30,4 +30,8 @@ assert_eq "$(echo "$out" | jq '.hooks.Stop|length')" "1" "other event untouched"
 # idempotent: merging the merged output again changes nothing
 echo "$out" > "$T/merged.json"
 assert_eq "$(merge "$T/merged.json" | jq -c .)" "$(jq -c . "$T/merged.json")" "idempotent"
+
+# empty+empty should yield exactly {}, not {"permissions":{}}
+echo '{}' > "$T/b0.json"
+assert_eq "$(jq -s -c -f "$J" "$T/b0.json" "$T/empty.json")" '{}' "empty+empty == {}"
 finish merge-settings-test
