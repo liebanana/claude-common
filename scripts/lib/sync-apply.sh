@@ -50,7 +50,7 @@ apply_block() {
 write_lock() {
   local dst="$1" version="$2" managed="$3"
   mkdir -p "$dst/.claude"
-  printf '%s\n' "$managed" | grep -v '^$' | LC_ALL=C sort -u \
+  printf '%s\n' "$managed" | { grep -v '^$' || true; } | LC_ALL=C sort -u \
     | jq -R . | jq -s --arg v "$version" --arg d "$(date -u +%F)" '{version:$v, synced:$d, managed:.}' \
     > "$dst/.claude/common.lock"
 }
