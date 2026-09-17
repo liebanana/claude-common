@@ -31,4 +31,22 @@ assert_grep 'claude-common v1\.0\.0' "$C/CLAUDE.md"
 # --dry-run: no commit, no tag
 before=$(git -C "$C" rev-parse HEAD); ( cd "$C" && bash scripts/release.sh patch --dry-run >/dev/null 2>&1 )
 assert_eq "$(git -C "$C" rev-parse HEAD)" "$before" "dry-run no commit"; assert_eq "$(git -C "$C" tag -l v2.0.1)" "" "dry-run no tag"
+
+# guard: a failed pipeline step (missing CLAUDE.md block template) must abort BEFORE tag/commit,
+# never tag the pre-release commit as the release.
+C2="$T/common2"; git clone -q -b main "$T/origin.git" "$C2" >/dev/null 2>&1
+git -C "$C2" rm -q templates/claude-md-block.md && git -C "$C2" commit -qm "rm template"
+tags_before=$(git -C "$C2" tag -l 'v*' | wc -l | tr -d ' '); head_before=$(git -C "$C2" rev-parse HEAD)
+out=$(cd "$C2" && bash scripts/release.sh patch 2>&1); rc=$?
+[ "$rc" != 0 ] || _fail "missing-template rc: expected nonzero, got 0 ($out)"
+assert_eq "$(git -C "$C2" tag -l 'v*' | wc -l | tr -d ' ')" "$tags_before" "missing-template: no new tag"
+assert_eq "$(git -C "$C2" rev-parse HEAD)" "$head_before" "missing-template: HEAD unchanged"
+
+# guard: CHANGELOG.md without an "## [Unreleased]" section must abort BEFORE tag/commit.
+C3="$T/common3"; git clone -q -b main "$T/origin.git" "$C3" >/dev/null 2>&1
+sed -i '/^## \[Unreleased\]$/d' "$C3/CHANGELOG.md"; git -C "$C3" commit -qam "rm unreleased heading"
+tags_before=$(git -C "$C3" tag -l 'v*' | wc -l | tr -d ' ')
+out=$(cd "$C3" && bash scripts/release.sh patch 2>&1); rc=$?
+[ "$rc" != 0 ] || _fail "missing-unreleased rc: expected nonzero, got 0 ($out)"
+assert_eq "$(git -C "$C3" tag -l 'v*' | wc -l | tr -d ' ')" "$tags_before" "missing-unreleased: no new tag"
 finish release-test

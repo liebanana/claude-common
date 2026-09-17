@@ -21,6 +21,9 @@ if git remote get-url origin >/dev/null 2>&1; then
 fi
 
 latest="$(git tag -l 'v*' --sort=-v:refname | head -n1)"
+if [ -n "$latest" ] && ! [[ "$latest" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "release.sh: latest tag '$latest' is not vX.Y.Z" >&2; exit 1
+fi
 if [ -z "$latest" ]; then next=v1.0.0; else
   IFS=. read -r MA MI PA <<< "${latest#v}"
   case "$BUMP" in major) next="v$((MA+1)).0.0" ;; minor) next="v$MA.$((MI+1)).0" ;; patch) next="v$MA.$MI.$((PA+1))" ;; esac
@@ -31,16 +34,24 @@ echo "release.sh: $latest -> $next"
 # CHANGELOG: [Unreleased] -> [next] - date, then a fresh empty [Unreleased]
 tmp="$(mktemp)"
 awk -v v="$next" -v d="$(date -u +%F)" -v note="$NOTE" '
-  /^## \[Unreleased\]/ && !done { print "## [Unreleased]"; print ""; print "## [" v "] - " d; if (note != "") { print ""; print "- " note }; done=1; next } { print }' CHANGELOG.md > "$tmp" && mv "$tmp" CHANGELOG.md
+  /^## \[Unreleased\]/ && !done { print "## [Unreleased]"; print ""; print "## [" v "] - " d; if (note != "") { print ""; print "- " note }; done=1; next } { print }' CHANGELOG.md > "$tmp" \
+  || { rm -f "$tmp"; echo "release.sh: CHANGELOG rotation failed" >&2; exit 1; }
+grep -q "^## \[$next\]" "$tmp" || { rm -f "$tmp"; echo "release.sh: CHANGELOG.md has no '## [Unreleased]' section" >&2; exit 1; }
+mv "$tmp" CHANGELOG.md || { rm -f "$tmp"; echo "release.sh: CHANGELOG.md write failed" >&2; exit 1; }
 
-apply_block "$COMMON" "$next" claude-common "$COMMON"
-write_lock "$COMMON" "$next" ""
-python3 scripts/build-index.py >/dev/null
+apply_block "$COMMON" "$next" claude-common "$COMMON" || { echo "release.sh: apply_block failed" >&2; exit 1; }
+# write_lock's internal pipeline includes `grep -v '^$'`, which exits 1 when MANAGED is empty
+# (nothing left after filtering the blank line) even though it still writes a correct
+# `managed: []` lock — under `pipefail` that nonzero would false-positive here since the self
+# consumer always passes "". Run it with pipefail off so only a genuine write failure (surfaced
+# by the pipeline's actual last command) aborts the release. See task-6-report.md Finding 1 fix.
+( set +o pipefail; write_lock "$COMMON" "$next" "" ) || { echo "release.sh: write_lock failed" >&2; exit 1; }
+python3 scripts/build-index.py >/dev/null || { echo "release.sh: build-index.py failed" >&2; exit 1; }
 
-git add -A
+git add -A || { echo "release.sh: git add failed" >&2; exit 1; }
 git commit -q -m "release: $next
 
-Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" || { echo "release.sh: git commit failed" >&2; exit 1; }
 git tag -a "$next" -m "claude-common $next${NOTE:+ — $NOTE}"
 if [ "${RELEASE_NO_PUSH:-0}" = 1 ]; then echo "release.sh: tagged $next (RELEASE_NO_PUSH=1, not pushed)"; exit 0; fi
 if git remote get-url origin >/dev/null 2>&1; then git push -q origin main "$next" && echo "release.sh: pushed $next" || { echo "release.sh: push failed (tag exists locally)" >&2; exit 1; }
