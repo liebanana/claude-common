@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14",
+  "generated": "2026-09-17",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -100,6 +100,20 @@
       "tags": [
         "practices",
         "reliability",
+        "tokens"
+      ]
+    },
+    {
+      "id": "stitch-mcp-workflow",
+      "kind": "doc",
+      "path": "docs/stitch-mcp-workflow.md",
+      "group": "Save tokens / work efficiently",
+      "intent": "Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas",
+      "status": "ready",
+      "tags": [
+        "stitch",
+        "mcp",
+        "design-system",
         "tokens"
       ]
     },
