@@ -27,6 +27,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts/build-index.py` · _index, maintenance_
 
 ## Reusable Claude Code assets
+- 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
 ## From research (adopt)

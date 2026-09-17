@@ -4,6 +4,6 @@ Reusable hook scripts (PostToolUse formatters, guards, etc.) plus a snippet show
 `settings.json` block to wire each one in. Hooks run from `settings.json`, so this dir
 holds the **scripts**; you reference them from a repo's `.claude/settings.json`.
 
-Empty for now — add hooks as you find/standardize them. List each in
-[`../CATALOG.md`](../CATALOG.md), and keep a copy-pasteable settings snippet beside the
-script so adoption is one step.
+## Hooks
+
+- `version-check.sh` — SessionStart: warns when `.claude/common.lock` is behind the newest claude-common tag (installed by `scripts/sync-consumers.sh`).
