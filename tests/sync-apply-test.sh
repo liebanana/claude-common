@@ -81,6 +81,11 @@ assert_not_file "$D4/AGENT-DIRECTIVE.md"
 D5="$T/d5"; mkdir -p "$D5"
 if apply_block "$D5" v1 x "$T/nosrc" 2>/dev/null; then _fail "apply_block should fail without template"; fi
 
+# --- write_lock must succeed (and write managed: []) with an empty managed list under pipefail
+D7="$T/d7"; mkdir -p "$D7"
+( set -o pipefail; write_lock "$D7" v1.0.0 "" ) || _fail "write_lock must succeed with empty managed under pipefail"
+assert_eq "$(jq -c .managed "$D7/.claude/common.lock")" '[]' "empty managed → []"
+
 # --- apply_contract must fail (and propagate) when the directive cannot be written
 # AGENT-DIRECTIVE.md is a directory, and it already contains a same-named subdirectory, so
 # `cp .../AGENT-DIRECTIVE.md $D6/AGENT-DIRECTIVE.md` can't copy-into (name collision) or overwrite.

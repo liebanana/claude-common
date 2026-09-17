@@ -40,12 +40,7 @@ grep -q "^## \[$next\]" "$tmp" || { rm -f "$tmp"; echo "release.sh: CHANGELOG.md
 mv "$tmp" CHANGELOG.md || { rm -f "$tmp"; echo "release.sh: CHANGELOG.md write failed" >&2; exit 1; }
 
 apply_block "$COMMON" "$next" claude-common "$COMMON" || { echo "release.sh: apply_block failed" >&2; exit 1; }
-# write_lock's internal pipeline includes `grep -v '^$'`, which exits 1 when MANAGED is empty
-# (nothing left after filtering the blank line) even though it still writes a correct
-# `managed: []` lock — under `pipefail` that nonzero would false-positive here since the self
-# consumer always passes "". Run it with pipefail off so only a genuine write failure (surfaced
-# by the pipeline's actual last command) aborts the release. See task-6-report.md Finding 1 fix.
-( set +o pipefail; write_lock "$COMMON" "$next" "" ) || { echo "release.sh: write_lock failed" >&2; exit 1; }
+write_lock "$COMMON" "$next" "" || { echo "release.sh: write_lock failed" >&2; exit 1; }
 python3 scripts/build-index.py >/dev/null || { echo "release.sh: build-index.py failed" >&2; exit 1; }
 
 git add -A || { echo "release.sh: git add failed" >&2; exit 1; }
