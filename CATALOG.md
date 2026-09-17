@@ -25,6 +25,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 
 ## Index & navigation
 - 🟢 **Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)** → `scripts/sync-consumers.sh` · _sync, release, pr, cron_
+- 🟢 **Cut a tagged claude-common release: rotate CHANGELOG, write self lock + CLAUDE.md block, rebuild index, tag vX.Y.Z, push** → `scripts/release.sh` · _release, tag, changelog_
 - 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts/build-index.py` · _index, maintenance_
 
 ## Reusable Claude Code assets
