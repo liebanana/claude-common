@@ -1,0 +1,7 @@
+# eneskirca/nodeterm  ·  ⭐1152  ·  watch  ·  emerging
+https://github.com/eneskirca/nodeterm · pushed 2026-08-24 · triaged 2026-08-24 · seen on github-trending
+
+**What it is:** Electron desktop app (macOS + Linux, plus self-hosted "Server Edition" and an iOS companion) that turns terminals and Claude Code agent sessions into draggable nodes on an infinite pan/zoom canvas — a spatial alternative to stacked terminal tabs, with a Trello-style board per project of live Claude Code sessions. Hook-driven RUNNING/NEEDS-YOU status badges (no output scraping), subagent transcript cards, per-node context meter, OS notifications.
+**Reusable for us:** Not an embeddable asset (it's a full GUI app, BUSL-1.1 source-available license, not a script/hook/command), but it targets exactly the multi-session Claude Code management problem this workspace already deals with (parallel sessions, subagent fan-out visibility). Worth surfacing to the user directly rather than vendoring per the toolkit's "use it or surface it" rule.
+**Token / effectiveness angle:** n/a directly (UX tool, not a token-saving technique) — though a good context meter/notification setup could reduce wasted polling/checking cycles.
+**How to adopt:** Surface to user as a candidate tool if they want a visual multi-session manager for Claude Code; not something this repo installs or scripts around. Field notes only if the user actually trials it.

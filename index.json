@@ -202,6 +202,49 @@
       "note": "research/affaan-m__ECC.md"
     },
     {
+      "repo": "anomalyco/opencode",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 200908,
+      "url": "https://github.com/anomalyco/opencode",
+      "pushed": "2026-08-24",
+      "triaged": "2026-08-24",
+      "intent": "Competing open-source provider-agnostic AI coding agent CLI",
+      "tags": [
+        "offtopic",
+        "competitor",
+        "agent-harness"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "stable",
+      "note": "research/anomalyco__opencode.md"
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 142844,
+      "url": "https://github.com/anthropics/claude-code",
+      "pushed": "2026-08-23",
+      "triaged": "2026-08-24",
+      "intent": "Claude Code CLI itself; not a new discovery",
+      "tags": [
+        "offtopic",
+        "base-tool"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "stable",
+      "note": "research/anthropics__claude-code.md"
+    },
+    {
       "repo": "firecrawl/firecrawl",
       "verdict": "watch",
       "stars": 142071,
@@ -906,6 +949,33 @@
       "note": "research/esengine__DeepSeek-Reasonix.md"
     },
     {
+      "repo": "volcengine/OpenViking",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 32857,
+      "url": "https://github.com/volcengine/OpenViking",
+      "pushed": "2026-08-24",
+      "triaged": "2026-08-24",
+      "intent": "Tiered (L0/L1/L2) context database for AI agents; token-thrift retrieval technique",
+      "tags": [
+        "memory",
+        "context",
+        "rag",
+        "token-thrift"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3799,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/volcengine__OpenViking.md"
+    },
+    {
       "repo": "heygen-com/hyperframes",
       "verdict": "skip",
       "stars": 32343,
@@ -1179,6 +1249,31 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "jundot/omlx",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 20512,
+      "url": "https://github.com/jundot/omlx",
+      "pushed": "2026-08-23",
+      "triaged": "2026-08-24",
+      "intent": "macOS menu-bar local LLM inference server (MLX, Apple Silicon)",
+      "tags": [
+        "offtopic",
+        "local-inference"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1671,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/jundot__omlx.md"
+    },
+    {
       "repo": "virgiliojr94/book-to-skill",
       "verdict": "adopt",
       "status": "recommended",
@@ -1431,6 +1526,28 @@
       "note": "research/TencentCloud__CubeSandbox.md"
     },
     {
+      "repo": "LaurieWired/GhidraMCP",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 9852,
+      "url": "https://github.com/LaurieWired/GhidraMCP",
+      "pushed": "2025-06-23",
+      "triaged": "2026-08-24",
+      "intent": "MCP server exposing Ghidra reverse-engineering functionality to LLMs",
+      "tags": [
+        "mcp",
+        "security-research",
+        "reverse-engineering"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "stable",
+      "note": "research/LaurieWired__GhidraMCP.md"
+    },
+    {
       "repo": "stablyai/orca",
       "verdict": "watch",
       "stars": 9617,
@@ -1531,6 +1648,55 @@
       "note": "research/GoogleCloudPlatform__knowledge-catalog.md"
     },
     {
+      "repo": "lharries/whatsapp-mcp",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 6190,
+      "url": "https://github.com/lharries/whatsapp-mcp",
+      "pushed": "2025-07-13",
+      "triaged": "2026-08-24",
+      "intent": "Personal WhatsApp MCP server; notable lethal-trifecta security callout in its own README",
+      "tags": [
+        "mcp",
+        "personal-data",
+        "security-reference"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "stable",
+      "note": "research/lharries__whatsapp-mcp.md"
+    },
+    {
+      "repo": "Tencent/AI-Infra-Guard",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 5726,
+      "url": "https://github.com/Tencent/AI-Infra-Guard",
+      "pushed": "2026-08-24",
+      "triaged": "2026-08-24",
+      "intent": "AI red-team platform with standalone MCP/skill/agent security scanner CLIs",
+      "tags": [
+        "security",
+        "mcp-security",
+        "skill-security",
+        "scanner"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1149,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "stable",
+      "note": "research/Tencent__AI-Infra-Guard.md"
+    },
+    {
       "repo": "MinishLab/semble",
       "verdict": "adopt",
       "status": "recommended",
@@ -1603,6 +1769,55 @@
       },
       "maturity": "trending",
       "note": "research/ibelick__ui-skills.md"
+    },
+    {
+      "repo": "htdt/godogen",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 5574,
+      "url": "https://github.com/htdt/godogen",
+      "pushed": "2026-07-26",
+      "triaged": "2026-08-24",
+      "intent": "Thin-repo agent-scaffold generator for autonomous game dev (Godot/Bevy/Babylon.js)",
+      "tags": [
+        "agent-scaffold-technique",
+        "game-dev",
+        "skills"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "emerging",
+      "note": "research/htdt__godogen.md"
+    },
+    {
+      "repo": "akitaonrails/ai-memory",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 4326,
+      "url": "https://github.com/akitaonrails/ai-memory",
+      "pushed": "2026-08-24",
+      "triaged": "2026-08-24",
+      "intent": "Cross-harness persistent memory/handoff daemon for coding agents (MCP + hooks)",
+      "tags": [
+        "memory",
+        "mcp",
+        "hooks",
+        "session-continuity"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2614,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "trending",
+      "note": "research/akitaonrails__ai-memory.md"
     },
     {
       "repo": "tt-a1i/archify",
@@ -1685,6 +1900,32 @@
       "note": "research/KnockOutEZ__wigolo.md"
     },
     {
+      "repo": "apache/maka",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2706,
+      "url": "https://github.com/apache/maka",
+      "pushed": "2026-08-24",
+      "triaged": "2026-08-24",
+      "intent": "ASF-incubating local-first agent workspace with durable execution-record design",
+      "tags": [
+        "agent-harness",
+        "prior-art",
+        "offtopic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 859,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "emerging",
+      "note": "research/apache__maka.md"
+    },
+    {
       "repo": "bethington/ghidra-mcp",
       "verdict": "watch",
       "stars": 2645,
@@ -1711,6 +1952,27 @@
       "maturity": "emerging",
       "status": "recommended",
       "note": "research/bethington__ghidra-mcp.md"
+    },
+    {
+      "repo": "aattaran/deepclaude",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 2253,
+      "url": "https://github.com/aattaran/deepclaude",
+      "pushed": "2026-07-23",
+      "triaged": "2026-08-24",
+      "intent": "Repoints Claude Code CLI at non-Anthropic backends (DeepSeek/OpenRouter/Fireworks) for cost",
+      "tags": [
+        "offtopic",
+        "cost-hack"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "trending",
+      "note": "research/aattaran__deepclaude.md"
     },
     {
       "repo": "unclebob/swarm-forge",
@@ -1764,6 +2026,28 @@
       },
       "maturity": "emerging",
       "note": "research/LLMQuant__quant-mind.md"
+    },
+    {
+      "repo": "manzaltu/claude-code-ide.el",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1650,
+      "url": "https://github.com/manzaltu/claude-code-ide.el",
+      "pushed": "2026-08-07",
+      "triaged": "2026-08-24",
+      "intent": "Emacs MCP bridge exposing LSP/tree-sitter/project.el to Claude Code",
+      "tags": [
+        "editor-integration",
+        "emacs",
+        "mcp"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "stable",
+      "note": "research/manzaltu__claude-code-ide.el.md"
     },
     {
       "repo": "alexgreensh/token-optimizer",
@@ -1833,6 +2117,79 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/AgriciDaniel__claude-blog.md"
+    },
+    {
+      "repo": "anthropics/claude-plugins-community",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 1234,
+      "url": "https://github.com/anthropics/claude-plugins-community",
+      "pushed": "2026-08-23",
+      "triaged": "2026-08-24",
+      "intent": "Anthropic's official curated Claude Code/Cowork community plugin marketplace mirror",
+      "tags": [
+        "marketplace",
+        "plugins",
+        "discovery-source"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 406,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "stable",
+      "note": "research/anthropics__claude-plugins-community.md"
+    },
+    {
+      "repo": "eneskirca/nodeterm",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1152,
+      "url": "https://github.com/eneskirca/nodeterm",
+      "pushed": "2026-08-24",
+      "triaged": "2026-08-24",
+      "intent": "Node-canvas terminal manager with live Claude Code session kanban board",
+      "tags": [
+        "ux",
+        "session-management",
+        "desktop-app"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 496,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "emerging",
+      "note": "research/eneskirca__nodeterm.md"
+    },
+    {
+      "repo": "iosifache/annas-mcp",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 1005,
+      "url": "https://github.com/iosifache/annas-mcp",
+      "pushed": "2026-06-26",
+      "triaged": "2026-08-24",
+      "intent": "MCP server for Anna's Archive shadow-library search/download",
+      "tags": [
+        "offtopic",
+        "legal-risk"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {},
+      "maturity": "emerging",
+      "note": "research/iosifache__annas-mcp.md"
     },
     {
       "repo": "cisco-ai-defense/mcp-scanner",
@@ -2226,52 +2583,6 @@
       "note": "research/MoonshotAI__kimi-code.md"
     },
     {
-      "repo": "cloudflare/browser-rendering",
-      "verdict": "watch",
-      "stars": 0,
-      "url": "https://www.cloudflare.com/products/browser-rendering/",
-      "pushed": "2026-06-30",
-      "triaged": "2026-06-30",
-      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
-      "tags": [
-        "browser",
-        "infra"
-      ],
-      "source": "github",
-      "sources": [
-        "github"
-      ],
-      "status": "recommended",
-      "maturity": "experimental",
-      "note": "research/cloudflare__browser-rendering.md"
-    },
-    {
-      "repo": "alltrainning/graviton-dashboard",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/alltrainning/graviton-dashboard",
-      "pushed": "2026-07-07",
-      "triaged": "2026-07-08",
-      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
-      "tags": [
-        "dashboard",
-        "trading",
-        "ui-inspiration",
-        "offtopic"
-      ],
-      "source": "user-submitted",
-      "sources": [
-        "user-submitted"
-      ],
-      "signals": {
-        "stars": 0,
-        "repo_age_days": 5
-      },
-      "maturity": "experimental",
-      "note": "research/alltrainning__graviton-dashboard.md"
-    },
-    {
       "repo": "cathrynlavery/diagram-design",
       "verdict": "watch",
       "status": "recommended",
@@ -2507,152 +2818,50 @@
       "note": "research/lightningpixel__modly.md"
     },
     {
-      "repo": "anthropics/claude-code",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/anthropics/claude-code/issues/42796",
-      "triaged": "2026-08-17",
-      "intent": "Anthropic's own Claude Code CLI repo; HN item was an issue thread, not a new tool",
-      "tags": [
-        "baseline-tool",
-        "not-a-candidate"
-      ],
-      "source": "hackernews",
-      "sources": [
-        "hackernews"
-      ],
-      "signals": {
-        "points": 1364,
-        "comments": 753,
-        "seen_age_days": 133
-      },
-      "maturity": "stable",
-      "note": "research/anthropics__claude-code.md"
-    },
-    {
-      "repo": "manzaltu/claude-code-ide.el",
+      "repo": "cloudflare/browser-rendering",
       "verdict": "watch",
-      "status": "recommended",
       "stars": 0,
-      "url": "https://github.com/manzaltu/claude-code-ide.el",
-      "triaged": "2026-08-17",
-      "intent": "Native Emacs integration for Claude Code via MCP (LSP/tree-sitter/imenu/project as MCP tools)",
+      "url": "https://www.cloudflare.com/products/browser-rendering/",
+      "pushed": "2026-06-30",
+      "triaged": "2026-06-30",
+      "intent": "Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet",
       "tags": [
-        "mcp",
-        "emacs",
-        "editor-integration"
+        "browser",
+        "infra"
       ],
-      "source": "hackernews",
+      "source": "github",
       "sources": [
-        "hackernews"
+        "github"
       ],
-      "signals": {
-        "points": 782,
-        "comments": 266,
-        "seen_age_days": 376
-      },
-      "maturity": "stable",
-      "note": "research/manzaltu__claude-code-ide.el.md"
+      "status": "recommended",
+      "maturity": "experimental",
+      "note": "research/cloudflare__browser-rendering.md"
     },
     {
-      "repo": "aattaran/deepclaude",
+      "repo": "alltrainning/graviton-dashboard",
       "verdict": "skip",
       "status": "recommended",
       "stars": 0,
-      "url": "https://github.com/aattaran/deepclaude",
-      "triaged": "2026-08-17",
-      "intent": "Wrapper repointing Claude Code CLI's model backend at DeepSeek/other APIs; ToS gray zone, not recommended",
+      "url": "https://github.com/alltrainning/graviton-dashboard",
+      "pushed": "2026-07-07",
+      "triaged": "2026-07-08",
+      "intent": "Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation",
       "tags": [
-        "offtopic",
-        "tos-concern"
+        "dashboard",
+        "trading",
+        "ui-inspiration",
+        "offtopic"
       ],
-      "source": "hackernews",
+      "source": "user-submitted",
       "sources": [
-        "hackernews"
+        "user-submitted"
       ],
       "signals": {
-        "points": 678,
-        "comments": 281,
-        "seen_age_days": 105
+        "stars": 0,
+        "repo_age_days": 5
       },
       "maturity": "experimental",
-      "note": "research/aattaran__deepclaude.md"
-    },
-    {
-      "repo": "anomalyco/opencode",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/anomalyco/opencode/issues/7410",
-      "triaged": "2026-08-17",
-      "intent": "Open-source multi-model coding agent CLI (competing tool); HN item was about Anthropic subscription restrictions",
-      "tags": [
-        "offtopic",
-        "competing-tool"
-      ],
-      "source": "hackernews",
-      "sources": [
-        "hackernews"
-      ],
-      "signals": {
-        "points": 625,
-        "comments": 513,
-        "seen_age_days": 220
-      },
-      "maturity": "stable",
-      "note": "research/anomalyco__opencode.md"
-    },
-    {
-      "repo": "LaurieWired/GhidraMCP",
-      "verdict": "skip",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/LaurieWired/GhidraMCP",
-      "triaged": "2026-08-17",
-      "intent": "MCP server + Ghidra plugin for autonomous binary reverse engineering; duplicate of existing bethington/ghidra-mcp entry",
-      "tags": [
-        "mcp",
-        "reverse-engineering",
-        "duplicate"
-      ],
-      "source": "hackernews",
-      "sources": [
-        "hackernews"
-      ],
-      "signals": {
-        "points": 356,
-        "comments": 70,
-        "seen_age_days": 509
-      },
-      "maturity": "stable",
-      "note": "research/LaurieWired__GhidraMCP.md"
-    },
-    {
-      "repo": "htdt/godogen",
-      "verdict": "watch",
-      "status": "recommended",
-      "stars": 0,
-      "url": "https://github.com/htdt/godogen",
-      "triaged": "2026-08-17",
-      "intent": "Generator publishing thin per-game repos that a Claude Code/Codex agent builds into full games with proof-over-claims verification",
-      "tags": [
-        "game-dev",
-        "skill",
-        "codegen",
-        "niche"
-      ],
-      "source": "hackernews",
-      "sources": [
-        "hackernews"
-      ],
-      "signals": {
-        "points": 337,
-        "comments": 205,
-        "seen_age_days": 153
-      },
-      "maturity": "emerging",
-      "note": "research/htdt__godogen.md"
+      "note": "research/alltrainning__graviton-dashboard.md"
     }
   ]
 }
