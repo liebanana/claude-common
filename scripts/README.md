@@ -16,7 +16,7 @@ once.
 - `discover.sh` — search GitHub for new agent/plugin/MCP repos, dedupe, emit candidates.
 - `cron-discover.sh` — unattended discover → `/triage-discoveries` → commit loop.
 - `release.sh` — cut a tagged claude-common release (rotate `CHANGELOG.md`, rebuild index, tag
-  `vX.Y.Z`, push). Run on `main`, clean tree only.
+  `vX.Y.Z`, push). Refuses unless on `main`, tree clean, and not behind `origin/main`.
 - `sync-consumers.sh` — bring every consumer repo in `sync/consumers.json` to the latest tag, one
   PR per repo, via a temp worktree (`--status` / `--dry-run` / `--discover` modes; never touches a
   default branch).
