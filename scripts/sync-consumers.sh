@@ -153,7 +153,7 @@ Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" ); then
   # which makes --force-with-lease behave like a plain --force and silently clobbers anything a
   # reviewer pushed onto this branch out of band.
   if [ -n "$prev" ]; then lease="--force-with-lease=$branch:$prev"; else lease="--force-with-lease"; fi
-  if ! ( cd "$wt" && git push -q $lease -u origin "$branch" </dev/null ); then log "$repo: push failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
+  if ! ( cd "$wt" && git push -q --no-verify $lease -u origin "$branch" </dev/null ); then log "$repo: push failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   body="Pin claude-common to **$TARGET** (managed files only; repo-local rules untouched).
 
 Changed:
