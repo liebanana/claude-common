@@ -31,6 +31,7 @@ Do every item; do not skip one because it "probably" holds.
 3. **Status docs current.** The lane's evidence/status docs carry exact HEAD SHAs, what is
    converged / held / blocked, and who owns the next action (agent, reviewer, human). Placeholders
    only where a value cannot exist yet (a future CI run id), and list them by name in the handover.
+   - Run `/oracle-status` so `.oracle/status.json` matches the handover (the board reads only that file).
 4. **Every worktree clean and pushed.** Per worktree: `git status` clean; `git rev-parse HEAD` equals
    `origin/<branch>`; the PR head equals it. Never force-push; never checkout across worktrees.
 5. **Write the handover** `docs/handovers/<YYYY-MM-DD>-session-handover.md`:
