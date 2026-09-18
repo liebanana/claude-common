@@ -39,6 +39,9 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 ## Debugging techniques
 - 🟢 **Prove/disprove phantom-scroll & layout-void bugs in Next.js/Tailwind apps without auth, dev servers, or browser installs** → `docs/layout-measure-repro.md` · _debugging, css, playwright, nextjs, layout_
 
+## Harness configuration pitfalls
+- 🟢 **Never name a user-invocable skill after a Claude Code built-in command — the skill shadows the builtin and makes it unreachable** → `docs/skill-naming-collisions.md` · _skills, slash-commands, claude-code, naming, harness_
+
 ## From research (adopt)
 _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial before trusting._
 - ✅ **Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)** → `research/DeusData__codebase-memory-mcp.md` (`DeusData/codebase-memory-mcp` ⭐22669) · _trialed_

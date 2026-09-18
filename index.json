@@ -160,6 +160,21 @@
       ]
     },
     {
+      "id": "skill-naming-collisions",
+      "kind": "doc",
+      "path": "docs/skill-naming-collisions.md",
+      "group": "Harness configuration pitfalls",
+      "intent": "Never name a user-invocable skill after a Claude Code built-in command — the skill shadows the builtin and makes it unreachable",
+      "status": "ready",
+      "tags": [
+        "skills",
+        "slash-commands",
+        "claude-code",
+        "naming",
+        "harness"
+      ]
+    },
+    {
       "id": "stitch-mcp-workflow",
       "kind": "doc",
       "path": "docs/stitch-mcp-workflow.md",
