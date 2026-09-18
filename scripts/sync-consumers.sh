@@ -142,17 +142,39 @@ while IFS=$'\t' read -r repo mode; do
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" ); then
     log "$repo: commit failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue
   fi
+  # Remote branch state, once per repo — never from a fetch (see note below the lease: a fetch
+  # here would refresh our local view of the remote tip right before pushing, turning
+  # --force-with-lease into a plain --force that can silently clobber a reviewer's out-of-band
+  # push). Feeds both the "unchanged" shortcut below and the lease selection right before the push.
+  remote_sha=""
+  if [ $remote = 1 ]; then
+    if ! remote_sha="$(git -C "$dir" ls-remote --heads origin "$branch" 2>/dev/null | cut -f1)"; then
+      log "$repo: ls-remote failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue
+    fi
+  fi
   if [ -n "$prev" ] && ( cd "$wt" && git diff --quiet "$prev" HEAD ); then
-    ( cd "$wt" && git reset -q --hard "$prev" )       # identical content: keep old sha, no re-push
-    n="$(pr_number "$dir" "$branch")"; log "$repo: ${n:+pr-open #$n }(unchanged)"; git -C "$dir" worktree remove -f "$wt"; continue
+    ( cd "$wt" && git reset -q --hard "$prev" )       # identical content: keep old sha, no re-push...
+    if [ $remote = 1 ] && [ "$PUSH" = 1 ] && [ "$remote_sha" != "$prev" ]; then
+      # ...unless the remote branch isn't at that sha (reviewer moved it, or it was never pushed
+      # from here) — then reporting "(unchanged)" would be a lie. Fall through to the push/lease
+      # logic below instead.
+      log "$repo: content unchanged but remote branch is not at ${prev:0:7} — pushing"
+    else
+      n="$(pr_number "$dir" "$branch")"; log "$repo: ${n:+pr-open #$n }(unchanged)"; git -C "$dir" worktree remove -f "$wt"; continue
+    fi
   fi
   if [ $remote = 0 ]; then log "$repo: no remote — branch $branch left local"; git -C "$dir" worktree remove -f "$wt"; continue; fi
   if [ "$PUSH" != 1 ]; then log "$repo: branch $branch committed locally (AUTO_PUSH!=1, no push/PR)"; git -C "$dir" worktree remove -f "$wt"; continue; fi
-  # Lease against the sha we last pushed ($prev, captured before the worktree's -B reset) — never
-  # fetch first. A fetch here would refresh our local view of the remote tip just before pushing,
-  # which makes --force-with-lease behave like a plain --force and silently clobbers anything a
-  # reviewer pushed onto this branch out of band.
-  if [ -n "$prev" ]; then lease="--force-with-lease=$branch:$prev"; else lease="--force-with-lease"; fi
+  # Lease against the remote branch's actual state ($remote_sha, from ls-remote above) and the sha
+  # we last pushed ($prev, captured before the worktree's -B reset).
+  if [ -z "$remote_sha" ]; then
+    lease="--force-with-lease=$branch:"          # remote ref must not exist yet — safe creation
+  elif [ -n "$prev" ]; then
+    lease="--force-with-lease=$branch:$prev"     # refuses if someone moved the remote since $prev
+  else
+    log "$repo: remote branch $branch exists but was not pushed from this host — run: git -C $dir fetch origin $branch  (then rerun), or delete the remote branch"
+    git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue
+  fi
   if ! ( cd "$wt" && git push -q --no-verify $lease -u origin "$branch" </dev/null ); then log "$repo: push failed"; git -C "$dir" worktree remove -f "$wt"; FAILED=1; continue; fi
   body="Pin claude-common to **$TARGET** (managed files only; repo-local rules untouched).
 
