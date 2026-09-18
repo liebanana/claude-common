@@ -2,19 +2,20 @@
   "root": "~/repos",
   "exclude": [],
   "consumers": [
-    { "repo": "claude-ai-trends",         "mode": "pr" },
-    { "repo": "claude-notify-bot",        "mode": "pr" },
-    { "repo": "claude-stay-tripper",      "mode": "pr" },
-    { "repo": "claude-tradingdesk",       "mode": "pr" },
-    { "repo": "claude-language-content",  "mode": "pr" },
+    { "repo": "claude-ai-trends", "mode": "pr" },
+    { "repo": "claude-notify-bot", "mode": "pr" },
+    { "repo": "claude-stay-tripper", "mode": "pr" },
+    { "repo": "claude-tradingdesk", "mode": "pr" },
+    { "repo": "claude-language-content", "mode": "pr" },
     { "repo": "claude-language-medialab", "mode": "pr" },
-    { "repo": "claude-language-tutor",    "mode": "pr" },
-    { "repo": "langtutor",                "mode": "pr" },
-    { "repo": "langtutor-infra",          "mode": "pr" },
-    { "repo": "topo-arch-ac",             "mode": "pr" },
-    { "repo": "mix-hunters",              "mode": "pr" },
-    { "repo": "Starlock",                 "mode": "pr" },
-    { "repo": "vault",                    "mode": "pr" },
-    { "repo": "claude-common",            "mode": "self" }
+    { "repo": "claude-language-tutor", "mode": "pr" },
+    { "repo": "langtutor", "mode": "pr" },
+    { "repo": "langtutor-infra", "mode": "pr" },
+    { "repo": "topo-arch-ac", "mode": "pr" },
+    { "repo": "mix-hunters", "mode": "pr" },
+    { "repo": "Starlock", "mode": "pr" },
+    { "repo": "vault", "mode": "pr" },
+    { "repo": "oracle", "mode": "pr" },
+    { "repo": "claude-common", "mode": "self" }
   ]
 }
