@@ -33,6 +33,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
 - 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
 - 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_
+- 🟢 **Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose** → `.claude/commands/oracle-status.md` · _status, handover, oracle, coordination_
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
 ## Debugging techniques

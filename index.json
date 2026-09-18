@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-17",
+  "generated": "2026-09-18",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -88,6 +88,20 @@
         "contribution",
         "pr",
         "session"
+      ]
+    },
+    {
+      "id": "oracle-status",
+      "kind": "command",
+      "path": ".claude/commands/oracle-status.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose",
+      "status": "ready",
+      "tags": [
+        "status",
+        "handover",
+        "oracle",
+        "coordination"
       ]
     },
     {
