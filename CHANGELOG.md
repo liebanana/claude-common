@@ -5,6 +5,9 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Fixed
+- `sync-consumers.sh` pushes with `--no-verify`: consumer pre-push hooks (langtutor preflight, topo-arch-ac `pnpm verify`) ran inside the scratch worktree and rejected the push; the consumer PR is the review gate.
+
 ## [v1.0.0] - 2026-09-18
 
 - first tagged release: consumer sync, oracle-status, 135-repo research ledger
