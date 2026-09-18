@@ -91,19 +91,32 @@ git clone -q "$T/remotes/a.git" "$T/reviewer" >/dev/null 2>&1
 ( cd "$T/reviewer" && git checkout -q common/v9.9.9 && echo reviewer >> README.md \
   && git commit -qam reviewer && git push -q origin common/v9.9.9 )
 reviewer_sha=$(git -C "$T/reviewer" rev-parse HEAD)
-# 1) content we'd produce is identical to what's already on the branch locally -> the
-#    "(unchanged)" short-circuit fires and never touches the remote at all (sanity baseline).
-out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert_eq "$?" 0 "lease-1 rc (unchanged short-circuit)"
-assert_grep 'a: pr-open #7 \(unchanged\)' <(echo "$out")
-assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit survives (unchanged short-circuit)"
-# 2) force a real push attempt: drop the local branch ref so $prev is empty and the lease can't
-#    be pinned to a known sha. A fetch-then-push would refresh the stale remote-tracking ref and
-#    let a plain --force-with-lease clobber the reviewer's commit; without the fetch, the lease is
-#    checked against our stale local knowledge of the remote and git must refuse the push.
-git -C "$ROOT/a" branch -D common/v9.9.9 >/dev/null
-out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert_eq "$?" 1 "lease-2 rc (push refused)"
+# 1) content we'd produce is identical to what's already on the branch locally, but the remote
+#    has moved on without us (reviewer's commit) — the "unchanged" shortcut must NOT swallow that:
+#    it falls through to a real push, whose lease is still pinned to our stale $prev and so the
+#    push (and thus the whole rerun) is refused.
+out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert_eq "$?" 1 "lease-1 rc (push refused, not swallowed by unchanged)"
 assert_grep 'a: push failed' <(echo "$out")
-assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit still survives (lease refused)"
+assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit survives (push refused)"
+# 2) force a real push attempt: drop the local branch ref so $prev is empty and the lease can't
+#    be pinned to a known sha. The remote branch still exists (reviewer's commit) but we have no
+#    record of ever pushing it from this host, so the script must refuse to push at all rather
+#    than fall back to a bare/must-not-exist lease that could clobber it.
+git -C "$ROOT/a" branch -D common/v9.9.9 >/dev/null
+out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert_eq "$?" 1 "lease-2 rc (refused, unknown remote branch)"
+assert_grep 'a: remote branch common/v9.9.9 exists but was not pushed from this host' <(echo "$out")
+assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit still survives (refused, unknown remote branch)"
+
+# --- NEW: local branch present, remote branch absent (topo-arch-ac). After run1/run2, b's
+# common/v9.9.9 exists both locally and on its remote. Drop only the remote copy (as if the
+# branch/PR were deleted upstream) and confirm the "unchanged" shortcut still pushes it back
+# (must-not-exist lease, since the remote ref is now gone) instead of silently doing nothing.
+git -C "$T/remotes/b.git" update-ref -d refs/heads/common/v9.9.9
+rm -f "$GH_LOG.created.b"   # drop b's fake-PR flag so `gh pr list` reports none (as done further below for a)
+out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo b 2>&1); assert_eq "$?" 0 "b remote-absent rerun rc"
+assert_grep 'b: content unchanged but remote branch is not at' <(echo "$out")
+git -C "$T/remotes/b.git" rev-parse -q --verify refs/heads/common/v9.9.9 >/dev/null || _fail "b remote branch not recreated"
+assert_file "$GH_LOG.created.b"
 
 # merge a's PR (fast-forward main) → status current, run is a no-op
 ( cd "$ROOT/a" && git merge -q --ff-only common/v9.9.9 && git push -q origin main )
