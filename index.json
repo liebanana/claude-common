@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18",
+  "generated": "2026-09-21",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -1816,6 +1816,28 @@
       },
       "maturity": "trending",
       "note": "research/virgiliojr94__book-to-skill.md"
+    },
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 18930,
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-21",
+      "intent": "Six-phase, adversarially validated, machine-readable full-repo security audit skill (Cloudflare, MIT)",
+      "tags": [
+        "skill",
+        "security",
+        "audit",
+        "subagents"
+      ],
+      "source": "manual",
+      "sources": [
+        "manual"
+      ],
+      "maturity": "trending",
+      "note": "research/cloudflare__security-audit-skill.md"
     },
     {
       "repo": "allenai/olmocr",
