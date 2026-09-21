@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-18",
+  "generated": "2026-09-21",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -1538,6 +1538,31 @@
       "note": "research/topoteretes__cognee.md"
     },
     {
+      "repo": "anthropics/knowledge-work-plugins",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 25329,
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "pushed": "2026-09-21",
+      "triaged": "2026-09-21",
+      "intent": "Anthropic's own open-source plugin marketplace (skills+connectors+commands+subagents bundled per role) for Claude Cowork/Code — reference for plugin/marketplace structure, not a single extractable asset",
+      "tags": [
+        "plugins",
+        "marketplace",
+        "anthropic"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 25329,
+        "stars_period": 1298
+      },
+      "maturity": "trending",
+      "note": "research/anthropics__knowledge-work-plugins.md"
+    },
+    {
       "repo": "alibaba/open-code-review",
       "verdict": "watch",
       "status": "recommended",
@@ -1841,6 +1866,31 @@
       },
       "maturity": "stable",
       "note": "research/allenai__olmocr.md"
+    },
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 18707,
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-21",
+      "intent": "Coding-agent skill for multi-phase security audits: coverage ledger + isolated hunters + adversarial verifiers + schema-validated findings — a reusable pattern for our own security-review skill",
+      "tags": [
+        "skill",
+        "security",
+        "verification"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 18707,
+        "stars_period": 14864
+      },
+      "maturity": "trending",
+      "note": "research/cloudflare__security-audit-skill.md"
     },
     {
       "repo": "Zackriya-Solutions/meetily",
@@ -2499,6 +2549,31 @@
       "note": "research/ibelick__ui-skills.md"
     },
     {
+      "repo": "eugeniughelbur/obsidian-second-brain",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 4566,
+      "url": "https://github.com/eugeniughelbur/obsidian-second-brain",
+      "pushed": "2026-09-20",
+      "triaged": "2026-09-21",
+      "intent": "Cross-CLI persistent memory stored as markdown in an Obsidian vault (45 commands: semantic search, self-rewriting notes, scheduled maintenance agents) — alternative memory architecture worth comparing to our own auto-memory system",
+      "tags": [
+        "memory",
+        "obsidian",
+        "cross-agent"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 4566,
+        "repo_age_days": 181
+      },
+      "maturity": "emerging",
+      "note": "research/eugeniughelbur__obsidian-second-brain.md"
+    },
+    {
       "repo": "akitaonrails/ai-memory",
       "verdict": "watch",
       "status": "recommended",
@@ -2714,6 +2789,30 @@
       "note": "research/aattaran__deepclaude.md"
     },
     {
+      "repo": "Weizhena/Deep-Research-skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 2214,
+      "url": "https://github.com/Weizhena/Deep-Research-skills",
+      "pushed": "2026-08-23",
+      "triaged": "2026-09-21",
+      "intent": "Structured two-phase deep-research skill for Claude Code/OpenCode/Codex — redundant with our existing anthropic-skills:deep-research capability",
+      "tags": [
+        "skill",
+        "research"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 2214,
+        "repo_age_days": 266
+      },
+      "maturity": "emerging",
+      "note": "research/Weizhena__Deep-Research-skills.md"
+    },
+    {
       "repo": "unclebob/swarm-forge",
       "verdict": "watch",
       "status": "recommended",
@@ -2767,6 +2866,33 @@
       "note": "research/LLMQuant__quant-mind.md"
     },
     {
+      "repo": "NeoLabHQ/context-engineering-kit",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 1716,
+      "url": "https://github.com/NeoLabHQ/context-engineering-kit",
+      "pushed": "2026-08-26",
+      "triaged": "2026-09-21",
+      "intent": "Hand-crafted, minimal-token-footprint Claude Code skills/plugins for context engineering and result quality — directly matches our token-thrift mission",
+      "tags": [
+        "skill",
+        "context-engineering",
+        "token-thrift"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 44,
+        "comments": 4,
+        "seen_age_days": 16,
+        "stars": 1716
+      },
+      "maturity": "emerging",
+      "note": "research/NeoLabHQ__context-engineering-kit.md"
+    },
+    {
       "repo": "manzaltu/claude-code-ide.el",
       "verdict": "watch",
       "status": "recommended",
@@ -2791,6 +2917,55 @@
       },
       "maturity": "stable",
       "note": "research/manzaltu__claude-code-ide.el.md"
+    },
+    {
+      "repo": "cbrock84/headcount",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1642,
+      "url": "https://github.com/cbrock84/headcount",
+      "pushed": "2026-09-17",
+      "triaged": "2026-09-21",
+      "intent": "Company-shaped agent org (16 departments, 172 skills, each citing regulators/standards) for Claude Code/ChatGPT — notable citation-backed-skill pattern, but a vertical business-ops product, not a generic asset",
+      "tags": [
+        "skill-bundle",
+        "compliance"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 1642,
+        "repo_age_days": 23
+      },
+      "maturity": "trending",
+      "note": "research/cbrock84__headcount.md"
+    },
+    {
+      "repo": "AMAP-ML/LongHorizon-Harness",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1610,
+      "url": "https://github.com/AMAP-ML/LongHorizon-Harness",
+      "pushed": "2026-08-20",
+      "triaged": "2026-09-21",
+      "intent": "arXiv-backed loop-engineering harness (plan/act/verify/checkpoint-or-recover) for long-horizon computer-use agents, native Claude Code/Codex/OpenClaw — technique reference for our session-handover and autonomy patterns",
+      "tags": [
+        "harness",
+        "autonomy",
+        "research"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 1610,
+        "repo_age_days": 48
+      },
+      "maturity": "emerging",
+      "note": "research/AMAP-ML__LongHorizon-Harness.md"
     },
     {
       "repo": "alexgreensh/token-optimizer",
@@ -2886,6 +3061,30 @@
       },
       "maturity": "emerging",
       "note": "research/eneskirca__nodeterm.md"
+    },
+    {
+      "repo": "alexgreensh/attention-span",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 1123,
+      "url": "https://github.com/alexgreensh/attention-span",
+      "pushed": "2026-09-06",
+      "triaged": "2026-09-21",
+      "intent": "Drop-in Claude Code output-style markdown files (answer-first, concise-by-default) that cut response tokens as a side effect of being kind to attention — small, directly reusable asset",
+      "tags": [
+        "output-style",
+        "token-thrift"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 1123,
+        "repo_age_days": 47
+      },
+      "maturity": "emerging",
+      "note": "research/alexgreensh__attention-span.md"
     },
     {
       "repo": "iosifache/annas-mcp",
@@ -3007,6 +3206,31 @@
       "note": "research/riseandignite__mcp-shield.md"
     },
     {
+      "repo": "rsmdt/the-startup",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 517,
+      "url": "https://github.com/rsmdt/the-startup",
+      "pushed": "2026-08-03",
+      "triaged": "2026-09-21",
+      "intent": "Multi-agent spec-driven-development framework (commands/skills/agents/output-styles/statusline) for Claude Code — full competing framework, overlaps with our own superpowers skills; watch for individual ideas rather than wholesale adoption",
+      "tags": [
+        "framework",
+        "spec-driven",
+        "multi-agent"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 517,
+        "repo_age_days": 405
+      },
+      "maturity": "stable",
+      "note": "research/rsmdt__the-startup.md"
+    },
+    {
       "repo": "muthuishere/mcp-server-bash-sdk",
       "verdict": "adopt",
       "status": "recommended",
@@ -3030,6 +3254,130 @@
       },
       "maturity": "emerging",
       "note": "research/muthuishere__mcp-server-bash-sdk.md"
+    },
+    {
+      "repo": "Hainrixz/the-architect",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 506,
+      "url": "https://github.com/Hainrixz/the-architect",
+      "pushed": "2026-07-28",
+      "triaged": "2026-09-21",
+      "intent": "Claude Code meta-agent that interviews the user and writes a self-contained blueprint (EARS acceptance criteria + per-step verify command) for a zero-context build — technique worth referencing when improving our planning/handover skills",
+      "tags": [
+        "planning",
+        "spec",
+        "meta-agent"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 506,
+        "repo_age_days": 174
+      },
+      "maturity": "emerging",
+      "note": "research/Hainrixz__the-architect.md"
+    },
+    {
+      "repo": "JayPokale/Chisle",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 492,
+      "url": "https://github.com/JayPokale/Chisle",
+      "pushed": "2026-09-19",
+      "triaged": "2026-09-21",
+      "intent": "Injected ruleset (terse prose + YAGNI-first code + tool-output compression) that measurably cuts an agent's output tokens (44% of baseline in published benchmarks incl. losses) — zero-dep, directly on our token-thrift mission",
+      "tags": [
+        "token-thrift",
+        "ruleset",
+        "benchmarked"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 492,
+        "repo_age_days": 83
+      },
+      "maturity": "emerging",
+      "note": "research/JayPokale__Chisle.md"
+    },
+    {
+      "repo": "yonatangross/orchestkit",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 280,
+      "url": "https://github.com/yonatangross/orchestkit",
+      "pushed": "2026-09-21",
+      "triaged": "2026-09-21",
+      "intent": "Very large bundled toolkit for Claude Code (107 skills, 36 agents, 171 hooks) with its own CLI installer and community — worth mining for specific hook/skill ideas later, too broad to adopt wholesale",
+      "tags": [
+        "toolkit",
+        "skills",
+        "hooks"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 280,
+        "repo_age_days": 264
+      },
+      "maturity": "emerging",
+      "note": "research/yonatangross__orchestkit.md"
+    },
+    {
+      "repo": "prekuter/dryforge",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 269,
+      "url": "https://github.com/prekuter/dryforge",
+      "pushed": "2026-08-31",
+      "triaged": "2026-09-21",
+      "intent": "Bounded-autonomy plugin harness for Claude Code/Codex (user-approved intent, spec-bound execution, evidence-backed verification, persistent project context) — conceptually close to our own AGENT-DIRECTIVE autonomy model, worth comparing when revising it",
+      "tags": [
+        "harness",
+        "autonomy"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 269,
+        "repo_age_days": 112
+      },
+      "maturity": "emerging",
+      "note": "research/prekuter__dryforge.md"
+    },
+    {
+      "repo": "Avijit07x/claude-db",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 227,
+      "url": "https://github.com/Avijit07x/claude-db",
+      "pushed": "2026-08-30",
+      "triaged": "2026-09-21",
+      "intent": "Pluggable-database persistent memory for Claude Code: hook-driven auto-capture/recall plus a code-graph MCP (usages/explain/path) — alternative, more code-graph-aware memory architecture worth watching",
+      "tags": [
+        "memory",
+        "mcp",
+        "code-graph"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 227,
+        "repo_age_days": 37
+      },
+      "maturity": "emerging",
+      "note": "research/Avijit07x__claude-db.md"
     },
     {
       "repo": "outcomeops/context-engineering",
@@ -3058,6 +3406,31 @@
       },
       "maturity": "emerging",
       "note": "research/outcomeops__context-engineering.md"
+    },
+    {
+      "repo": "l3a0/claude-plugins",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 19,
+      "url": "https://github.com/l3a0/claude-plugins",
+      "pushed": "2026-09-20",
+      "triaged": "2026-09-21",
+      "intent": "Kindle-highlight-recovery Claude Code skill — well-executed but no transferable value outside that narrow niche",
+      "tags": [
+        "skill",
+        "niche"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 45,
+        "comments": 12,
+        "seen_age_days": 27
+      },
+      "maturity": "experimental",
+      "note": "research/l3a0__claude-plugins.md"
     },
     {
       "repo": "bojieli/ai-agent-book",
