@@ -132,8 +132,8 @@ Weekly is plenty. Add to `crontab -e` (matches the existing workspace pattern of
 wrapper script that logs):
 
 ```cron
-0 9 * * 1 /home/luisliev/repos/claude-common/scripts/cron-discover.sh >> /home/luisliev/repos/claude-common/state/discover.log 2>&1
-30 9 * * 1 AUTO_PUSH=1 /home/luisliev/repos/claude-common/scripts/sync-consumers.sh >> /home/luisliev/repos/claude-common/state/sync.log 2>&1
+0 9 * * 1 $HOME/repos/claude-common/scripts/cron-discover.sh >> $HOME/repos/claude-common/state/discover.log 2>&1
+30 9 * * 1 AUTO_PUSH=1 $HOME/repos/claude-common/scripts/sync-consumers.sh >> $HOME/repos/claude-common/state/sync.log 2>&1
 ```
 
 - **Prerequisite:** the headless triage only honors `.claude/settings.json` if this
