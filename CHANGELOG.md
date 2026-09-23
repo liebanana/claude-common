@@ -5,6 +5,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+## [v1.1.0] - 2026-09-23
+
+- directive §6 ultracode provisioning; subagent-model safety net
+
 ### Added
 - Directive §6 "Ultracode & workflow provisioning": explicit `model:`/`effort:` per role on every workflow `agent()` and Agent spawn, role→tier floor, additive-only repo overrides, 3-round loop cap, tier-mix reporting. Settings baseline now sets `CLAUDE_CODE_SUBAGENT_MODEL=sonnet` as the harness safety net.
 
