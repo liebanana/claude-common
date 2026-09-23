@@ -78,6 +78,20 @@
       ]
     },
     {
+      "id": "redact",
+      "kind": "script",
+      "path": "scripts/redact.py",
+      "group": "Reusable Claude Code assets",
+      "intent": "Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing",
+      "status": "ready",
+      "tags": [
+        "security",
+        "secrets",
+        "redaction",
+        "public-repo"
+      ]
+    },
+    {
       "id": "contribute-to-common",
       "kind": "command",
       "path": ".claude/commands/contribute-to-common.md",
