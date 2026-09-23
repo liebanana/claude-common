@@ -106,3 +106,56 @@ spec, and plan before the diff, however brief). Skipping is not a form of scalin
 BRAINSTORM/SPEC and PLAN — SMEs rule on the options and the spec, then only the agreed spec
 gets planned and implemented. For work without a mandated gate, still run the relevant SME
 lenses on non-trivial decisions (autonomy: decide and proceed, but decide *through the org*).
+
+---
+
+## 6. Ultracode & workflow provisioning (Luis, 2026-09-22)
+
+Ultracode (the `ultracode` keyword, `/effort ultracode`, or `ultracode: true` in settings; a system
+reminder confirms it) is a standing opt-in to author and run a **Workflow** for every substantive
+task, typically with adversarial verification stages instead of a single pass. It raises the
+**verification and orchestration bar** — it does **not** lift §4. The Workflow reference's "token
+cost is not a constraint" is overridden by this directive: thrift applies per agent, inside every
+workflow.
+
+**Set `model:` explicitly, by role, on every workflow `agent()` call and every Agent spawn.**
+Omitting it to "inherit the session model" is a bug in both directions: on an Opus/Fable session it
+over-provisions mechanical stages; on a Haiku/Sonnet session it under-provisions the stages that need
+judgment. Never rely on inheritance.
+
+**Role → tier (the floor; a repo's MODEL-POLICY may raise a named class, never lower one):**
+- Implementer whose task already contains the complete code → **haiku** if single-file/mechanical,
+  **sonnet** otherwise (multi-file, integration).
+- Implementer working from prose (no complete code in the task) → **sonnet**.
+- Per-task reviewer, scoped re-review → **sonnet**.
+- Fixer → **sonnet**; **opus** only on the last fix round of a stuck task.
+- Design synthesis / judging, final whole-branch review, end-of-build audit, genuinely hard
+  debugging → **opus / frontier**.
+- Read-only sweeps → **Explore** (or **haiku** when Explore doesn't fit).
+- Red-team / chaos attackers → **sonnet**.
+- Anything not matching a row → **sonnet**; escalate only if it struggles. Never default an
+  unmatched stage to opus.
+
+Set `effort:` the same way: **low** for mechanical stages, **high** only for the hardest verify/judge
+stages — never every stage on high just because ultracode is on.
+
+**Repo overrides are additive only.** A repo's MODEL-POLICY may mark named classes mandatory-frontier
+(security/RLS, new architecture, money-affecting logic, user-facing correctness claims) and force
+those stages to opus. It may never drop a stage below this floor or skip a verification stage.
+
+**Loop caps.** Adversarial ping-pong (implementer ↔ reviewer/fixer) is capped at **3 NOT-READY
+rounds per item**. Then freeze, disclose what is unresolved, move on. Round count, not tier, is where
+spend goes; never "fix" a stuck loop by upgrading tiers.
+
+**Harness safety net, not a substitute.** The synced settings baseline sets
+`CLAUDE_CODE_SUBAGENT_MODEL=sonnet` (in `.claude/settings.json` → `env`), which is the fallback for
+both Agent-tool spawns and workflow `agent()` calls that omit `model:` (resolution: call param →
+agent frontmatter → this env var → session model). It stops a forgotten `model:` from inheriting
+Opus; it cannot pick opus for a judge stage or haiku for a transcription stage. Explicit `model:` is
+still required. Never set the `_FORCE` variant — it overrides deliberate choices.
+
+**Report the tier mix.** At the end of a workflow run, log how many agents ran at each tier
+(e.g. "6 haiku, 9 sonnet, 2 opus") so over- or under-provisioning is visible, not assumed away.
+
+**When ultracode is off:** §4 applies unchanged; do not author or run a Workflow unless the user
+opted in for that task.
