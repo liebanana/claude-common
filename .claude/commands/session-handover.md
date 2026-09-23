@@ -10,6 +10,9 @@ tags: [handover, context-clear, resume, durability, orchestration]
 
 # /session-handover [pause | resume]
 
+Full protocols: the `prepare-clear` skill (drain + checkpoint before a clear) and the `rehydrate`
+skill (recover after a crash) — this command is the short form.
+
 The next session has none of this one's memory, background tasks, monitors or scratch files.
 Only the repository (and its remote: PRs, comments, CI) survives. This command makes a
 deliberate context clear safe, and makes resuming mechanical. Default to `pause` when the user
