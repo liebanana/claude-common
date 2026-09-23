@@ -14,6 +14,9 @@ printf -- 'no frontmatter agent\n' > "$SRC/.claude/agents/bot.md"
 printf -- '#!/usr/bin/env bash\necho hook\n' > "$SRC/hooks/version-check.sh"
 cp "$R/templates/settings.baseline.json" "$R/templates/claude-md-block.md" "$SRC/templates/"
 mkdir -p "$SRC/scripts/lib"; cp "$R/scripts/lib/merge-settings.jq" "$SRC/scripts/lib/"
+mkdir -p "$SRC/skills/alpha"
+printf -- '---\nname: alpha\ndescription: skill one\nkind: skill\nstatus: ready\ngroup: Reusable Claude Code assets\nintent: Do the alpha thing\ntags: [alpha, demo]\n---\nbody skill\n' > "$SRC/skills/alpha/SKILL.md"
+printf -- '#!/usr/bin/env bash\necho helper\n' > "$SRC/skills/alpha/helper.sh"; chmod +x "$SRC/skills/alpha/helper.sh"
 
 # --- case 1: empty repo, no CLAUDE.md
 D1="$T/d1"; mkdir -p "$D1"
@@ -34,10 +37,20 @@ assert_eq "$(sed -n 2p "$D1/.claude/agents/bot.md")" "managed-by: claude-common"
 assert_eq "$(sed -n 3p "$D1/.claude/agents/bot.md")" "---" "bot.md line 3"
 assert_eq "$(sed -n 4p "$D1/.claude/agents/bot.md")" "no frontmatter agent" "bot.md line 4"
 assert_exec "$D1/.claude/hooks/common/version-check.sh"
+# Tightened assertions for skills/alpha (SKILL.md marked + intact frontmatter, sibling file plain-copied)
+assert_eq "$(sed -n 1p "$D1/.claude/skills/alpha/SKILL.md")" "---" "alpha SKILL.md line 1"
+assert_eq "$(sed -n 2p "$D1/.claude/skills/alpha/SKILL.md")" "managed-by: claude-common" "alpha SKILL.md line 2"
+assert_eq "$(sed -n 3p "$D1/.claude/skills/alpha/SKILL.md")" "name: alpha" "alpha SKILL.md line 3"
+assert_grep '^description: skill one$' "$D1/.claude/skills/alpha/SKILL.md"
+assert_grep '^kind: skill$' "$D1/.claude/skills/alpha/SKILL.md"
+assert_grep '^intent: Do the alpha thing$' "$D1/.claude/skills/alpha/SKILL.md"
+assert_grep '^body skill$' "$D1/.claude/skills/alpha/SKILL.md"
+assert_exec "$D1/.claude/skills/alpha/helper.sh"
+assert_eq "$(cat "$D1/.claude/skills/alpha/helper.sh")" "$(cat "$SRC/skills/alpha/helper.sh")" "helper.sh content preserved"
 assert_eq "$(jq -S -c . "$D1/.claude/settings.json")" "$(jq -S -c . "$SRC/templates/settings.baseline.json")" "settings == baseline"
 assert_eq "$(jq -r .version "$D1/.claude/common.lock")" "v1.2.3" "lock version"
 assert_eq "$(jq -c '.managed|sort' "$D1/.claude/common.lock")" \
-  '[".claude/agents/bot.md",".claude/commands/one.md",".claude/hooks/common/version-check.sh","AGENT-DIRECTIVE.md"]' "lock managed"
+  '[".claude/agents/bot.md",".claude/commands/one.md",".claude/hooks/common/version-check.sh",".claude/skills/alpha/SKILL.md",".claude/skills/alpha/helper.sh","AGENT-DIRECTIVE.md"]' "lock managed"
 
 # scaffolded repo: a second apply must change nothing (same shape as the re-strip path)
 cp -r "$D1" "$T/d1-before"
@@ -104,6 +117,25 @@ D8="$T/d8"; mkdir -p "$D8/.claude/commands"
 echo "mine" > "$D8/.claude/commands/one.md"
 if apply_contract "$SRC" "$D8" v1 r8 2>/dev/null; then _fail "apply_contract should refuse to overwrite unmanaged local file"; fi
 assert_eq "$(cat "$D8/.claude/commands/one.md")" "mine" "unmanaged local file left untouched"
+
+# --- apply_contract refuses to overwrite a repo-local skill sitting at a managed path (no marker,
+# not in the previous lock's managed[]) instead of clobbering it
+D10="$T/d10"; mkdir -p "$D10/.claude/skills/alpha"
+echo "mine" > "$D10/.claude/skills/alpha/SKILL.md"
+if apply_contract "$SRC" "$D10" v1 r10 2>/dev/null; then _fail "apply_contract should refuse to overwrite unmanaged local skill"; fi
+assert_eq "$(cat "$D10/.claude/skills/alpha/SKILL.md")" "mine" "unmanaged local skill left untouched"
+
+# --- upstream removed a managed skill; both its files are deleted and the now-empty dir removed
+D11="$T/d11"; mkdir -p "$D11/.claude/skills/gone"
+echo "old skill" > "$D11/.claude/skills/gone/SKILL.md"
+echo "old file"  > "$D11/.claude/skills/gone/x.txt"
+mkdir -p "$D11/.claude"
+printf '{"version":"v1.0.0","synced":"2026-01-01","managed":[".claude/skills/gone/SKILL.md",".claude/skills/gone/x.txt","AGENT-DIRECTIVE.md"]}' > "$D11/.claude/common.lock"
+apply_contract "$SRC" "$D11" v1.2.3 r11 || _fail "apply d11 rc"
+assert_not_file "$D11/.claude/skills/gone/SKILL.md"
+assert_not_file "$D11/.claude/skills/gone/x.txt"
+assert_not_file "$D11/.claude/skills/gone"
+assert_file "$D11/.claude/skills/alpha/SKILL.md"
 
 # --- apply_contract must fail (and propagate) when the directive cannot be written
 # AGENT-DIRECTIVE.md is a directory, and it already contains a same-named subdirectory, so

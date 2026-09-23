@@ -106,6 +106,31 @@ apply_contract() {
     managed+="$rel"$'\n'
   done
 
+  # skills: skills/<name>/SKILL.md (+ any sibling files, recursively) -> .claude/skills/<name>/...
+  # Only SKILL.md is guarded per-skill (a repo-local skill of the same name refuses the whole repo,
+  # same error style as commands/agents/hooks above); once that guard passes, every other file in
+  # the skill dir is managed too and copied without a further per-file guard.
+  local skill_dir name sf srel
+  for skill_dir in "$src"/skills/*/; do
+    skill_dir="${skill_dir%/}"
+    [ -d "$skill_dir" ] || continue
+    [ -f "$skill_dir/SKILL.md" ] || continue
+    name="$(basename "$skill_dir")"
+    rel=".claude/skills/$name/SKILL.md"
+    _guard_overwrite "$rel" "$dst" "$old_managed" \
+      || { echo "apply_contract: refusing to overwrite unmanaged local file $rel for $repo" >&2; return 1; }
+    _copy_marked "$skill_dir/SKILL.md" "$dst/$rel" \
+      || { echo "apply_contract: copy of $rel failed for $repo" >&2; return 1; }
+    managed+="$rel"$'\n'
+    while IFS= read -r -d '' sf; do
+      srel="${sf#"$skill_dir"/}"
+      rel=".claude/skills/$name/$srel"
+      mkdir -p "$(dirname "$dst/$rel")" && cp -p "$sf" "$dst/$rel" \
+        || { echo "apply_contract: copy of $rel failed for $repo" >&2; return 1; }
+      managed+="$rel"$'\n'
+    done < <(find "$skill_dir" -mindepth 1 -type f ! -path "$skill_dir/SKILL.md" -print0)
+  done
+
   # settings: baseline merged under repo settings (repo wins)
   mkdir -p "$dst/.claude"
   local cur="$dst/.claude/settings.json" tmp; tmp="$(mktemp)"
@@ -122,8 +147,14 @@ apply_contract() {
   while read -r p; do
     [ -n "$p" ] || continue
     printf '%s\n' "$managed" | grep -qxF "$p" && continue
-    case "$p" in .claude/commands/*|.claude/agents/*|.claude/hooks/common/*) rm -f "$dst/$p" ;; esac
+    case "$p" in .claude/commands/*|.claude/agents/*|.claude/hooks/common/*|.claude/skills/*) rm -f "$dst/$p" ;; esac
   done <<< "$old_managed"
+  # a skill dir emptied by the deletion above (upstream stopped shipping it) leaves an empty dir
+  local d
+  for d in "$dst"/.claude/skills/*/; do
+    [ -d "$d" ] || continue
+    rmdir "$d" 2>/dev/null || true
+  done
 
   write_lock "$dst" "$version" "$managed" "$synced" \
     || { echo "apply_contract: write_lock failed for $repo" >&2; return 1; }

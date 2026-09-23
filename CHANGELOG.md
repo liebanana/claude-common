@@ -6,6 +6,7 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 ## [Unreleased]
 
 ### Added
+- `skills/` asset kind: `skills/<name>/SKILL.md` (+ sibling files) now syncs into consumers'
 - `.claude/agents/ponytail.md`: canonical anti-over-engineering agent (reconciled from the tradingdesk / Starlock / langtutor copies; project guardrails now come from the host repo's CLAUDE.md).
 - `scripts/notify.sh` + `scripts/notify-hook.sh` + `scripts/notify.env.example`: env-driven Telegram notifier and Stop-hook wrapper (from claude-notify-bot); `tests/notify-test.sh`.
 - `scripts/redact.py`: dependency-free secret scrubber (library + CLI, `--check` for pre-push sweeps), from the oracle project; tests in `tests/test_redact.py` via `tests/redact-test.sh`.
