@@ -32,8 +32,11 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 ## Reusable Claude Code assets
 - 🟢 **Anti-over-engineering reviewer/consultant — least code that works (YAGNI → stdlib → native → existing dep → minimal custom), never at the cost of validation, security, data-loss handling or accessibility** → `.claude/agents/ponytail.md` · _agent, review, simplify, yagni_
 - 🟢 **Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh** → `scripts/notify-hook.sh` · _notify, telegram, hooks, stop-hook_
+- 🟢 **Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status** → `skills/rehydrate/SKILL.md` · _skill, recovery, crash-recovery, handover, resume_
 - 🟢 **Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing** → `scripts/redact.py` · _security, secrets, redaction, public-repo_
+- 🟢 **Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate** → `skills/prepare-clear/SKILL.md` · _skill, handover, context-clear, resume, durability_
 - 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
+- 🟢 **Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report** → `skills/verify-fix-claims/SKILL.md` · _skill, verification, code-review, commit-hygiene_
 - 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
 - 🟢 **Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency** → `scripts/notify.sh` · _notify, telegram, cron, hooks_
 - 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_
