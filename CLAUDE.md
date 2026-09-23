@@ -46,6 +46,7 @@ docs/token-thrift.md    durable practices (model choice, scripts-over-reruns, hy
 .claude/agents/       subagents (auto-discovered)                                                   ├─ install.sh
 hooks/                shareable hook scripts (wired via settings.json)                               │   symlinks
 mcp/                  MCP / integration templates                                                   ┘   cmds+agents
+skills/  shared skills (each skills/<name>/SKILL.md), synced into consumers' .claude/skills/
 .claude/settings.json scoped permission allowlist for the headless triage run
 scripts/              deterministic helpers; build-index.py regenerates the index
   lib/                   sourced helpers (merge-settings.jq, sync-apply.sh — the consumer file contract)
@@ -167,7 +168,8 @@ pinned to a tag recorded in its own `.claude/common.lock`.
    `no-default-branch`, `branch-local` repos); the shipped SessionStart hook
    (`hooks/version-check.sh`) warns inside any repo that is behind.
 What lands in a consumer (all copies, committed): `AGENT-DIRECTIVE.md`; `.claude/commands|agents/*`
-carrying `managed-by: claude-common`; `.claude/hooks/common/*.sh`; a jq-merged `.claude/settings.json`
+carrying `managed-by: claude-common`; `.claude/hooks/common/*.sh`; `.claude/skills/<name>/*` (SKILL.md
+carries the marker, sibling files are plain copies); a jq-merged `.claude/settings.json`
 (repo keys win); a marker block in `CLAUDE.md`; `.claude/common.lock`. The push uses `--no-verify`
 (consumer pre-push hooks are dev-machine preflights; the PR is the gate). Repo-local files are never
 touched; a local file already sitting at a managed path makes the sync refuse rather than overwrite.
