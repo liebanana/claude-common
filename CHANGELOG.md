@@ -5,6 +5,12 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Added
+- `scripts/redact.py`: dependency-free secret scrubber (library + CLI, `--check` for pre-push sweeps), from the oracle project; tests in `tests/test_redact.py` via `tests/redact-test.sh`.
+
+### Fixed
+- No more hardcoded `/home/<user>` paths in `CLAUDE.md` / `scripts/cron-discover.sh` (use `$HOME`).
+
 ## [v1.1.0] - 2026-09-23
 
 - directive §6 ultracode provisioning; subagent-model safety net
