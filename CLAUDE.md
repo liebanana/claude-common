@@ -46,7 +46,7 @@ docs/token-thrift.md    durable practices (model choice, scripts-over-reruns, hy
 .claude/agents/       subagents (auto-discovered)                                                   ├─ install.sh
 hooks/                shareable hook scripts (wired via settings.json)                               │   symlinks
 mcp/                  MCP / integration templates                                                   ┘   cmds+agents
-skills/  shared skills (each skills/<name>/SKILL.md), synced into consumers' .claude/skills/
+skills/               shared skills (skills/<name>/SKILL.md + siblings) → synced into consumers' .claude/skills/
 .claude/settings.json scoped permission allowlist for the headless triage run
 scripts/              deterministic helpers; build-index.py regenerates the index
   lib/                   sourced helpers (merge-settings.jq, sync-apply.sh — the consumer file contract)
@@ -179,7 +179,7 @@ Spec: `docs/superpowers/specs/2026-09-14-consumer-sync-design.md`. Tests: `tests
 
 When you build or discover something reusable:
 1. Put the asset in the right dir (`scripts/`, `.claude/commands/`, `.claude/agents/`,
-   `hooks/`, `mcp/`) **with metadata** (`.md` frontmatter or a `# meta:` line).
+   `hooks/`, `skills/<name>/`, `mcp/`) **with metadata** (`.md` frontmatter or a `# meta:` line).
 2. For external repos, append a `research/ledger.jsonl` record and write the prose note.
 3. Run `python3 scripts/build-index.py` — it regenerates `index.json`, `CATALOG.md`, and
    `research/INDEX.md`. Never hand-edit those three.
