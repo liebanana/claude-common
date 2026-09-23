@@ -27,6 +27,7 @@ ASSET_GLOBS = [
     "scripts/*.sh", "scripts/*.py",
     ".claude/commands/*.md", ".claude/agents/*.md",
     "docs/*.md", "hooks/*", "mcp/*.md",
+    "skills/*/SKILL.md",
 ]
 SKIP_NAMES = {"README.md"}
 # Order + friendly headers for CATALOG sections (groups not listed fall to the end).
