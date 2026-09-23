@@ -39,6 +39,34 @@
       ]
     },
     {
+      "id": "notify-hook",
+      "kind": "script",
+      "path": "scripts/notify-hook.sh",
+      "group": "Reusable Claude Code assets",
+      "intent": "Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh",
+      "status": "ready",
+      "tags": [
+        "notify",
+        "telegram",
+        "hooks",
+        "stop-hook"
+      ]
+    },
+    {
+      "id": "notify",
+      "kind": "script",
+      "path": "scripts/notify.sh",
+      "group": "Reusable Claude Code assets",
+      "intent": "Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency",
+      "status": "ready",
+      "tags": [
+        "notify",
+        "telegram",
+        "cron",
+        "hooks"
+      ]
+    },
+    {
       "id": "release",
       "kind": "script",
       "path": "scripts/release.sh",
@@ -143,6 +171,20 @@
       "tags": [
         "discovery",
         "triage"
+      ]
+    },
+    {
+      "id": "ponytail",
+      "kind": "agent",
+      "path": ".claude/agents/ponytail.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Anti-over-engineering reviewer/consultant — least code that works (YAGNI → stdlib → native → existing dep → minimal custom), never at the cost of validation, security, data-loss handling or accessibility",
+      "status": "ready",
+      "tags": [
+        "agent",
+        "review",
+        "simplify",
+        "yagni"
       ]
     },
     {
