@@ -5,6 +5,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+## [v1.2.0] - 2026-09-24
+
+- skills asset kind; shared skills; redact, ponytail, notify
+
 ## [v1.1.0] - 2026-09-23
 
 - directive §6 ultracode provisioning; subagent-model safety net
