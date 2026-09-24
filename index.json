@@ -281,6 +281,50 @@
         "browser",
         "debugging"
       ]
+    },
+    {
+      "id": "SKILL",
+      "kind": "skill",
+      "path": "skills/prepare-clear/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "handover",
+        "context-clear",
+        "resume",
+        "durability"
+      ]
+    },
+    {
+      "id": "SKILL",
+      "kind": "skill",
+      "path": "skills/rehydrate/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "recovery",
+        "crash-recovery",
+        "handover",
+        "resume"
+      ]
+    },
+    {
+      "id": "SKILL",
+      "kind": "skill",
+      "path": "skills/verify-fix-claims/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "verification",
+        "code-review",
+        "commit-hygiene"
+      ]
     }
   ],
   "research": [

@@ -9,6 +9,8 @@ export GIT_AUTHOR_NAME=t GIT_AUTHOR_EMAIL=t@t GIT_COMMITTER_NAME=t GIT_COMMITTER
 # fake claude-common: working tree of the real repo (incl. uncommitted work) committed + tagged
 C="$T/common"; mkdir -p "$C"
 ( cd "$R" && git ls-files -co --exclude-standard | grep -v '^state/' | tar -cf - -T - ) | tar -xf - -C "$C"
+mkdir -p "$C/skills/alpha"
+printf -- '---\nname: alpha\ndescription: skill one\nkind: skill\nstatus: ready\ngroup: Reusable Claude Code assets\nintent: Do the alpha thing\ntags: [alpha, demo]\n---\nbody skill\n' > "$C/skills/alpha/SKILL.md"
 git -C "$C" init -q && git -C "$C" add -A && git -C "$C" commit -qm base && git -C "$C" tag v9.9.9
 
 # fake gh: records calls, returns an open PR after create
@@ -65,6 +67,7 @@ git -C "$T/remotes/e.git" rev-parse -q --verify refs/heads/common/v9.9.9 >/dev/n
 assert_file "$ROOT/a/dirty.txt"; assert_not_file "$ROOT/a/AGENT-DIRECTIVE.md"   # user tree untouched
 assert_eq "$(git -C "$ROOT/a" rev-parse --abbrev-ref HEAD)" "main" "a still on main"
 git -C "$ROOT/a" show common/v9.9.9:.claude/common.lock | jq -e '.version=="v9.9.9"' >/dev/null || _fail "lock on branch"
+git -C "$ROOT/a" show common/v9.9.9:.claude/skills/alpha/SKILL.md >/dev/null 2>&1 || _fail "skills/alpha/SKILL.md not synced to branch a"
 assert_eq "$(git -C "$ROOT/a" show common/v9.9.9:CLAUDE.md | grep -c '^@AGENT-DIRECTIVE.md$')" "1" "single import on branch"
 git -C "$ROOT/b" show common/v9.9.9:CLAUDE.md | grep -q '^# b$' || _fail "b scaffolded CLAUDE.md"
 assert_grep '^pr create' "$GH_LOG"
