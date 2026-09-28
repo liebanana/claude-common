@@ -5,6 +5,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+## [v1.4.0] - 2026-09-28
+
+- skills asset kind; shared skills (rehydrate, prepare-clear, verify-fix-claims); redact.py; ponytail agent; notify scripts
+
 ### Added
 - `skills/` asset kind: `skills/<name>/SKILL.md` (+ sibling files) now syncs into consumers' `.claude/skills/<name>/` with the managed-by marker, the refuse-to-overwrite guard, lock entries and upstream-removal cleanup; `build-index.py` indexes `skills/*/SKILL.md`.
 - First three shared skills: `verify-fix-claims` (grep-verify claimed fixes before committing, copied as-is), `rehydrate` (crash / cold-start recovery) and `prepare-clear` (safe clear / compact), the last two generalized from langtutor; `/session-handover` cross-references them.
