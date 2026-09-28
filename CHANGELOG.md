@@ -5,6 +5,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+## [v1.3.0] - 2026-09-28
+
+- skills asset kind; shared skills (rehydrate, prepare-clear, verify-fix-claims); redact.py; ponytail agent; notify scripts
+
 ## [v1.2.0] - 2026-09-24
 
 - skills asset kind; shared skills; redact, ponytail, notify
