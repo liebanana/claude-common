@@ -5,13 +5,23 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Added
+- `skills/` asset kind: `skills/<name>/SKILL.md` (+ sibling files) now syncs into consumers' `.claude/skills/<name>/` with the managed-by marker, the refuse-to-overwrite guard, lock entries and upstream-removal cleanup; `build-index.py` indexes `skills/*/SKILL.md`.
+- First three shared skills: `verify-fix-claims` (grep-verify claimed fixes before committing, copied as-is), `rehydrate` (crash / cold-start recovery) and `prepare-clear` (safe clear / compact), the last two generalized from langtutor; `/session-handover` cross-references them.
+- `.claude/agents/ponytail.md`: canonical anti-over-engineering agent (reconciled from the tradingdesk / Starlock / langtutor copies; project guardrails now come from the host repo's CLAUDE.md).
+- `scripts/notify.sh` + `scripts/notify-hook.sh` + `scripts/notify.env.example`: env-driven Telegram notifier and Stop-hook wrapper (from claude-notify-bot); `tests/notify-test.sh`.
+- `scripts/redact.py`: dependency-free secret scrubber (library + CLI, `--check` for pre-push sweeps), from the oracle project; tests in `tests/test_redact.py` via `tests/redact-test.sh`.
+
+### Fixed
+- No more hardcoded `/home/<user>` paths in `CLAUDE.md` / `scripts/cron-discover.sh` (use `$HOME`).
+
 ## [v1.3.0] - 2026-09-28
 
-- skills asset kind; shared skills (rehydrate, prepare-clear, verify-fix-claims); redact.py; ponytail agent; notify scripts
+- No consumer-visible changes: cut before PRs #17–#19 merged (same as v1.2.0). Their content ships in v1.4.0.
 
 ## [v1.2.0] - 2026-09-24
 
-- skills asset kind; shared skills; redact, ponytail, notify
+- No consumer-visible changes: this tag was cut before the contribution PRs (#17–#19) merged. Their content ships in the next release.
 
 ## [v1.1.0] - 2026-09-23
 
