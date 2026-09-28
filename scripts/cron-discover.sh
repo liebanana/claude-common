@@ -6,8 +6,8 @@
 # branch), so every automated run is reviewable before it merges.
 #
 # Wire into cron (weekly is plenty), e.g.:
-#   0 9 * * 1 /home/luisliev/repos/claude-common/scripts/cron-discover.sh \
-#     >> /home/luisliev/repos/claude-common/state/discover.log 2>&1
+#   0 9 * * 1 $HOME/repos/claude-common/scripts/cron-discover.sh \
+#     >> $HOME/repos/claude-common/state/discover.log 2>&1
 #
 # Env:
 #   AUTO_PUSH=1   push the branch and open a PR (needs origin + gh). If unset/0, the run
