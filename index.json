@@ -17,7 +17,7 @@
     {
       "id": "cron-discover",
       "kind": "script",
-      "path": "scripts\\cron-discover.sh",
+      "path": "scripts/cron-discover.sh",
       "group": "Discover & adopt external agent tooling",
       "intent": "Run the discovery loop unattended (discover → triage → rebuild index → open a PR)",
       "status": "ready",
@@ -29,7 +29,7 @@
     {
       "id": "discover",
       "kind": "script",
-      "path": "scripts\\discover.sh",
+      "path": "scripts/discover.sh",
       "group": "Discover & adopt external agent tooling",
       "intent": "Find new agent/tooling candidates across GitHub + forums (HN, Lobsters, Reddit), merge cross-source signals, dedupe against the ledger",
       "status": "ready",
@@ -41,7 +41,7 @@
     {
       "id": "notify-hook",
       "kind": "script",
-      "path": "scripts\\notify-hook.sh",
+      "path": "scripts/notify-hook.sh",
       "group": "Reusable Claude Code assets",
       "intent": "Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh",
       "status": "ready",
@@ -55,7 +55,7 @@
     {
       "id": "notify",
       "kind": "script",
-      "path": "scripts\\notify.sh",
+      "path": "scripts/notify.sh",
       "group": "Reusable Claude Code assets",
       "intent": "Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency",
       "status": "ready",
@@ -69,7 +69,7 @@
     {
       "id": "release",
       "kind": "script",
-      "path": "scripts\\release.sh",
+      "path": "scripts/release.sh",
       "group": "Index & navigation",
       "intent": "Cut a tagged claude-common release: rotate CHANGELOG, write self lock + CLAUDE.md block, rebuild index, tag vX.Y.Z, push",
       "status": "ready",
@@ -82,7 +82,7 @@
     {
       "id": "sync-consumers",
       "kind": "script",
-      "path": "scripts\\sync-consumers.sh",
+      "path": "scripts/sync-consumers.sh",
       "group": "Index & navigation",
       "intent": "Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)",
       "status": "ready",
@@ -96,7 +96,7 @@
     {
       "id": "build-index",
       "kind": "script",
-      "path": "scripts\\build-index.py",
+      "path": "scripts/build-index.py",
       "group": "Index & navigation",
       "intent": "Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger",
       "status": "ready",
@@ -108,7 +108,7 @@
     {
       "id": "redact",
       "kind": "script",
-      "path": "scripts\\redact.py",
+      "path": "scripts/redact.py",
       "group": "Reusable Claude Code assets",
       "intent": "Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing",
       "status": "ready",
@@ -122,7 +122,7 @@
     {
       "id": "contribute-to-common",
       "kind": "command",
-      "path": ".claude/commands\\contribute-to-common.md",
+      "path": ".claude/commands/contribute-to-common.md",
       "group": "Contribute back",
       "intent": "Scan the current session for a reusable, general learning and open a PR to claude-common",
       "status": "ready",
@@ -135,7 +135,7 @@
     {
       "id": "oracle-status",
       "kind": "command",
-      "path": ".claude/commands\\oracle-status.md",
+      "path": ".claude/commands/oracle-status.md",
       "group": "Reusable Claude Code assets",
       "intent": "Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose",
       "status": "ready",
@@ -149,7 +149,7 @@
     {
       "id": "session-handover",
       "kind": "command",
-      "path": ".claude/commands\\session-handover.md",
+      "path": ".claude/commands/session-handover.md",
       "group": "Reusable Claude Code assets",
       "intent": "Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat",
       "status": "ready",
@@ -164,7 +164,7 @@
     {
       "id": "triage-discoveries",
       "kind": "command",
-      "path": ".claude/commands\\triage-discoveries.md",
+      "path": ".claude/commands/triage-discoveries.md",
       "group": "Discover & adopt external agent tooling",
       "intent": "Analyze new GitHub candidates into research notes + the research ledger",
       "status": "ready",
@@ -176,7 +176,7 @@
     {
       "id": "ponytail",
       "kind": "agent",
-      "path": ".claude/agents\\ponytail.md",
+      "path": ".claude/agents/ponytail.md",
       "group": "Reusable Claude Code assets",
       "intent": "Anti-over-engineering reviewer/consultant — least code that works (YAGNI → stdlib → native → existing dep → minimal custom), never at the cost of validation, security, data-loss handling or accessibility",
       "status": "ready",
@@ -190,7 +190,7 @@
     {
       "id": "layout-measure-repro",
       "kind": "doc",
-      "path": "docs\\layout-measure-repro.md",
+      "path": "docs/layout-measure-repro.md",
       "group": "Debugging techniques",
       "intent": "Prove/disprove phantom-scroll & layout-void bugs in Next.js/Tailwind apps without auth, dev servers, or browser installs",
       "status": "ready",
@@ -205,7 +205,7 @@
     {
       "id": "long-running-jobs",
       "kind": "doc",
-      "path": "docs\\long-running-jobs.md",
+      "path": "docs/long-running-jobs.md",
       "group": "Save tokens / work efficiently",
       "intent": "Long/background jobs get reaped — chunk with incremental output and bake into an invokable script",
       "status": "ready",
@@ -218,7 +218,7 @@
     {
       "id": "skill-naming-collisions",
       "kind": "doc",
-      "path": "docs\\skill-naming-collisions.md",
+      "path": "docs/skill-naming-collisions.md",
       "group": "Harness configuration pitfalls",
       "intent": "Never name a user-invocable skill after a Claude Code built-in command — the skill shadows the builtin and makes it unreachable",
       "status": "ready",
@@ -233,7 +233,7 @@
     {
       "id": "stitch-mcp-workflow",
       "kind": "doc",
-      "path": "docs\\stitch-mcp-workflow.md",
+      "path": "docs/stitch-mcp-workflow.md",
       "group": "Save tokens / work efficiently",
       "intent": "Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas",
       "status": "ready",
@@ -247,7 +247,7 @@
     {
       "id": "token-thrift",
       "kind": "doc",
-      "path": "docs\\token-thrift.md",
+      "path": "docs/token-thrift.md",
       "group": "Save tokens / work efficiently",
       "intent": "Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)",
       "status": "ready",
@@ -259,7 +259,7 @@
     {
       "id": "version-check",
       "kind": "hook",
-      "path": "hooks\\version-check.sh",
+      "path": "hooks/version-check.sh",
       "group": "Reusable Claude Code assets",
       "intent": "SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag",
       "status": "ready",
@@ -272,7 +272,7 @@
     {
       "id": "chrome-devtools-mcp",
       "kind": "mcp",
-      "path": "mcp\\chrome-devtools-mcp.md",
+      "path": "mcp/chrome-devtools-mcp.md",
       "group": "Reusable Claude Code assets",
       "intent": "Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP",
       "status": "experimental",
@@ -283,9 +283,9 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "manager-status",
       "kind": "skill",
-      "path": "skills\\manager-status\\SKILL.md",
+      "path": "skills/manager-status/SKILL.md",
       "group": "Reusable Claude Code assets",
       "intent": "Evidence-based management status update in a chat-paste emoji-bullet format — gathered from git/PRs/tracker, never from chat memory",
       "status": "ready",
@@ -299,9 +299,9 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "prepare-clear",
       "kind": "skill",
-      "path": "skills\\prepare-clear\\SKILL.md",
+      "path": "skills/prepare-clear/SKILL.md",
       "group": "Reusable Claude Code assets",
       "intent": "Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate",
       "status": "ready",
@@ -314,9 +314,9 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "rehydrate",
       "kind": "skill",
-      "path": "skills\\rehydrate\\SKILL.md",
+      "path": "skills/rehydrate/SKILL.md",
       "group": "Reusable Claude Code assets",
       "intent": "Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status",
       "status": "ready",
@@ -329,9 +329,9 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "verify-fix-claims",
       "kind": "skill",
-      "path": "skills\\verify-fix-claims\\SKILL.md",
+      "path": "skills/verify-fix-claims/SKILL.md",
       "group": "Reusable Claude Code assets",
       "intent": "Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report",
       "status": "ready",
