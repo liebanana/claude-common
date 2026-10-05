@@ -12,42 +12,43 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 
 <!-- BEGIN GENERATED -->
 ## Discover & adopt external agent tooling
-- 🟢 **Analyze new GitHub candidates into research notes + the research ledger** → `.claude/commands/triage-discoveries.md` · _discovery, triage_
-- 🟢 **Find new agent/tooling candidates across GitHub + forums (HN, Lobsters, Reddit), merge cross-source signals, dedupe against the ledger** → `scripts/discover.sh` · _discovery, multi-source_
-- 🟢 **Run the discovery loop unattended (discover → triage → rebuild index → open a PR)** → `scripts/cron-discover.sh` · _discovery, cron_
+- 🟢 **Analyze new GitHub candidates into research notes + the research ledger** → `.claude/commands\triage-discoveries.md` · _discovery, triage_
+- 🟢 **Find new agent/tooling candidates across GitHub + forums (HN, Lobsters, Reddit), merge cross-source signals, dedupe against the ledger** → `scripts\discover.sh` · _discovery, multi-source_
+- 🟢 **Run the discovery loop unattended (discover → triage → rebuild index → open a PR)** → `scripts\cron-discover.sh` · _discovery, cron_
 
 ## Contribute back
-- 🟢 **Scan the current session for a reusable, general learning and open a PR to claude-common** → `.claude/commands/contribute-to-common.md` · _contribution, pr, session_
+- 🟢 **Scan the current session for a reusable, general learning and open a PR to claude-common** → `.claude/commands\contribute-to-common.md` · _contribution, pr, session_
 
 ## Save tokens / work efficiently
-- 🟢 **Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas** → `docs/stitch-mcp-workflow.md` · _stitch, mcp, design-system, tokens_
-- 🟢 **Long/background jobs get reaped — chunk with incremental output and bake into an invokable script** → `docs/long-running-jobs.md` · _practices, reliability, tokens_
-- 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs/token-thrift.md` · _tokens, practices_
+- 🟢 **Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas** → `docs\stitch-mcp-workflow.md` · _stitch, mcp, design-system, tokens_
+- 🟢 **Long/background jobs get reaped — chunk with incremental output and bake into an invokable script** → `docs\long-running-jobs.md` · _practices, reliability, tokens_
+- 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs\token-thrift.md` · _tokens, practices_
 
 ## Index & navigation
-- 🟢 **Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)** → `scripts/sync-consumers.sh` · _sync, release, pr, cron_
-- 🟢 **Cut a tagged claude-common release: rotate CHANGELOG, write self lock + CLAUDE.md block, rebuild index, tag vX.Y.Z, push** → `scripts/release.sh` · _release, tag, changelog_
-- 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts/build-index.py` · _index, maintenance_
+- 🟢 **Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)** → `scripts\sync-consumers.sh` · _sync, release, pr, cron_
+- 🟢 **Cut a tagged claude-common release: rotate CHANGELOG, write self lock + CLAUDE.md block, rebuild index, tag vX.Y.Z, push** → `scripts\release.sh` · _release, tag, changelog_
+- 🟢 **Regenerate index.json + CATALOG.md + research/INDEX.md from asset metadata and the research ledger** → `scripts\build-index.py` · _index, maintenance_
 
 ## Reusable Claude Code assets
-- 🟢 **Anti-over-engineering reviewer/consultant — least code that works (YAGNI → stdlib → native → existing dep → minimal custom), never at the cost of validation, security, data-loss handling or accessibility** → `.claude/agents/ponytail.md` · _agent, review, simplify, yagni_
-- 🟢 **Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh** → `scripts/notify-hook.sh` · _notify, telegram, hooks, stop-hook_
-- 🟢 **Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status** → `skills/rehydrate/SKILL.md` · _skill, recovery, crash-recovery, handover, resume_
-- 🟢 **Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing** → `scripts/redact.py` · _security, secrets, redaction, public-repo_
-- 🟢 **Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate** → `skills/prepare-clear/SKILL.md` · _skill, handover, context-clear, resume, durability_
-- 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
-- 🟢 **Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report** → `skills/verify-fix-claims/SKILL.md` · _skill, verification, code-review, commit-hygiene_
-- 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
-- 🟢 **Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency** → `scripts/notify.sh` · _notify, telegram, cron, hooks_
-- 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_
-- 🟢 **Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose** → `.claude/commands/oracle-status.md` · _status, handover, oracle, coordination_
+- 🟢 **Anti-over-engineering reviewer/consultant — least code that works (YAGNI → stdlib → native → existing dep → minimal custom), never at the cost of validation, security, data-loss handling or accessibility** → `.claude/agents\ponytail.md` · _agent, review, simplify, yagni_
+- 🟢 **Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh** → `scripts\notify-hook.sh` · _notify, telegram, hooks, stop-hook_
+- 🟢 **Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status** → `skills\rehydrate\SKILL.md` · _skill, recovery, crash-recovery, handover, resume_
+- 🟢 **Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing** → `scripts\redact.py` · _security, secrets, redaction, public-repo_
+- 🟢 **Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate** → `skills\prepare-clear\SKILL.md` · _skill, handover, context-clear, resume, durability_
+- 🟢 **Evidence-based management status update in a chat-paste emoji-bullet format — gathered from git/PRs/tracker, never from chat memory** → `skills\manager-status\SKILL.md` · _skill, status-report, reporting, teams, ado, management_
+- 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp\chrome-devtools-mcp.md` · _mcp, browser, debugging_
+- 🟢 **Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report** → `skills\verify-fix-claims\SKILL.md` · _skill, verification, code-review, commit-hygiene_
+- 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands\session-handover.md` · _handover, context-clear, resume, durability, orchestration_
+- 🟢 **Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency** → `scripts\notify.sh` · _notify, telegram, cron, hooks_
+- 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks\version-check.sh` · _hook, session-start, sync_
+- 🟢 **Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose** → `.claude/commands\oracle-status.md` · _status, handover, oracle, coordination_
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
 ## Debugging techniques
-- 🟢 **Prove/disprove phantom-scroll & layout-void bugs in Next.js/Tailwind apps without auth, dev servers, or browser installs** → `docs/layout-measure-repro.md` · _debugging, css, playwright, nextjs, layout_
+- 🟢 **Prove/disprove phantom-scroll & layout-void bugs in Next.js/Tailwind apps without auth, dev servers, or browser installs** → `docs\layout-measure-repro.md` · _debugging, css, playwright, nextjs, layout_
 
 ## Harness configuration pitfalls
-- 🟢 **Never name a user-invocable skill after a Claude Code built-in command — the skill shadows the builtin and makes it unreachable** → `docs/skill-naming-collisions.md` · _skills, slash-commands, claude-code, naming, harness_
+- 🟢 **Never name a user-invocable skill after a Claude Code built-in command — the skill shadows the builtin and makes it unreachable** → `docs\skill-naming-collisions.md` · _skills, slash-commands, claude-code, naming, harness_
 
 ## From research (adopt)
 _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial before trusting._
