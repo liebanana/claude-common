@@ -53,7 +53,7 @@ Other recurring section flavors when applicable: `🎫 <ops area> (prod)` for ti
 
 ## 3. Writing rules
 
-- **Outcome first, mechanism second.** "Closed requests no longer accrue time forever (ID 27245454); 89 records corrected" — not "fixed a bug in the SLA timer logic".
+- **Outcome first, mechanism second.** "Closed requests no longer accrue time forever (ID 12345); 89 records corrected" — not "fixed a bug in the SLA timer logic".
 - **One line per bullet — roughly 25 words after the ID.** Two facts max (outcome + one proof point); a third clause means it's two items or detail the manager doesn't need. Test-run counts ("15/15 fixtures green") are usually that third clause — cut them.
 - **Numbers and dates are the punch**: PR counts, records fixed, run dates, "zero manual steps".
 - **Tracker IDs inline** on every work item so the manager can click through; **never commit SHAs, branch names, or internal shorthand** (spell the deliverable out, not the story codename).
