@@ -5,6 +5,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+## [v1.5.0] - 2026-10-06
+
+- manager-status skill; build-index skill ids; agency-agents reference; triage 09-28 + 10-05
+
 ### Added
 - `skills/manager-status`: evidence-based management status update in a chat-paste emoji-bullet format (sources: control-plane docs, git log, open PRs, tracker query; certainty-ladder sections; outcome-first writing rules; audience calibration). Generalized from an enterprise workspace instance — workspace specifics stay in a local `.claude/skills/manager-status/` copy, which overrides the synced one.
 
