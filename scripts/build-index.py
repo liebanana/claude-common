@@ -79,6 +79,7 @@ def collect_assets():
     assets, seen = [], set()
     for pattern in ASSET_GLOBS:
         for path in sorted(glob.glob(pattern)):
+            path = path.replace(os.sep, "/")  # POSIX paths regardless of host (Windows glob emits backslashes)
             if path in seen or os.path.basename(path) in SKIP_NAMES or not os.path.isfile(path):
                 continue
             seen.add(path)
@@ -91,7 +92,8 @@ def collect_assets():
             if isinstance(tags, str):
                 tags = [t.strip() for t in tags.split(",") if t.strip()]
             assets.append({
-                "id": meta.get("id", os.path.splitext(os.path.basename(path))[0]),
+                # skills live at skills/<name>/SKILL.md — use the folder name, not "SKILL"
+                "id": meta.get("id") or (os.path.basename(os.path.dirname(path)) if os.path.basename(path) == "SKILL.md" else os.path.splitext(os.path.basename(path))[0]),
                 "kind": meta.get("kind", "asset"),
                 "path": path,
                 "group": meta.get("group", "Reusable Claude Code assets"),

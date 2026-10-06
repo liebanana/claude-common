@@ -5,6 +5,9 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Added
+- `skills/manager-status`: evidence-based management status update in a chat-paste emoji-bullet format (sources: control-plane docs, git log, open PRs, tracker query; certainty-ladder sections; outcome-first writing rules; audience calibration). Generalized from an enterprise workspace instance — workspace specifics stay in a local `.claude/skills/manager-status/` copy, which overrides the synced one.
+
 ## [v1.4.0] - 2026-09-28
 
 - skills asset kind; shared skills (rehydrate, prepare-clear, verify-fix-claims); redact.py; ponytail agent; notify scripts
