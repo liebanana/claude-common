@@ -283,7 +283,23 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "manager-status",
+      "kind": "skill",
+      "path": "skills/manager-status/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Evidence-based management status update in a chat-paste emoji-bullet format — gathered from git/PRs/tracker, never from chat memory",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "status-report",
+        "reporting",
+        "teams",
+        "ado",
+        "management"
+      ]
+    },
+    {
+      "id": "prepare-clear",
       "kind": "skill",
       "path": "skills/prepare-clear/SKILL.md",
       "group": "Reusable Claude Code assets",
@@ -298,7 +314,7 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "rehydrate",
       "kind": "skill",
       "path": "skills/rehydrate/SKILL.md",
       "group": "Reusable Claude Code assets",
@@ -313,7 +329,7 @@
       ]
     },
     {
-      "id": "SKILL",
+      "id": "verify-fix-claims",
       "kind": "skill",
       "path": "skills/verify-fix-claims/SKILL.md",
       "group": "Reusable Claude Code assets",
