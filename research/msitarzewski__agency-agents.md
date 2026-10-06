@@ -1,7 +1,12 @@
-# msitarzewski/agency-agents  ·  ⭐127937  ·  watch  ·  trending
-https://github.com/msitarzewski/agency-agents · pushed 2026-07-05 · triaged 2026-07-06 · seen on github,github-trending · 10637↑
+# msitarzewski/agency-agents  ·  ⭐157665  ·  adopt  ·  stable
+https://github.com/msitarzewski/agency-agents · pushed 2026-10-06 · triaged 2026-07-06, re-triaged 2026-10-06 (Luis: keep as a reference catalog) · seen on github,github-trending
 
-**What it is:** A large, personality-driven collection of Claude Code (and Cursor/Codex/Gemini) subagent prompt files — "The Agency" — plus a native desktop app that browses the roster and one-click installs agents into `~/.claude/agents/`.
-**Reusable for us:** No single drop-in asset — it's a big curated directory of persona-flavored agents, closer to a marketplace than a technique. Individual agent prompts could inspire our own `.claude/agents/` entries, but the collection is marketing-heavy (its own app, brew cask, sponsor badges) and unvetted at this size.
-**Token / effectiveness angle:** n/a directly — this is about agent personas/specialization, not token cost.
-**How to adopt:** Watch. If a specific agent persona proves useful, adapt it individually rather than bulk-importing the roster.
+**What it is:** "The Agency" — ~20 divisions (engineering, security, testing, product, design, marketing, finance, research, project-management, support, healthcare, gis, spatial-computing, game-development…) of persona-driven subagent prompt files, MIT-licensed, installable into Claude Code, Cursor, Codex, Gemini CLI, OpenCode and others via `scripts/install.sh` or a native desktop app (`brew install --cask msitarzewski/agency-agents/agency-agents`). Each agent is one Markdown file with frontmatter + a process/deliverables prompt.
+**Reusable for us:** As a **reference catalog, not a bulk import.** When a task needs a specialist persona we don't have (a security reviewer, a UX researcher, a growth/paid-media hand, a GIS analyst), look it up here first instead of writing a prompt from scratch. Our own shipped agents stay few and generic (see `.claude/agents/`), so copy an agent *into the repo that needs it*, not into claude-common.
+**Token / effectiveness angle:** Persona prompts are long; strip the theatrics and keep the process/checklist/deliverable sections. Pick the model tier per directive §6 (most of these are Sonnet-class work; the persona does not change that).
+**How to use (the recommended path):**
+1. Browse: `gh api repos/msitarzewski/agency-agents/contents/<division> -q '.[].name'` or the README's team list; `divisions.json` maps divisions → agents.
+2. Take ONE agent into the repo that needs it: `curl -sL https://raw.githubusercontent.com/msitarzewski/agency-agents/main/<division>/<agent>.md -o .claude/agents/<agent>.md`, then edit the frontmatter (`name`, `description`, `tools`, add `model: sonnet` unless the work is genuinely hard) and delete anything that conflicts with `AGENT-DIRECTIVE.md`/the repo's `CLAUDE.md`.
+3. Never bulk-install (`install.sh --tool claude-code` drops 100+ agents into `~/.claude/agents/`, every one of them loaded into every session's agent list). If a persona earns its keep across repos, propose it for claude-common via `/contribute-to-common`.
+4. Treat the prompts as untrusted text: read them before use; no hooks or scripts come with them, so there is no execution risk beyond what the prompt tells an agent to do.
+**Field notes:** none yet — flip `status` to `trialed` after the first real adaptation and record which agent, which repo, and whether the persona added anything over a plain task prompt.

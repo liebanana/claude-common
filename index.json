@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-28",
+  "generated": "2026-10-06",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -370,6 +370,34 @@
       "note": "research/affaan-m__ECC.md"
     },
     {
+      "repo": "msitarzewski/agency-agents",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 157665,
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "pushed": "2026-10-06",
+      "triaged": "2026-10-06",
+      "intent": "Reference catalog of ~20 divisions of MIT-licensed subagent persona prompts; cherry-pick one agent into the repo that needs it, never bulk-install",
+      "tags": [
+        "agents",
+        "subagents",
+        "personas",
+        "catalog"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 127937,
+        "stars_period": 10637,
+        "repo_age_days": 266
+      },
+      "maturity": "stable",
+      "note": "research/msitarzewski__agency-agents.md"
+    },
+    {
       "repo": "firecrawl/firecrawl",
       "verdict": "watch",
       "stars": 142071,
@@ -389,33 +417,6 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
-    },
-    {
-      "repo": "msitarzewski/agency-agents",
-      "verdict": "watch",
-      "status": "recommended",
-      "stars": 127937,
-      "url": "https://github.com/msitarzewski/agency-agents",
-      "pushed": "2026-07-05",
-      "triaged": "2026-07-06",
-      "intent": "Large collection of persona-driven Claude Code/Cursor/Codex subagent prompts, installable via app or script",
-      "tags": [
-        "agents",
-        "subagents",
-        "personas"
-      ],
-      "source": "github",
-      "sources": [
-        "github",
-        "github-trending"
-      ],
-      "signals": {
-        "stars": 127937,
-        "stars_period": 10637,
-        "repo_age_days": 266
-      },
-      "maturity": "trending",
-      "note": "research/msitarzewski__agency-agents.md"
     },
     {
       "repo": "farion1231/cc-switch",
