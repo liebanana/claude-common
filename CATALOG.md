@@ -54,7 +54,6 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial before trusting._
 - ✅ **Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)** → `research/DeusData__codebase-memory-mcp.md` (`DeusData/codebase-memory-mcp` ⭐22669) · _trialed_
 - 🔬 **Agentic dev methodology (spec to TDD to subagent-driven build) as auto-triggering composable skills; official Claude plugin marketplace** → `research/obra__superpowers.md` (`obra/superpowers` ⭐242371)
-- 🔬 **Reference catalog of ~20 divisions of MIT-licensed subagent persona prompts; cherry-pick one agent into the repo that needs it, never bulk-install** → `research/msitarzewski__agency-agents.md` (`msitarzewski/agency-agents` ⭐157665)
 - 🔬 **Persistent cross-session memory: captures session activity, AI-compresses it, and injects relevant context into future sessions** → `research/thedotmack__claude-mem.md` (`thedotmack/claude-mem` ⭐85203)
 - 🔬 **Claude Code skill/plugin: terse caveman-style output cuts ~75% of OUTPUT tokens while keeping technical accuracy** → `research/JuliusBrussee__caveman.md` (`JuliusBrussee/caveman` ⭐78262)
 - 🔬 **Rust CLI proxy that filters/compresses common dev-command output (ls, cat, grep, git, test runners) before it reaches LLM context — 60-90% token reduction, single binary, <10ms overhead** → `research/rtk-ai__rtk.md` (`rtk-ai/rtk` ⭐72028)
@@ -66,7 +65,7 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Official plugin: invoke OpenAI Codex from inside Claude Code for review/delegate/adversarial-review** → `research/openai__codex-plugin-cc.md` (`openai/codex-plugin-cc` ⭐28302)
 - 🔬 **Open-source AI memory platform: persistent long-term memory for agents via a self-hosted knowledge graph; ingest any format, recall across sessions** → `research/topoteretes__cognee.md` (`topoteretes/cognee` ⭐26088)
 - 🔬 **Distills a book/doc into a structured Agent Skill loaded lazily by chapter, claims 24x-51x fewer tokens than dumping full doc into context** → `research/virgiliojr94__book-to-skill.md` (`virgiliojr94/book-to-skill` ⭐19833)
-- 🔬 **Coding-agent skill for multi-phase security audits: coverage ledger + isolated hunters + adversarial verifiers + schema-validated findings — a reusable pattern for our own security-review skill** → `research/cloudflare__security-audit-skill.md` (`cloudflare/security-audit-skill` ⭐18707)
+- 🔬 **Six-phase, adversarially validated, machine-readable full-repo security audit skill (Cloudflare, MIT)** → `research/cloudflare__security-audit-skill.md` (`cloudflare/security-audit-skill` ⭐18930)
 - 🔬 **Converts documentation sites, GitHub repos, and PDFs into Claude AI skills automatically, with conflict detection and an MCP integration** → `research/yusufkaraaslan__Skill_Seekers.md` (`yusufkaraaslan/Skill_Seekers` ⭐14506)
 - 🔬 **AI red-team platform with standalone MCP/skill/agent security scanner CLIs** → `research/Tencent__AI-Infra-Guard.md` (`Tencent/AI-Infra-Guard` ⭐5726)
 - 🔬 **Fast/accurate code search library for agents — ~98% fewer tokens than grep+read, CPU-only, MCP server/CLI/subagent, 200x faster indexing than a code-specialized transformer** → `research/MinishLab__semble.md` (`MinishLab/semble` ⭐5658)
