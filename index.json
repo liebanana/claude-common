@@ -495,25 +495,27 @@
     },
     {
       "repo": "paperclipai/paperclip",
-      "verdict": "watch",
+      "verdict": "skip",
       "status": "recommended",
-      "stars": 91942,
+      "stars": 97462,
       "url": "https://github.com/paperclipai/paperclip",
-      "pushed": "2026-09-28",
-      "triaged": "2026-09-28",
-      "intent": "Node.js+React orchestration platform running a 'company' of AI agents (Claude Code, Codex, Cursor) with budgets/governance",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "Node/React orchestrator that runs a 'company' of AI agents with org charts, budgets, goals",
       "tags": [
-        "multi-agent",
         "orchestration",
-        "monitoring"
+        "agents",
+        "dashboard"
       ],
       "source": "github-trending",
       "sources": [
         "github-trending"
       ],
       "signals": {
-        "stars": 91942,
-        "stars_period": 7364
+        "stars_period": 8732,
+        "period": "weekly",
+        "trending": true,
+        "stars": 97462
       },
       "maturity": "trending",
       "note": "research/paperclipai__paperclip.md"
@@ -1193,6 +1195,33 @@
       "note": "research/pbakaus__impeccable.md"
     },
     {
+      "repo": "vectorize-io/hindsight",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 45779,
+      "url": "https://github.com/vectorize-io/hindsight",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "Agent memory system (retain/recall/reflect, MCP + coding-agent integrations) claiming SOTA on LongMemEval",
+      "tags": [
+        "memory",
+        "mcp",
+        "agents"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 10623,
+        "period": "weekly",
+        "trending": true,
+        "stars": 45779
+      },
+      "maturity": "trending",
+      "note": "research/vectorize-io__hindsight.md"
+    },
+    {
       "repo": "ayghri/i-have-adhd",
       "verdict": "watch",
       "status": "recommended",
@@ -1244,31 +1273,6 @@
       },
       "maturity": "stable",
       "note": "research/K-Dense-AI__scientific-agent-skills.md"
-    },
-    {
-      "repo": "vectorize-io/hindsight",
-      "verdict": "watch",
-      "status": "recommended",
-      "stars": 40042,
-      "url": "https://github.com/vectorize-io/hindsight",
-      "pushed": "2026-09-28",
-      "triaged": "2026-09-28",
-      "intent": "Agent memory system (retain/recall/reflect) claiming SOTA on LongMemEval; ships an installable Claude Code docs-skill",
-      "tags": [
-        "agent-memory",
-        "mcp",
-        "benchmark"
-      ],
-      "source": "github-trending",
-      "sources": [
-        "github-trending"
-      ],
-      "signals": {
-        "stars": 40042,
-        "stars_period": 11089
-      },
-      "maturity": "trending",
-      "note": "research/vectorize-io__hindsight.md"
     },
     {
       "repo": "cathrynlavery/diagram-design",
@@ -1651,6 +1655,33 @@
       },
       "maturity": "trending",
       "note": "research/openai__codex-plugin-cc.md"
+    },
+    {
+      "repo": "alirezarezvani/claude-skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 27661,
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "pushed": "2026-08-30",
+      "triaged": "2026-10-05",
+      "intent": "Library of ~388 Claude Code skills/plugins (stdlib-only Python tools) convertible to 13 coding agents",
+      "tags": [
+        "skills",
+        "plugins",
+        "library"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1024,
+        "period": "weekly",
+        "trending": true,
+        "stars": 27661
+      },
+      "maturity": "stable",
+      "note": "research/alirezarezvani__claude-skills.md"
     },
     {
       "repo": "openai/skills",
@@ -2061,28 +2092,6 @@
       "note": "research/virgiliojr94__book-to-skill.md"
     },
     {
-      "repo": "cloudflare/security-audit-skill",
-      "verdict": "adopt",
-      "status": "recommended",
-      "stars": 18930,
-      "url": "https://github.com/cloudflare/security-audit-skill",
-      "pushed": "2026-09-14",
-      "triaged": "2026-09-21",
-      "intent": "Six-phase, adversarially validated, machine-readable full-repo security audit skill (Cloudflare, MIT)",
-      "tags": [
-        "skill",
-        "security",
-        "audit",
-        "subagents"
-      ],
-      "source": "manual",
-      "sources": [
-        "manual"
-      ],
-      "maturity": "trending",
-      "note": "research/cloudflare__security-audit-skill.md"
-    },
-    {
       "repo": "allenai/olmocr",
       "verdict": "skip",
       "status": "recommended",
@@ -2106,6 +2115,31 @@
       },
       "maturity": "stable",
       "note": "research/allenai__olmocr.md"
+    },
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 18707,
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "pushed": "2026-09-14",
+      "triaged": "2026-09-21",
+      "intent": "Coding-agent skill for multi-phase security audits: coverage ledger + isolated hunters + adversarial verifiers + schema-validated findings — a reusable pattern for our own security-review skill",
+      "tags": [
+        "skill",
+        "security",
+        "verification"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 18707,
+        "stars_period": 14864
+      },
+      "maturity": "trending",
+      "note": "research/cloudflare__security-audit-skill.md"
     },
     {
       "repo": "Zackriya-Solutions/meetily",
@@ -2308,6 +2342,33 @@
       "note": "research/xbtlin__ai-berkshire.md"
     },
     {
+      "repo": "cloudflare/cloudflare-os",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 10864,
+      "url": "https://github.com/cloudflare/cloudflare-os",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "Cloudflare's open-source company AI workspace: agent chat, sandboxed gadgets, 'Gatekeepers' guardrails",
+      "tags": [
+        "agents",
+        "sandbox",
+        "guardrails"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 655,
+        "period": "weekly",
+        "trending": true,
+        "stars": 10864
+      },
+      "maturity": "emerging",
+      "note": "research/cloudflare__cloudflare-os.md"
+    },
+    {
       "repo": "zubair-trabzada/geo-seo-claude",
       "verdict": "skip",
       "status": "recommended",
@@ -2461,6 +2522,32 @@
       "note": "research/advaitpaliwal__feynman.md"
     },
     {
+      "repo": "tile-ai/tilelang",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 8401,
+      "url": "https://github.com/tile-ai/tilelang",
+      "pushed": "2026-10-03",
+      "triaged": "2026-10-05",
+      "intent": "DSL for high-performance GPU/CPU/NPU kernels",
+      "tags": [
+        "gpu",
+        "dsl"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 839,
+        "period": "weekly",
+        "trending": true,
+        "stars": 8401
+      },
+      "maturity": "stable",
+      "note": "research/tile-ai__tilelang.md"
+    },
+    {
       "repo": "AgriciDaniel/claude-obsidian",
       "verdict": "watch",
       "stars": 8350,
@@ -2587,6 +2674,33 @@
       },
       "maturity": "emerging",
       "note": "research/GoogleCloudPlatform__knowledge-catalog.md"
+    },
+    {
+      "repo": "TencentCloud/Octop",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 6905,
+      "url": "https://github.com/TencentCloud/Octop",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "Self-hosted multi-user, multi-agent assistant with chat-platform connectors and expert library",
+      "tags": [
+        "assistant",
+        "multi-agent",
+        "self-hosted"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1496,
+        "period": "weekly",
+        "trending": true,
+        "stars": 6905
+      },
+      "maturity": "emerging",
+      "note": "research/TencentCloud__Octop.md"
     },
     {
       "repo": "htdt/godogen",
@@ -2764,29 +2878,58 @@
       "note": "research/ibelick__ui-skills.md"
     },
     {
-      "repo": "TencentCloud/Octop",
-      "verdict": "skip",
+      "repo": "mvschwarz/openrig",
+      "verdict": "watch",
       "status": "recommended",
-      "stars": 5464,
-      "url": "https://github.com/TencentCloud/Octop",
-      "pushed": "2026-09-28",
-      "triaged": "2026-09-28",
-      "intent": "Self-hosted multi-user/multi-agent personal assistant platform (IM channels, ACP bridge to Claude Code/OpenCode)",
+      "stars": 5125,
+      "url": "https://github.com/mvschwarz/openrig",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "YAML-defined, tmux-backed persistent multi-agent rigs mixing Claude Code and Codex",
       "tags": [
-        "assistant-platform",
         "multi-agent",
-        "self-hosted"
+        "tmux",
+        "orchestration"
       ],
       "source": "github-trending",
       "sources": [
         "github-trending"
       ],
       "signals": {
-        "stars": 5464,
-        "stars_period": 869
+        "stars_period": 4251,
+        "period": "weekly",
+        "trending": true,
+        "stars": 5125
       },
-      "maturity": "trending",
-      "note": "research/TencentCloud__Octop.md"
+      "maturity": "emerging",
+      "note": "research/mvschwarz__openrig.md"
+    },
+    {
+      "repo": "Gaurav-Gosain/tuios",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 4763,
+      "url": "https://github.com/Gaurav-Gosain/tuios",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "Go terminal multiplexer/window manager with agent-event hooks and unified inbox",
+      "tags": [
+        "terminal",
+        "tui",
+        "agents"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 708,
+        "period": "weekly",
+        "trending": true,
+        "stars": 4763
+      },
+      "maturity": "emerging",
+      "note": "research/Gaurav-Gosain__tuios.md"
     },
     {
       "repo": "eugeniughelbur/obsidian-second-brain",
@@ -3056,25 +3199,24 @@
       "repo": "chatmcp/mcpso",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 2107,
+      "stars": 2108,
       "url": "https://github.com/chatmcp/mcpso",
       "pushed": "2025-03-26",
-      "triaged": "2026-09-28",
-      "intent": "Source for the mcp.so directory website (Next.js + Supabase) listing community MCP servers",
+      "triaged": "2026-10-05",
+      "intent": "Source of the mcp.so MCP server directory site (Next.js + Supabase)",
       "tags": [
         "mcp",
-        "directory",
-        "web-app"
+        "directory"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 2107,
         "points": 187,
         "comments": 65,
-        "seen_age_days": 498
+        "seen_age_days": 505,
+        "stars": 2108
       },
       "maturity": "stable",
       "note": "research/chatmcp__mcpso.md"
@@ -3236,28 +3378,27 @@
     },
     {
       "repo": "hashicorp/terraform-mcp-server",
-      "verdict": "skip",
+      "verdict": "watch",
       "status": "recommended",
-      "stars": 1534,
+      "stars": 1543,
       "url": "https://github.com/hashicorp/terraform-mcp-server",
-      "pushed": "2026-09-28",
-      "triaged": "2026-09-28",
-      "intent": "HashiCorp's official MCP server for Terraform Registry / HCP Terraform APIs, with Claude Code/Desktop/Codex/Gemini setup docs",
+      "pushed": "2026-10-05",
+      "triaged": "2026-10-05",
+      "intent": "Official Terraform Registry / HCP Terraform MCP server (stdio + HTTP, OTel metrics)",
       "tags": [
         "mcp",
         "terraform",
-        "iac",
-        "official"
+        "iac"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 1534,
         "points": 105,
         "comments": 21,
-        "seen_age_days": 496
+        "seen_age_days": 503,
+        "stars": 1543
       },
       "maturity": "stable",
       "note": "research/hashicorp__terraform-mcp-server.md"
@@ -3316,11 +3457,11 @@
       "repo": "harishsg993010/damn-vulnerable-MCP-server",
       "verdict": "watch",
       "status": "recommended",
-      "stars": 1352,
+      "stars": 1356,
       "url": "https://github.com/harishsg993010/damn-vulnerable-MCP-server",
       "pushed": "2025-12-08",
-      "triaged": "2026-09-28",
-      "intent": "Docker CTF lab with 10 graded challenges demonstrating MCP vulnerability classes (prompt injection, tool poisoning/shadowing, rug-pulls, token theft)",
+      "triaged": "2026-10-05",
+      "intent": "Deliberately vulnerable MCP server with 10 challenges (prompt injection, tool poisoning, etc.)",
       "tags": [
         "mcp",
         "security",
@@ -3331,10 +3472,10 @@
         "hackernews"
       ],
       "signals": {
-        "stars": 1352,
         "points": 227,
         "comments": 63,
-        "seen_age_days": 529
+        "seen_age_days": 536,
+        "stars": 1356
       },
       "maturity": "stable",
       "note": "research/harishsg993010__damn-vulnerable-MCP-server.md"
@@ -3560,25 +3701,25 @@
       "repo": "neiltron/apple-health-mcp",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 569,
+      "stars": 570,
       "url": "https://github.com/neiltron/apple-health-mcp",
-      "pushed": "2026-09-20",
-      "triaged": "2026-09-28",
-      "intent": "Local MCP server exposing Apple Health CSV exports for SQL/DuckDB queries",
+      "pushed": "2026-10-02",
+      "triaged": "2026-10-05",
+      "intent": "MCP server querying Apple Health CSV exports with DuckDB SQL",
       "tags": [
         "mcp",
-        "personal-data",
-        "health"
+        "health",
+        "duckdb"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 569,
         "points": 199,
         "comments": 49,
-        "seen_age_days": 431
+        "seen_age_days": 438,
+        "stars": 570
       },
       "maturity": "emerging",
       "note": "research/neiltron__apple-health-mcp.md"
@@ -3815,24 +3956,23 @@
       "status": "recommended",
       "stars": 213,
       "url": "https://github.com/finite-sample/rmcp",
-      "pushed": "2026-09-21",
-      "triaged": "2026-09-28",
-      "intent": "MCP server exposing 54 R/statistics tools across 429 CRAN packages for conversational statistical analysis",
+      "pushed": "2026-09-28",
+      "triaged": "2026-10-05",
+      "intent": "MCP server exposing R statistical analysis (54 tools, CRAN packages)",
       "tags": [
         "mcp",
-        "statistics",
         "r",
-        "data-science"
+        "statistics"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 213,
         "points": 106,
         "comments": 15,
-        "seen_age_days": 376
+        "seen_age_days": 383,
+        "stars": 213
       },
       "maturity": "emerging",
       "note": "research/finite-sample__rmcp.md"
@@ -3872,22 +4012,21 @@
       "stars": 106,
       "url": "https://github.com/tonypan2/minesweeper-mcp-server",
       "pushed": "2025-03-20",
-      "triaged": "2026-09-28",
-      "intent": "Novelty MCP server letting an LLM play Minesweeper against a companion game server",
+      "triaged": "2026-10-05",
+      "intent": "MCP server letting an agent play Minesweeper (demo)",
       "tags": [
         "mcp",
-        "demo",
-        "game"
+        "demo"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 106,
         "points": 123,
         "comments": 38,
-        "seen_age_days": 557
+        "seen_age_days": 564,
+        "stars": 106
       },
       "maturity": "experimental",
       "note": "research/tonypan2__minesweeper-mcp-server.md"
@@ -3899,22 +4038,21 @@
       "stars": 28,
       "url": "https://github.com/stuzero/pg-mcp",
       "pushed": "2025-04-15",
-      "triaged": "2026-09-28",
-      "intent": "Docs-site stub; actual pg-mcp-server code lives in a separate repo",
+      "triaged": "2026-10-05",
+      "intent": "Docs-site stub; code moved to stuzero/pg-mcp-server",
       "tags": [
         "mcp",
-        "postgres",
-        "stub"
+        "postgres"
       ],
       "source": "hackernews",
       "sources": [
         "hackernews"
       ],
       "signals": {
-        "stars": 28,
         "points": 167,
         "comments": 79,
-        "seen_age_days": 547
+        "seen_age_days": 554,
+        "stars": 28
       },
       "maturity": "experimental",
       "note": "research/stuzero__pg-mcp.md"
