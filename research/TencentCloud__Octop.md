@@ -1,7 +1,7 @@
-# TencentCloud/Octop  ·  ⭐5464  ·  skip  ·  trending
-https://github.com/TencentCloud/Octop · pushed 2026-09-28 · triaged 2026-09-28 · seen on github-trending
+# TencentCloud/Octop  ·  ⭐6905  ·  skip  ·  emerging
+https://github.com/TencentCloud/Octop · pushed 2026-10-05 · triaged 2026-10-05 · seen on github-trending
 
-**What it is:** A self-hosted, multi-user, multi-agent personal-assistant platform — web dashboard, CLI, IM channel integrations (Feishu/WeChat/Telegram/Discord/etc.), and an ACP bridge that can delegate coding tasks to OpenCode/Claude Code.
-**Reusable for us:** None — it's an end-user assistant product (households/teams), not a tool for making Claude Code development itself more effective or token-cheap.
-**Token / effectiveness angle:** n/a.
-**How to adopt:** skip — off-mission for this catalog.
+**What it is:** Self-hosted multi-user, multi-agent assistant with chat-platform connectors and expert library.
+**Reusable for us:** none — end-user assistant platform; tool-approval/PII-redaction ideas already covered by redact.py.
+**Token / effectiveness angle:** n/a
+**How to adopt:** skip

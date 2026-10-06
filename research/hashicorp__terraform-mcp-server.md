@@ -1,7 +1,7 @@
-# hashicorp/terraform-mcp-server  ·  ⭐1534  ·  skip  ·  stable
-https://github.com/hashicorp/terraform-mcp-server · pushed 2026-09-28 · triaged 2026-09-28 · seen on hackernews
+# hashicorp/terraform-mcp-server  ·  ⭐1543  ·  watch  ·  stable
+https://github.com/hashicorp/terraform-mcp-server · pushed 2026-10-05 · triaged 2026-10-05 · seen on hackernews
 
-**What it is:** HashiCorp's official MCP server integrating the Terraform Registry and HCP Terraform APIs, with documented setup for VS Code, Cursor, Claude Desktop/Code, Codex CLI, and Gemini extensions.
-**Reusable for us:** None currently — no Terraform/IaC work in this workspace. Well-built and officially maintained; worth adopting if that changes.
-**Token / effectiveness angle:** n/a.
-**How to adopt:** skip for now — revisit if a repo under `~/repos` starts using Terraform.
+**What it is:** Official Terraform Registry / HCP Terraform MCP server (stdio + HTTP, OTel metrics).
+**Reusable for us:** Vendor-maintained MCP template for IaC work; relevant only in Terraform repos.
+**Token / effectiveness angle:** Registry lookups beat the model guessing provider schemas (fewer retries).
+**How to adopt:** watch; recommend per-repo if a consumer uses Terraform.
