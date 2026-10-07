@@ -34,3 +34,6 @@ Children/subagents: none alive. Worktrees of merged branches removed; remote bra
 
 ## Cold-resume read order
 1. this file · 2. `.oracle/status.json` · 3. `scripts/sync-consumers.sh --status` · 4. `gh pr list` in claude-common, langtutor, claude-tradingdesk · 5. `CHANGELOG.md` [Unreleased].
+
+## Addendum (same session, after the hand-off block ran)
+All pushes done by Luis. tradingdesk rename merged (PR #7), consumer PRs claude-tradingdesk #8 and langtutor #20 verified (9 managed files each) and merged; tradingdesk worktree + branch removed. `scripts/sync-consumers.sh --status` → **14 current, 1 self**. Steps 1–3 of next_exact_action are complete; nothing is pending. Blocked-on-Luis cleared.
