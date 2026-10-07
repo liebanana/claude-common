@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "goal": "claude-common as the single shared toolkit: every repo pinned to a tagged release via the consumer sync; v1.5.0 live on 12/14 consumers",
+  "next_step": "Luis runs the hand-off block (push langtutor main + tradingdesk chore/ponytail-rename + this handover; merge tradingdesk PR; sync --repo langtutor --repo claude-tradingdesk); next session merges the 2 consumer PRs and expects 14 current",
+  "owner": "luis",
+  "blocked_on_luis": {"flag": true, "reason": "git push is denied to agents in this repo: 3 pushes + 1 merge pending (block in the last chat message / docs/handovers/2026-10-06-session-handover.md)", "since": "2026-10-06"},
+  "as_of": "2026-10-07T01:24:00Z",
+  "session_id": "session_01Nf6tLRddey1ZRjJ1bzAAap",
+  "by": "claude-interactive"
+}
