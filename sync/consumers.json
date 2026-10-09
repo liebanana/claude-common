@@ -16,6 +16,7 @@
     { "repo": "Starlock", "mode": "pr" },
     { "repo": "vault", "mode": "pr" },
     { "repo": "oracle", "mode": "pr" },
+    { "repo": "luis-nihongo", "mode": "pr" },
     { "repo": "claude-common", "mode": "self" }
   ]
 }
