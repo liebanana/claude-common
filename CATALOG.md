@@ -80,6 +80,7 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Injected ruleset (terse prose + YAGNI-first code + tool-output compression) that measurably cuts an agent's output tokens (44% of baseline in published benchmarks incl. losses) — zero-dep, directly on our token-thrift mission** → `research/JayPokale__Chisle.md` (`JayPokale/Chisle` ⭐492)
 - 🔬 **Anthropic's official Agent Skills examples + spec/template; canonical pattern reference for authoring skills** → `research/anthropics__skills.md` (`anthropics/skills` ⭐0)
 - 🔬 **Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases** → `research/vitali87__code-graph-rag.md` (`vitali87/code-graph-rag` ⭐0)
+- 🔬 **Claude Code plugin cutting reply length ~45-54% via anti-filler/anti-mannerism rules; benchmarked on Opus 5.5/Fable 5.1** → `research/lowenbjer__claude-terse.md` (`lowenbjer/claude-terse` ⭐0)
 
 See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
 <!-- END GENERATED -->
