@@ -69,6 +69,9 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 - A task with "multiple parts" or "be thorough" is **not** a reason to spawn — handle it inline with your own tools.
 - For broad read-only searches, use **Explore** (cheap, returns conclusions) rather than spawning a full general-purpose agent.
 - Continue an existing agent via its ID instead of starting a fresh one when context carries over.
+- **Every wait/poll loop has a hard deadline** — yours and every subagent's: `timeout <s> bash -c 'until …'` or an iteration cap, printing FAIL on expiry. Never `pgrep -f` a pattern contained in the loop's own command; prove `--json` field names once before polling on them. An unbounded wait keeps an agent "running" for days. When a notification shows an agent alive for hours, or reports background work still running, inspect and stop it unprompted.
+
+**When the user reports a problem, locate it before answering.** Treat it as real. Status views (agent listings, checkpoints, status files) are not evidence; check live runtime (`ps --forest`/`etime` under your session, logs, the actual artifact). Say "it's not happening" only with that evidence in hand, and quote it. Contradicting the user from a summary view is a defect, not a correction.
 
 **Shared toolkit — check before building**
 - Before building tooling/scripts/agents from scratch, check **`~/repos/claude-common`** (read `CATALOG.md`, or query `index.json` with `jq`): reusable scripts, slash commands, research notes, vetted plugins. Use what fits; if an asset needs setup you shouldn't do alone (install/auth), recommend it to the user instead of reinventing. Contribute general reusable learnings back via `/contribute-to-common`. (If `claude-common` doesn't exist on this host, skip.)
