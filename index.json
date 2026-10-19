@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-06",
+  "generated": "2026-10-19",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -345,6 +345,56 @@
   ],
   "research": [
     {
+      "repo": "NousResearch/hermes-agent",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 253007,
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Self-improving open-source agent ('grows with you') from Nous Research with desktop app",
+      "tags": [
+        "agent",
+        "memory"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 253007,
+        "pushed": "2026-10-12",
+        "repo_age_days": 446
+      },
+      "maturity": "trending",
+      "note": "research/NousResearch__hermes-agent.md"
+    },
+    {
+      "repo": "deepseek-ai/deepseek-harness",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 248083,
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "pushed": "2026-10-09",
+      "triaged": "2026-10-12",
+      "intent": "DeepSeek's open agent harness with everything-is-a-plugin architecture (Cordis); developer preview, breaking changes",
+      "tags": [
+        "agent-harness",
+        "plugin"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 248083,
+        "pushed": "2026-10-09",
+        "repo_age_days": 60
+      },
+      "maturity": "experimental",
+      "note": "research/deepseek-ai__deepseek-harness.md"
+    },
+    {
       "repo": "obra/superpowers",
       "verdict": "adopt",
       "stars": 242371,
@@ -386,6 +436,78 @@
       "note": "research/affaan-m__ECC.md"
     },
     {
+      "repo": "n8n-io/n8n",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 207094,
+      "url": "https://github.com/n8n-io/n8n",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Fair-code visual workflow automation with AI agents",
+      "tags": [
+        "automation"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 207094,
+        "pushed": "2026-10-12",
+        "repo_age_days": 2669
+      },
+      "maturity": "stable",
+      "note": "research/n8n-io__n8n.md"
+    },
+    {
+      "repo": "avelino/awesome-go",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 188000,
+      "url": "https://github.com/avelino/awesome-go",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Curated list of Go libraries",
+      "tags": [
+        "list"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 188000,
+        "pushed": "2026-10-12",
+        "repo_age_days": 4481
+      },
+      "maturity": "stable",
+      "note": "research/avelino__awesome-go.md"
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 147688,
+      "url": "https://github.com/langchain-ai/langchain",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "LangChain agent framework",
+      "tags": [
+        "framework"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 147688,
+        "pushed": "2026-10-12",
+        "repo_age_days": 1456
+      },
+      "maturity": "stable",
+      "note": "research/langchain-ai__langchain.md"
+    },
+    {
       "repo": "firecrawl/firecrawl",
       "verdict": "watch",
       "stars": 142071,
@@ -405,6 +527,35 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
+    },
+    {
+      "repo": "morluto/rea",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 138777,
+      "url": "https://github.com/morluto/rea",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "MCP server for reverse engineering (binaries, app behavior) driven by agents",
+      "tags": [
+        "mcp",
+        "reverse-engineering"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 138777,
+        "pushed": "2026-10-12",
+        "repo_age_days": 181,
+        "stars_period": 126976,
+        "period": "weekly",
+        "trending": true
+      },
+      "maturity": "experimental",
+      "note": "research/morluto__rea.md"
     },
     {
       "repo": "msitarzewski/agency-agents",
@@ -434,6 +585,56 @@
       "note": "research/msitarzewski__agency-agents.md"
     },
     {
+      "repo": "Graphify-Labs/graphify",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 125770,
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Codebase->queryable knowledge-graph skill (local AST parsing, no vector store) for Claude Code/Cursor/Codex/Gemini; upsells Graphify Cloud",
+      "tags": [
+        "knowledge-graph",
+        "skill",
+        "code-navigation"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 125770,
+        "pushed": "2026-10-12",
+        "repo_age_days": 191
+      },
+      "maturity": "trending",
+      "note": "research/Graphify-Labs__graphify.md"
+    },
+    {
+      "repo": "jaywcjlove/awesome-mac",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 115929,
+      "url": "https://github.com/jaywcjlove/awesome-mac",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Curated list of macOS software",
+      "tags": [
+        "list"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 115929,
+        "pushed": "2026-10-12",
+        "repo_age_days": 3738
+      },
+      "maturity": "stable",
+      "note": "research/jaywcjlove__awesome-mac.md"
+    },
+    {
       "repo": "farion1231/cc-switch",
       "verdict": "watch",
       "stars": 111242,
@@ -452,6 +653,30 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/farion1231__cc-switch.md"
+    },
+    {
+      "repo": "google-gemini/gemini-cli",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 107294,
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Google's open-source terminal agent for Gemini",
+      "tags": [
+        "cli-agent"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 107294,
+        "pushed": "2026-10-12",
+        "repo_age_days": 542
+      },
+      "maturity": "stable",
+      "note": "research/google-gemini__gemini-cli.md"
     },
     {
       "repo": "browser-use/browser-use",
@@ -521,6 +746,30 @@
       "note": "research/paperclipai__paperclip.md"
     },
     {
+      "repo": "infiniflow/ragflow",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 92064,
+      "url": "https://github.com/infiniflow/ragflow",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "RAG engine with deep document understanding",
+      "tags": [
+        "rag"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 92064,
+        "pushed": "2026-10-12",
+        "repo_age_days": 1035
+      },
+      "maturity": "stable",
+      "note": "research/infiniflow__ragflow.md"
+    },
+    {
       "repo": "punkpeye/awesome-mcp-servers",
       "verdict": "skip",
       "stars": 90048,
@@ -540,6 +789,56 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/punkpeye__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "D4Vinci/Scrapling",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 86967,
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "pushed": "2026-10-11",
+      "triaged": "2026-10-12",
+      "intent": "Adaptive web scraping framework; ships an MCP server",
+      "tags": [
+        "scraping",
+        "mcp"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 86967,
+        "pushed": "2026-10-11",
+        "repo_age_days": 728
+      },
+      "maturity": "stable",
+      "note": "research/D4Vinci__Scrapling.md"
+    },
+    {
+      "repo": "unclecode/crawl4ai",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 85366,
+      "url": "https://github.com/unclecode/crawl4ai",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Open-source crawler producing LLM-ready markdown",
+      "tags": [
+        "scraping",
+        "markdown"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 85366,
+        "pushed": "2026-10-12",
+        "repo_age_days": 886
+      },
+      "maturity": "stable",
+      "note": "research/unclecode__crawl4ai.md"
     },
     {
       "repo": "thedotmack/claude-mem",
@@ -562,6 +861,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/thedotmack__claude-mem.md"
+    },
+    {
+      "repo": "bytedance/deer-flow",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 83744,
+      "url": "https://github.com/bytedance/deer-flow",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "ByteDance long-horizon SuperAgent harness (research/code/create) v2",
+      "tags": [
+        "agent-harness",
+        "multi-agent"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 83744,
+        "pushed": "2026-10-12",
+        "repo_age_days": 523
+      },
+      "maturity": "trending",
+      "note": "research/bytedance__deer-flow.md"
     },
     {
       "repo": "JuliusBrussee/caveman",
@@ -4583,6 +4907,57 @@
       },
       "maturity": "experimental",
       "note": "research/alltrainning__graviton-dashboard.md"
+    },
+    {
+      "repo": "lowenbjer/claude-terse",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/lowenbjer/claude-terse",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Claude Code plugin cutting reply length ~45-54% via anti-filler/anti-mannerism rules; benchmarked on Opus 5.5/Fable 5.1",
+      "tags": [
+        "output-tokens",
+        "plugin",
+        "style"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 25,
+        "comments": 18,
+        "seen_age_days": 4
+      },
+      "maturity": "emerging",
+      "note": "research/lowenbjer__claude-terse.md"
+    },
+    {
+      "repo": "brumar/chess-postmortem-skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/brumar/chess-postmortem-skills",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Claude Code skills producing chess game post-mortems with Stockfish and narrated video",
+      "tags": [
+        "skill",
+        "chess"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 76,
+        "comments": 57,
+        "seen_age_days": 15
+      },
+      "maturity": "experimental",
+      "note": "research/brumar__chess-postmortem-skills.md"
     }
   ]
 }
