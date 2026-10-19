@@ -5,6 +5,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+## [v1.5.1] - 2026-10-19
+
+- withdraw manager-status skill
+
 ### Removed
 - `skills/manager-status`: withdrawn (work-derived asset; stays in its originating workspace). The sync deletes it from consumers on the next release.
 
