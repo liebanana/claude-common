@@ -345,41 +345,66 @@
   ],
   "research": [
     {
+      "repo": "morluto/rea",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 332546,
+      "url": "https://github.com/morluto/rea",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "MCP for reverse engineering binaries/Electron/.NET/sites via Hopper/Ghidra/IDA",
+      "tags": [
+        "mcp",
+        "reverse-engineering"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 332546,
+        "repo_age_days": 188
+      },
+      "maturity": "emerging",
+      "note": "research/morluto__rea.md"
+    },
+    {
       "repo": "NousResearch/hermes-agent",
       "verdict": "watch",
       "status": "recommended",
-      "stars": 253007,
+      "stars": 255179,
       "url": "https://github.com/NousResearch/hermes-agent",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "Self-improving open-source agent ('grows with you') from Nous Research with desktop app",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Self-improving general agent that creates/improves skills from experience; model-agnostic",
       "tags": [
         "agent",
-        "memory"
+        "self-improving",
+        "skills"
       ],
       "source": "github",
       "sources": [
         "github"
       ],
       "signals": {
-        "stars": 253007,
-        "pushed": "2026-10-12",
-        "repo_age_days": 446
+        "stars": 255179,
+        "repo_age_days": 453
       },
-      "maturity": "trending",
+      "maturity": "stable",
       "note": "research/NousResearch__hermes-agent.md"
     },
     {
       "repo": "deepseek-ai/deepseek-harness",
-      "verdict": "watch",
+      "verdict": "skip",
       "status": "recommended",
-      "stars": 248083,
+      "stars": 254250,
       "url": "https://github.com/deepseek-ai/deepseek-harness",
-      "pushed": "2026-10-09",
-      "triaged": "2026-10-12",
-      "intent": "DeepSeek's open agent harness with everything-is-a-plugin architecture (Cordis); developer preview, breaking changes",
+      "pushed": "2026-10-17",
+      "triaged": "2026-10-19",
+      "intent": "DeepSeek's open-source plugin-architecture agent harness (developer preview)",
       "tags": [
-        "agent-harness",
+        "harness",
         "plugin"
       ],
       "source": "github",
@@ -387,11 +412,10 @@
         "github"
       ],
       "signals": {
-        "stars": 248083,
-        "pushed": "2026-10-09",
-        "repo_age_days": 60
+        "stars": 254250,
+        "repo_age_days": 67
       },
-      "maturity": "experimental",
+      "maturity": "emerging",
       "note": "research/deepseek-ai__deepseek-harness.md"
     },
     {
@@ -439,22 +463,21 @@
       "repo": "n8n-io/n8n",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 207094,
+      "stars": 207997,
       "url": "https://github.com/n8n-io/n8n",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "Fair-code visual workflow automation with AI agents",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Fair-code visual workflow automation platform with AI nodes",
       "tags": [
-        "automation"
+        "workflow-automation"
       ],
       "source": "github",
       "sources": [
         "github"
       ],
       "signals": {
-        "stars": 207094,
-        "pushed": "2026-10-12",
-        "repo_age_days": 2669
+        "stars": 207997,
+        "repo_age_days": 2676
       },
       "maturity": "stable",
       "note": "research/n8n-io__n8n.md"
@@ -463,22 +486,21 @@
       "repo": "avelino/awesome-go",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 188000,
+      "stars": 189205,
       "url": "https://github.com/avelino/awesome-go",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
       "intent": "Curated list of Go libraries",
       "tags": [
-        "list"
+        "awesome-list"
       ],
       "source": "github",
       "sources": [
         "github"
       ],
       "signals": {
-        "stars": 188000,
-        "pushed": "2026-10-12",
-        "repo_age_days": 4481
+        "stars": 189205,
+        "repo_age_days": 4488
       },
       "maturity": "stable",
       "note": "research/avelino__awesome-go.md"
@@ -487,11 +509,11 @@
       "repo": "langchain-ai/langchain",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 147688,
+      "stars": 148080,
       "url": "https://github.com/langchain-ai/langchain",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "LangChain agent framework",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "LLM/agent application framework",
       "tags": [
         "framework"
       ],
@@ -500,9 +522,8 @@
         "github"
       ],
       "signals": {
-        "stars": 147688,
-        "pushed": "2026-10-12",
-        "repo_age_days": 1456
+        "stars": 148080,
+        "repo_age_days": 1463
       },
       "maturity": "stable",
       "note": "research/langchain-ai__langchain.md"
@@ -529,33 +550,30 @@
       "note": "research/firecrawl__firecrawl.md"
     },
     {
-      "repo": "morluto/rea",
+      "repo": "Graphify-Labs/graphify",
       "verdict": "watch",
       "status": "recommended",
-      "stars": 138777,
-      "url": "https://github.com/morluto/rea",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "MCP server for reverse engineering (binaries, app behavior) driven by agents",
+      "stars": 128870,
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "pushed": "2026-10-16",
+      "triaged": "2026-10-19",
+      "intent": "/graphify skill: tree-sitter AST (local, no LLM) + semantic extraction into a queryable code knowledge graph",
       "tags": [
-        "mcp",
-        "reverse-engineering"
+        "knowledge-graph",
+        "skill",
+        "token-thrift",
+        "code-index"
       ],
       "source": "github",
       "sources": [
-        "github",
-        "github-trending"
+        "github"
       ],
       "signals": {
-        "stars": 138777,
-        "pushed": "2026-10-12",
-        "repo_age_days": 181,
-        "stars_period": 126976,
-        "period": "weekly",
-        "trending": true
+        "stars": 128870,
+        "repo_age_days": 198
       },
-      "maturity": "experimental",
-      "note": "research/morluto__rea.md"
+      "maturity": "trending",
+      "note": "research/Graphify-Labs__graphify.md"
     },
     {
       "repo": "msitarzewski/agency-agents",
@@ -585,51 +603,24 @@
       "note": "research/msitarzewski__agency-agents.md"
     },
     {
-      "repo": "Graphify-Labs/graphify",
-      "verdict": "watch",
-      "status": "recommended",
-      "stars": 125770,
-      "url": "https://github.com/Graphify-Labs/graphify",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "Codebase->queryable knowledge-graph skill (local AST parsing, no vector store) for Claude Code/Cursor/Codex/Gemini; upsells Graphify Cloud",
-      "tags": [
-        "knowledge-graph",
-        "skill",
-        "code-navigation"
-      ],
-      "source": "github",
-      "sources": [
-        "github"
-      ],
-      "signals": {
-        "stars": 125770,
-        "pushed": "2026-10-12",
-        "repo_age_days": 191
-      },
-      "maturity": "trending",
-      "note": "research/Graphify-Labs__graphify.md"
-    },
-    {
       "repo": "jaywcjlove/awesome-mac",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 115929,
+      "stars": 116490,
       "url": "https://github.com/jaywcjlove/awesome-mac",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
       "intent": "Curated list of macOS software",
       "tags": [
-        "list"
+        "awesome-list"
       ],
       "source": "github",
       "sources": [
         "github"
       ],
       "signals": {
-        "stars": 115929,
-        "pushed": "2026-10-12",
-        "repo_age_days": 3738
+        "stars": 116490,
+        "repo_age_days": 3745
       },
       "maturity": "stable",
       "note": "research/jaywcjlove__awesome-mac.md"
@@ -656,24 +647,24 @@
     },
     {
       "repo": "google-gemini/gemini-cli",
-      "verdict": "watch",
+      "verdict": "skip",
       "status": "recommended",
-      "stars": 107294,
+      "stars": 107454,
       "url": "https://github.com/google-gemini/gemini-cli",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "Google's open-source terminal agent for Gemini",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Google's open-source terminal coding agent",
       "tags": [
-        "cli-agent"
+        "agent-cli",
+        "gemini"
       ],
       "source": "github",
       "sources": [
         "github"
       ],
       "signals": {
-        "stars": 107294,
-        "pushed": "2026-10-12",
-        "repo_age_days": 542
+        "stars": 107454,
+        "repo_age_days": 549
       },
       "maturity": "stable",
       "note": "research/google-gemini__gemini-cli.md"
@@ -697,6 +688,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/browser-use__browser-use.md"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 99194,
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Anti-slop agent skills for premium frontends: art direction, reference images, browser checks",
+      "tags": [
+        "skills",
+        "frontend",
+        "design"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 99194,
+        "repo_age_days": 241
+      },
+      "maturity": "trending",
+      "note": "research/Leonxlnx__taste-skill.md"
     },
     {
       "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
@@ -749,11 +765,11 @@
       "repo": "infiniflow/ragflow",
       "verdict": "skip",
       "status": "recommended",
-      "stars": 92064,
+      "stars": 92465,
       "url": "https://github.com/infiniflow/ragflow",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "RAG engine with deep document understanding",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "RAG engine with document understanding",
       "tags": [
         "rag"
       ],
@@ -762,9 +778,8 @@
         "github"
       ],
       "signals": {
-        "stars": 92064,
-        "pushed": "2026-10-12",
-        "repo_age_days": 1035
+        "stars": 92465,
+        "repo_age_days": 1042
       },
       "maturity": "stable",
       "note": "research/infiniflow__ragflow.md"
@@ -907,6 +922,33 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/JuliusBrussee__caveman.md"
+    },
+    {
+      "repo": "ruvnet/ruflo",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 76939,
+      "url": "https://github.com/ruvnet/ruflo",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Agent meta-harness plugin for Claude Code/Codex: swarms, routing/policy mods, console",
+      "tags": [
+        "harness",
+        "swarm",
+        "claude-code-plugin",
+        "mcp"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 76939,
+        "repo_age_days": 503
+      },
+      "maturity": "trending",
+      "note": "research/ruvnet__ruflo.md"
     },
     {
       "repo": "dair-ai/Prompt-Engineering-Guide",
@@ -4909,30 +4951,24 @@
       "note": "research/alltrainning__graviton-dashboard.md"
     },
     {
-      "repo": "lowenbjer/claude-terse",
-      "verdict": "adopt",
+      "repo": "YuJunZhiXue/dsh-purge",
+      "verdict": "skip",
       "status": "recommended",
       "stars": 0,
-      "url": "https://github.com/lowenbjer/claude-terse",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "Claude Code plugin cutting reply length ~45-54% via anti-filler/anti-mannerism rules; benchmarked on Opus 5.5/Fable 5.1",
+      "url": "https://github.com/YuJunZhiXue/dsh-purge",
+      "pushed": "",
+      "triaged": "2026-10-19",
+      "intent": "Jailbreak prompts for DeepSeek Harness / other models",
       "tags": [
-        "output-tokens",
-        "plugin",
-        "style"
+        "jailbreak"
       ],
-      "source": "hackernews",
+      "source": "github-trending",
       "sources": [
-        "hackernews"
+        "github-trending"
       ],
-      "signals": {
-        "points": 25,
-        "comments": 18,
-        "seen_age_days": 4
-      },
-      "maturity": "emerging",
-      "note": "research/lowenbjer__claude-terse.md"
+      "signals": {},
+      "maturity": "experimental",
+      "note": "research/YuJunZhiXue__dsh-purge.md"
     },
     {
       "repo": "brumar/chess-postmortem-skills",
@@ -4940,12 +4976,12 @@
       "status": "recommended",
       "stars": 0,
       "url": "https://github.com/brumar/chess-postmortem-skills",
-      "pushed": "2026-10-12",
-      "triaged": "2026-10-12",
-      "intent": "Claude Code skills producing chess game post-mortems with Stockfish and narrated video",
+      "pushed": "",
+      "triaged": "2026-10-19",
+      "intent": "Claude Code skills producing narrated chess game post-mortems (Stockfish + whisper.cpp)",
       "tags": [
-        "skill",
-        "chess"
+        "skills",
+        "demo"
       ],
       "source": "hackernews",
       "sources": [
@@ -4954,10 +4990,36 @@
       "signals": {
         "points": 76,
         "comments": 57,
-        "seen_age_days": 15
+        "seen_age_days": 22
       },
       "maturity": "experimental",
       "note": "research/brumar__chess-postmortem-skills.md"
+    },
+    {
+      "repo": "lowenbjer/claude-terse",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/lowenbjer/claude-terse",
+      "pushed": "",
+      "triaged": "2026-10-19",
+      "intent": "Claude Code plugin that cuts reply length ~50% by banning filler/metaphor/recap",
+      "tags": [
+        "plugin",
+        "token-thrift",
+        "output-style"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 25,
+        "comments": 18,
+        "seen_age_days": 11
+      },
+      "maturity": "emerging",
+      "note": "research/lowenbjer__claude-terse.md"
     }
   ]
 }

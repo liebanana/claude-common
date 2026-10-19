@@ -1,7 +1,7 @@
 # brumar/chess-postmortem-skills  ·  ⭐0  ·  skip  ·  experimental
-https://github.com/brumar/chess-postmortem-skills · pushed 2026-10-12 · triaged 2026-10-12 · seen on hackernews
+https://github.com/brumar/chess-postmortem-skills · pushed  · triaged 2026-10-19 · seen on hackernews
 
-**What it is:** Claude Code skills producing chess game post-mortems with Stockfish and narrated video
-**Reusable for us:** Example of a multi-stage skill pipeline (engine check + narration); domain-specific.
+**What it is:** Claude Code skills producing narrated chess game post-mortems (Stockfish + whisper.cpp).
+**Reusable for us:** Only as an example of a multi-stage skill pipeline with local tools; domain-specific.
 **Token / effectiveness angle:** n/a
-**How to adopt:** skip (off-mission).
+**How to adopt:** Skip.

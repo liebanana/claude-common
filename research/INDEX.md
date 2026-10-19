@@ -34,22 +34,22 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [JayPokale/Chisle](research/JayPokale__Chisle.md) ⭐492 · _emerging_ · [github] — Injected ruleset (terse prose + YAGNI-first code + tool-output compression) that measurably cuts an agent's output tokens (44% of baseline in published benchmarks incl. losses) — zero-dep, directly on our token-thrift mission
 - [anthropics/skills](research/anthropics__skills.md) ⭐0 · _stable_ · [github-trending] — Anthropic's official Agent Skills examples + spec/template; canonical pattern reference for authoring skills
 - [vitali87/code-graph-rag](research/vitali87__code-graph-rag.md) ⭐0 · _trending_ · [github-trending] — Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases
-- [lowenbjer/claude-terse](research/lowenbjer__claude-terse.md) ⭐0 · _emerging_ · [hackernews] · 25↑ — Claude Code plugin cutting reply length ~45-54% via anti-filler/anti-mannerism rules; benchmarked on Opus 5.5/Fable 5.1
+- [lowenbjer/claude-terse](research/lowenbjer__claude-terse.md) ⭐0 · _emerging_ · [hackernews] · 25↑ — Claude Code plugin that cuts reply length ~50% by banning filler/metaphor/recap
 
 ## watch (87)
-- [NousResearch/hermes-agent](research/NousResearch__hermes-agent.md) ⭐253007 · _trending_ · [github] — Self-improving open-source agent ('grows with you') from Nous Research with desktop app
-- [deepseek-ai/deepseek-harness](research/deepseek-ai__deepseek-harness.md) ⭐248083 · _experimental_ · [github] — DeepSeek's open agent harness with everything-is-a-plugin architecture (Cordis); developer preview, breaking changes
+- [morluto/rea](research/morluto__rea.md) ⭐332546 · _emerging_ · [github,github-trending] — MCP for reverse engineering binaries/Electron/.NET/sites via Hopper/Ghidra/IDA
+- [NousResearch/hermes-agent](research/NousResearch__hermes-agent.md) ⭐255179 · _stable_ · [github] — Self-improving general agent that creates/improves skills from experience; model-agnostic
 - [affaan-m/ECC](research/affaan-m__ECC.md) ⭐223936 · _stable_ · [github] — Sprawling commercial cross-harness operator OS; borrow instincts/memory patterns only (star count suspect)
 - [firecrawl/firecrawl](research/firecrawl__firecrawl.md) ⭐142071 · _stable_ · [github] — API to search/scrape/crawl the web at scale for agents (has an MCP server)
-- [morluto/rea](research/morluto__rea.md) ⭐138777 · _experimental_ · [github,github-trending] — MCP server for reverse engineering (binaries, app behavior) driven by agents
+- [Graphify-Labs/graphify](research/Graphify-Labs__graphify.md) ⭐128870 · _trending_ · [github] — /graphify skill: tree-sitter AST (local, no LLM) + semantic extraction into a queryable code knowledge graph
 - [msitarzewski/agency-agents](research/msitarzewski__agency-agents.md) ⭐127937 · _trending_ · [github,github-trending] — Large collection of persona-driven Claude Code/Cursor/Codex subagent prompts, installable via app or script
-- [Graphify-Labs/graphify](research/Graphify-Labs__graphify.md) ⭐125770 · _trending_ · [github] — Codebase->queryable knowledge-graph skill (local AST parsing, no vector store) for Claude Code/Cursor/Codex/Gemini; upsells Graphify Cloud
 - [farion1231/cc-switch](research/farion1231__cc-switch.md) ⭐111242 · _stable_ · [github] — Desktop app to switch configs/providers across Claude Code, Codex, Gemini CLI etc. (star count suspect)
-- [google-gemini/gemini-cli](research/google-gemini__gemini-cli.md) ⭐107294 · _stable_ · [github] — Google's open-source terminal agent for Gemini
 - [browser-use/browser-use](research/browser-use__browser-use.md) ⭐101719 · _stable_ · [github] — Popular library to let agents drive a browser and automate web tasks
+- [Leonxlnx/taste-skill](research/Leonxlnx__taste-skill.md) ⭐99194 · _trending_ · [github] — Anti-slop agent skills for premium frontends: art direction, reference images, browser checks
 - [D4Vinci/Scrapling](research/D4Vinci__Scrapling.md) ⭐86967 · _stable_ · [github] — Adaptive web scraping framework; ships an MCP server
 - [unclecode/crawl4ai](research/unclecode__crawl4ai.md) ⭐85366 · _stable_ · [github] — Open-source crawler producing LLM-ready markdown
 - [bytedance/deer-flow](research/bytedance__deer-flow.md) ⭐83744 · _trending_ · [github] — ByteDance long-horizon SuperAgent harness (research/code/create) v2
+- [ruvnet/ruflo](research/ruvnet__ruflo.md) ⭐76939 · _trending_ · [github,github-trending] — Agent meta-harness plugin for Claude Code/Codex: swarms, routing/policy mods, console
 - [dair-ai/Prompt-Engineering-Guide](research/dair-ai__Prompt-Engineering-Guide.md) ⭐76093 · _stable_ · [github] — Reference: prompt/context engineering, RAG, and agent guides, papers, notebooks
 - [safishamsi/graphify](research/safishamsi__graphify.md) ⭐74808 · _stable_ · [github] — Skill turning a codebase/docs into a queryable knowledge graph; overlaps codebase-memory-mcp
 - [shareAI-lab/learn-claude-code](research/shareAI-lab__learn-claude-code.md) ⭐69240 · _stable_ · [github] — Nano Claude-Code-like agent harness built 0 to 1; reference for how the harness works
@@ -125,14 +125,16 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [TencentCloud/TencentDB-Agent-Memory](research/TencentCloud__TencentDB-Agent-Memory.md) ⭐0 · _trending_ · [github-trending] — Team-level shared agent memory hub/proxy usable by Claude Code and other agent CLIs
 - [cloudflare/browser-rendering](research/cloudflare__browser-rendering.md) ⭐0 · _experimental_ · [github] — Hosted on-demand cloud browser (Playwright/Puppeteer) for screenshots/scraping where no API exists — no MCP yet
 
-## skip (69)
-- [n8n-io/n8n](research/n8n-io__n8n.md) ⭐207094 · _stable_ · [github] — Fair-code visual workflow automation with AI agents
-- [avelino/awesome-go](research/avelino__awesome-go.md) ⭐188000 · _stable_ · [github] — Curated list of Go libraries
-- [langchain-ai/langchain](research/langchain-ai__langchain.md) ⭐147688 · _stable_ · [github] — LangChain agent framework
-- [jaywcjlove/awesome-mac](research/jaywcjlove__awesome-mac.md) ⭐115929 · _stable_ · [github] — Curated list of macOS software
+## skip (72)
+- [deepseek-ai/deepseek-harness](research/deepseek-ai__deepseek-harness.md) ⭐254250 · _emerging_ · [github] — DeepSeek's open-source plugin-architecture agent harness (developer preview)
+- [n8n-io/n8n](research/n8n-io__n8n.md) ⭐207997 · _stable_ · [github] — Fair-code visual workflow automation platform with AI nodes
+- [avelino/awesome-go](research/avelino__awesome-go.md) ⭐189205 · _stable_ · [github] — Curated list of Go libraries
+- [langchain-ai/langchain](research/langchain-ai__langchain.md) ⭐148080 · _stable_ · [github] — LLM/agent application framework
+- [jaywcjlove/awesome-mac](research/jaywcjlove__awesome-mac.md) ⭐116490 · _stable_ · [github] — Curated list of macOS software
+- [google-gemini/gemini-cli](research/google-gemini__gemini-cli.md) ⭐107454 · _stable_ · [github] — Google's open-source terminal coding agent
 - [nextlevelbuilder/ui-ux-pro-max-skill](research/nextlevelbuilder__ui-ux-pro-max-skill.md) ⭐98659 · _stable_ · [github] — UI/UX design-intelligence skill; off our agent-effectiveness/token mission
 - [paperclipai/paperclip](research/paperclipai__paperclip.md) ⭐97462 · _trending_ · [github-trending] — Node/React orchestrator that runs a 'company' of AI agents with org charts, budgets, goals
-- [infiniflow/ragflow](research/infiniflow__ragflow.md) ⭐92064 · _stable_ · [github] — RAG engine with deep document understanding
+- [infiniflow/ragflow](research/infiniflow__ragflow.md) ⭐92465 · _stable_ · [github] — RAG engine with document understanding
 - [punkpeye/awesome-mcp-servers](research/punkpeye__awesome-mcp-servers.md) ⭐90048 · _stable_ · [github] — Another curated MCP server list; redundant with appcypher/awesome-mcp-servers already adopted
 - [koala73/worldmonitor](research/koala73__worldmonitor.md) ⭐75183 · _trending_ · [github,github-trending] — real-time geopolitical/news intelligence dashboard
 - [gsd-build/get-shit-done](research/gsd-build__get-shit-done.md) ⭐64595 · _experimental_ · [github,hackernews] · 473↑ — Meta-prompting/context-engineering framework — but THIS repo is archived; dev moved to open-gsd/gsd-core
@@ -194,14 +196,16 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [anthropics/claude-code](research/anthropics__claude-code.md) ⭐0 · _experimental_ · [hackernews] · 1364↑ — HN discussion thread (issue), not a tool asset
 - [anomalyco/opencode](research/anomalyco__opencode.md) ⭐0 · _experimental_ · [hackernews] · 625↑ — HN discussion thread (issue) about Claude Code subscription ToS, not a tool asset
 - [alltrainning/graviton-dashboard](research/alltrainning__graviton-dashboard.md) ⭐0 · _experimental_ · [user-submitted] — Personal static dashboard for a 30-day NinjaTrader MNQ bot demo evaluation
-- [brumar/chess-postmortem-skills](research/brumar__chess-postmortem-skills.md) ⭐0 · _experimental_ · [hackernews] · 76↑ — Claude Code skills producing chess game post-mortems with Stockfish and narrated video
+- [YuJunZhiXue/dsh-purge](research/YuJunZhiXue__dsh-purge.md) ⭐0 · _experimental_ · [github-trending] — Jailbreak prompts for DeepSeek Harness / other models
+- [brumar/chess-postmortem-skills](research/brumar__chess-postmortem-skills.md) ⭐0 · _experimental_ · [hackernews] · 76↑ — Claude Code skills producing narrated chess game post-mortems (Stockfish + whisper.cpp)
 
-## 🔥 trending (78)
-- [NousResearch/hermes-agent](research/NousResearch__hermes-agent.md) ⭐253007 · _trending_ · [github] — Self-improving open-source agent ('grows with you') from Nous Research with desktop app
+## 🔥 trending (79)
+- [Graphify-Labs/graphify](research/Graphify-Labs__graphify.md) ⭐128870 · _trending_ · [github] — /graphify skill: tree-sitter AST (local, no LLM) + semantic extraction into a queryable code knowledge graph
 - [msitarzewski/agency-agents](research/msitarzewski__agency-agents.md) ⭐127937 · _trending_ · [github,github-trending] — Large collection of persona-driven Claude Code/Cursor/Codex subagent prompts, installable via app or script
-- [Graphify-Labs/graphify](research/Graphify-Labs__graphify.md) ⭐125770 · _trending_ · [github] — Codebase->queryable knowledge-graph skill (local AST parsing, no vector store) for Claude Code/Cursor/Codex/Gemini; upsells Graphify Cloud
+- [Leonxlnx/taste-skill](research/Leonxlnx__taste-skill.md) ⭐99194 · _trending_ · [github] — Anti-slop agent skills for premium frontends: art direction, reference images, browser checks
 - [paperclipai/paperclip](research/paperclipai__paperclip.md) ⭐97462 · _trending_ · [github-trending] — Node/React orchestrator that runs a 'company' of AI agents with org charts, budgets, goals
 - [bytedance/deer-flow](research/bytedance__deer-flow.md) ⭐83744 · _trending_ · [github] — ByteDance long-horizon SuperAgent harness (research/code/create) v2
+- [ruvnet/ruflo](research/ruvnet__ruflo.md) ⭐76939 · _trending_ · [github,github-trending] — Agent meta-harness plugin for Claude Code/Codex: swarms, routing/policy mods, console
 - [koala73/worldmonitor](research/koala73__worldmonitor.md) ⭐75183 · _trending_ · [github,github-trending] — real-time geopolitical/news intelligence dashboard
 - [rtk-ai/rtk](research/rtk-ai__rtk.md) ⭐72028 · _trending_ · [github] — Rust CLI proxy that filters/compresses common dev-command output (ls, cat, grep, git, test runners) before it reaches LLM context — 60-90% token reduction, single binary, <10ms overhead
 - [tt-a1i/archify](research/tt-a1i__archify.md) ⭐61809 · _trending_ · [github-trending] — Diagram-generation skill (self-contained HTML/SVG); redundant with cathrynlavery/diagram-design, heavily sponsor-marketed
@@ -276,9 +280,10 @@ _Maturity: **stable** · **trending** · **emerging** · **experimental**. Sourc
 - [vitali87/code-graph-rag](research/vitali87__code-graph-rag.md) ⭐0 · _trending_ · [github-trending] — Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases
 - [lightningpixel/modly](research/lightningpixel__modly.md) ⭐0 · _trending_ · [github-trending] — Local desktop app for image-to-3D mesh generation
 
-## ✅ multi-source / corroborated (15)
-- [morluto/rea](research/morluto__rea.md) ⭐138777 · _experimental_ · [github,github-trending] — MCP server for reverse engineering (binaries, app behavior) driven by agents
+## ✅ multi-source / corroborated (16)
+- [morluto/rea](research/morluto__rea.md) ⭐332546 · _emerging_ · [github,github-trending] — MCP for reverse engineering binaries/Electron/.NET/sites via Hopper/Ghidra/IDA
 - [msitarzewski/agency-agents](research/msitarzewski__agency-agents.md) ⭐127937 · _trending_ · [github,github-trending] — Large collection of persona-driven Claude Code/Cursor/Codex subagent prompts, installable via app or script
+- [ruvnet/ruflo](research/ruvnet__ruflo.md) ⭐76939 · _trending_ · [github,github-trending] — Agent meta-harness plugin for Claude Code/Codex: swarms, routing/policy mods, console
 - [koala73/worldmonitor](research/koala73__worldmonitor.md) ⭐75183 · _trending_ · [github,github-trending] — real-time geopolitical/news intelligence dashboard
 - [gsd-build/get-shit-done](research/gsd-build__get-shit-done.md) ⭐64595 · _experimental_ · [github,hackernews] · 473↑ — Meta-prompting/context-engineering framework — but THIS repo is archived; dev moved to open-gsd/gsd-core
 - [ChromeDevTools/chrome-devtools-mcp](research/ChromeDevTools__chrome-devtools-mcp.md) ⭐51916 · _stable_ · [github,github-trending] — Official Google MCP server: live Chrome control for perf traces, network/console inspection, Puppeteer automation

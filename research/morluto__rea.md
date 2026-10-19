@@ -1,7 +1,7 @@
-# morluto/rea  ·  ⭐138777  ·  watch  ·  experimental
-https://github.com/morluto/rea · pushed 2026-10-12 · triaged 2026-10-12 · seen on github, github-trending
+# morluto/rea  ·  ⭐332546  ·  watch  ·  emerging
+https://github.com/morluto/rea · pushed 2026-10-19 · triaged 2026-10-19 · seen on github, github-trending
 
-**What it is:** MCP server for reverse engineering (binaries, app behavior) driven by agents
-**Reusable for us:** none now; niche security/RE tool, README fetch failed on size so judged from title.
+**What it is:** MCP for reverse engineering binaries/Electron/.NET/sites via Hopper/Ghidra/IDA.
+**Reusable for us:** Niche; no direct fit, but a model of MCP + auto-installed workflow instructions. Star count (330k in 188d) is anomalous - treat popularity as unverified.
 **Token / effectiveness angle:** n/a
-**How to adopt:** Watch; relevant only for authorized RE/CTF work.
+**How to adopt:** Watch only; unverified popularity.
