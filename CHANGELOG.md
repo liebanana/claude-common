@@ -5,6 +5,13 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Added
+- `luis-nihongo` added as a consumer (#23).
+- Directive §4: bounded wait loops; locate a user-reported problem in the live runtime before answering (#25).
+
+### Removed
+- `skills/manager-status`: withdrawn (work-derived asset; stays in its originating workspace). The sync deletes it from consumers on the next release.
+
 ## [v1.5.0] - 2026-10-06
 
 - manager-status skill; build-index skill ids; agency-agents reference; triage 09-28 + 10-05
