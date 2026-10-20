@@ -4,9 +4,15 @@ All notable changes to claude-common. Format: Keep a Changelog. Versions are git
 consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
+### Changed
+- Generic by design: the consumer registry moved out of the repo into a gitignored
+  `sync/consumers.local.json` (template `sync/consumers.example.json`, override `CLAUDE_COMMON_MANIFEST`).
+- Directive: dropped project- and person-specific examples and attributions; the toolkit path now
+  honors `$CLAUDE_COMMON_DIR`. Same rules, generic wording.
+- `/oracle-status` owner values use `human` instead of a name; the `blocked_on_luis` key is kept
+  for status-board compatibility.
 
 ### Added
-- `luis-nihongo` added as a consumer (#23).
 - Directive §4: bounded wait loops; locate a user-reported problem in the live runtime before answering (#25).
 
 ## [v1.5.1] - 2026-10-19

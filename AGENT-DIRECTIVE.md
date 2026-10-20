@@ -5,7 +5,7 @@ It ships **committed in each repo** as `AGENT-DIRECTIVE.md` so it travels with t
 Each repo's own `CLAUDE.md` imports it via `@AGENT-DIRECTIVE.md` and adds repo-specific rules on top — repo rules **never override** this.
 Master copy: `claude-common/AGENT-DIRECTIVE.md`, released as tags (`claude-common/scripts/release.sh`) and delivered to every repo as a PR by `claude-common/scripts/sync-consumers.sh` (with `AUTO_PUSH=1`). Edit it there, never in a consumer.
 
-Goal: **don't burn tokens on work the user can do faster himself, but never stall autonomous runs waiting on a human who isn't there.**
+Goal: **don't burn tokens on work the user can do faster themselves, but never stall autonomous runs waiting on a human who isn't there.**
 
 ---
 
@@ -28,7 +28,7 @@ The user toggles it: `touch ~/.claude/.online` on sitting down, `rm ~/.claude/.o
 
 When online, **hand off** these rather than spending tokens doing them yourself:
 
-- **Interactive auth / logins / 2FA** — `gcloud auth login`, IBKR/broker login, browser sessions, anything prompting for a password or device.
+- **Interactive auth / logins / 2FA** — `gcloud auth login`, bank/broker/cloud-console logins, browser sessions, anything prompting for a password or device.
 - **Credentialed / secret / physical-device actions** you can't perform headless.
 - **GUI / browser / desktop actions** with no clean CLI path (clicking, screenshots of live UI, app windows).
 - **Long-running watches / live monitors** — tailing logs, `pm2 monit`, live dashboards. Ask the user to watch and report.
@@ -51,10 +51,10 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 
 - Run the human-runnable tasks **yourself**. Don't hand off; there's no one to receive it.
 - Keep working through the task list. Decide routine/basic things and proceed — don't stop for confirmation on reversible, low-stakes choices.
-- **Only stop for true hard blockers** that are genuinely human-only and can't be deferred: interactive logins/2FA you can't satisfy, irreversible broker/KYC/tax/funding submissions, or anything requiring the user's physical action or a decision only they can make.
+- **Only stop for true hard blockers** that are genuinely human-only and can't be deferred: interactive logins/2FA you can't satisfy, irreversible financial, legal or account submissions, or anything requiring the user's physical action or a decision only they can make.
 - When you hit such a blocker: **queue it clearly** (note what's blocked + exactly what you need from the user) and **keep going on everything not blocked by it.** Never silently skip it; never fake-complete it.
-- **Honor this repo's review gates.** If this repo's `CLAUDE.md` defines sign-off requirements (e.g. SME review on risk/sizing/stop/gate/strategy changes in the trading desk), autonomy does **not** bypass them.
-- **Emit status.** When you hit or clear a human-only blocker, and at session end, run `/oracle-status` (writes `.oracle/status.json`) — the oracle board shows only what agents emit; it never guesses.
+- **Honor this repo's review gates.** If this repo's `CLAUDE.md` defines sign-off requirements (e.g. mandatory expert review before changing money-affecting or security-critical logic), autonomy does **not** bypass them.
+- **Emit status.** When you hit or clear a human-only blocker, and at session end, run `/oracle-status` (writes `.oracle/status.json`) — status boards show only what agents emit; they never guess.
 
 ---
 
@@ -74,7 +74,7 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 **When the user reports a problem, locate it before answering.** Treat it as real. Status views (agent listings, checkpoints, status files) are not evidence; check live runtime (`ps --forest`/`etime` under your session, logs, the actual artifact). Say "it's not happening" only with that evidence in hand, and quote it. Contradicting the user from a summary view is a defect, not a correction.
 
 **Shared toolkit — check before building**
-- Before building tooling/scripts/agents from scratch, check **`~/repos/claude-common`** (read `CATALOG.md`, or query `index.json` with `jq`): reusable scripts, slash commands, research notes, vetted plugins. Use what fits; if an asset needs setup you shouldn't do alone (install/auth), recommend it to the user instead of reinventing. Contribute general reusable learnings back via `/contribute-to-common`. (If `claude-common` doesn't exist on this host, skip.)
+- Before building tooling/scripts/agents from scratch, check **claude-common** (`$CLAUDE_COMMON_DIR`, default `~/repos/claude-common`; read `CATALOG.md`, or query `index.json` with `jq`): reusable scripts, slash commands, research notes, vetted plugins. Use what fits; if an asset needs setup you shouldn't do alone (install/auth), recommend it to the user instead of reinventing. Contribute general reusable learnings back via `/contribute-to-common`. (If `claude-common` doesn't exist on this host, skip.)
 
 **Token hygiene**
 - **Don't re-read** files you just wrote/edited — the harness already tracks them.
@@ -84,7 +84,7 @@ When online, **hand off** these rather than spending tokens doing them yourself:
 
 ---
 
-## 5. Workflow discipline — ANALYZE → BRAINSTORM → SPEC → PLAN → IMPLEMENT, always (Luis, 2026-08-14)
+## 5. Workflow discipline — ANALYZE → BRAINSTORM → SPEC → PLAN → IMPLEMENT, always
 
 Every piece of work follows these five phases **in order, every time** — no jumping straight
 to code, no matter how obvious the fix looks:
@@ -105,14 +105,14 @@ sentences — but every phase is *touched explicitly and visibly* (state your an
 spec, and plan before the diff, however brief). Skipping is not a form of scaling.
 
 **Org gate composes with this, it doesn't replace it:** wherever a repo requires SME review
-(e.g. the tradingdesk rule-9 gate on money-affecting logic), the org round happens between
+(e.g. a mandatory expert gate on money-affecting logic), the org round happens between
 BRAINSTORM/SPEC and PLAN — SMEs rule on the options and the spec, then only the agreed spec
 gets planned and implemented. For work without a mandated gate, still run the relevant SME
 lenses on non-trivial decisions (autonomy: decide and proceed, but decide *through the org*).
 
 ---
 
-## 6. Ultracode & workflow provisioning (Luis, 2026-09-22)
+## 6. Ultracode & workflow provisioning
 
 Ultracode (the `ultracode` keyword, `/effort ultracode`, or `ultracode: true` in settings; a system
 reminder confirms it) is a standing opt-in to author and run a **Workflow** for every substantive
