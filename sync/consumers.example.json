@@ -1,0 +1,10 @@
+{
+  "root": "~/repos",
+  "exclude": ["some-work-repo"],
+  "consumers": [
+    { "repo": "my-app", "mode": "pr" },
+    { "repo": "my-infra", "mode": "pr" },
+    { "repo": "an-archived-repo", "mode": "skip" },
+    { "repo": "claude-common", "mode": "self" }
+  ]
+}

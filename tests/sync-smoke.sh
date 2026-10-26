@@ -110,7 +110,7 @@ out=$(AUTO_PUSH=1 bash "$S" --manifest "$T/manifest.json" --repo a 2>&1); assert
 assert_grep 'a: remote branch common/v9.9.9 exists but was not pushed from this host' <(echo "$out")
 assert_eq "$(git -C "$T/remotes/a.git" rev-parse refs/heads/common/v9.9.9)" "$reviewer_sha" "reviewer commit still survives (refused, unknown remote branch)"
 
-# --- NEW: local branch present, remote branch absent (topo-arch-ac). After run1/run2, b's
+# --- NEW: local branch present, remote branch absent (regression: a consumer whose PR branch was deleted remotely). After run1/run2, b's
 # common/v9.9.9 exists both locally and on its remote. Drop only the remote copy (as if the
 # branch/PR were deleted upstream) and confirm the "unchanged" shortcut still pushes it back
 # (must-not-exist lease, since the remote ref is now gone) instead of silently doing nothing.

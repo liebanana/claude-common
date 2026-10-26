@@ -19,15 +19,16 @@ whenever a blocker appears or clears.
   "schema": 1,
   "goal": "one line: purpose + current milestone",
   "next_step": "the single next concrete action",
-  "owner": "agent | luis",
+  "owner": "agent | human",
   "blocked_on_luis": {"flag": false, "reason": null, "since": null},
   "as_of": "<date -u +%Y-%m-%dT%H:%M:%SZ>",
   "session_id": "<your session id if known, else null>",
-  "by": "claude-interactive | claude-headless | codex | luis"
+  "by": "claude-interactive | claude-headless | codex | human"
 }
 ```
 
-Rules: `blocked_on_luis.flag` is true ONLY for a true human-only blocker (auth/2FA, physical action,
-irreversible submission, a decision only he can make) — give the reason and the date it started;
+Rules: `blocked_on_luis` is a legacy key name that status boards read; it means "blocked on the
+human owner" in any repo. `blocked_on_luis.flag` is true ONLY for a true human-only blocker (auth/2FA, physical action,
+irreversible submission, a decision only the user can make) — give the reason and the date it started;
 set it false the moment it clears. Keep it to one line per field; no secrets, no prose. If `$ARGUMENTS`
 contains `--blocked "reason"` set the flag with that reason and today's date; `--unblocked` clears it.

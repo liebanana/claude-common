@@ -52,7 +52,8 @@ scripts/              deterministic helpers; build-index.py regenerates the inde
   lib/                   sourced helpers (merge-settings.jq, sync-apply.sh — the consumer file contract)
   sources/              one script per source (github, github-trending, hackernews, lobsters, reddit)
 sync/                  consumer registry
-  consumers.json         ★ consumer repo list + mode (pr|skip|self) + exclude list
+  consumers.example.json   template for the consumer registry (repo list + mode pr|skip|self + exclude)
+  consumers.local.json     ★ this host's real registry — gitignored, never committed (public repo)
 templates/             what sync-consumers.sh copies into a consumer (settings baseline, CLAUDE.md block)
 tests/                 bash test suite for the sync/release machinery (tests/*.sh, no deps beyond jq/git)
 research/             external repos analyzed by the discovery engine
@@ -158,7 +159,9 @@ wrapper script that logs):
 
 ## Releases & consumer sync
 
-Every repo under `~/repos` is a **consumer** of claude-common (listed in `sync/consumers.json`),
+Every repo under the workspace root is a **consumer** of claude-common, listed in the host's own
+`sync/consumers.local.json` (gitignored; copy `sync/consumers.example.json`; override with
+`CLAUDE_COMMON_MANIFEST`). claude-common itself stays generic: nothing repo-specific is committed here.
 pinned to a tag recorded in its own `.claude/common.lock`.
 `AGENT-DIRECTIVE.md` is mastered here. To ship a change to all repos:
 1. Merge it to `main`, note it under `[Unreleased]` in `CHANGELOG.md`.

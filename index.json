@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-26",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -329,6 +329,80 @@
   ],
   "research": [
     {
+      "repo": "morluto/rea",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 332546,
+      "url": "https://github.com/morluto/rea",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "MCP for reverse engineering binaries/Electron/.NET/sites via Hopper/Ghidra/IDA",
+      "tags": [
+        "mcp",
+        "reverse-engineering"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 332546,
+        "repo_age_days": 188
+      },
+      "maturity": "emerging",
+      "note": "research/morluto__rea.md"
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 255179,
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Self-improving general agent that creates/improves skills from experience; model-agnostic",
+      "tags": [
+        "agent",
+        "self-improving",
+        "skills"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 255179,
+        "repo_age_days": 453
+      },
+      "maturity": "stable",
+      "note": "research/NousResearch__hermes-agent.md"
+    },
+    {
+      "repo": "deepseek-ai/deepseek-harness",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 254250,
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "pushed": "2026-10-17",
+      "triaged": "2026-10-19",
+      "intent": "DeepSeek's open-source plugin-architecture agent harness (developer preview)",
+      "tags": [
+        "harness",
+        "plugin"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 254250,
+        "repo_age_days": 67
+      },
+      "maturity": "emerging",
+      "note": "research/deepseek-ai__deepseek-harness.md"
+    },
+    {
       "repo": "obra/superpowers",
       "verdict": "adopt",
       "stars": 242371,
@@ -348,6 +422,33 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/obra__superpowers.md"
+    },
+    {
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 224266,
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "pushed": "2026-04-20",
+      "triaged": "2026-10-26",
+      "intent": "Single CLAUDE.md of 4 LLM-coding principles (think first, simplicity, surgical changes, goal-driven)",
+      "tags": [
+        "claude-md",
+        "guidelines",
+        "prompting"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2937,
+        "period": "weekly",
+        "trending": true,
+        "stars": 224266
+      },
+      "maturity": "trending",
+      "note": "research/multica-ai__andrej-karpathy-skills.md"
     },
     {
       "repo": "affaan-m/ECC",
@@ -370,6 +471,75 @@
       "note": "research/affaan-m__ECC.md"
     },
     {
+      "repo": "n8n-io/n8n",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 207997,
+      "url": "https://github.com/n8n-io/n8n",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Fair-code visual workflow automation platform with AI nodes",
+      "tags": [
+        "workflow-automation"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 207997,
+        "repo_age_days": 2676
+      },
+      "maturity": "stable",
+      "note": "research/n8n-io__n8n.md"
+    },
+    {
+      "repo": "avelino/awesome-go",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 189205,
+      "url": "https://github.com/avelino/awesome-go",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Curated list of Go libraries",
+      "tags": [
+        "awesome-list"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 189205,
+        "repo_age_days": 4488
+      },
+      "maturity": "stable",
+      "note": "research/avelino__awesome-go.md"
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 148080,
+      "url": "https://github.com/langchain-ai/langchain",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "LLM/agent application framework",
+      "tags": [
+        "framework"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 148080,
+        "repo_age_days": 1463
+      },
+      "maturity": "stable",
+      "note": "research/langchain-ai__langchain.md"
+    },
+    {
       "repo": "firecrawl/firecrawl",
       "verdict": "watch",
       "stars": 142071,
@@ -389,6 +559,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/firecrawl__firecrawl.md"
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 128870,
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "pushed": "2026-10-16",
+      "triaged": "2026-10-19",
+      "intent": "/graphify skill: tree-sitter AST (local, no LLM) + semantic extraction into a queryable code knowledge graph",
+      "tags": [
+        "knowledge-graph",
+        "skill",
+        "token-thrift",
+        "code-index"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 128870,
+        "repo_age_days": 198
+      },
+      "maturity": "trending",
+      "note": "research/Graphify-Labs__graphify.md"
     },
     {
       "repo": "msitarzewski/agency-agents",
@@ -418,6 +614,55 @@
       "note": "research/msitarzewski__agency-agents.md"
     },
     {
+      "repo": "jaywcjlove/awesome-mac",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 116490,
+      "url": "https://github.com/jaywcjlove/awesome-mac",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Curated list of macOS software",
+      "tags": [
+        "awesome-list"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 116490,
+        "repo_age_days": 3745
+      },
+      "maturity": "stable",
+      "note": "research/jaywcjlove__awesome-mac.md"
+    },
+    {
+      "repo": "TauricResearch/TradingAgents",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 115506,
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "pushed": "2026-10-16",
+      "triaged": "2026-10-26",
+      "intent": "Multi-agent LLM financial trading framework - off-mission",
+      "tags": [
+        "finance",
+        "multi-agent"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2461,
+        "period": "weekly",
+        "trending": true,
+        "stars": 115506
+      },
+      "maturity": "stable",
+      "note": "research/TauricResearch__TradingAgents.md"
+    },
+    {
       "repo": "farion1231/cc-switch",
       "verdict": "watch",
       "stars": 111242,
@@ -438,6 +683,30 @@
       "note": "research/farion1231__cc-switch.md"
     },
     {
+      "repo": "google-gemini/gemini-cli",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 107454,
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Google's open-source terminal coding agent",
+      "tags": [
+        "agent-cli",
+        "gemini"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 107454,
+        "repo_age_days": 549
+      },
+      "maturity": "stable",
+      "note": "research/google-gemini__gemini-cli.md"
+    },
+    {
       "repo": "browser-use/browser-use",
       "verdict": "watch",
       "stars": 101719,
@@ -456,6 +725,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/browser-use__browser-use.md"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 99194,
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Anti-slop agent skills for premium frontends: art direction, reference images, browser checks",
+      "tags": [
+        "skills",
+        "frontend",
+        "design"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 99194,
+        "repo_age_days": 241
+      },
+      "maturity": "trending",
+      "note": "research/Leonxlnx__taste-skill.md"
     },
     {
       "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
@@ -505,6 +799,29 @@
       "note": "research/paperclipai__paperclip.md"
     },
     {
+      "repo": "infiniflow/ragflow",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 92465,
+      "url": "https://github.com/infiniflow/ragflow",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "RAG engine with document understanding",
+      "tags": [
+        "rag"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 92465,
+        "repo_age_days": 1042
+      },
+      "maturity": "stable",
+      "note": "research/infiniflow__ragflow.md"
+    },
+    {
       "repo": "punkpeye/awesome-mcp-servers",
       "verdict": "skip",
       "stars": 90048,
@@ -524,6 +841,80 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/punkpeye__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "Egonex-AI/Understand-Anything",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 88363,
+      "url": "https://github.com/Egonex-AI/Understand-Anything",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Turns codebases/docs into an interactive knowledge graph agents can query",
+      "tags": [
+        "knowledge-graph",
+        "code-understanding"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 88363,
+        "repo_age_days": 225
+      },
+      "maturity": "trending",
+      "note": "research/Egonex-AI__Understand-Anything.md"
+    },
+    {
+      "repo": "D4Vinci/Scrapling",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 86967,
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "pushed": "2026-10-11",
+      "triaged": "2026-10-12",
+      "intent": "Adaptive web scraping framework; ships an MCP server",
+      "tags": [
+        "scraping",
+        "mcp"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 86967,
+        "pushed": "2026-10-11",
+        "repo_age_days": 728
+      },
+      "maturity": "stable",
+      "note": "research/D4Vinci__Scrapling.md"
+    },
+    {
+      "repo": "unclecode/crawl4ai",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 85366,
+      "url": "https://github.com/unclecode/crawl4ai",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "Open-source crawler producing LLM-ready markdown",
+      "tags": [
+        "scraping",
+        "markdown"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 85366,
+        "pushed": "2026-10-12",
+        "repo_age_days": 886
+      },
+      "maturity": "stable",
+      "note": "research/unclecode__crawl4ai.md"
     },
     {
       "repo": "thedotmack/claude-mem",
@@ -548,6 +939,56 @@
       "note": "research/thedotmack__claude-mem.md"
     },
     {
+      "repo": "bytedance/deer-flow",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 83744,
+      "url": "https://github.com/bytedance/deer-flow",
+      "pushed": "2026-10-12",
+      "triaged": "2026-10-12",
+      "intent": "ByteDance long-horizon SuperAgent harness (research/code/create) v2",
+      "tags": [
+        "agent-harness",
+        "multi-agent"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 83744,
+        "pushed": "2026-10-12",
+        "repo_age_days": 523
+      },
+      "maturity": "trending",
+      "note": "research/bytedance__deer-flow.md"
+    },
+    {
+      "repo": "cheaper-inference/OmniRoute",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 81368,
+      "url": "https://github.com/cheaper-inference/OmniRoute",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "AI gateway routing to 375 providers w/ fallback; claims RTK+Caveman compression saves 15-95% tokens",
+      "tags": [
+        "gateway",
+        "routing",
+        "token-compression"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 81368,
+        "repo_age_days": 255
+      },
+      "maturity": "emerging",
+      "note": "research/cheaper-inference__OmniRoute.md"
+    },
+    {
       "repo": "JuliusBrussee/caveman",
       "verdict": "adopt",
       "stars": 78262,
@@ -567,6 +1008,79 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/JuliusBrussee__caveman.md"
+    },
+    {
+      "repo": "microsoft/ai-agents-for-beginners",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 77920,
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "pushed": "2026-10-24",
+      "triaged": "2026-10-26",
+      "intent": "18-lesson beginner course on building agents - educational, no reusable asset",
+      "tags": [
+        "course"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 77920,
+        "repo_age_days": 697
+      },
+      "maturity": "stable",
+      "note": "research/microsoft__ai-agents-for-beginners.md"
+    },
+    {
+      "repo": "career-ops-hq/career-ops",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 77484,
+      "url": "https://github.com/career-ops-hq/career-ops",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "AI job-search agent - off-mission",
+      "tags": [
+        "jobs"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 77484,
+        "repo_age_days": 204
+      },
+      "maturity": "emerging",
+      "note": "research/career-ops-hq__career-ops.md"
+    },
+    {
+      "repo": "ruvnet/ruflo",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 76939,
+      "url": "https://github.com/ruvnet/ruflo",
+      "pushed": "2026-10-19",
+      "triaged": "2026-10-19",
+      "intent": "Agent meta-harness plugin for Claude Code/Codex: swarms, routing/policy mods, console",
+      "tags": [
+        "harness",
+        "swarm",
+        "claude-code-plugin",
+        "mcp"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 76939,
+        "repo_age_days": 503
+      },
+      "maturity": "trending",
+      "note": "research/ruvnet__ruflo.md"
     },
     {
       "repo": "dair-ai/Prompt-Engineering-Guide",
@@ -637,6 +1151,30 @@
       "note": "research/safishamsi__graphify.md"
     },
     {
+      "repo": "thedaviddias/Front-End-Checklist",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 74568,
+      "url": "https://github.com/thedaviddias/Front-End-Checklist",
+      "pushed": "2026-10-06",
+      "triaged": "2026-10-26",
+      "intent": "Front-end quality checklist with MCP server - domain-specific",
+      "tags": [
+        "frontend",
+        "mcp"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 74568,
+        "repo_age_days": 3297
+      },
+      "maturity": "stable",
+      "note": "research/thedaviddias__Front-End-Checklist.md"
+    },
+    {
       "repo": "rtk-ai/rtk",
       "verdict": "adopt",
       "status": "recommended",
@@ -661,6 +1199,55 @@
       },
       "maturity": "trending",
       "note": "research/rtk-ai__rtk.md"
+    },
+    {
+      "repo": "daytonaio/daytona",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 71466,
+      "url": "https://github.com/daytonaio/daytona",
+      "pushed": "2026-07-24",
+      "triaged": "2026-10-26",
+      "intent": "Sandbox infra for AI code - repo no longer maintained (moved private June 2026)",
+      "tags": [
+        "sandbox",
+        "unmaintained"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 71466,
+        "repo_age_days": 993
+      },
+      "maturity": "stable",
+      "note": "research/daytonaio__daytona.md"
+    },
+    {
+      "repo": "code-yeongyu/oh-my-openagent",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 70350,
+      "url": "https://github.com/code-yeongyu/oh-my-openagent",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "OmO: multi-model orchestration harness w/ memory system and workflow DAGs",
+      "tags": [
+        "orchestration",
+        "memory",
+        "harness"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 70350,
+        "repo_age_days": 327
+      },
+      "maturity": "trending",
+      "note": "research/code-yeongyu__oh-my-openagent.md"
     },
     {
       "repo": "shareAI-lab/learn-claude-code",
@@ -747,6 +1334,78 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/addyosmani__agent-skills.md"
+    },
+    {
+      "repo": "shanraisshan/claude-code-best-practice",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 68146,
+      "url": "https://github.com/shanraisshan/claude-code-best-practice",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Curated Claude Code best practices w/ agents/commands/skills reference implementations and tips",
+      "tags": [
+        "best-practices",
+        "claude-code",
+        "reference"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 68146,
+        "repo_age_days": 360
+      },
+      "maturity": "trending",
+      "note": "research/shanraisshan__claude-code-best-practice.md"
+    },
+    {
+      "repo": "ai-job-search-dev/ai-job-search",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 66129,
+      "url": "https://github.com/ai-job-search-dev/ai-job-search",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Job-application framework on Claude Code - off-mission",
+      "tags": [
+        "jobs"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 66129,
+        "repo_age_days": 222
+      },
+      "maturity": "emerging",
+      "note": "research/ai-job-search-dev__ai-job-search.md"
+    },
+    {
+      "repo": "mvanhorn/last30days-skill",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 65547,
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Skill that researches a topic across Reddit/X/YouTube/HN/Polymarket from the last 30 days",
+      "tags": [
+        "skill",
+        "research"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 65547,
+        "repo_age_days": 275
+      },
+      "maturity": "trending",
+      "note": "research/mvanhorn__last30days-skill.md"
     },
     {
       "repo": "gsd-build/get-shit-done",
@@ -1230,6 +1889,34 @@
       },
       "maturity": "trending",
       "note": "research/ayghri__i-have-adhd.md"
+    },
+    {
+      "repo": "wshobson/agents",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 41762,
+      "url": "https://github.com/wshobson/agents",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Multi-harness plugin marketplace: 94 plugins, 202 agents, 185 skills, 105 commands",
+      "tags": [
+        "marketplace",
+        "plugins",
+        "agents",
+        "skills"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 726,
+        "period": "weekly",
+        "trending": true,
+        "stars": 41762
+      },
+      "maturity": "trending",
+      "note": "research/wshobson__agents.md"
     },
     {
       "repo": "K-Dense-AI/scientific-agent-skills",
@@ -2025,6 +2712,32 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "AgriciDaniel/claude-seo",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 21835,
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "pushed": "2026-10-22",
+      "triaged": "2026-10-26",
+      "intent": "SEO audit plugin (26 skills, 19 agents) - domain-specific",
+      "tags": [
+        "seo",
+        "plugin"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2492,
+        "period": "weekly",
+        "trending": true,
+        "stars": 21835
+      },
+      "maturity": "emerging",
+      "note": "research/AgriciDaniel__claude-seo.md"
+    },
+    {
       "repo": "jundot/omlx",
       "verdict": "skip",
       "status": "recommended",
@@ -2429,6 +3142,33 @@
       },
       "maturity": "trending",
       "note": "research/TencentCloud__CubeSandbox.md"
+    },
+    {
+      "repo": "android/skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 9792,
+      "url": "https://github.com/android/skills",
+      "pushed": "2026-10-23",
+      "triaged": "2026-10-26",
+      "intent": "Official Android agent skills (SKILL.md) targeting areas where evals show LLMs underperform",
+      "tags": [
+        "skills",
+        "android",
+        "agent-skills"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1070,
+        "period": "weekly",
+        "trending": true,
+        "stars": 9792
+      },
+      "maturity": "emerging",
+      "note": "research/android__skills.md"
     },
     {
       "repo": "stablyai/orca",
@@ -4567,6 +5307,77 @@
       },
       "maturity": "experimental",
       "note": "research/alltrainning__graviton-dashboard.md"
+    },
+    {
+      "repo": "YuJunZhiXue/dsh-purge",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/YuJunZhiXue/dsh-purge",
+      "pushed": "",
+      "triaged": "2026-10-19",
+      "intent": "Jailbreak prompts for DeepSeek Harness / other models",
+      "tags": [
+        "jailbreak"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {},
+      "maturity": "experimental",
+      "note": "research/YuJunZhiXue__dsh-purge.md"
+    },
+    {
+      "repo": "brumar/chess-postmortem-skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/brumar/chess-postmortem-skills",
+      "pushed": "",
+      "triaged": "2026-10-19",
+      "intent": "Claude Code skills producing narrated chess game post-mortems (Stockfish + whisper.cpp)",
+      "tags": [
+        "skills",
+        "demo"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 76,
+        "comments": 57,
+        "seen_age_days": 22
+      },
+      "maturity": "experimental",
+      "note": "research/brumar__chess-postmortem-skills.md"
+    },
+    {
+      "repo": "lowenbjer/claude-terse",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 0,
+      "url": "https://github.com/lowenbjer/claude-terse",
+      "pushed": "",
+      "triaged": "2026-10-19",
+      "intent": "Claude Code plugin that cuts reply length ~50% by banning filler/metaphor/recap",
+      "tags": [
+        "plugin",
+        "token-thrift",
+        "output-style"
+      ],
+      "source": "hackernews",
+      "sources": [
+        "hackernews"
+      ],
+      "signals": {
+        "points": 25,
+        "comments": 18,
+        "seen_age_days": 11
+      },
+      "maturity": "emerging",
+      "note": "research/lowenbjer__claude-terse.md"
     }
   ]
 }
