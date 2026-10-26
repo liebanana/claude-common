@@ -53,10 +53,12 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial before trusting._
 - ✅ **Code-intelligence MCP: indexes a repo into a persistent knowledge graph for sub-ms queries so agents query instead of reading files (big token savings, 158 langs)** → `research/DeusData__codebase-memory-mcp.md` (`DeusData/codebase-memory-mcp` ⭐22669) · _trialed_
 - 🔬 **Agentic dev methodology (spec to TDD to subagent-driven build) as auto-triggering composable skills; official Claude plugin marketplace** → `research/obra__superpowers.md` (`obra/superpowers` ⭐242371)
+- 🔬 **Single CLAUDE.md of 4 LLM-coding principles (think first, simplicity, surgical changes, goal-driven)** → `research/multica-ai__andrej-karpathy-skills.md` (`multica-ai/andrej-karpathy-skills` ⭐224266)
 - 🔬 **Persistent cross-session memory: captures session activity, AI-compresses it, and injects relevant context into future sessions** → `research/thedotmack__claude-mem.md` (`thedotmack/claude-mem` ⭐85203)
 - 🔬 **Claude Code skill/plugin: terse caveman-style output cuts ~75% of OUTPUT tokens while keeping technical accuracy** → `research/JuliusBrussee__caveman.md` (`JuliusBrussee/caveman` ⭐78262)
 - 🔬 **Rust CLI proxy that filters/compresses common dev-command output (ls, cat, grep, git, test runners) before it reaches LLM context — 60-90% token reduction, single binary, <10ms overhead** → `research/rtk-ai__rtk.md` (`rtk-ai/rtk` ⭐72028)
 - 🔬 **Lifecycle slash commands (spec→plan→build→test→review→ship) packaging engineering skills** → `research/addyosmani__agent-skills.md` (`addyosmani/agent-skills` ⭐68155)
+- 🔬 **Curated Claude Code best practices w/ agents/commands/skills reference implementations and tips** → `research/shanraisshan__claude-code-best-practice.md` (`shanraisshan/claude-code-best-practice` ⭐68146)
 - 🔬 **Pre-indexed semantic code-intelligence graph for Claude Code/Cursor/Codex/etc — surgical context, fewer tool calls, 100% local, auto-syncs on code changes** → `research/colbymchenry__codegraph.md` (`colbymchenry/codegraph` ⭐61096)
 - 🔬 **Compress tool outputs/logs/files/RAG before they reach the LLM — 60-95% fewer tokens; library + proxy + MCP server** → `research/headroomlabs-ai__headroom.md` (`headroomlabs-ai/headroom` ⭐54550)
 - 🔬 **Official Google MCP server: live Chrome control for perf traces, network/console inspection, Puppeteer automation** → `research/ChromeDevTools__chrome-devtools-mcp.md` (`ChromeDevTools/chrome-devtools-mcp` ⭐51916)

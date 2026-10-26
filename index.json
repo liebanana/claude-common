@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-26",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -424,6 +424,33 @@
       "note": "research/obra__superpowers.md"
     },
     {
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 224266,
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "pushed": "2026-04-20",
+      "triaged": "2026-10-26",
+      "intent": "Single CLAUDE.md of 4 LLM-coding principles (think first, simplicity, surgical changes, goal-driven)",
+      "tags": [
+        "claude-md",
+        "guidelines",
+        "prompting"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2937,
+        "period": "weekly",
+        "trending": true,
+        "stars": 224266
+      },
+      "maturity": "trending",
+      "note": "research/multica-ai__andrej-karpathy-skills.md"
+    },
+    {
       "repo": "affaan-m/ECC",
       "verdict": "watch",
       "stars": 223936,
@@ -610,6 +637,32 @@
       "note": "research/jaywcjlove__awesome-mac.md"
     },
     {
+      "repo": "TauricResearch/TradingAgents",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 115506,
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "pushed": "2026-10-16",
+      "triaged": "2026-10-26",
+      "intent": "Multi-agent LLM financial trading framework - off-mission",
+      "tags": [
+        "finance",
+        "multi-agent"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2461,
+        "period": "weekly",
+        "trending": true,
+        "stars": 115506
+      },
+      "maturity": "stable",
+      "note": "research/TauricResearch__TradingAgents.md"
+    },
+    {
       "repo": "farion1231/cc-switch",
       "verdict": "watch",
       "stars": 111242,
@@ -790,6 +843,30 @@
       "note": "research/punkpeye__awesome-mcp-servers.md"
     },
     {
+      "repo": "Egonex-AI/Understand-Anything",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 88363,
+      "url": "https://github.com/Egonex-AI/Understand-Anything",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Turns codebases/docs into an interactive knowledge graph agents can query",
+      "tags": [
+        "knowledge-graph",
+        "code-understanding"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 88363,
+        "repo_age_days": 225
+      },
+      "maturity": "trending",
+      "note": "research/Egonex-AI__Understand-Anything.md"
+    },
+    {
       "repo": "D4Vinci/Scrapling",
       "verdict": "watch",
       "status": "recommended",
@@ -887,6 +964,31 @@
       "note": "research/bytedance__deer-flow.md"
     },
     {
+      "repo": "cheaper-inference/OmniRoute",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 81368,
+      "url": "https://github.com/cheaper-inference/OmniRoute",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "AI gateway routing to 375 providers w/ fallback; claims RTK+Caveman compression saves 15-95% tokens",
+      "tags": [
+        "gateway",
+        "routing",
+        "token-compression"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 81368,
+        "repo_age_days": 255
+      },
+      "maturity": "emerging",
+      "note": "research/cheaper-inference__OmniRoute.md"
+    },
+    {
       "repo": "JuliusBrussee/caveman",
       "verdict": "adopt",
       "stars": 78262,
@@ -906,6 +1008,52 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/JuliusBrussee__caveman.md"
+    },
+    {
+      "repo": "microsoft/ai-agents-for-beginners",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 77920,
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "pushed": "2026-10-24",
+      "triaged": "2026-10-26",
+      "intent": "18-lesson beginner course on building agents - educational, no reusable asset",
+      "tags": [
+        "course"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 77920,
+        "repo_age_days": 697
+      },
+      "maturity": "stable",
+      "note": "research/microsoft__ai-agents-for-beginners.md"
+    },
+    {
+      "repo": "career-ops-hq/career-ops",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 77484,
+      "url": "https://github.com/career-ops-hq/career-ops",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "AI job-search agent - off-mission",
+      "tags": [
+        "jobs"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 77484,
+        "repo_age_days": 204
+      },
+      "maturity": "emerging",
+      "note": "research/career-ops-hq__career-ops.md"
     },
     {
       "repo": "ruvnet/ruflo",
@@ -1003,6 +1151,30 @@
       "note": "research/safishamsi__graphify.md"
     },
     {
+      "repo": "thedaviddias/Front-End-Checklist",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 74568,
+      "url": "https://github.com/thedaviddias/Front-End-Checklist",
+      "pushed": "2026-10-06",
+      "triaged": "2026-10-26",
+      "intent": "Front-end quality checklist with MCP server - domain-specific",
+      "tags": [
+        "frontend",
+        "mcp"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 74568,
+        "repo_age_days": 3297
+      },
+      "maturity": "stable",
+      "note": "research/thedaviddias__Front-End-Checklist.md"
+    },
+    {
       "repo": "rtk-ai/rtk",
       "verdict": "adopt",
       "status": "recommended",
@@ -1027,6 +1199,55 @@
       },
       "maturity": "trending",
       "note": "research/rtk-ai__rtk.md"
+    },
+    {
+      "repo": "daytonaio/daytona",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 71466,
+      "url": "https://github.com/daytonaio/daytona",
+      "pushed": "2026-07-24",
+      "triaged": "2026-10-26",
+      "intent": "Sandbox infra for AI code - repo no longer maintained (moved private June 2026)",
+      "tags": [
+        "sandbox",
+        "unmaintained"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 71466,
+        "repo_age_days": 993
+      },
+      "maturity": "stable",
+      "note": "research/daytonaio__daytona.md"
+    },
+    {
+      "repo": "code-yeongyu/oh-my-openagent",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 70350,
+      "url": "https://github.com/code-yeongyu/oh-my-openagent",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "OmO: multi-model orchestration harness w/ memory system and workflow DAGs",
+      "tags": [
+        "orchestration",
+        "memory",
+        "harness"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 70350,
+        "repo_age_days": 327
+      },
+      "maturity": "trending",
+      "note": "research/code-yeongyu__oh-my-openagent.md"
     },
     {
       "repo": "shareAI-lab/learn-claude-code",
@@ -1113,6 +1334,78 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/addyosmani__agent-skills.md"
+    },
+    {
+      "repo": "shanraisshan/claude-code-best-practice",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 68146,
+      "url": "https://github.com/shanraisshan/claude-code-best-practice",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Curated Claude Code best practices w/ agents/commands/skills reference implementations and tips",
+      "tags": [
+        "best-practices",
+        "claude-code",
+        "reference"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 68146,
+        "repo_age_days": 360
+      },
+      "maturity": "trending",
+      "note": "research/shanraisshan__claude-code-best-practice.md"
+    },
+    {
+      "repo": "ai-job-search-dev/ai-job-search",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 66129,
+      "url": "https://github.com/ai-job-search-dev/ai-job-search",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Job-application framework on Claude Code - off-mission",
+      "tags": [
+        "jobs"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 66129,
+        "repo_age_days": 222
+      },
+      "maturity": "emerging",
+      "note": "research/ai-job-search-dev__ai-job-search.md"
+    },
+    {
+      "repo": "mvanhorn/last30days-skill",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 65547,
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Skill that researches a topic across Reddit/X/YouTube/HN/Polymarket from the last 30 days",
+      "tags": [
+        "skill",
+        "research"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 65547,
+        "repo_age_days": 275
+      },
+      "maturity": "trending",
+      "note": "research/mvanhorn__last30days-skill.md"
     },
     {
       "repo": "gsd-build/get-shit-done",
@@ -1596,6 +1889,34 @@
       },
       "maturity": "trending",
       "note": "research/ayghri__i-have-adhd.md"
+    },
+    {
+      "repo": "wshobson/agents",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 41762,
+      "url": "https://github.com/wshobson/agents",
+      "pushed": "2026-10-26",
+      "triaged": "2026-10-26",
+      "intent": "Multi-harness plugin marketplace: 94 plugins, 202 agents, 185 skills, 105 commands",
+      "tags": [
+        "marketplace",
+        "plugins",
+        "agents",
+        "skills"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 726,
+        "period": "weekly",
+        "trending": true,
+        "stars": 41762
+      },
+      "maturity": "trending",
+      "note": "research/wshobson__agents.md"
     },
     {
       "repo": "K-Dense-AI/scientific-agent-skills",
@@ -2391,6 +2712,32 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "AgriciDaniel/claude-seo",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 21835,
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "pushed": "2026-10-22",
+      "triaged": "2026-10-26",
+      "intent": "SEO audit plugin (26 skills, 19 agents) - domain-specific",
+      "tags": [
+        "seo",
+        "plugin"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2492,
+        "period": "weekly",
+        "trending": true,
+        "stars": 21835
+      },
+      "maturity": "emerging",
+      "note": "research/AgriciDaniel__claude-seo.md"
+    },
+    {
       "repo": "jundot/omlx",
       "verdict": "skip",
       "status": "recommended",
@@ -2795,6 +3142,33 @@
       },
       "maturity": "trending",
       "note": "research/TencentCloud__CubeSandbox.md"
+    },
+    {
+      "repo": "android/skills",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 9792,
+      "url": "https://github.com/android/skills",
+      "pushed": "2026-10-23",
+      "triaged": "2026-10-26",
+      "intent": "Official Android agent skills (SKILL.md) targeting areas where evals show LLMs underperform",
+      "tags": [
+        "skills",
+        "android",
+        "agent-skills"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1070,
+        "period": "weekly",
+        "trending": true,
+        "stars": 9792
+      },
+      "maturity": "emerging",
+      "note": "research/android__skills.md"
     },
     {
       "repo": "stablyai/orca",
