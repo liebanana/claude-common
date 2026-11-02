@@ -11,7 +11,7 @@ tags: [skills, slash-commands, claude-code, naming, harness]
 **When to use:** naming any new user-invocable skill or slash command (`.claude/skills/<name>/`,
 `.claude/commands/<name>.md`) in any repo.
 
-## The failure (observed in production, Zonti, 2026-09-18)
+## The failure (observed in production in a consumer project, 2026-09-18)
 
 A repo skill was named `clear`. Typing `/clear` then invoked the SKILL instead of Claude Code's
 built-in `/clear` context-reset — so the user literally could not clear the session: every attempt
@@ -26,7 +26,7 @@ surfaces when someone needs the builtin.
    Check the CLI's current builtin list when in doubt — it grows over releases, so prefer names
    that could never plausibly become a builtin.
 2. If the skill's job is *related* to a builtin, name it by its relationship: `prepare-clear`,
-   `pre-compact-checkpoint`, `post-init-audit`. This reads better anyway — the Zonti skill never
+   `pre-compact-checkpoint`, `post-init-audit`. This reads better anyway — the original skill never
    cleared anything; it prepared a safe clear.
 3. Keep natural-language triggers independent of the slash name. The model can still respond to a
    user saying the plain word ("clear", "compact safely") via the skill description/CLAUDE.md

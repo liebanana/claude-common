@@ -18,4 +18,4 @@ jobs:
       - run: shellcheck --severity=error install.sh
       - name: host-independent test suite
         run: |
-          for t in tests/merge-settings-test.sh tests/sync-apply-test.sh tests/version-check-test.sh tests/release-test.sh tests/sync-smoke.sh; do bash "$t"; done
+          for t in tests/manifest-test.sh tests/merge-settings-test.sh tests/sync-apply-test.sh tests/version-check-test.sh tests/release-test.sh tests/sync-smoke.sh; do bash "$t"; done

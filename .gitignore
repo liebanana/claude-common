@@ -20,3 +20,6 @@ Thumbs.db
 
 # SDD scratch (ledgers, briefs, review packages)
 .superpowers/
+
+# Per-host consumer registry (your private repo list; template: sync/consumers.example.json)
+sync/consumers.local.json

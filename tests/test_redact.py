@@ -17,7 +17,7 @@ def test_leaves_normal_text_and_short_hex():
 def test_sk_prefix_needs_a_left_boundary():
     # I5: "sk-" embedded in an ordinary word (preceded by an alnum) must never be mistaken for a secret,
     # even though the tail after "sk-" happens to look token-shaped (>=8 word chars).
-    assert redact("service tradingdesk-ibkr-gateway is up") == "service tradingdesk-ibkr-gateway is up"
+    assert redact("service app-api-gateway is up") == "service app-api-gateway is up"
     assert redact("mount desk-abcdefghij ready") == "mount desk-abcdefghij ready"
     assert "[redacted]" in redact("token sk-abcdefghijklmnop end")
 
@@ -46,7 +46,7 @@ def test_key_value_secrets_keep_the_key():
 
 
 def test_key_value_rule_leaves_look_alike_words():
-    for s in ["tokens are fine", "tokenizer: x", "IBKR API key checkbox", "secretary"]:
+    for s in ["tokens are fine", "tokenizer: x", "API key checkbox", "secretary"]:
         assert redact(s) == s
 
 

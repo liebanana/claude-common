@@ -11,7 +11,8 @@
 #   scripts/sync-consumers.sh --dry-run       # show what would change, commit nothing
 #   scripts/sync-consumers.sh --discover      # git repos under root that are in neither consumers nor exclude
 #   scripts/sync-consumers.sh --repo X [--repo Y] [--version vX.Y.Z] [--root DIR] [--manifest FILE]
-# Env: AUTO_PUSH, GH_BIN (default gh), SYNC_SCRATCH (default <common>/state/sync-wt), CLAUDE_COMMON_DIR.
+# Env: AUTO_PUSH, GH_BIN (default gh), SYNC_SCRATCH (default <common>/state/sync-wt), CLAUDE_COMMON_DIR,
+#      CLAUDE_COMMON_MANIFEST (default <common>/sync/consumers.local.json, gitignored; template: sync/consumers.example.json).
 # Exit 1 if any consumer failed (others still processed). Spec: docs/superpowers/specs/2026-09-14-consumer-sync-design.md §4
 set -uo pipefail
 # cron's PATH is minimal; ensure gh/git/jq resolve the same way an interactive shell would.
@@ -19,7 +20,7 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 COMMON="${CLAUDE_COMMON_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 . "$COMMON/scripts/lib/sync-apply.sh"
 
-MANIFEST="$COMMON/sync/consumers.json"; MODE=sync; DRY=0; PUSH="${AUTO_PUSH:-0}"; VERSION=""; ROOT_OVERRIDE=""
+MANIFEST="${CLAUDE_COMMON_MANIFEST:-$COMMON/sync/consumers.local.json}"; MODE=sync; DRY=0; PUSH="${AUTO_PUSH:-0}"; VERSION=""; ROOT_OVERRIDE=""
 declare -a ONLY=()
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -28,14 +29,14 @@ while [ $# -gt 0 ]; do
     --version) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; VERSION="$2"; shift ;;
     --root) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; ROOT_OVERRIDE="$2"; shift ;;
     --manifest) [ $# -ge 2 ] || { echo "$1 needs a value" >&2; exit 2; }; MANIFEST="$2"; shift ;;
-    -h|--help) sed -n '3,14p' "$0"; exit 0 ;;
+    -h|--help) sed -n '3,15p' "$0"; exit 0 ;;
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac; shift
 done
 GH="${GH_BIN:-gh}"; SCRATCH="${SYNC_SCRATCH:-$COMMON/state/sync-wt}"
 log() { echo "[sync] $*"; }
 
-[ -f "$MANIFEST" ] || { echo "manifest not found: $MANIFEST" >&2; exit 2; }
+[ -f "$MANIFEST" ] || { echo "manifest not found: $MANIFEST (copy sync/consumers.example.json to sync/consumers.local.json, or set CLAUDE_COMMON_MANIFEST)" >&2; exit 2; }
 ROOT="${ROOT_OVERRIDE:-$(jq -r .root "$MANIFEST")}"; ROOT="${ROOT/#\~/$HOME}"
 [ -d "$ROOT" ] || { echo "root not found: $ROOT" >&2; exit 2; }
 LATEST="$(git -C "$COMMON" tag -l 'v*' --sort=-v:refname | head -n1)"

@@ -37,3 +37,9 @@ Children/subagents: none alive. Worktrees of merged branches removed; remote bra
 
 ## Addendum (same session, after the hand-off block ran)
 All pushes done by Luis. tradingdesk rename merged (PR #7), consumer PRs claude-tradingdesk #8 and langtutor #20 verified (9 managed files each) and merged; tradingdesk worktree + branch removed. `scripts/sync-consumers.sh --status` → **14 current, 1 self**. Steps 1–3 of next_exact_action are complete; nothing is pending. Blocked-on-Luis cleared.
+
+## Addendum 2026-10-19 — history rewrite, cleanup, pending PRs
+- `manager-status` skill withdrawn; public history rewritten with git-filter-repo (path removed from every commit; leaked tracker ID and employer name replaced). Force-pushed by Luis; v1.5.1 released; the 12 consumer PRs deleting the skill merged; `--status` 14 current. GitHub Support purge of orphaned SHAs `2dbc4c8`/`2408680` still to be requested by Luis; other clones (work machine) must `git fetch && git reset --hard origin/main`.
+- Branch cleanup: 23 merged remote branches deleted (cron `discover/*` leftovers + early contrib branches); only `main` remains. Follow-up: make `cron-discover.sh` delete its branch after the PR merges.
+- Pending PRs #23 (luis-nihongo consumer), #24/#26 (triage), #25 (directive §4 bounded waits + locate-before-answer) merged into main under rewritten IDs; PRs closed, branches deleted. Ledger 188 repos.
+- next_exact_action: Luis pushes main (10 commits) and releases v1.6.0 + sync (block in chat): first sync of `luis-nihongo` (full contract) and the directive update to the other 14; then verify/merge those consumer PRs.

@@ -2,7 +2,7 @@
 # meta: id=notify kind=script group="Reusable Claude Code assets" status=ready tags=notify,telegram,cron,hooks intent="Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency"
 # notify.sh — send a Telegram message via the Bot API.
 # Reads TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID from the environment, or from a .env file next to this
-# script, or from $NOTIFY_ENV_FILE. See scripts/notify.env.example. Origin: the claude-notify-bot repo.
+# script, or from $NOTIFY_ENV_FILE. See scripts/notify.env.example.
 #
 # Usage:
 #   notify "message body"
