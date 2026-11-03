@@ -13,6 +13,7 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
   for status-board compatibility.
 
 ### Added
+- `skills/solution-audit`, `skills/backlog-review`, `skills/backlog-execute` (experimental): findings-only audit of canonical solutions -> read-only impact-scored backlog recap -> gated execution of the top N items (one worktree each, ANALYZE..release with serving verification). Each has an "Adapting to your project" section listing what the consuming project must supply.
 - Directive §4: bounded wait loops; locate a user-reported problem in the live runtime before answering (#25).
 
 ## [v1.5.1] - 2026-10-19

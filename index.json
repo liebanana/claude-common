@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-11-03",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -283,6 +283,39 @@
       ]
     },
     {
+      "id": "backlog-execute",
+      "kind": "skill",
+      "path": "skills/backlog-execute/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Execute the top-scored backlog items (max N, one git worktree each) through analyze-to-release with deterministic QA, review gate and serving verification; never bypasses a gate",
+      "status": "experimental",
+      "tags": [
+        "skill",
+        "backlog",
+        "workflow",
+        "worktree",
+        "release",
+        "qa",
+        "prioritization"
+      ]
+    },
+    {
+      "id": "backlog-review",
+      "kind": "skill",
+      "path": "skills/backlog-review/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Read-only, scored, decision-ready backlog recap (impact x severity + reach, never ease) that waits for the owner's pick before anything runs",
+      "status": "experimental",
+      "tags": [
+        "skill",
+        "backlog",
+        "prioritization",
+        "recap",
+        "read-only",
+        "workflow"
+      ]
+    },
+    {
       "id": "prepare-clear",
       "kind": "skill",
       "path": "skills/prepare-clear/SKILL.md",
@@ -310,6 +343,22 @@
         "crash-recovery",
         "handover",
         "resume"
+      ]
+    },
+    {
+      "id": "solution-audit",
+      "kind": "skill",
+      "path": "skills/solution-audit/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Findings-only audit of canonical solutions vs real code - verified, evidence-backed, deterministic-id backlog rows, no product edits",
+      "status": "experimental",
+      "tags": [
+        "skill",
+        "audit",
+        "backlog",
+        "duplication",
+        "consistency",
+        "workflow"
       ]
     },
     {
