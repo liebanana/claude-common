@@ -35,9 +35,12 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status** → `skills/rehydrate/SKILL.md` · _skill, recovery, crash-recovery, handover, resume_
 - 🟢 **Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing** → `scripts/redact.py` · _security, secrets, redaction, public-repo_
 - 🟢 **Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate** → `skills/prepare-clear/SKILL.md` · _skill, handover, context-clear, resume, durability_
+- 🟡 **Execute the top-scored backlog items (max N, one git worktree each) through analyze-to-release with deterministic QA, review gate and serving verification; never bypasses a gate** → `skills/backlog-execute/SKILL.md` · _skill, backlog, workflow, worktree, release, qa, prioritization_
+- 🟡 **Findings-only audit of canonical solutions vs real code - verified, evidence-backed, deterministic-id backlog rows, no product edits** → `skills/solution-audit/SKILL.md` · _skill, audit, backlog, duplication, consistency, workflow_
 - 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
 - 🟢 **Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report** → `skills/verify-fix-claims/SKILL.md` · _skill, verification, code-review, commit-hygiene_
 - 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
+- 🟡 **Read-only, scored, decision-ready backlog recap (impact x severity + reach, never ease) that waits for the owner's pick before anything runs** → `skills/backlog-review/SKILL.md` · _skill, backlog, prioritization, recap, read-only, workflow_
 - 🟢 **Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency** → `scripts/notify.sh` · _notify, telegram, cron, hooks_
 - 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_
 - 🟢 **Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose** → `.claude/commands/oracle-status.md` · _status, handover, oracle, coordination_
@@ -79,6 +82,7 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Injected ruleset (terse prose + YAGNI-first code + tool-output compression) that measurably cuts an agent's output tokens (44% of baseline in published benchmarks incl. losses) — zero-dep, directly on our token-thrift mission** → `research/JayPokale__Chisle.md` (`JayPokale/Chisle` ⭐492)
 - 🔬 **Anthropic's official Agent Skills examples + spec/template; canonical pattern reference for authoring skills** → `research/anthropics__skills.md` (`anthropics/skills` ⭐0)
 - 🔬 **Multi-language code knowledge-graph RAG exposed as an MCP server for Claude Code to query/edit codebases** → `research/vitali87__code-graph-rag.md` (`vitali87/code-graph-rag` ⭐0)
+- 🔬 **Claude Code plugin that cuts reply length ~50% by banning filler/metaphor/recap** → `research/lowenbjer__claude-terse.md` (`lowenbjer/claude-terse` ⭐0)
 
 See [`research/INDEX.md`](research/INDEX.md) for every analyzed repo, and query [`index.json`](index.json) programmatically.
 <!-- END GENERATED -->

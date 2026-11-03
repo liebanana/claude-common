@@ -7,7 +7,7 @@ CLI:       git diff main | python3 scripts/redact.py            # stdout has [re
            python3 scripts/redact.py --check < file             # exit 1 if anything WOULD be redacted (pre-push sweep)
 Patterns: sk-…, GitHub ghp_/gho_/ghs_/ghr_/ghu_/github_pat_, Slack xox*, AWS AKIA…, Google AIza…, Telegram bot
 tokens, JWTs, 32+ hex runs, and "bearer/token/secret/password/api_key = value" pairs (the key is kept).
-No third-party dependencies. Origin: the oracle project's snapshot scrubber; tests in tests/test_redact.py.
+No third-party dependencies. Origin: a status-board snapshot scrubber; tests in tests/test_redact.py.
 """
 from __future__ import annotations
 

@@ -17,7 +17,7 @@ once.
 - `cron-discover.sh` — unattended discover → `/triage-discoveries` → commit loop.
 - `release.sh` — cut a tagged claude-common release (rotate `CHANGELOG.md`, rebuild index, tag
   `vX.Y.Z`, push). Refuses unless on `main`, tree clean, and not behind `origin/main`.
-- `sync-consumers.sh` — bring every consumer repo in `sync/consumers.json` to the latest tag, one
+- `sync-consumers.sh` — bring every consumer repo in `sync/consumers.local.json` (gitignored; template `sync/consumers.example.json`) to the latest tag, one
   PR per repo, via a temp worktree (`--status` / `--dry-run` / `--discover` modes; never touches a
   default branch).
 - `lib/` — sourced helpers, not run directly: `sync-apply.sh` (the consumer file contract as

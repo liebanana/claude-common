@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # meta: id=notify-hook kind=script group="Reusable Claude Code assets" status=ready tags=notify,telegram,hooks,stop-hook intent="Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh"
-# notify-hook.sh — thin wrapper for Claude Code Stop hooks and cron jobs. Origin: claude-notify-bot.
+# notify-hook.sh — thin wrapper for Claude Code Stop hooks and cron jobs.
 #
 # Designed to be registered as a Claude Code Stop hook in .claude/settings.json:
 #   {
