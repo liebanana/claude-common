@@ -20,6 +20,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Scan the current session for a reusable, general learning and open a PR to claude-common** → `.claude/commands/contribute-to-common.md` · _contribution, pr, session_
 
 ## Save tokens / work efficiently
+- 🟢 **Concrete lessons from a long multi-agent build session — process, verification, git/LFS in cloud sessions, user communication, art pipelines, subagent hygiene and model-per-role** → `docs/lessons-long-sessions.md` · _practices, lessons, process, subagents, communication_
 - 🟢 **Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas** → `docs/stitch-mcp-workflow.md` · _stitch, mcp, design-system, tokens_
 - 🟢 **Long/background jobs get reaped — chunk with incremental output and bake into an invokable script** → `docs/long-running-jobs.md` · _practices, reliability, tokens_
 - 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs/token-thrift.md` · _tokens, practices_
@@ -32,14 +33,17 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 ## Reusable Claude Code assets
 - 🟢 **Anti-over-engineering reviewer/consultant — least code that works (YAGNI → stdlib → native → existing dep → minimal custom), never at the cost of validation, security, data-loss handling or accessibility** → `.claude/agents/ponytail.md` · _agent, review, simplify, yagni_
 - 🟢 **Claude Code Stop-hook / cron wrapper that forwards a session summary (or a custom message) to Telegram via notify.sh** → `scripts/notify-hook.sh` · _notify, telegram, hooks, stop-hook_
+- 🟢 **Collect user decisions and feedback asynchronously through a claude.ai artifact backed by the db capability (questions/answers collections), with a round-closing protocol that keeps the page to pending items only** → `skills/decisions-page/SKILL.md` · _skill, decisions, artifact, async, communication, db_
 - 🟢 **Crash/cold-start recovery — rebuild truth from git and repo docs, reconcile stale checkpoints, resume real work instead of just reporting status** → `skills/rehydrate/SKILL.md` · _skill, recovery, crash-recovery, handover, resume_
 - 🟢 **Dependency-free scrubber for secret-shaped strings (API keys, GitHub/Slack/Telegram tokens, JWTs, long hex, key=value secrets) — import redact()/redact_obj() or pipe text through it before publishing** → `scripts/redact.py` · _security, secrets, redaction, public-repo_
 - 🟢 **Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate** → `skills/prepare-clear/SKILL.md` · _skill, handover, context-clear, resume, durability_
 - 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
 - 🟢 **Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report** → `skills/verify-fix-claims/SKILL.md` · _skill, verification, code-review, commit-hygiene_
+- 🟢 **Keep multi-file features consistent with a small JSON dependency graph and `scripts/impact-graph.mjs` (check + impact --why + a ratcheting test-debt baseline)** → `skills/feature-impact-graph/SKILL.md` · _skill, dependency-graph, impact-analysis, testing, consistency_
 - 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
 - 🟢 **Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency** → `scripts/notify.sh` · _notify, telegram, cron, hooks_
 - 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_
+- 🟢 **Stop wasted spend on paid generative APIs — prompts reviewed by a stronger model before the call, free cost checks, a cost ledger, a budget cap with stop rules, and the proxy-injected API key pattern for cloud sessions** → `skills/paid-generation-gate/SKILL.md` · _skill, cost, generation, budget, review, api-keys_
 - 🟢 **Structured, agent-emitted project status that a cross-project board can trust — never inferred from prose** → `.claude/commands/oracle-status.md` · _status, handover, oracle, coordination_
 - 🟢 **Symlink shared commands/agents into ~/.claude (and optionally a target repo)** → `install.sh` · _setup, install_
 
