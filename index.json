@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-11-11",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -257,6 +257,20 @@
       ]
     },
     {
+      "id": "push-guard",
+      "kind": "hook",
+      "path": "hooks/push-guard.sh",
+      "group": "Reusable Claude Code assets",
+      "intent": "PreToolUse(Bash) hook: block git push when origin/<branch> has commits HEAD lacks (another session pushed to the same branch)",
+      "status": "ready",
+      "tags": [
+        "hook",
+        "git",
+        "pretooluse",
+        "parallel-sessions"
+      ]
+    },
+    {
       "id": "version-check",
       "kind": "hook",
       "path": "hooks/version-check.sh",
@@ -280,6 +294,21 @@
         "mcp",
         "browser",
         "debugging"
+      ]
+    },
+    {
+      "id": "decision-questions",
+      "kind": "skill",
+      "path": "skills/decision-questions/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Move a document's open questions to a shared decisions page (artifact database) with one recommended option each, and close the round by exporting answers into the repo",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "workflow",
+        "human-in-the-loop",
+        "artifacts",
+        "decisions"
       ]
     },
     {

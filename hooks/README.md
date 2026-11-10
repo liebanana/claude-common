@@ -8,3 +8,4 @@ no manual step. A hook meant to be hand-installed instead comes with a snippet h
 ## Hooks
 
 - `version-check.sh` — SessionStart: warns when `.claude/common.lock` is behind the newest claude-common tag (installed by `scripts/sync-consumers.sh`).
+- `push-guard.sh` — PreToolUse(Bash): blocks `git push` when `origin/<branch>` has commits your HEAD lacks (parallel sessions on one branch). Wire by hand: `{"hooks":{"PreToolUse":[{"matcher":"Bash","hooks":[{"type":"command","command":"bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/push-guard.sh\""}]}]}}`.
