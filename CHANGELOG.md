@@ -5,6 +5,12 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Added
+- `skills/decisions-page` + `templates/decisions-page/` (decisions, reactions, triage pages; questions example): collect user decisions asynchronously via a claude.ai artifact with the `db` capability, with a round-closing protocol (export, decisions log, `open:false`, pending only, one recommended option).
+- `scripts/impact-graph.mjs` + `skills/feature-impact-graph` + `tests/impact-graph-test.sh`: typed feature dependency graph (`check`, `<id> --why`) with a ratcheting test-debt baseline.
+- `skills/paid-generation-gate`: stronger-model prompt review, free cost checks, cost ledger, budget cap, proxy-injected API key header pattern.
+- `docs/lessons-long-sessions.md`: process, CI-on-clean-clone, Git LFS in cloud sessions, communication, art pipeline, subagent hygiene, model-per-role.
+
 ## [v1.5.1] - 2026-10-19
 
 - withdraw manager-status skill

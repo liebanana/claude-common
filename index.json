@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-11-10",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -203,6 +203,21 @@
       ]
     },
     {
+      "id": "lessons-long-sessions",
+      "kind": "doc",
+      "path": "docs/lessons-long-sessions.md",
+      "group": "Save tokens / work efficiently",
+      "intent": "Concrete lessons from a long multi-agent build session — process, verification, git/LFS in cloud sessions, user communication, art pipelines, subagent hygiene and model-per-role",
+      "status": "ready",
+      "tags": [
+        "practices",
+        "lessons",
+        "process",
+        "subagents",
+        "communication"
+      ]
+    },
+    {
       "id": "long-running-jobs",
       "kind": "doc",
       "path": "docs/long-running-jobs.md",
@@ -280,6 +295,53 @@
         "mcp",
         "browser",
         "debugging"
+      ]
+    },
+    {
+      "id": "decisions-page",
+      "kind": "skill",
+      "path": "skills/decisions-page/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Collect user decisions and feedback asynchronously through a claude.ai artifact backed by the db capability (questions/answers collections), with a round-closing protocol that keeps the page to pending items only",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "decisions",
+        "artifact",
+        "async",
+        "communication",
+        "db"
+      ]
+    },
+    {
+      "id": "feature-impact-graph",
+      "kind": "skill",
+      "path": "skills/feature-impact-graph/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Keep multi-file features consistent with a small JSON dependency graph and `scripts/impact-graph.mjs` (check + impact --why + a ratcheting test-debt baseline)",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "dependency-graph",
+        "impact-analysis",
+        "testing",
+        "consistency"
+      ]
+    },
+    {
+      "id": "paid-generation-gate",
+      "kind": "skill",
+      "path": "skills/paid-generation-gate/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Stop wasted spend on paid generative APIs — prompts reviewed by a stronger model before the call, free cost checks, a cost ledger, a budget cap with stop rules, and the proxy-injected API key pattern for cloud sessions",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "cost",
+        "generation",
+        "budget",
+        "review",
+        "api-keys"
       ]
     },
     {

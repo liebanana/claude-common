@@ -1,0 +1,121 @@
+<title>Decisions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: one column of question cards (pending first). Each card: context, tappable options (one marked recommended), free note, save. Answered cards collapse and show the choice. Same dark look as the status page. */
+:root {
+  --bg: #0f1218; --slab: #171b24; --slab2: #1d2230; --line: #2a3140; --bone: #e8e1d3; --muted: #9aa3b4;
+  --candle: #e0a23a; --core: #ffd27a; --ember: #e07a3a; --ok: #6fd3a0;
+  --display: ui-sans-serif, system-ui, sans-serif; --label: ui-monospace, monospace;
+  --body: -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--bone); font: 15px/1.5 var(--body);
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)) }
+.wrap { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px }
+h1 { font: 700 30px/1 var(--display); margin: 0;  }
+.sub { color: var(--muted); margin: 4px 0 0 }
+h2 { font: 400 12px/1 var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 10px 0 0 }
+.card { background: var(--slab); border: 1px solid var(--line); border-radius: 4px; padding: 14px; display: flex; flex-direction: column; gap: 10px }
+.card.pend { border-color: var(--ember) }
+.grp { font: 400 10px/1 var(--label); letter-spacing: .1em; color: var(--candle) }
+.card h3 { margin: 0; font: 700 17px/1.25 var(--display) }
+.ctx { margin: 0; color: var(--muted); font-size: 14px }
+.opts { display: flex; flex-direction: column; gap: 8px }
+.opt { display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%; min-height: 48px; padding: 10px 12px; background: var(--slab2);
+  border: 1px solid var(--line); border-radius: 4px; color: var(--bone); font: inherit; cursor: pointer }
+.opt:focus-visible, .save:focus-visible, textarea:focus-visible { outline: 2px solid var(--core); outline-offset: 2px }
+.opt[aria-pressed="true"] { border-color: var(--core); background: linear-gradient(180deg, rgba(255,210,122,.10), transparent), var(--slab2) }
+.dot { flex: none; width: 14px; height: 14px; margin-top: 3px; border: 2px solid var(--muted); border-radius: 50% }
+.opt[aria-pressed="true"] .dot { border-color: var(--core); background: var(--core) }
+.ol { font-weight: 600 } .od { display: block; color: var(--muted); font-size: 13px; font-weight: 400 }
+.rec { font: 400 9px/1 var(--label); color: var(--ok); border: 1px solid currentColor; padding: 2px 4px; border-radius: 2px; margin-left: 6px; vertical-align: 2px }
+textarea { width: 100%; min-height: 64px; resize: vertical; background: var(--bg); color: var(--bone); border: 1px solid var(--line); border-radius: 4px; padding: 10px; font: 15px/1.4 var(--body) }
+.row { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap }
+.save { min-height: 44px; padding: 0 18px; border: 0; border-radius: 4px; background: var(--candle); color: #1a1208; font: 600 15px var(--body); cursor: pointer }
+.save:disabled { opacity: .45; cursor: default }
+.st { color: var(--muted); font-size: 13px } .st.ok { color: var(--ok) }
+.done summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; gap: 4px }
+.done summary::-webkit-details-marker { display: none }
+.ans { color: var(--ok); font-size: 14px }
+.fx { display: block; font-size: 18px; line-height: 1.3; color: var(--bone); margin-top: 4px; word-break: break-word }
+.hs { cursor: pointer; font: 400 12px/1 var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding: 12px 0; min-height: 44px; display: flex; align-items: center }
+#done { display: flex; flex-direction: column; gap: 12px }
+#pend { display: flex; flex-direction: column; gap: 16px }
+.empty, .warn { color: var(--muted); text-align: center; padding: 20px }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Decisions</h1>
+    <p class="sub">Only what is still undecided shows up. Tap an option and save.</p>
+  </header>
+  <h2 id="hpend">Pending</h2>
+  <div id="pend"></div>
+  <details id="hist" hidden><summary class="hs" id="hdone">History</summary><div id="done"></div></details>
+</div>
+
+<script>
+const $ = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+let Q = [], A = {}, db = null, draft = {};
+const pend = document.getElementById('pend'), done = document.getElementById('done'), hdone = document.getElementById('hdone');
+pend.append($('p', 'empty', 'Loading questions…'));
+
+function card(q) {
+  const a = A[q.id], d = draft[q.id] || (draft[q.id] = { option: a?.option || null, note: a?.note || '' });
+  const c = $('article', 'card' + (a ? '' : ' pend'));
+  if (q.group) c.append($('span', 'grp', q.group));
+  c.append($('h3', '', q.title));
+  if (q.context) { const p = $('p', 'ctx'); for (const part of String(q.context).split(/(https:\/\/claude\.ai\/artifact\/[A-Za-z0-9]+)/)) { if (/^https:\/\/claude\.ai\/artifact\//.test(part)) { const l = $('a', '', 'open ↗'); l.href = part; l.target = '_blank'; l.rel = 'noopener'; p.append(l); } else p.append(document.createTextNode(part)); } c.append(p); }
+  const opts = $('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', q.title);
+  for (const o of q.options || []) {
+    const b = $('button', 'opt'); b.type = 'button'; b.setAttribute('aria-pressed', String(d.option === o.id));
+    const txt = $('span'); const l = $('span', 'ol', o.label); if (o.recommended) l.append($('span', 'rec', 'RECOMMENDED'));
+    txt.append(l); if (o.desc) txt.append($('span', 'od', o.desc));
+    b.append($('span', 'dot'), txt);
+    b.onclick = () => { d.option = o.id; for (const x of opts.children) x.setAttribute('aria-pressed', String(x === b)); save.disabled = false; };
+    opts.append(b);
+  }
+  const ta = $('textarea'); ta.placeholder = q.options?.length ? 'Optional note (or your own idea)' : 'Your answer'; ta.value = d.note;
+  ta.setAttribute('aria-label', 'Note for: ' + q.title);
+  ta.oninput = () => { d.note = ta.value; save.disabled = false; };
+  const row = $('div', 'row'), st = $('span', 'st', a ? 'Saved' : ''), save = $('button', 'save', a ? 'Update' : 'Save');
+  save.type = 'button'; save.disabled = !!a || !(d.option || d.note);
+  if (a) st.classList.add('ok');
+  save.onclick = async () => {
+    if (!d.option && !d.note.trim()) { st.textContent = 'Pick an option or write a note'; return; }
+    save.disabled = true; st.className = 'st'; st.textContent = 'Saving…';
+    try { await db.doc('answers/' + q.id).set({ option: d.option, note: d.note.trim(), at: new Date().toISOString() }); st.className = 'st ok'; st.textContent = 'Saved'; }
+    catch (e) { st.textContent = 'Could not save. Try again.'; save.disabled = false; }
+  };
+  row.append(st, save);
+  c.append(opts, ta, row);
+  if (!a) return c;
+  const det = $('details', 'card done'), sum = $('summary');
+  const ol = (q.options || []).find(o => o.id === a.option);
+  if (q.group) sum.append($('span', 'grp', q.group));
+  sum.append($('h3', '', q.title), $('span', 'ans', '✓ ' + (ol ? ol.label : 'Note') + (a.note ? ' · ' + a.note : '')));
+  c.className = ''; c.style.cssText = 'display:flex;flex-direction:column;gap:10px;margin-top:10px';
+  for (const n of [...c.children]) if (n.matches('.grp, h3')) n.remove();
+  det.append(sum, c);
+  return det;
+}
+function render() {
+  const open = Q.filter(q => q.open !== false);
+  pend.replaceChildren(); done.replaceChildren();
+  const p = open.filter(q => !A[q.id]), d = open.filter(q => A[q.id]);
+  document.getElementById('hpend').textContent = 'Pending (' + p.length + ')';
+  if (!p.length) pend.append($('p', 'empty', 'Nothing pending. Thanks.'));
+  for (const q of p) pend.append(card(q));
+  const hist = document.getElementById('hist'); hist.hidden = !d.length; hdone.textContent = 'History of this round (' + d.length + ')';
+  for (const q of d) done.append(card(q));
+}
+(async () => {
+  const timer = setTimeout(() => { pend.replaceChildren($('p', 'warn', 'Could not load the questions. Reload the page.')); }, 10000);
+  db = await claude.use('db');
+  if (!db) { clearTimeout(timer); pend.replaceChildren($('p', 'warn', 'Sign in to claude.ai to answer.')); return; }
+  db.collection('questions').onSnapshot(s => { clearTimeout(timer); Q = s.docs.map(x => ({ id: x.id, ...x.data() })).sort((a, b) => (a.order || 0) - (b.order || 0)); render(); },
+    () => { clearTimeout(timer); pend.replaceChildren($('p', 'warn', 'Could not load the questions.')); });
+  db.collection('answers').onSnapshot(s => { A = {}; for (const x of s.docs) A[x.id] = x.data(); render(); });
+})();
+</script>

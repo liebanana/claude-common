@@ -1,0 +1,9 @@
+[
+  {"id": "q-example-storage", "order": 1, "group": "Architecture", "open": true,
+   "title": "Where should X live?",
+   "context": "Two sentences of context max. Link a prototype artifact by pasting its https://claude.ai/artifact/... URL.",
+   "options": [
+     {"id": "a", "label": "Option A (short label)", "desc": "One-line trade-off.", "recommended": true},
+     {"id": "b", "label": "Option B", "desc": "One-line trade-off."}
+   ]}
+]
