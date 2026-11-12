@@ -4,6 +4,10 @@ All notable changes to claude-common. Format: Keep a Changelog. Versions are git
 consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
+
+## [v1.6.0] - 2026-11-12
+
+- Directive §7: UI/UX — Stitch mockup gates PLAN, Playwright fidelity gates merge
 ### Added
 - **Directive §7 — UI/UX work: design before code, measured fidelity after.** A user-visible
   surface is specified as a `design.md`, mocked up through the Stitch MCP (`mcp__stitch__*`,
