@@ -4,6 +4,20 @@ All notable changes to claude-common. Format: Keep a Changelog. Versions are git
 consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
+### Added
+- **Directive §7 — UI/UX work: design before code, measured fidelity after.** A user-visible
+  surface is specified as a `design.md`, mocked up through the Stitch MCP (`mcp__stitch__*`,
+  programmatically — never the web UI), signed off by the human *before* PLAN, then verified with
+  Playwright: structural conformance (tokens actually rendered, component states, hierarchy,
+  breakpoints, a11y) as a **hard gate**, and the pixel diff against the Stitch screenshot as
+  **advisory only**. Weakening a fidelity assertion to go green is the same defect class as
+  weakening a test.
+- `docs/ui-fidelity-playwright.md` — the measuring half: assert *membership in the token set*
+  rather than per-element equality, freeze nondeterminism, keep the gate in the repo's own
+  `@playwright/test` suite (MCP is for exploration), plus the font/DPR/dark-mode traps.
+- New catalog group **Design & UI fidelity**, holding the Stitch workflow doc and the fidelity doc
+  as one pipeline.
+
 ### Changed
 - Generic by design: the consumer registry moved out of the repo into a gitignored
   `sync/consumers.local.json` (template `sync/consumers.example.json`, override `CLAUDE_COMMON_MANIFEST`).

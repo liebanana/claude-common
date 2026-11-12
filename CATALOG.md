@@ -20,9 +20,12 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Scan the current session for a reusable, general learning and open a PR to claude-common** → `.claude/commands/contribute-to-common.md` · _contribution, pr, session_
 
 ## Save tokens / work efficiently
-- 🟢 **Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas** → `docs/stitch-mcp-workflow.md` · _stitch, mcp, design-system, tokens_
 - 🟢 **Long/background jobs get reaped — chunk with incremental output and bake into an invokable script** → `docs/long-running-jobs.md` · _practices, reliability, tokens_
 - 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs/token-thrift.md` · _tokens, practices_
+
+## Design & UI fidelity
+- 🟢 **Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas** → `docs/stitch-mcp-workflow.md` · _stitch, mcp, design-system, tokens_
+- 🟢 **Prove an implemented UI actually matches its design.md with Playwright — token/anatomy/a11y assertions as the hard gate, the Stitch screenshot diff as advisory — instead of claiming fidelity by eye** → `docs/ui-fidelity-playwright.md` · _playwright, design-system, stitch, ui, verification, a11y_
 
 ## Index & navigation
 - 🟢 **Bring every consumer repo to the latest tagged claude-common release via one PR per repo (status/dry-run/discover modes)** → `scripts/sync-consumers.sh` · _sync, release, pr, cron_

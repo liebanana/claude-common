@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-11-12",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -234,7 +234,7 @@
       "id": "stitch-mcp-workflow",
       "kind": "doc",
       "path": "docs/stitch-mcp-workflow.md",
-      "group": "Save tokens / work efficiently",
+      "group": "Design & UI fidelity",
       "intent": "Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas",
       "status": "ready",
       "tags": [
@@ -254,6 +254,22 @@
       "tags": [
         "tokens",
         "practices"
+      ]
+    },
+    {
+      "id": "ui-fidelity-playwright",
+      "kind": "doc",
+      "path": "docs/ui-fidelity-playwright.md",
+      "group": "Design & UI fidelity",
+      "intent": "Prove an implemented UI actually matches its design.md with Playwright — token/anatomy/a11y assertions as the hard gate, the Stitch screenshot diff as advisory — instead of claiming fidelity by eye",
+      "status": "ready",
+      "tags": [
+        "playwright",
+        "design-system",
+        "stitch",
+        "ui",
+        "verification",
+        "a11y"
       ]
     },
     {

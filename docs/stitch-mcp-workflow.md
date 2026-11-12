@@ -1,7 +1,7 @@
 ---
 kind: doc
 status: ready
-group: Save tokens / work efficiently
+group: Design & UI fidelity
 intent: Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas
 tags: [stitch, mcp, design-system, tokens]
 ---
@@ -114,3 +114,11 @@ Report back with: the project title + id, both design-system asset ids, and a ru
 list of every screen id + one-line description, so a later session can resume without
 re-deriving state. Downloaded screenshots go to a scratch dir and get sent to the human
 in small batches — never dump raw image bytes into the conversation.
+
+## Then: prove the code matches the design
+
+Generating a mockup is half of directive §7. Once the human signs the screens off and the UI
+is implemented, the design stops being a picture and becomes a gate: token/anatomy/a11y
+assertions that fail the build, with the Stitch screenshot kept as an advisory diff. See
+`docs/ui-fidelity-playwright.md` — and keep each screen id next to its downloaded baseline so
+the mockup is traceable from the test.

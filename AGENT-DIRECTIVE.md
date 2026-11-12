@@ -162,3 +162,43 @@ still required. Never set the `_FORCE` variant — it overrides deliberate choic
 
 **When ultracode is off:** §4 applies unchanged; do not author or run a Workflow unless the user
 opted in for that task.
+
+---
+
+## 7. UI/UX work — design before code, measured fidelity after
+
+Any change that **creates or reshapes a user-visible surface** (a new screen, a redesign, a
+re-layout, a new component with its own visual language) runs this stage inside §5, between SPEC
+and PLAN. It does not replace the five phases — it is what they look like when the artifact is an
+interface. Pure logic/CLI/infra work skips it.
+
+1. **`design.md` is the contract; the mockup is derived.** Before generating anything, the project
+   needs a real `design.md` (the `google-labs-code` format: token front-matter + body). If it has
+   none, write it with the user first — concrete options with previews, not open questions, and
+   explicit section-by-section sign-off. This is a SPEC artifact, and it is what verification later
+   asserts against. Tokens are the source of truth; a screenshot never is.
+2. **Generate the mockup in Stitch, programmatically.** Drive `mcp__stitch__*` (project → light
+   *and* dark design systems → one screen per surface) rather than the web UI, and **look at every
+   screenshot yourself** before showing it to the human — Stitch occasionally emits a broken
+   layout. Full sequence, enum constraints and the cost traps: `claude-common/docs/stitch-mcp-workflow.md` (pass
+   `designMd` as text, never base64 — a 4–5× context difference).
+3. **Mockup sign-off gates PLAN.** A reviewed mockup is cheap; a reviewed implementation is not.
+   Don't plan or write UI code against an unapproved screen. In AUTONOMOUS mode a *new* surface's
+   sign-off is a queued human-only blocker (§3); a surface whose `design.md` is already approved
+   proceeds without asking.
+4. **Implement, then measure fidelity with Playwright — never by eye.**
+   - **Hard gate (fails the build): structural conformance** against `design.md` — the computed
+     values actually rendered (color, type scale, radius, spacing), component anatomy and states,
+     hierarchy, responsive breakpoints, and accessibility (roles, accessible names, focus order,
+     contrast). Claiming fidelity with no assertion behind it is a defect, exactly like claiming a
+     fix you never grepped for.
+   - **Advisory (reported, never red): the visual diff** against the Stitch screenshot. Fonts,
+     antialiasing and generated filler content make pixel equality a false goal. The diff is a
+     review aid; a drift it *explains* becomes a new hard assertion — it does not become a pixel
+     threshold.
+   - Deviations from the mockup are legitimate (real data, real copy lengths, platform conventions,
+     a11y fixes). Each one is **stated in the PR**, not discovered later.
+   How-to, selectors and the zero-install harness: `claude-common/docs/ui-fidelity-playwright.md`.
+5. **Never weaken a fidelity assertion to make a surface pass.** Fix the surface, or change
+   `design.md` deliberately and regenerate the mockup. Loosening the gate to go green is the same
+   defect class as loosening a test.

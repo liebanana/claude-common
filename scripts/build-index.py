@@ -35,6 +35,7 @@ GROUP_ORDER = [
     "Discover & adopt external agent tooling",
     "Contribute back",
     "Save tokens / work efficiently",
+    "Design & UI fidelity",
     "Index & navigation",
     "Reusable Claude Code assets",
 ]
