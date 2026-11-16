@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12",
+  "generated": "2026-11-16",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -550,6 +550,31 @@
       "note": "research/firecrawl__firecrawl.md"
     },
     {
+      "repo": "garrytan/gstack",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 141769,
+      "url": "https://github.com/garrytan/gstack",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Opinionated role-based Claude Code skill pack (/office-hours, /review, /qa, /autoplan, /ship), Bun-based",
+      "tags": [
+        "skills",
+        "workflow",
+        "roles"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 141769,
+        "repo_age_days": 249
+      },
+      "maturity": "trending",
+      "note": "research/garrytan__gstack.md"
+    },
+    {
       "repo": "Graphify-Labs/graphify",
       "verdict": "watch",
       "status": "recommended",
@@ -762,6 +787,31 @@
       "note": "research/paperclipai__paperclip.md"
     },
     {
+      "repo": "Egonex-AI/Understand-Anything",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 92821,
+      "url": "https://github.com/Egonex-AI/Understand-Anything",
+      "pushed": "2026-11-15",
+      "triaged": "2026-11-16",
+      "intent": "Claude Code plugin building a multi-agent knowledge graph of a codebase with explorable dashboard",
+      "tags": [
+        "plugin",
+        "code-graph",
+        "onboarding"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 92821,
+        "repo_age_days": 246
+      },
+      "maturity": "trending",
+      "note": "research/Egonex-AI__Understand-Anything.md"
+    },
+    {
       "repo": "infiniflow/ragflow",
       "verdict": "skip",
       "status": "recommended",
@@ -804,6 +854,30 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/punkpeye__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "cheaper-inference/OmniRoute",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 87979,
+      "url": "https://github.com/cheaper-inference/OmniRoute",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "MIT AI gateway routing across hundreds of providers/free tiers",
+      "tags": [
+        "gateway",
+        "free-tier"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 87979,
+        "repo_age_days": 276
+      },
+      "maturity": "stable",
+      "note": "research/cheaper-inference__OmniRoute.md"
     },
     {
       "repo": "D4Vinci/Scrapling",
@@ -903,6 +977,52 @@
       "note": "research/bytedance__deer-flow.md"
     },
     {
+      "repo": "career-ops-hq/career-ops",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 82987,
+      "url": "https://github.com/career-ops-hq/career-ops",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "AI job-search/scoring agent",
+      "tags": [
+        "job-search"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 82987,
+        "repo_age_days": 225
+      },
+      "maturity": "stable",
+      "note": "research/career-ops-hq__career-ops.md"
+    },
+    {
+      "repo": "microsoft/ai-agents-for-beginners",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 79814,
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "pushed": "2026-11-07",
+      "triaged": "2026-11-16",
+      "intent": "18-lesson beginner course on building agents",
+      "tags": [
+        "course"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 79814,
+        "repo_age_days": 718
+      },
+      "maturity": "stable",
+      "note": "research/microsoft__ai-agents-for-beginners.md"
+    },
+    {
       "repo": "JuliusBrussee/caveman",
       "verdict": "adopt",
       "stars": 78262,
@@ -922,6 +1042,30 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/JuliusBrussee__caveman.md"
+    },
+    {
+      "repo": "Ebony-Vinyl/dsh-our-free-model",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 77051,
+      "url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Unofficial plugin giving unlimited free access to frontier models via a local relay",
+      "tags": [
+        "free-models",
+        "proxy"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 77051,
+        "repo_age_days": 52
+      },
+      "maturity": "experimental",
+      "note": "research/Ebony-Vinyl__dsh-our-free-model.md"
     },
     {
       "repo": "ruvnet/ruflo",
@@ -1017,6 +1161,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/safishamsi__graphify.md"
+    },
+    {
+      "repo": "thedaviddias/Front-End-Checklist",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 74748,
+      "url": "https://github.com/thedaviddias/Front-End-Checklist",
+      "pushed": "2026-10-31",
+      "triaged": "2026-11-16",
+      "intent": "386-rule front-end quality checklist with hosted MCP server (11 tools) for agent audits",
+      "tags": [
+        "frontend",
+        "mcp",
+        "checklist"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 74748,
+        "repo_age_days": 3318
+      },
+      "maturity": "stable",
+      "note": "research/thedaviddias__Front-End-Checklist.md"
     },
     {
       "repo": "rtk-ai/rtk",
@@ -1945,6 +2114,32 @@
       "note": "research/davila7__claude-code-templates.md"
     },
     {
+      "repo": "QwenLM/qwen-code",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 30594,
+      "url": "https://github.com/QwenLM/qwen-code",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Open-source multi-protocol terminal coding agent (Qwen)",
+      "tags": [
+        "agent-cli",
+        "qwen"
+      ],
+      "source": "github",
+      "sources": [
+        "github",
+        "github-trending"
+      ],
+      "signals": {
+        "stars": 30594,
+        "repo_age_days": 508,
+        "stars_period": 1469
+      },
+      "maturity": "stable",
+      "note": "research/QwenLM__qwen-code.md"
+    },
+    {
       "repo": "lyogavin/airllm",
       "verdict": "skip",
       "status": "recommended",
@@ -2636,6 +2831,29 @@
       "note": "research/yusufkaraaslan__Skill_Seekers.md"
     },
     {
+      "repo": "meta/astryx",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 13501,
+      "url": "https://github.com/meta/astryx",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Meta's React 19/StyleX design system with agent-oriented CLI/docs",
+      "tags": [
+        "design-system",
+        "react"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 13501
+      },
+      "maturity": "emerging",
+      "note": "research/meta__astryx.md"
+    },
+    {
       "repo": "millionco/react-doctor",
       "verdict": "skip",
       "stars": 13279,
@@ -3170,6 +3388,30 @@
       "note": "research/Tencent__AI-Infra-Guard.md"
     },
     {
+      "repo": "GoogleChrome/modern-web-guidance-src",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 5692,
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Chrome/Edge/Firefox/MDN-stewarded skill+CLI (search/retrieve/legacy-scan) feeding modern web-platform guidance to agents",
+      "tags": [
+        "skills",
+        "frontend",
+        "web-platform"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 5692
+      },
+      "maturity": "trending",
+      "note": "research/GoogleChrome__modern-web-guidance-src.md"
+    },
+    {
       "repo": "MinishLab/semble",
       "verdict": "adopt",
       "status": "recommended",
@@ -3271,6 +3513,30 @@
       "note": "research/mvschwarz__openrig.md"
     },
     {
+      "repo": "google/elephant-goldfish-model",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 5060,
+      "url": "https://github.com/google/elephant-goldfish-model",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Claude Code plugin: \"Elephant\" drafts specs with context, context-free \"Goldfish\" reviewers critique them",
+      "tags": [
+        "plugin",
+        "spec",
+        "review"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 5060
+      },
+      "maturity": "trending",
+      "note": "research/google__elephant-goldfish-model.md"
+    },
+    {
       "repo": "Gaurav-Gosain/tuios",
       "verdict": "skip",
       "status": "recommended",
@@ -3321,6 +3587,28 @@
       },
       "maturity": "emerging",
       "note": "research/eugeniughelbur__obsidian-second-brain.md"
+    },
+    {
+      "repo": "ZhuLinsen/daily_stock_analysis",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 4548,
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "LLM-driven multi-market stock analysis with push notifications",
+      "tags": [
+        "finance"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 4548
+      },
+      "maturity": "trending",
+      "note": "research/ZhuLinsen__daily_stock_analysis.md"
     },
     {
       "repo": "akitaonrails/ai-memory",
@@ -3375,6 +3663,30 @@
       },
       "maturity": "experimental",
       "note": "research/apache__maka.md"
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 4217,
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Native Rust browser-automation CLI; accessibility-tree snapshots with @eN refs, acted on one shell command at a time",
+      "tags": [
+        "browser",
+        "cli",
+        "token-thrift"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 4217
+      },
+      "maturity": "trending",
+      "note": "research/vercel-labs__agent-browser.md"
     },
     {
       "repo": "magnitudedev/magnitude",
@@ -3512,6 +3824,30 @@
       "note": "research/bethington__ghidra-mcp.md"
     },
     {
+      "repo": "openai/codex-security",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 2294,
+      "url": "https://github.com/openai/codex-security",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "OpenAI CLI/SDK/GitHub Action for scanning, validating and patching vulnerabilities",
+      "tags": [
+        "security",
+        "cli",
+        "sdk"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2294
+      },
+      "maturity": "emerging",
+      "note": "research/openai__codex-security.md"
+    },
+    {
       "repo": "aattaran/deepclaude",
       "verdict": "watch",
       "status": "recommended",
@@ -3639,6 +3975,30 @@
       },
       "maturity": "emerging",
       "note": "research/LLMQuant__quant-mind.md"
+    },
+    {
+      "repo": "backnotprop/plannotator",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 1719,
+      "url": "https://github.com/backnotprop/plannotator",
+      "pushed": "2026-11-16",
+      "triaged": "2026-11-16",
+      "intent": "Browser review surface for agent plans/diffs with plugin hooks for Claude Code; comments go back to the agent",
+      "tags": [
+        "review",
+        "plan",
+        "hooks"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 1719
+      },
+      "maturity": "trending",
+      "note": "research/backnotprop__plannotator.md"
     },
     {
       "repo": "NeoLabHQ/context-engineering-kit",
