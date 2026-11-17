@@ -23,8 +23,20 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Long/background jobs get reaped — chunk with incremental output and bake into an invokable script** → `docs/long-running-jobs.md` · _practices, reliability, tokens_
 - 🟢 **Token-thrift & effectiveness playbook (model choice, scripts-over-reruns, context hygiene)** → `docs/token-thrift.md` · _tokens, practices_
 
+## Verification & quality gates
+- 🟢 **Claim levels, non-vacuous gates and the review packet — what evidence a "fixed / tested / released" claim needs, why a green check over a skipped step is not green, and what a handoff for review must contain** → `docs/evidence-and-claim-levels.md` · _verification, qa, evidence, ci, review, handover_
+- 🟢 **Headless-smoke every interactive HTML page before a human sees it, and require per-step verdict + note on test pages — with a PreToolUse hook that blocks broken Artifact publishes** → `skills/artifact-smoke/SKILL.md` · _skill, artifacts, playwright, smoke, hooks, human-testing_
+- 🟢 **Turn every user-reported bug or correction into a same-day fix plus a named defect class, a guardrail where it was missed, and an automated gate — with a registry checker that fails any class lacking a gate** → `skills/defect-class-loop/SKILL.md` · _skill, qa, regression, bug-class, gates, retro, process_
+
+## Parallel agents & shared hosts
+- 🟢 **Running several agents, builds, CI and deploys on one machine without them corrupting each other — one writer per checkout, frozen deploy checkouts, no deploy while self-hosted CI runs, a heavy-build cap against PSI/OOM session kills, delegates that commit per slice, and subagent permission limits** → `docs/parallel-writers-and-shared-hosts.md` · _practices, git, worktrees, ci, deploy, subagents, reliability_
+
+## Working with humans
+- 🟢 **Communicating with a busy, often-remote human — short visual status replies, full documents printed in chat, decisions as clickable options with the recommendation first, human-only steps packaged as one paste-safe script, every ask admitted to the backlog the same day, and examples treated as seeds** → `docs/human-handoffs.md` · _practices, communication, handover, decisions, human-in-the-loop_
+
 ## Design & UI fidelity
 - 🟢 **Drive Google Stitch programmatically via mcp__stitch__* tools (design system + screen generation) instead of the web UI, with the token-cost trap and error-handling gotchas that aren't obvious from the tool schemas** → `docs/stitch-mcp-workflow.md` · _stitch, mcp, design-system, tokens_
+- 🟢 **Gate UI changes on how they feel, not just how they look — time real taps on a production build with injected server delay (≤100 ms feedback, ≤1 s next screen), ratchet taps-to-goal, start serving checks at the entry point, and keep shared chrome identical through primitives** → `docs/ui-interaction-gate.md` · _ui, ux, playwright, performance, verification, gates_
 - 🟢 **Prove an implemented UI actually matches its design.md with Playwright — token/anatomy/a11y assertions as the hard gate, the Stitch screenshot diff as advisory — instead of claiming fidelity by eye** → `docs/ui-fidelity-playwright.md` · _playwright, design-system, stitch, ui, verification, a11y_
 
 ## Index & navigation
@@ -40,6 +52,7 @@ Legend: 🟢 ready · 🟡 experimental · 🔬 from external research (see `res
 - 🟢 **Drain-and-checkpoint gate before a context clear/compact — persist every session-owned task so a cold session can safely rehydrate** → `skills/prepare-clear/SKILL.md` · _skill, handover, context-clear, resume, durability_
 - 🟡 **Give an agent live control of Chrome DevTools (traces, network/console inspection, Puppeteer automation) via MCP** → `mcp/chrome-devtools-mcp.md` · _mcp, browser, debugging_
 - 🟢 **Grep-verify every fix you are about to claim landed (present) or was removed (absent) before it goes in a commit message, PR comment, or status report** → `skills/verify-fix-claims/SKILL.md` · _skill, verification, code-review, commit-hygiene_
+- 🟢 **Look before you leap on a backlog — a read-only, impact-scored recap the human picks from, then execution of only the picked items through the full workflow** → `skills/backlog-by-impact/SKILL.md` · _skill, backlog, prioritization, planning, orchestration_
 - 🟢 **Pause/resume ritual for long autonomous lanes — nothing needed by the next session lives in a scratchpad, a monitor or chat** → `.claude/commands/session-handover.md` · _handover, context-clear, resume, durability, orchestration_
 - 🟢 **Send a Telegram message from any script/cron/hook — env-driven (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID), Markdown with plain-text fallback, no jq dependency** → `scripts/notify.sh` · _notify, telegram, cron, hooks_
 - 🟢 **SessionStart hook: warn when the repo's pinned claude-common version is behind the newest local tag** → `hooks/version-check.sh` · _hook, session-start, sync_

@@ -110,6 +110,18 @@ BRAINSTORM/SPEC and PLAN — SMEs rule on the options and the spec, then only th
 gets planned and implemented. For work without a mandated gate, still run the relevant SME
 lenses on non-trivial decisions (autonomy: decide and proceed, but decide *through the org*).
 
+**Closing the loop (applies to every phase):**
+- **A user correction is a process miss, fixed the same day.** Fix it, sweep every surface that shares
+  the concept (by query, not memory), name the defect class, add the guardrail where it was missed,
+  and gate the class with an automated test shown RED on the old case (or a tracked item that builds
+  it). A prose-only guardrail is not done. Procedure + registry checker: `claude-common/skills/defect-class-loop`.
+- **A claim carries its evidence level.** "Tested" needs a run with its case count, "released" the
+  served build id; a check that examined nothing failed, and green over a skipped step is not green.
+  `claude-common/docs/evidence-and-claim-levels.md`.
+- **One writer per checkout.** Every parallel writer (you, each subagent) gets its own git worktree;
+  stage your own files by name; tell every delegate to commit each finished slice.
+  `claude-common/docs/parallel-writers-and-shared-hosts.md`.
+
 ---
 
 ## 6. Ultracode & workflow provisioning
@@ -181,7 +193,10 @@ interface. Pure logic/CLI/infra work skips it.
    *and* dark design systems → one screen per surface) rather than the web UI, and **look at every
    screenshot yourself** before showing it to the human — Stitch occasionally emits a broken
    layout. Full sequence, enum constraints and the cost traps: `claude-common/docs/stitch-mcp-workflow.md` (pass
-   `designMd` as text, never base64 — a 4–5× context difference).
+   `designMd` as text, never base64 — a 4–5× context difference). **Compose first:** a screen built
+   only from already-approved patterns and primitives takes a coded prototype from the real tokens as
+   its reviewed reference instead of a new Stitch round; Stitch is for a new archetype, a new primitive
+   or a visual-direction change.
 3. **Mockup sign-off gates PLAN.** A reviewed mockup is cheap; a reviewed implementation is not.
    Don't plan or write UI code against an unapproved screen. In AUTONOMOUS mode a *new* surface's
    sign-off is a queued human-only blocker (§3); a surface whose `design.md` is already approved
@@ -192,6 +207,9 @@ interface. Pure logic/CLI/infra work skips it.
      hierarchy, responsive breakpoints, and accessibility (roles, accessible names, focus order,
      contrast). Claiming fidelity with no assertion behind it is a defect, exactly like claiming a
      fix you never grepped for.
+   - **Hard gate: interaction.** On a production build with injected server delay, every touched
+     control shows feedback ≤ 100 ms and reaches the next screen ≤ 1 s; taps-to-goal never rises.
+     Screenshots cannot see slowness. `claude-common/docs/ui-interaction-gate.md`.
    - **Advisory (reported, never red): the visual diff** against the Stitch screenshot. Fonts,
      antialiasing and generated filler content make pixel equality a false goal. The diff is a
      review aid; a drift it *explains* becomes a new hard assertion — it does not become a pixel

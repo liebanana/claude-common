@@ -5,6 +5,37 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 
 ## [Unreleased]
 
+### Added
+- `skills/defect-class-loop`: every user-reported bug or correction becomes, the same day, a fix + an
+  applicability sweep + a named class in a registry + a guardrail where it was missed + an automated gate;
+  retro mode turns a session's lessons into the cheapest guardrail that will fire. Ships `gate-check.py`
+  (stdlib, `--selftest`): fails any registry class without a `- **Gate:**` line naming an existing test or an
+  open tracked item; baseline ratchet for adoption; zero classes found is RED.
+- `skills/artifact-smoke`: headless smoke of an HTML page before a human sees it (`smoke.cjs`, fails on
+  script errors / an empty main control), `test-page-check.py` (a human-test page gives every step
+  ok/fail/partial + a note, stored agent-readably), and an opt-in PreToolUse hook for the Artifact tool.
+- `skills/backlog-by-impact`: read-only, impact-scored backlog review the human picks from (ease never
+  counts), then execution of only the picked items through the full workflow, one worktree each.
+- `docs/evidence-and-claim-levels.md`: claim levels, non-vacuous gates (examined count + deliberate RED,
+  fail closed, green-with-a-skipped-step is not green), the review packet, handback contracts.
+- `docs/parallel-writers-and-shared-hosts.md`: one writer per checkout, frozen deploy checkouts, served build
+  id == SHA, no deploy while self-hosted CI runs, the systemd-oomd PSI session-kill and a heavy-job cap,
+  delegates commit per slice, subagent permission limits, one recurring control loop.
+- `docs/human-handoffs.md`: short visual status replies, documents printed in chat, clickable decisions with
+  the recommendation first, human steps as one paste-safe script, admit every ask the same day, examples are
+  seeds.
+- `docs/ui-interaction-gate.md`: time real taps on a production build with injected server delay, taps-to-goal
+  ratchet, serving checks from the entry point, consistency through shared primitives.
+- New catalog groups: Verification & quality gates · Parallel agents & shared hosts · Working with humans.
+- Tests: `tests/defect-class-gate-test.sh`, `tests/artifact-smoke-test.sh` (browser cases SKIP without Playwright); both in CI.
+
+### Changed
+- Directive §5 "Closing the loop": a user correction is fixed the same day with a named class and an
+  automated gate; claims carry their evidence level; one writer per checkout (worktree per parallel writer).
+  §7: compose-first (approved patterns → coded prototype, Stitch only for new archetypes/primitives) and an
+  interaction hard gate (≤100 ms feedback, ≤1 s next screen under injected server delay).
+- `skills/verify-fix-claims`: a "Claim levels" section — the grep proves *code present* only.
+
 ## [v1.6.0] - 2026-11-12
 
 - Directive §7: UI/UX — Stitch mockup gates PLAN, Playwright fidelity gates merge
