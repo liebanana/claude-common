@@ -30,6 +30,10 @@ consumers pin to a tag via `scripts/sync-consumers.sh`.
 - Tests: `tests/defect-class-gate-test.sh`, `tests/artifact-smoke-test.sh` (browser cases SKIP without Playwright); both in CI.
 
 ### Changed
+- Directive §5 "Closing the loop": a user correction is fixed the same day with a named class and an
+  automated gate; claims carry their evidence level; one writer per checkout (worktree per parallel writer).
+  §7: compose-first (approved patterns → coded prototype, Stitch only for new archetypes/primitives) and an
+  interaction hard gate (≤100 ms feedback, ≤1 s next screen under injected server delay).
 - `skills/verify-fix-claims`: a "Claim levels" section — the grep proves *code present* only.
 
 ## [v1.6.0] - 2026-11-12
