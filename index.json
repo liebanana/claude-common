@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12",
+  "generated": "2026-11-17",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -188,6 +188,37 @@
       ]
     },
     {
+      "id": "evidence-and-claim-levels",
+      "kind": "doc",
+      "path": "docs/evidence-and-claim-levels.md",
+      "group": "Verification & quality gates",
+      "intent": "Claim levels, non-vacuous gates and the review packet — what evidence a \"fixed / tested / released\" claim needs, why a green check over a skipped step is not green, and what a handoff for review must contain",
+      "status": "ready",
+      "tags": [
+        "verification",
+        "qa",
+        "evidence",
+        "ci",
+        "review",
+        "handover"
+      ]
+    },
+    {
+      "id": "human-handoffs",
+      "kind": "doc",
+      "path": "docs/human-handoffs.md",
+      "group": "Working with humans",
+      "intent": "Communicating with a busy, often-remote human — short visual status replies, full documents printed in chat, decisions as clickable options with the recommendation first, human-only steps packaged as one paste-safe script, every ask admitted to the backlog the same day, and examples treated as seeds",
+      "status": "ready",
+      "tags": [
+        "practices",
+        "communication",
+        "handover",
+        "decisions",
+        "human-in-the-loop"
+      ]
+    },
+    {
       "id": "layout-measure-repro",
       "kind": "doc",
       "path": "docs/layout-measure-repro.md",
@@ -213,6 +244,23 @@
         "practices",
         "reliability",
         "tokens"
+      ]
+    },
+    {
+      "id": "parallel-writers-and-shared-hosts",
+      "kind": "doc",
+      "path": "docs/parallel-writers-and-shared-hosts.md",
+      "group": "Parallel agents & shared hosts",
+      "intent": "Running several agents, builds, CI and deploys on one machine without them corrupting each other — one writer per checkout, frozen deploy checkouts, no deploy while self-hosted CI runs, a heavy-build cap against PSI/OOM session kills, delegates that commit per slice, and subagent permission limits",
+      "status": "ready",
+      "tags": [
+        "practices",
+        "git",
+        "worktrees",
+        "ci",
+        "deploy",
+        "subagents",
+        "reliability"
       ]
     },
     {
@@ -273,6 +321,22 @@
       ]
     },
     {
+      "id": "ui-interaction-gate",
+      "kind": "doc",
+      "path": "docs/ui-interaction-gate.md",
+      "group": "Design & UI fidelity",
+      "intent": "Gate UI changes on how they feel, not just how they look — time real taps on a production build with injected server delay (≤100 ms feedback, ≤1 s next screen), ratchet taps-to-goal, start serving checks at the entry point, and keep shared chrome identical through primitives",
+      "status": "ready",
+      "tags": [
+        "ui",
+        "ux",
+        "playwright",
+        "performance",
+        "verification",
+        "gates"
+      ]
+    },
+    {
       "id": "version-check",
       "kind": "hook",
       "path": "hooks/version-check.sh",
@@ -296,6 +360,54 @@
         "mcp",
         "browser",
         "debugging"
+      ]
+    },
+    {
+      "id": "artifact-smoke",
+      "kind": "skill",
+      "path": "skills/artifact-smoke/SKILL.md",
+      "group": "Verification & quality gates",
+      "intent": "Headless-smoke every interactive HTML page before a human sees it, and require per-step verdict + note on test pages — with a PreToolUse hook that blocks broken Artifact publishes",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "artifacts",
+        "playwright",
+        "smoke",
+        "hooks",
+        "human-testing"
+      ]
+    },
+    {
+      "id": "backlog-by-impact",
+      "kind": "skill",
+      "path": "skills/backlog-by-impact/SKILL.md",
+      "group": "Reusable Claude Code assets",
+      "intent": "Look before you leap on a backlog — a read-only, impact-scored recap the human picks from, then execution of only the picked items through the full workflow",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "backlog",
+        "prioritization",
+        "planning",
+        "orchestration"
+      ]
+    },
+    {
+      "id": "defect-class-loop",
+      "kind": "skill",
+      "path": "skills/defect-class-loop/SKILL.md",
+      "group": "Verification & quality gates",
+      "intent": "Turn every user-reported bug or correction into a same-day fix plus a named defect class, a guardrail where it was missed, and an automated gate — with a registry checker that fails any class lacking a gate",
+      "status": "ready",
+      "tags": [
+        "skill",
+        "qa",
+        "regression",
+        "bug-class",
+        "gates",
+        "retro",
+        "process"
       ]
     },
     {

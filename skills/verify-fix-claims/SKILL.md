@@ -49,3 +49,11 @@ script used `:` and mis-parsed its own first self-test, reporting a present mark
 Pair this with the edit rule itself: assert the target exists before replacing it, and never let one
 script apply several edits where a later failure silently discards the earlier writes — write and
 verify each, or write once at the end only after every anchor has matched.
+
+## Claim levels
+
+This skill proves **code present** only. A claim that something was tested, data-verified,
+journey-verified or released needs the evidence for that level (`claude-common/docs/evidence-and-claim-levels.md`
+§1: a run with its case count, the query and its time, a real sequence on the tested build, the served
+build id plus a smoke). Never turn a grep, a screenshot or an exit code without assertions into a
+stronger claim; write UNVERIFIED or SKIP with the reason instead.
