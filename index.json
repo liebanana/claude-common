@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12",
+  "generated": "2026-11-23",
   "note": "Machine index. Query with jq, e.g.: jq -r '.assets[]|select(.tags|index(\"tokens\"))|.path' index.json ; jq -r '.research[]|select(.maturity==\"trending\")|.repo' index.json ; jq -r '.research[]|select((.sources|length)>1)|.repo' index.json",
   "assets": [
     {
@@ -529,6 +529,31 @@
       "note": "research/langchain-ai__langchain.md"
     },
     {
+      "repo": "garrytan/gstack",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 142445,
+      "url": "https://github.com/garrytan/gstack",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Opinionated role-based slash-command suite (CEO/eng/QA/security/release)",
+      "tags": [
+        "commands",
+        "workflow",
+        "skills"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 142445,
+        "repo_age_days": 256
+      },
+      "maturity": "trending",
+      "note": "research/garrytan__gstack.md"
+    },
+    {
       "repo": "firecrawl/firecrawl",
       "verdict": "watch",
       "stars": 142071,
@@ -762,6 +787,30 @@
       "note": "research/paperclipai__paperclip.md"
     },
     {
+      "repo": "Egonex-AI/Understand-Anything",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 93759,
+      "url": "https://github.com/Egonex-AI/Understand-Anything",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Turn a codebase into an explorable knowledge graph",
+      "tags": [
+        "code-graph",
+        "onboarding"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 93759,
+        "repo_age_days": 253
+      },
+      "maturity": "trending",
+      "note": "research/Egonex-AI__Understand-Anything.md"
+    },
+    {
       "repo": "infiniflow/ragflow",
       "verdict": "skip",
       "status": "recommended",
@@ -804,6 +853,31 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/punkpeye__awesome-mcp-servers.md"
+    },
+    {
+      "repo": "cheaper-inference/OmniRoute",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 89771,
+      "url": "https://github.com/cheaper-inference/OmniRoute",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Free multi-provider AI gateway with RTK+Caveman token compression",
+      "tags": [
+        "gateway",
+        "routing",
+        "token-compression"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 89771,
+        "repo_age_days": 283
+      },
+      "maturity": "trending",
+      "note": "research/cheaper-inference__OmniRoute.md"
     },
     {
       "repo": "D4Vinci/Scrapling",
@@ -878,6 +952,54 @@
       "note": "research/thedotmack__claude-mem.md"
     },
     {
+      "repo": "Ebony-Vinyl/dsh-our-free-model",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 84827,
+      "url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Plugin for free unlimited frontier models in dsh",
+      "tags": [
+        "gateway",
+        "free-models"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 84827,
+        "repo_age_days": 59
+      },
+      "maturity": "experimental",
+      "note": "research/Ebony-Vinyl__dsh-our-free-model.md"
+    },
+    {
+      "repo": "career-ops-hq/career-ops",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 84353,
+      "url": "https://github.com/career-ops-hq/career-ops",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "AI job-search agent",
+      "tags": [
+        "agent",
+        "jobs"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 84353,
+        "repo_age_days": 232
+      },
+      "maturity": "trending",
+      "note": "research/career-ops-hq__career-ops.md"
+    },
+    {
       "repo": "bytedance/deer-flow",
       "verdict": "watch",
       "status": "recommended",
@@ -901,6 +1023,29 @@
       },
       "maturity": "trending",
       "note": "research/bytedance__deer-flow.md"
+    },
+    {
+      "repo": "microsoft/ai-agents-for-beginners",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 80831,
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "pushed": "2026-11-17",
+      "triaged": "2026-11-23",
+      "intent": "Beginner AI-agents course",
+      "tags": [
+        "course"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 80831,
+        "repo_age_days": 725
+      },
+      "maturity": "stable",
+      "note": "research/microsoft__ai-agents-for-beginners.md"
     },
     {
       "repo": "JuliusBrussee/caveman",
@@ -1017,6 +1162,54 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/safishamsi__graphify.md"
+    },
+    {
+      "repo": "thedaviddias/Front-End-Checklist",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 74803,
+      "url": "https://github.com/thedaviddias/Front-End-Checklist",
+      "pushed": "2026-10-31",
+      "triaged": "2026-11-23",
+      "intent": "Front-end quality checklist with MCP",
+      "tags": [
+        "frontend",
+        "checklist"
+      ],
+      "source": "github",
+      "sources": [
+        "github"
+      ],
+      "signals": {
+        "stars": 74803,
+        "repo_age_days": 3325
+      },
+      "maturity": "stable",
+      "note": "research/thedaviddias__Front-End-Checklist.md"
+    },
+    {
+      "repo": "mvanhorn/last30days-skill",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 73210,
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Research skill synthesizing Reddit/X/YouTube/HN/web into a grounded summary",
+      "tags": [
+        "skills",
+        "research"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 4731,
+        "stars": 73210
+      },
+      "maturity": "trending",
+      "note": "research/mvanhorn__last30days-skill.md"
     },
     {
       "repo": "rtk-ai/rtk",
@@ -1897,6 +2090,30 @@
       "note": "research/volcengine__OpenViking.md"
     },
     {
+      "repo": "meta/astryx",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 32445,
+      "url": "https://github.com/meta/astryx",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "React design system, agent-ready",
+      "tags": [
+        "design-system",
+        "react"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3626,
+        "stars": 32445
+      },
+      "maturity": "emerging",
+      "note": "research/meta__astryx.md"
+    },
+    {
       "repo": "heygen-com/hyperframes",
       "verdict": "skip",
       "stars": 32343,
@@ -1943,6 +2160,30 @@
       },
       "maturity": "stable",
       "note": "research/davila7__claude-code-templates.md"
+    },
+    {
+      "repo": "dream-num/univer",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 31400,
+      "url": "https://github.com/dream-num/univer",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Office (Sheets/Docs) SDK",
+      "tags": [
+        "office",
+        "sdk"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 6436,
+        "stars": 31400
+      },
+      "maturity": "stable",
+      "note": "research/dream-num__univer.md"
     },
     {
       "repo": "lyogavin/airllm",
@@ -2407,6 +2648,30 @@
       "note": "research/DeusData__codebase-memory-mcp.md"
     },
     {
+      "repo": "ag-ui-protocol/ag-ui",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 21326,
+      "url": "https://github.com/ag-ui-protocol/ag-ui",
+      "pushed": "2026-11-22",
+      "triaged": "2026-11-23",
+      "intent": "Agent-to-frontend event protocol",
+      "tags": [
+        "protocol",
+        "frontend"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3620,
+        "stars": 21326
+      },
+      "maturity": "stable",
+      "note": "research/ag-ui-protocol__ag-ui.md"
+    },
+    {
       "repo": "jundot/omlx",
       "verdict": "skip",
       "status": "recommended",
@@ -2610,6 +2875,31 @@
       "note": "research/earthtojake__text-to-cad.md"
     },
     {
+      "repo": "backnotprop/plannotator",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 14609,
+      "url": "https://github.com/backnotprop/plannotator",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Annotate plans/diffs/PRs and send structured feedback to the agent",
+      "tags": [
+        "review",
+        "plan",
+        "hitl"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2815,
+        "stars": 14609
+      },
+      "maturity": "trending",
+      "note": "research/backnotprop__plannotator.md"
+    },
+    {
       "repo": "yusufkaraaslan/Skill_Seekers",
       "verdict": "adopt",
       "status": "recommended",
@@ -2655,6 +2945,32 @@
       "status": "recommended",
       "maturity": "stable",
       "note": "research/millionco__react-doctor.md"
+    },
+    {
+      "repo": "google-labs-code/stitch-skills",
+      "verdict": "adopt",
+      "status": "recommended",
+      "stars": 12146,
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "pushed": "2026-11-20",
+      "triaged": "2026-11-23",
+      "intent": "Official agent skills for the Stitch MCP (design→code), Agent Skills standard",
+      "tags": [
+        "skills",
+        "stitch",
+        "ui",
+        "mcp"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2683,
+        "stars": 12146
+      },
+      "maturity": "trending",
+      "note": "research/google-labs-code__stitch-skills.md"
     },
     {
       "repo": "ConardLi/garden-skills",
@@ -2733,6 +3049,31 @@
       },
       "maturity": "emerging",
       "note": "research/cloudflare__cloudflare-os.md"
+    },
+    {
+      "repo": "GoogleChrome/modern-web-guidance-src",
+      "verdict": "watch",
+      "status": "recommended",
+      "stars": 10433,
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Skills steering coding agents to modern web-platform patterns",
+      "tags": [
+        "skills",
+        "frontend",
+        "web"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 3575,
+        "stars": 10433
+      },
+      "maturity": "emerging",
+      "note": "research/GoogleChrome__modern-web-guidance-src.md"
     },
     {
       "repo": "zubair-trabzada/geo-seo-claude",
@@ -2986,6 +3327,30 @@
       },
       "maturity": "stable",
       "note": "research/wonderwhy-er__DesktopCommanderMCP.md"
+    },
+    {
+      "repo": "tradermonty/claude-trading-skills",
+      "verdict": "skip",
+      "status": "recommended",
+      "stars": 7911,
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "pushed": "2026-11-23",
+      "triaged": "2026-11-23",
+      "intent": "Trading-workflow Claude skills",
+      "tags": [
+        "skills",
+        "finance"
+      ],
+      "source": "github-trending",
+      "sources": [
+        "github-trending"
+      ],
+      "signals": {
+        "stars_period": 2616,
+        "stars": 7911
+      },
+      "maturity": "emerging",
+      "note": "research/tradermonty__claude-trading-skills.md"
     },
     {
       "repo": "max-sixty/worktrunk",

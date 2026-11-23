@@ -69,6 +69,7 @@ _✅ = field-tested (trialed/in-use) · 🔬 = readme-verified only — trial be
 - 🔬 **Distills a book/doc into a structured Agent Skill loaded lazily by chapter, claims 24x-51x fewer tokens than dumping full doc into context** → `research/virgiliojr94__book-to-skill.md` (`virgiliojr94/book-to-skill` ⭐19833)
 - 🔬 **Coding-agent skill for multi-phase security audits: coverage ledger + isolated hunters + adversarial verifiers + schema-validated findings — a reusable pattern for our own security-review skill** → `research/cloudflare__security-audit-skill.md` (`cloudflare/security-audit-skill` ⭐18707)
 - 🔬 **Converts documentation sites, GitHub repos, and PDFs into Claude AI skills automatically, with conflict detection and an MCP integration** → `research/yusufkaraaslan__Skill_Seekers.md` (`yusufkaraaslan/Skill_Seekers` ⭐14506)
+- 🔬 **Official agent skills for the Stitch MCP (design→code), Agent Skills standard** → `research/google-labs-code__stitch-skills.md` (`google-labs-code/stitch-skills` ⭐12146)
 - 🔬 **AI red-team platform with standalone MCP/skill/agent security scanner CLIs** → `research/Tencent__AI-Infra-Guard.md` (`Tencent/AI-Infra-Guard` ⭐5726)
 - 🔬 **Fast/accurate code search library for agents — ~98% fewer tokens than grep+read, CPU-only, MCP server/CLI/subagent, 200x faster indexing than a code-specialized transformer** → `research/MinishLab__semble.md` (`MinishLab/semble` ⭐5658)
 - 🔬 **Curated MCP server catalog + security/sandboxing checklist** → `research/appcypher__awesome-mcp-servers.md` (`appcypher/awesome-mcp-servers` ⭐5655)
